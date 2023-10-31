@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pessoa fisica</title>
+    <link rel="stylesheet" href="../CSS/pessoafisica.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header><img src="../IMAGENS/migrafacil.png" class="icon"></header>
+    <main>
+        <p>Crie a sua conta!</p>
+
+        <div class="tipodelogin">
+            <button class="face" >
+                <img src="../IMAGENS/face.svg" class="faceb">
+                Entrar com o facebook
+            </button>
+            <button class="google" >
+                <img src="../IMAGENS/google.svg" class="goog">
+                Entrar com o google
+            </button>
+        </div>
+
+        <div class="ou">
+            <div class="linha1"><p class="pou">ou</p><div class="linha1"></div></div>
+        </div>
+
+        <form action="/HTML/pessoafisica.html">
+            <label for="nome">Nome:</label>
+            <input type="nome" nome="nome" id="nome">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email">
+            <label for="cpf/cnpj">CPF / CNPJ:</label>
+            <input type="text" name="cpf_cnpj" \
+                pattern="(\d{3}\.?\d{3}\.?\d{3}-?\d{2})|(\d{2}\.?\d{3}\.?\d{3}/?\d{4}-?\d{2})" \
+			    title="Digite um CPF / CNPJ no formato: xxx.xxx.xxx-xx ou xx.xxx.xxx/yyyy-zz">
+            <label for="senha">Senha:</label>
+            <input type="password" name="senha" id="senha">
+            <label for="csenha">Confirmar Senha:</label>
+            <input type="password" name="csenha" id="csenha">
+
+            <input type="submit" value="Cadastre-se">
+
+            <hr>
+
+        </form>
+
+        <span>Já possui uma conta?</span>
+            <a href="/"><span>Entrar</span></a>
+    </main>
+</body>
+</html>
