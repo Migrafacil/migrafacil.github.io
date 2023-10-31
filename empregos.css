@@ -1,0 +1,191 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins Bold", "Poppins", sans-serif;
+}
+
+@media screen and (max-width: 506px) {
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 8vh;
+
+        padding: 0 5px;
+    }
+
+    header>div {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    section {
+        padding-top: 30px;
+        height: 34vh;
+        background-color: rgba(1, 111, 160, 0.64);
+    }
+
+    .icon {
+        width: 22%;
+    }
+
+    section>div {
+        width: 80%;
+        margin: auto;
+        height: 198px;
+        padding: 2px 2px 2px 2px;
+        border-radius: 6px;
+        background-color: #ffffff;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+
+    section>div>input {
+        width: 95%;
+        height: 25px;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        padding: 2px 2px 2px 2px;
+        border-radius: 5px;
+        border: 1px solid rgba(0, 0, 0, 0.35);
+        box-sizing: border-box;
+        font-family: "Montserrat", sans-serif;
+        color: #000000;
+        text-align: left;
+    }
+
+    label {
+        font-size: 13px;
+        background-color: rgba(255, 255, 255, 0);
+        box-sizing: border-box;
+        font-family: "Montserrat Bold", "Montserrat", sans-serif;
+        font-weight: 700;
+        color: #333333;
+        text-align: left;
+        line-height: normal;
+    }
+
+    section>div>button {
+        display: block;
+        width: 175px;
+        height: 33px;
+        padding: 2px 2px 2px 2px;
+        border-radius: 9px;
+        background-color: #63a103;
+        box-sizing: border-box;
+        font-family: "Montserrat Bold", "Montserrat", sans-serif;
+        font-weight: 700;
+        color: #ffffff;
+        text-align: center;
+        line-height: normal;
+        border: none;
+        margin: auto;
+        font-size: 10px;
+    }
+
+
+    h4 {
+        margin: 23px 10px;
+        font-size: 14px;
+    }
+
+    .vagas {
+        margin: auto;
+        width: 310px;
+        height: 340px;
+        border: 1px solid #33333348;
+        background-color: #ffffff;
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .vagas h3 {
+        font-size: 16px;
+        color: #63a103;
+        margin-bottom: 10px;
+
+    }
+
+    .colorir {
+        color: rgb(44, 78, 172);
+        font-weight: 600;
+    }
+
+    .descricao {
+        margin: 20px 0;
+        font-size: 14px;
+    }
+
+    .vagas button {
+        width: 216px;
+        height: 40px;
+        margin: auto;
+        display: block;
+        padding: 2px 2px 2px 2px;
+        border-radius: 9px;
+        background-color: #63a103;
+        box-sizing: border-box;
+        font-family: "Montserrat Bold", "Montserrat", sans-serif;
+        font-weight: 700;
+        color: #ffffff;
+        text-align: center;
+        line-height: normal;
+        border: none;
+    }
+
+    #vermais {
+        display: block;
+        margin: 30px auto;
+        width: 314px;
+        height: 37px;
+        padding: 2px 2px 2px 2px;
+        border: 1px solid rgba(3, 136, 16, 0.99);
+        background-color: rgba(3, 136, 16, 0);
+        box-sizing: border-box;
+        font-family: "Montserrat Medium", "Montserrat", sans-serif;
+        font-weight: 500;
+        color: rgba(99, 161, 3, 0.99);
+        text-align: center;
+        line-height: normal;
+    }
+
+    .footer1 {
+        background-color: rgba(99, 161, 3, 0.11);
+        padding: 5px 10px;
+    }
+
+    .footer ul {
+        margin-bottom: 20px;
+    }
+
+    .negrito {
+        font-weight: 700;
+    }
+
+   .footer1 li {
+        margin: 10px 0;
+        list-style-type: none;
+    }
+
+
+    .footer1 h4 {
+        color: rgb(44, 78, 172);
+    }
+
+    .facil {
+        font-weight: bolder;
+    }
+
+    .footer {
+        margin: 10px;
+        font-size: 15px;
+        columns: 2;
+        list-style-type: none;
+    }
+
+    .footer li {
+        margin-bottom: 20px;
+    }
+}
