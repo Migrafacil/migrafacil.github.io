@@ -49,6 +49,7 @@ div{
     width: 414px;
     height: 667px;
     background-image: url("../imagens/mulher\ segurando\ caixa.jpg");
+    image-rendering: auto;
     background-repeat: no-repeat;
     margin: 5px;
     padding: 0px;
