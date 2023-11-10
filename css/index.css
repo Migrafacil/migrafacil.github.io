@@ -12,14 +12,14 @@
     }
     
 header {
-    padding-top: 400px;
+    padding-top: 50px;
     text-align: center;
     display: flex;
 } 
 
 
 #burgue{
-    width: 31px;
+    width: 40px;
     height: 27px;
     padding: 2px 2px 2px 2px;
     margin-top: -20px;
