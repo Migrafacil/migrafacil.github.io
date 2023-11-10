@@ -12,15 +12,15 @@
     }
     
 header {
-    padding-top: 50px;
+    padding-top: 40px;
     text-align: center;
     display: flex;
 } 
 
 
 #burgue{
-    width: 40px;
-    height: 27px;
+    width: 20px;
+    height: 20px;
     padding: 2px 2px 2px 2px;
     margin-top: -20px;
     margin-left: 20px;
@@ -48,7 +48,7 @@ div{
 .mc {
     width: 414px;
     height: 664px;
-    background-image: url("../IMAGENS/CAIXA-MULHER.svg");
+    background-image: url("..");
     background-repeat: no-repeat;
     margin: auto;
     padding: 0px;
