@@ -50,7 +50,7 @@ div{
     height: 664px;
     background-image: url("../imagens/mulher\ segurando\ caixa.png");
     background-repeat: no-repeat;
-    margin: auto;
+    margin: none;
     padding: 0px;
     border: #000 solid 2px;
 }
