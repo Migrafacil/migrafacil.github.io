@@ -17,6 +17,13 @@ header {
     display: flex;
 } 
 
+#menuToggle{
+    margin: 0;
+    padding: 0;
+    background: #232323;
+    color: #cdcdcd;
+    font-family: "avenir Next", "Avenir",
+
 
 #burgue{
     width: 50px;
