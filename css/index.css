@@ -61,8 +61,8 @@ header {
         backgroud: #FFFFFF;
         border-radius: 3px;
         z-index: 1;
-        trasform-origin: 4px 0px;
-        trasition: trasform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+        transform-origin: 4px 0px;
+        transition: trasform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
             background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
             opacity 0.55s ease;
     }
@@ -113,7 +113,7 @@ header {
     }
 
     img {
-    background-image: url('https://github.com/Migrafacil/migrafacil.github.io/blob/main/imagens/mulher%20segurando%20caixa.jpg');
+    background-img: url('https://github.com/Migrafacil/migrafacil.github.io/blob/main/imagens/mulher%20segurando%20caixa.jpg');
     background-size: 300px auto;
     background-position: center 10px; /* Mover a imagem 10 pixels para baixo */
     background-repeat: no-repeat;
@@ -166,7 +166,7 @@ div{
 .mc {
     width: 414px;
     height: 647px;
-    background-image: url("../imagens/mulher\ segurando\ caixa.jpg");
+    background-img: url("../imagens/mulher\ segurando\ caixa.jpg");
     background-size: auto;
     background-repeat: no-repeat;
     margin: 5px;
