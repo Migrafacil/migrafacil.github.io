@@ -498,7 +498,6 @@ div{
             height: 279px;
             border-radius: none;
             background-image: url(../imagens/mulher\ no\ telefone.jpg);
-            margin: auto;
             background-size: 100% 100%;
           }
 
@@ -523,7 +522,8 @@ div{
                 color: #000000;
                 text-align: center;
                 line-height: normal;
-                margin: auto;
+            margin-left: 40px;
+             
         }
 
         .anun{
