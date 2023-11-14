@@ -215,12 +215,13 @@ div{
 
 .retangulo1{
     width: 368px;
-    height: 82px;
+    height: 77px;
     padding: 2px 2px 2px 2px;
     border: none;
     background-color: #ffffff;
-    margin-left: 20px;
-    margin-top: -2.5px;
+    position: absolute;
+    left: 21px;
+    top: 475px;
     display: flex;
     align-items: center;
 }
