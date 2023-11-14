@@ -208,7 +208,7 @@ div{
     width: 85px;
     border-color: #ffffff;
     margin: 0 auto;
-    border-width: 2px;
+    border-width: none;
     margin-left: 12px;
     margin-top: 5px;
 }
@@ -293,7 +293,7 @@ div{
     width: 368px;
     height: 82px;
     padding: 2px 2px 2px 2px;
-    border: 1px solid #d7d7d7;
+    border: none;
     background-color: #ffffff;
     margin-left: 20px;
     display: flex;
@@ -409,7 +409,7 @@ div{
         width: 134px;
         border-color: #63a103;
         margin: 0 auto;
-        border-width: 2px;
+        border-width: none;
       }
       
       .casal {
@@ -503,7 +503,7 @@ div{
         .mulher-celu {
             width: 379px;
             height: 279px;
-            border-radius: 6px;
+            border-radius: none;
             background-image: url(../imagens/mulher\ no\ telefone.jpg);
             margin: auto;
           }
@@ -576,7 +576,7 @@ div{
             width: 316px;
             height: 325px;
             padding: 2px 2px 2px 2px;
-            border: 2px solid #aaaaaa;
+            border:  1px solid #aaaaaa;
             background-color: rgba(99, 161, 3, 0);
             box-sizing: border-box;
             margin: auto;
@@ -585,7 +585,7 @@ div{
             width: 316px;
             height: 335px;
             padding: 2px 2px 2px 2px;
-            border: 2px solid #aaaaaa;
+            border: 1px solid #aaaaaa;
             background-color: rgba(215, 215, 215, 0);
             box-sizing: border-box;
             margin: auto;
