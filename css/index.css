@@ -22,8 +22,52 @@ header {
     padding: 0;
     background: #232323;
     color: #cdcdcd;
-    font-family: "avenir Next", "Avenir",
+    font-family: "avenir Next", "Avenir", sans-serif;
+}
+    a {
+    text-decoration: none;
+    colo: #232323;
+    transition: color 0.3s ease;
+}
+    a:hover {
+        color: green;
+    }
+    #mneuToggle {
+        display: block;
+        position: relative;
+        top: 50px;
+        left: 50px;
+        z-index: 1;
+        user-select: none;
+    }
 
+    #menuToggle input {
+        display: block;
+        width: 40px;
+        height: 32px;
+        position: absolute;
+        top: -7px;
+        left: -5px;
+        cursor: pointer;
+        opacity: 0;
+        z-index: 2;
+    }
+    #menuToggle span {
+        display: block;
+        width: 33px;
+        height: 4px;
+        margin-bottom: 5px;
+        position: relative;
+        backgroud: #cdcdcd;
+        border-radius: 3px;
+        z-index: 1;
+        trasform-origin: 4px 0px;
+        trasition: trasform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+            backgroundm 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+            opacity 0.55s ease;
+    }
+        
+        
 
 #burgue{
     width: 50px;
