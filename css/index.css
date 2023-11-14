@@ -3,6 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "Poppins Bold", "Poppins", sans-serif;
+    width: 360px;
 }
 
 @media  screen and (min-width: 506px) {
