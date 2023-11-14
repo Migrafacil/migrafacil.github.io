@@ -114,10 +114,6 @@ header {
     border-radius: 0px; 
     cursor: pointer; 
     position: absolute;
-    top: 23px;
-    left: 335px;
-    width: 55px;
-    height: 20px;
 }
 
 .entrar:hover {
