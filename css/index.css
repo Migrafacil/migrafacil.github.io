@@ -104,12 +104,13 @@ header {
         transform: none;
     }
 
-    body {
+    img {
     background-image: url('https://github.com/Migrafacil/migrafacil.github.io/blob/main/imagens/mulher%20segurando%20caixa.jpg');
-    background-size: cover;
+    background-size: 300px auto;
     background-position: center 10px; /* Mover a imagem 10 pixels para baixo */
     background-repeat: no-repeat;
 }
+
 
 .entrar {
     background-color: #FFFFFF 
