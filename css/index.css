@@ -225,8 +225,8 @@ div{
     align-items: center;
 }
 .img1 {
-        width: 18px;
-        height: 24px;
+        width: 19px;
+        height: 26px;
         padding: 2px 2px 2px 2px;
     }
 
@@ -250,6 +250,7 @@ div{
         transform: translate(-30px, 20px);
     }
 
+
 .retangulo2{
     width: 368px;
     height: 82px;
@@ -260,7 +261,6 @@ div{
     display: flex;
     align-items: center;
 }
-
  .img2{
         width: 27px;
         height: 24px;
