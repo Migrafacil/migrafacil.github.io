@@ -106,7 +106,18 @@ header {
         
     
         
+.entrar {
+    background-color: #FFFFFF /* Cor de fundo */
+    color: #000; /* Cor do texto */
+    padding: 10px 20px; /* Espaçamento interno */
+    border: 1px solid #000; /* Sem borda */
+    border-radius: 0px; /* Bordas arredondadas */
+    cursor: pointer; /* Ícone de cursor ao passar o mouse */
+}
 
+.entrar:hover {
+    background-color: green; /* Mudança de cor ao passar o mouse */
+}
 #burgue{
     width: 50px;
     height: 30px;
