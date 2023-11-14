@@ -5,45 +5,131 @@
     font-family: "Poppins Bold", "Poppins", sans-serif;
 }
 
-@media  screen and (min-width: 506px) {
+@media  screen and (min-width: 406px) {
 
     main {
         width: 100%;
     }
     
 header {
-    padding-top: 36px;
+    padding-top: 30px;
     text-align: center;
     display: flex;
 } 
+#menuToggle {
+    margin: 0;
+    padding: 0;
+    background: #FFFFFF;
+    color: #cdcdcd;
+    font-family: "avenir Next", "Avenir", sans-serif;
+}
+    a {
+    text-decoration: none;
+    color: #232323;
+    transition: color 0.3s ease;
+}
+    a:hover {
+        color: green;
+    }
+    #menuToggle {
+        display: block;
+        position: relative;
+        top: 50px;
+        left: 50px;
+        z-index: 1;
+        user-select: none;
+    }
 
+    #menuToggle input {
+        display: block;
+        width: 40px;
+        height: 32px;
+        position: absolute;
+        top: -7px;
+        left: -5px;
+        cursor: pointer;
+        opacity: 0;
+        z-index: 2;
+    }
+    #menuToggle span {
+        display: block;
+        width: 33px;
+        height: 4px;
+        margin-bottom: 5px;
+        position: relative;
+        backgroud: #cdcdcd;
+        border-radius: 3px;
+        z-index: 1;
+        trasform-origin: 4px 0px;
+        trasition: trasform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+            background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+            opacity 0.55s ease;
+    }
+    #menuToggle span:first-child {
+        transform-origin: 0% 0%;
+    }
+    #menuToggle span:nth-last-child(2) {
+        transform-origin: 0% 100%;
+    }
+    #menuToggle input:checked ~ span {
+        opacity: 1;
+        transform: rotate(45deg) translate( -2px, -1px);
+        background: #232323;
+    }
+#menuToggle input:checked ~span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2,0.2);
+}
+    #menuToggle input:checked ~span:nth-last-child(2){
+        transform: rotate(-45deg) translate(0, -1px);
+    }
+    #menu {
+        position: absolute;
+        width: 300px;
+        margin: -100px 0 0 -50px;
+        padding: 50px;
+        padding-top: 125px;
+        background: #ededed;
+        list-style-type: none;
+        transform-origin: 0% 0%;
+        transform: translate(-100%, 0);
+        transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+    }
+    #menu li
+    {
+        padding: 10px 0;
+        font-size: 22px;
+    }
+    #menuToggle input:checked ~ul{
+        transform: none;
+    }
+        
+    
+        
 
 #burgue{
-    width: 31px;
-    height: 27px;
+    width: 50px;
+    height: 30px;
     padding: 2px 2px 2px 2px;
     margin-top: -20px;
     margin-left: 20px;
 }
 
 .MF{
-    width: 101px;
-    height: 47px;
-    margin-left: 10px;
+    width: 60px;
+    height: 50px;
+    margin-left: 5px;
     margin-top: -20px;
     margin-bottom: 20px;
 }
 
-.PERFIL {
-    padding: 2px;
-    float: right;
-    margin: 0 auto;
-    width: 30px;
-    height: 30px;
-    margin-left: 200px;
-    margin-top: -23px;
-}
-
+.PERFIL{
+    width: 5px;
+    height: 5px;
+    padding: 2px 2px 2px 2px;
+    box-sizing: border-box;
+    
+  }
 
 div{
     border: #000 solid 2px;
@@ -51,10 +137,11 @@ div{
 
 .mc {
     width: 414px;
-    height: 664px;
-    background-image: url("../IMAGENS/CAIXA-MULHER.svg");
+    height: 647px;
+    background-image: url("../imagens/mulher\ segurando\ caixa.jpg");
+    background-size: auto;
     background-repeat: no-repeat;
-    margin: auto;
+    margin: 5px;
     padding: 0px;
     border: #000 solid 2px;
 }
@@ -350,7 +437,7 @@ div{
         margin: 0 auto;
     }
 
-      .grafic1 {
+    .grafic1 {
         height: 30px;
         margin: 0 auto;
         margin-left: 4px;
@@ -383,11 +470,12 @@ div{
     display: block;
     justify-items: left;
 }
+
         .mulher-celu {
             width: 379px;
             height: 279px;
             border-radius: 6px;
-            background-image: url(../IMAGENS/MULHER-CELU.svg);
+            background-image: url(../imagens/mulher\ no\ telefone.jpg);
             margin: auto;
           }
 
@@ -416,6 +504,7 @@ div{
         }
 
         .anun{
+                text-align: center;
                 width: 240px;
                 height: 20px;
                 padding: 10px 20px 30px 40px;
@@ -428,6 +517,228 @@ div{
                 background-color: rgba(3, 136, 16, 0.8);
                 margin-right: center;
         }
+
+        .desbloquei{
+            height: 43px;
+            background-color: rgba(255, 255, 255, 0);
+            box-sizing: border-box;
+            font-family: "Poppins Medium", "Poppins", sans-serif;
+            font-weight: 500;
+            color: #000000;
+            text-align: center;
+            line-height: normal;
+            margin: auto;
+          }
+          
+          .premium{
+            width: 199px;
+            height: 24px;
+            background-color: rgba(255, 255, 255, 0);
+            box-sizing: border-box;
+            font-family: "Poppins Medium", "Poppins", sans-serif;
+            font-weight: 500;
+            color: #63a103;
+            text-align: left;
+            line-height: normal;
+            margin: auto;
+          }
+          
+          .quadrado1 {
+            width: 316px;
+            height: 325px;
+            padding: 2px 2px 2px 2px;
+            border: 2px solid #aaaaaa;
+            background-color: rgba(99, 161, 3, 0);
+            box-sizing: border-box;
+            margin: auto;
+          }
+          .quadrado2{
+            width: 316px;
+            height: 335px;
+            padding: 2px 2px 2px 2px;
+            border: 2px solid #aaaaaa;
+            background-color: rgba(215, 215, 215, 0);
+            box-sizing: border-box;
+            margin: auto;
+          }
+          
+          .planos1{
+          height: 18px;
+          background-color: rgba(255, 255, 255, 0);
+          box-sizing: border-box;
+          font-family: "Poppins Medium", "Poppins", sans-serif;
+          font-weight: 500;
+          color: #7f7f7f;
+          text-align: center;
+          line-height: 18px;
+          }
+          
+          .t90{
+          height: 30px;
+          background-color: rgba(255, 255, 255, 0);
+          box-sizing: border-box;
+          font-family: "Poppins", sans-serif;
+          font-weight: bold;
+          color: #333333;
+          text-align: center; 
+          display: flex; 
+          align-items: center; 
+          line-height: normal; 
+          }
+          
+          .premium1{
+          width: 142px;
+          height: 18px;
+          background-color: rgba(255, 255, 255, 0);
+          box-sizing: border-box;
+          font-family: "Poppins Medium", "Poppins", sans-serif;
+          font-weight: 500;
+          color: #63a103;
+          text-align: center;
+          line-height: 18px;
+          }
+          
+          .promoção{
+          width: 275px;
+          height: 35px;
+          background-color: rgba(255, 255, 255, 0);
+          box-sizing: border-box;
+          font-family: "Poppins SemiBold", "Poppins", sans-serif;
+          font-weight: 600;
+          color: #333333;
+          text-align: center;
+          line-height: 18px;
+          }
+          
+          .desconto{
+          width: 280px;
+          height: 35px;
+          background-color: rgba(255, 255, 255, 0);
+          box-sizing: border-box;
+          font-family: "Poppins", sans-serif;
+          font-weight: bold;
+          color: #333333;
+          text-align: center;
+          line-height: 18px;
+          }
+          
+          .moradia-l{
+          width: 256px;
+          height: 35px;
+          background-color: rgba(255, 255, 255, 0);
+          box-sizing: border-box;
+          font-family: "Poppins SemiBold", "Poppins", sans-serif;
+          font-weight: 600;
+          color: #333333;
+          text-align: center;
+          line-height: 18px;
+          }
+          
+          .planos2{
+          height: 18px;
+          background-color: rgba(255, 255, 255, 0);
+          box-sizing: border-box;
+          font-family: "Poppins Medium", "Poppins", sans-serif;
+          font-weight: 500;
+          color: #7f7f7f;
+          text-align: center;
+          line-height: 18px;
+          }
+          
+          .premium2{
+          width: 161px;
+          height: 18px;
+          background-color: rgba(255, 255, 255, 0);
+          box-sizing: border-box;
+          font-family: "Poppins Medium", "Poppins", sans-serif;
+          font-weight: 500;
+          color: #63a103;
+          text-align: center;
+          line-height: 18px;
+          }
+          
+          .configura {
+          width: 278px;
+          height: 35px;
+          background-color: rgba(255, 255, 255, 0);
+          box-sizing: border-box;
+          font-family: "Poppins SemiBold", "Poppins", sans-serif;
+          font-weight: 600;
+          color: #333333;
+          text-align: center;
+          line-height: 18px;
+          }
+          
+          .possibilidades {
+          width: 280px;
+          height: 48px;
+          background-color: rgba(255, 255, 255, 0);
+          box-sizing: border-box;
+          font-family: "Poppins SemiBold", "Poppins", sans-serif;
+          font-weight: 600;
+          color: #333333;
+          text-align: center;
+          line-height: 18px;
+          }
+          
+          .emprego-premium {
+          width: 256px;
+          height: 32px;
+          background-color: rgba(255, 255, 255, 0);
+          box-sizing: border-box;
+          font-family: "Poppins SemiBold", "Poppins", sans-serif;
+          font-weight: 600;
+          color: #333333;
+          text-align: center;
+          line-height: 18px; 
+          }
+          
+          .cinza{
+          width: 316px;
+          height: 47px;
+          padding: 2px 2px 2px 2px;
+          background-color: #d7d7d7;
+          box-sizing: border-box;
+          display: flex;
+          align-items: center;
+          margin: 0 auto;
+          }
+          
+          .detalhes {
+          box-sizing: border-box;
+          font-family: "Poppins Medium", "Poppins", sans-serif;
+          font-weight: 500;
+          color: #7f7f7f;
+          text-align: left;
+          line-height: normal;
+          margin: 0 auto;
+          align-items: center;
+          font-size: 16px;
+          }
+          
+          .ceta {
+          padding: 2px 2px 2px 2px;
+          box-sizing: border-box;
+          margin: 0 auto;
+          }
+          
+          .detalhe {
+          box-sizing: border-box;
+          font-family: "Poppins Medium", "Poppins", sans-serif;
+          font-weight: 500;
+          color: #7f7f7f;
+          text-align: left;
+          line-height: normal;
+          margin: auto;
+          font-size: 16px;
+          }
+          
+          .ceta2 {
+          padding: 2px 2px 2px 2px;
+          box-sizing: border-box;
+          margin: auto;
+          }
+            
 
         .futuro{
                 width: 397px;
