@@ -16,7 +16,7 @@ header {
     text-align: center;
     display: flex;
 } 
-    #entrar {
+  header #entrar {
   width: 55px;
   height: 20px;
   background-color: rgba(3, 149, 17, 0);
@@ -27,7 +27,7 @@ header {
   text-align: left;
   line-height: normal;
 }
-#shape {
+header #shape {
   width: 17px;
   height: 17px;
   padding: 2px 2px 2px 2px;
