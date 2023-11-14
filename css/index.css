@@ -16,11 +16,7 @@ header {
     text-align: center;
     display: flex;
 } 
-    .logo{
-    width: 101px;
-    height: 47px;
-    box-sizing: border-box;
-}
+    
 #menuToggle {
     margin: 0;
     padding: 0;
@@ -107,6 +103,13 @@ header {
     }
     #menuToggle input:checked ~ ul{
         transform: none;
+    }
+    .logo{
+        position: abosolute;
+        top: 12px;
+        left: 50px;
+        width: 101px;
+        height: 47px;
     }
 
     img {
