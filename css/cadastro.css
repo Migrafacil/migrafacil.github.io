@@ -104,7 +104,7 @@
         width: 100%;
     }
 
-    span {
+    p {
         background-color: rgba(255, 255, 255, 0);
         font-family: "Montserrat", sans-serif;
         line-height: normal;
@@ -201,7 +201,7 @@
         width: 206px;
         height: 38px;
         padding: 2px;
-        margin: auto;
+        margin: 3px;
         border-radius: 5px;
         border: 2px solid rgba(1, 111, 160, 0);
         background-color: #63a103;
