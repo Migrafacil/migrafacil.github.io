@@ -145,7 +145,7 @@ div{
     background-repeat: no-repeat;
     margin: 5px;
     padding: 0px;
-    border: #000 solid 2px;
+    border: none;
 }
 
 .futury{
@@ -191,7 +191,7 @@ div{
     width: 368px;
     height: 82px;
     padding: 2px 2px 2px 2px;
-    border: 1px solid #d7d7d7;
+    border: none;
     background-color: #ffffff;
     margin-left: 20px;
     margin-top: -2.5px;
