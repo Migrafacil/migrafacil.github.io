@@ -16,25 +16,7 @@ header {
     text-align: center;
     display: flex;
 } 
-  header #entrar {
-  width: 55px;
-  height: 20px;
-  background-color: rgba(3, 149, 17, 0);
-  box-sizing: border-box;
-  font-family: "Montserrat SemiBold", "Montserrat", "Montserrat", sans-serif;
-  font-weight: 600;
-  color: #333333;
-  text-align: left;
-  line-height: normal;
-}
-header #shape {
-  width: 17px;
-  height: 17px;
-  padding: 2px 2px 2px 2px;
-  background-color: #333333;
-  box-sizing: border-box;
-}
-body {
+#menuToggle {
     margin: 0;
     padding: 0;
     background: #232323;
