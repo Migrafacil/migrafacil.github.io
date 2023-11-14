@@ -117,8 +117,9 @@ header {
 .MF{ 
     width: 17px;
     height: 17px;
-    margin-left: 5px;
-    margin-top: -20px;
+    position: absolute;
+    left: 297px;
+    top: 20px;
     margin-bottom: 20px;
 }
 
