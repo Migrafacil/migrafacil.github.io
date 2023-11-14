@@ -84,8 +84,8 @@ header {
         transform: rotate(-45deg) translate(0, -1px);
     }
     #menu {
-        position: relative;
-        width: 200px;
+        position: absolute;
+        width: 300px;
         margin: -100px 0 0 -50px;
         padding: 50px;
         padding-top: 125px;
