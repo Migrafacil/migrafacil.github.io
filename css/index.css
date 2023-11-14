@@ -3,7 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "Poppins Bold", "Poppins", sans-serif;
-    width: 360px;
+   
 }
 
 @media  screen and (min-width: 506px) {
@@ -380,6 +380,7 @@ div{
             color: #000000;
             text-align: center;
             line-height: normal;
+          margin-left: 40px;
       }
 
       .linha-verde {
@@ -387,6 +388,8 @@ div{
         border-color: #63a103;
         margin: 0 auto;
         border-width: none;
+          margin-left: 143px;
+}
       }
       
       .casal {
@@ -397,6 +400,7 @@ div{
             margin: auto;
             align-items: center;
             justify-content: center;
+          margin-left: 40px;
       }
 
       .localiza {
@@ -406,6 +410,7 @@ div{
             text-align: left;
             line-height: normal;
             align-items: center;
+          
       }
 
       .investe{
@@ -420,6 +425,8 @@ div{
         display: flex;
         align-items: center;
         justify-content: space-between;
+          width: 360px;
+    margin-left: 40px;
       }
       
       .caixa1 {
