@@ -105,6 +105,15 @@ header {
         transform: none;
     }
     .container {
+    position: absolute;
+    top: 12px;
+    left: 50px;
+    width: 101px;
+    height: 47px;
+    margin-left: 20px;
+    margin-top: -2.5px;
+    display: flex;
+    align-items: center;
   display: flex; /* or inline-flex */
   flex-direction: row | row-reverse | column | column-reverse;
   justify-content: spca-between + safe | unsafe;
