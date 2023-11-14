@@ -84,7 +84,11 @@
         margin: 5px;
         font-size: 10px;
     }
-
+.filtro {
+        margin-left: 5px;
+        weight: 10px;
+        height: 10px;
+    }
 
     h4 {
         margin: 23px 13px;
