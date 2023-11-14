@@ -25,7 +25,7 @@ header {
 }
     a {
     text-decoration: none;
-    colo: #232323;
+    color: #232323;
     transition: color 0.3s ease;
 }
     a:hover {
@@ -84,8 +84,8 @@ header {
         transform: rotate(-45deg) translate(0, -1px);
     }
     #menu {
-        position: absolute;
-        width: 300px;
+        position: relative;
+        width: 200px;
         margin: -100px 0 0 -50px;
         padding: 50px;
         padding-top: 125px;
