@@ -47,6 +47,8 @@
 
     .filtro {
         margin-left: 5px;
+        weight: 10px;
+        height: 10px;
     }
 
     main>p {
