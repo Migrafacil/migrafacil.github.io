@@ -479,6 +479,7 @@ div{
             border-radius: none;
             background-image: url(../imagens/mulher\ no\ telefone.jpg);
             margin: auto;
+            background-size: 100% 100%;
           }
 
         .anuncia{
