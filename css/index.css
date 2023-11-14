@@ -116,12 +116,12 @@ header {
 }
 
 .MF{
-    width: -8px;
-    height: -5px;
-    margin-left: 5px;
-    margin-top: -20px;
-    margin-bottom: 10px;
-    position: static;
+  width: 17px;
+  height: 17px;
+  padding: 2px 2px 2px 2px;
+  background-color: #333333;
+  box-sizing: border-box;
+
 }
 
 .PERFIL{
