@@ -25,7 +25,7 @@
         background-size: 60% 60%;
         position: absolute;
         left: 50px;
-        top: 12px;
+        top: 20px;
     }
 
     #menuToggle {
@@ -73,13 +73,13 @@
         height: 4px;
         margin-bottom: 5px;
         position: relative;
-        backgroud: #000;
+        background: #000;
         border-radius: 3px;
         z-index: 1;
-        trasform-origin: 4px 0px;
-        trasition: trasform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+        transform-origin: 4px 0px;
+        transition: trasform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
         background: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
-            opacity 0.55s ease;
+        opacity: 0.55s ease;
     }
 
     #menuToggle span:first-child {
