@@ -44,3 +44,29 @@ const pginicialController = {
     }
   }
 };
+finalizarTarefa: async (req, res) => {
+  let { id } = req.query;
+  try {
+    results = await tarefasModel.sistuacaoTarefa(2, id);
+    res.redirect("/");
+  } catch (e) {
+    console.log(e);
+    res.json({ erro: "Falha ao acessar dados" });
+  }
+},
+
+exibirTarefaId: async (req, res) => {
+  res.locals.moment = moment;
+  let { id } = req.query;
+  console.log(id);
+  try {
+    let tarefa = await tarefasModel.findId(id);
+    res.render("pages/adicionar", {
+      dados: {
+        id_tarefa: id,
+        tarefa: tarefa[0].nome_tarefa,
+        prazo: tarefa[0].prazo_tarefa,
+        situacao: tarefa[0].situacao_tarefa,
+      },
+      listaErros: null,
+    });
