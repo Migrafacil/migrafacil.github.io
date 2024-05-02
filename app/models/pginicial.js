@@ -1,29 +1,38 @@
-const tarefasModel = require('./tarefasModel');
+const searchInput = document.querySelector('.busque-city');
+const searchButton = document.querySelector('.buscar');
+const cityResults = document.querySelector('.city-results');
 
-const express = require('express');
-const app = express();
+searchButton.addEventListener('click', async () => {
+  const query = searchInput.value.trim();
+  if (!query) return;
 
-app.use(express.json());
-
-app.post('/tarefas', async (req, res) => {
   try {
-    const newTask = req.body;
-    const result = await tarefasModel.create(newTask);
-    res.status(201).json(result);
+    const apiKey = 'YOUR_OPEN_CAGE_API_KEY';
+    const url = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(query)}&key=${apiKey}`;
+
+    const response = await fetch(url);
+    const data = await response.json();
+    const results = data.results;
+
+    cityResults.innerHTML = '';
+
+    results.forEach((result) => {
+      const city = result.components.city;
+      const region = result.components.region;
+      const country = result.components.country;
+      const latitude = result.geometry.lat;
+      const longitude = result.geometry.lng;
+
+      const cityResultHTML = `
+        <div class="city-result">
+          <h4>${city}, ${region}, ${country}</h4>
+          <p>Latitude: ${latitude}, Longitude: ${longitude}</p>
+        </div>
+      `;
+
+      cityResults.innerHTML += cityResultHTML;
+    });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
-});
-app.get('/tarefas', async (req, res) => {
-  try {
-    const tasks = await tarefasModel.findAll();
-    res.status(200).json(tasks);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Internal server error' });
   }
 });

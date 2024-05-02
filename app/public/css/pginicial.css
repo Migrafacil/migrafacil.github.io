@@ -241,6 +241,21 @@
         line-height: normal;
         transform: translate(-30px, 20px);
     }
+    
+    .city-results {
+        margin-top: 20px;
+      }
+      
+      .city-result {
+        margin-bottom: 10px;
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+      }
+      
+      .city-result h4 {
+        font-weight: bold;
+        margin-top: 0;
+      }
 
     .retangulo2 {
         width: 368px;
