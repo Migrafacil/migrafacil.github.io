@@ -7,7 +7,7 @@ searchButton.addEventListener('click', async () => {
   if (!query) return;
 
   try {
-    const apiKey = 'YOUR_OPEN_CAGE_API_KEY';
+    const apiKey = '';
     const url = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(query)}&key=${apiKey}`;
 
     const response = await fetch(url);
