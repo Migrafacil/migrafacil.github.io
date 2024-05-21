@@ -1,34 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const moment = require("moment");
 const pginicialController = require("../controllers/pginicialController");
 
-router.get("/",  function (req, res) {
-   pginicialController.listarTarefasPaginadas(req, res);
+router.get("/login", function (req, res) {
+  res.render("pages/template-home", {pagina:"login", logado:null});
 });
-
-router.get("/editar", function (req, res) {
-  tarefasController.exibirTarefaId(req, res);
+router.get("/cadastro", function (req, res) {
+  res.render("pages/template-home", {pagina:"cadastro", logado:null});
 });
-
-router.get("/excluir", function (req, res) {
-  tarefasController.excluirTarefa(req, res);
+router.get("/perfil", function (req, res) {
+  res.render("pages/template-home", {pagina:"perfil", logado:"logado"});
 });
-
-router.get("/finalizar", function (req, res) {
-  tarefasController.finalizarTarefa(req, res);
-});
-
-router.get("/iniciar", function (req, res) {
-  tarefasController.iniciarTarefa(req, res);
-});
-
-router.get("/adicionar", function (req, res) {
-  res.locals.moment = moment;
-  res.render("pages/adicionar", { dados: null, listaErros: null });
-});
-
-router.post("/adicionar", tarefasController.regrasValidacao, function (req, res) {
-    tarefasController.adicionarTarefa(req, res);
-  }
-);
