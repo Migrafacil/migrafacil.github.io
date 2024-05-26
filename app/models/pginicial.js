@@ -36,3 +36,50 @@ searchButton.addEventListener('click', async () => {
     console.error(error);
   }
 });
+// Seleciona o elemento de menu toggle
+const menuToggle = document.getElementById('menuToggle');
+
+// Adiciona um evento de click ao menu toggle
+menuToggle.addEventListener('click', () => {
+  // Alterna a visibilidade do menu
+  document.getElementById('menu').classList.toggle('show');
+});
+
+// Seleciona os elementos de busca
+const buscaMoradia = document.querySelector('.retangulo1');
+const buscaBairro = document.querySelector('.retangulo2');
+const buscaAluguel = document.querySelector('.retangulo3');
+
+// Adiciona um evento de click aos elementos de busca
+buscaMoradia.addEventListener('click', () => {
+  // Redireciona para a página de busca de moradias
+  window.location.href = 'anunciante.html';
+});
+
+buscaBairro.addEventListener('click', () => {
+  // Redireciona para a página de busca de bairros
+  window.location.href = 'anunciante.html';
+});
+
+buscaAluguel.addEventListener('click', () => {
+  // Redireciona para a página de busca de aluguel
+  window.location.href = 'anunciante.html';
+});
+
+// Seleciona o botão de entrar
+const entrarButton = document.querySelector('.entrar');
+
+// Adiciona um evento de click ao botão de entrar
+entrarButton.addEventListener('click', () => {
+  // Redireciona para a página de login
+  window.location.href = 'login.html';
+});
+
+// Seleciona o botão de anunciar
+const anunciarButton = document.querySelector('.anun');
+
+// Adiciona um evento de click ao botão de anunciar
+anunciarButton.addEventListener('click', () => {
+  // Redireciona para a página de anunciar
+  window.location.href = 'anunciar.html';
+});
