@@ -11,3 +11,10 @@ router.get("/cadastro", function (req, res) {
 router.get("/perfil", function (req, res) {
   res.render("pages/template-home", {pagina:"perfil", logado:"logado"});
 });
+
+
+
+
+
+
+module.exports = router
