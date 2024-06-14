@@ -69,4 +69,5 @@ exibirTarefaId: async (req, res) => {
         situacao: tarefa[0].situacao_tarefa,
       },
       listaErros: null,
+      
     });
