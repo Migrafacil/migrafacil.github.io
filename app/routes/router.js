@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
-const pginicialController = require("../controllers/pginicialController");
+var {validarCPF} = require("../helpers/validação");
+const usuarioController = require("../controllers/loginController");
 
 router.get("/", function (req, res) {
   res.render("pages/pginicial", {pagina:"home", logado:null});
@@ -9,6 +10,14 @@ router.get("/", function (req, res) {
 router.get("/login", function (req, res) {
   res.render("pages/login", {pagina:"login", logado:null});
 });
+router.post(
+  "/login",
+  usuarioController.regrasValidacaoFormLogin,
+  gravarUsuAutenticado,
+  function (req, res) {limparSessao,
+    usuarioController.logar(req,res);
+  }
+)
 
 router.get("/logado", function (req, res) {
   res.render("pages/logado", {pagina:"logado", logado:"logado"});
