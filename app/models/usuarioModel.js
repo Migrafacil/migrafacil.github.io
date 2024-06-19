@@ -12,7 +12,7 @@ var pool = require("../../config/pginicial");
                 )
                 return resultados;
             } catch (error) {
-                console.log(error);
+                console.log("Error ao encontrar os usuários!!" error);
                 return error;  
             }
         },
@@ -21,7 +21,7 @@ var pool = require("../../config/pginicial");
             try {
                 const [resultados] = await pool.query(
                     "SELECT * FROM usuario WHERE user_usuario = ? or email_usuario = ?",
-                    [camposForm.user_usuario, camposForm.user_usuario]
+                    [camposForm.email_usuario ]
                 )
                 return resultados;
             } catch (error) {
@@ -29,23 +29,6 @@ var pool = require("../../config/pginicial");
                 return error;
             }
         },
-
-        findId: async (id) => {
-            try {
-                const [resultados] = await pool.query(
-                    "SELECT u.id_usuario, u.nome_usuario, u.user_usuario, " +
-                    "u.senha_usuario, u.email_usuario, u.fone_usuario, u.tipo_usuario, " +
-                    "u.status_usuario, t.tipo_usuario, t.descricao_usuario " +
-                    "FROM usuario u, tipo_usuario t where u.status_usuario = 1 and " +
-                    "u.tipo_usuario = t.id_tipo_usuario and u.id_usuario = ? ", [id]
-                )
-                return resultados;
-            } catch (error) {
-                console.log(error);
-                return error;
-            }
-        },
-
 
         create: async (camposForm) => {
             try {
