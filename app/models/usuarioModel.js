@@ -1,4 +1,4 @@
-var pool = require("../../config/pginicial");
+var pool = require("../../config/pool_conexoes");
 
     const usuarioModel = {
         findAll: async () => {
