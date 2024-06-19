@@ -3,6 +3,13 @@ var router = express.Router();
 var {validarCPF} = require("../helpers/validação");
 const usuarioController = require("../controllers/loginController");
 
+const {
+  verificarUsuAutenticado,
+  limparSessao,
+  gravarUsuAutenticado,
+  verificarUsuAutorizado
+} = require("../models/autenticador_middleware");
+
 router.get("/", function (req, res) {
   res.render("pages/pginicial", {pagina:"home", logado:null});
 });

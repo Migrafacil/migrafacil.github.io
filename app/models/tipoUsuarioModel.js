@@ -1,4 +1,4 @@
-var pool = require("../../config/banco_migrafacil");
+var pool = require("../../config/pginicial");
 
     const tipoUsuarioModel = {
         findAll: async () => {

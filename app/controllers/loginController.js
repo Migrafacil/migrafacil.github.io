@@ -50,7 +50,7 @@ const usuarioController = {
             .isEmail().withMessage("Digite um e-mail válido!"),
         body("fone_usu")
             .isLength({ min: 12, max: 13 }).withMessage("Digite um telefone válido!"),
-        verificarUsuAutorizado([1, 2, 3], "pages/restrito"),
+      
     ],
 
     logar: (req, res) => {
