@@ -97,7 +97,7 @@ function validateCPF(cpf) {
   //   console.log("CPF inválido!");
   // }
 
-  module.exports = {validarCPf}
+  module.exports = {validarCPF}
 
    function validateEmail(email) {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
