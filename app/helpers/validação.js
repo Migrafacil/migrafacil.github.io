@@ -54,7 +54,7 @@ function validarCNPJ(cnpj) {
 
 module.exports = {validarCNPJ}
 
-function validateCPF(cpf) {
+function validarCPF(cpf) {
     cpf = cpf.replace(/\D+/g, ''); // remove caracteres não numéricos
     if (cpf.length!== 11) return false; // CPF deve ter 11 dígitos
   
