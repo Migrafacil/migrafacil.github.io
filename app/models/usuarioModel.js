@@ -12,7 +12,7 @@ var pool = require("../../config/pool_conexoes");
                 )
                 return resultados;
             } catch (error) {
-                console.log("Error ao encontrar os usuários!!" error);
+                console.log("Error ao encontrar os usuários!! " + error);
                 return error;  
             }
         },
