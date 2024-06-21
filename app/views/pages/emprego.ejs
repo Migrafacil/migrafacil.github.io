@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Migra Fácil - Vagas de Emprego</title>
+    <link rel="stylesheet" href="/app/public/css/emprego.css">
+</head>
+<body>
+    <header>
+        <img src="../img/image2.png" alt="Migra Fácil" class="logo">
+        <button class="menu-button">&#9776;</button>
+    </header>
+    <main>
+        <section class="search-section">
+            <h2>Que vaga você deseja?</h2>
+            <form id="search-form">
+                <input type="text" id="job-title" placeholder="Exemplo: auxiliar administrativo">
+                <input type="text" id="location" placeholder="Estado/Cidade">
+                <button type="button" onclick="searchJobs()">Procurar vagas</button>
+            </form>
+        </section>
+        <section class="job-listings" id="job-listings">
+    
+        </section>
+        <div id="loading-spinner" class="loading-spinner"></div>
+    </main>
+    <script src="/app/public/js/emprego.js"></script>
+</body>
+</html>

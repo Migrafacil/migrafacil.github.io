@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imóveis para Alugar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #ffffff;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        header img {
+            height: 50px;
+        }
+        header input {
+            padding: 10px;
+            width: 100%;
+            max-width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .container {
+            padding: 20px;
+        }
+        .titulo {
+            margin-bottom: 20px;
+        }
+        .propriedades {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .cartao-propriedade {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            width: calc(33.333% - 20px);
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+        }
+        .cartao-propriedade img {
+            width: 100%;
+            height: 70%;
+        }
+        .detalhes {
+            padding: 15px;
+        }
+        .localizacao {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .preco {
+            font-size: 20px;
+            color: #28a745;
+            font-weight: bold;
+        }
+        .info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+        .badge {
+            position: absolute;
+            background-color: #28a745;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 12px;
+            top: 10px;
+            left: 10px;
+        }
+        .badge-novo {
+            background-color: #007bff;
+        }
+        .badge-preco {
+            top: 35px;
+        }
+        .favorite-icon {
+            font-size: 24px;
+            color: #ccc;
+            cursor: pointer;
+        }
+        .favorite-icon.active {
+            color: red;
+        }
+        @media (max-width: 1200px) {
+            .cartao-propriedade {
+                width: calc(50% - 20px);
+            }
+        }
+        @media (max-width: 768px) {
+            .cartao-propriedade {
+                width: 100%;
+            }
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            header input {
+                width: 100%;
+                max-width: none;
+                margin-top: 10px;
+            }
+        }
+        @media (max-width: 576px) {
+            .cartao-propriedade {
+                width: 100%;
+            }
+            .badge {
+                top: 140px;
+                left: 10px;
+            }
+            .badge-preco {
+                top: 170px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="/app/public/imagens/image2.png" alt="Logo Migra Fácil"> 
+        <input type="text" placeholder="Busque no Migra Fácil">
+    </header>
+    <section class="container">
+        <section class="titulo">
+            <h2>110.050 casas e apartamentos para alugar em São Paulo, SP</h2>
+        </section>
+        <section class="propriedades">
+            <a href="#" class="cartao-propriedade">
+                <section class="badge badge-novo">Anúncio novo</section>
+                <section class="badge badge-preco">Ótimo preço</section>
+                <img src="/app/public/imagens/Image.jpg" alt="Casa Jaguaré">
+                <section class="detalhes">
+                    <section class="localizacao">
+                        <span>Avenida Presidente Altino<br>Jaguaré, São Paulo</span>
+                        <span class="favorite-icon" onclick="toggleFavorite(this)">&#x2661;</span>
+                    </section>
+                    <section class="preco">Aluguel R$ 2.600</section>
+                    <section class="info">
+                        <span>120m²</span>
+                        <span>4 quartos</span>
+                    </section>
+                </section>
+            </a>
+            <a href="#" class="cartao-propriedade">
+                <section class="badge badge-novo">Anúncio novo</section>
+                <section class="badge badge-preco">Ótimo preço</section>
+                <img src="/app/public/imagens/Image (1).jpg" alt="Casa Jardim das Vertentes">
+                <section class="detalhes">
+                    <section class="localizacao">
+                        <span>Rua Manoel de Afonseca<br>Jardim das Vertentes, São Paulo</span>
+                        <span class="favorite-icon" onclick="toggleFavorite(this)">&#x2661;</span>
+                    </section>
+                    <section class="preco">Aluguel R$ 2.500</section>
+                    <section class="info">
+                        <span>110m²</span>
+                        <span>3 quartos</span>
+                    </section>
+                </section>
+            </a>
+            <a href="#" class="cartao-propriedade">
+                <section class="badge badge-novo">Anúncio novo</section>
+                <section class="badge badge-preco">Ótimo preço</section>
+                <img src="/app/public/imagens/Image3.jpg" alt="Apartamento República">
+                <section class="detalhes">
+                    <section class="localizacao">
+                        <span>Rua Flores Freitas, Brasil<br>República, São Paulo</span>
+                        <span class="favorite-icon" onclick="toggleFavorite(this)">&#x2661;</span>
+                    </section>
+                    <section class="preco">Aluguel R$ 1.800</section>
+                    <section class="info">
+                        <span>65m²</span>
+                        <span>1 quarto</span>
+                    </section>
+                </section>
+            </a>
+            <a href="#" class="cartao-propriedade">
+                <section class="badge badge-novo">Anúncio novo</section>
+                <img src="/app/public/imagens/Image5.jpg" alt="Apartamento Barra Funda">
+                <section class="detalhes">
+                    <section class="localizacao">
+                        <span>Rua Barra Bela<br>Barra Funda, São Paulo</span>
+                        <span class="favorite-icon" onclick="toggleFavorite(this)">&#x2661;</span>
+                    </section>
+                    <section class="preco">Aluguel R$ 2.000</section>
+                    <section class="info">
+                        <span>75m²</span>
+                        <span>3 quartos</span>
+                    </section>
+                </section>
+            </a>
+            <a href="#" class="cartao-propriedade">
+                <section class="badge badge-novo">Anúncio novo</section>
+                <img src="/app/public/imagens/Image6.jpg" alt="Apartamento Cidade Monções">
+                <section class="detalhes">
+                    <section class="localizacao">
+                        <span>Rua Francisco Branco<br>Cidade Monções, São Paulo</span>
+                        <span class="favorite-icon" onclick="toggleFavorite(this)">&#x2661;</span>
+                    </section>
+                    <section class="preco">Aluguel R$ 1.500</section>
+                    <section class="info">
+                        <span>58m²</span>
+                        <span>2 quartos</span>
+                    </section>
+                </section>
+            </a>
+            <a href="#" class="cartao-propriedade">
+                <section class="badge badge-novo">Anúncio novo</section>
+                <img src="/app/public/imagens/Image7.jpeg" alt="Quarto Ipiranga">
+                <section class="detalhes">
+                    <section class="localizacao">
+                        <span>Rua Agostinho Gomes<br>Ipiranga, São Paulo</span>
+                        <span class="favorite-icon" onclick="toggleFavorite(this)">&#x2661;</span>
+                    </section>
+                    <section class="preco">Aluguel R$ 565</section>
+                    <section class="info">
+                        <span>15m²</span>
+                        <span>1 quarto</span>
+                    </section>
+                </section>
+            </a>
+            <a href="#" class="cartao-propriedade">
+                <section class="badge badge-novo">Anúncio novo</section>
+                <img src="/app/public/imagens/Image8.png" alt="Kitnet Brás">
+                <section class="detalhes">
+                    <section class="localizacao">
+                        <span>Rua Brigadeiro Machado<br>Brás, São Paulo</span>
+                        <span class="favorite-icon" onclick="toggleFavorite(this)">&#x2661;</span>
+                    </section>
+                    <section class="preco">Aluguel R$ 900</section>
+                    <section class="info">
+                        <span>40m²</span>
+                        <span>1 quarto</span>
+                    </section>
+                </section>
+            </a>
+            <a href="#" class="cartao-propriedade">
+                <section class="badge badge-novo">Anúncio novo</section>
+                <img src="/app/public/imagens/Image9.jpg" alt="Casa Jardim das Vertentes">
+                <section class="detalhes">
+                    <section class="localizacao">
+                        <span>Rua Manoel de Afonseca<br>Jardim das Vertentes, São Paulo</span>
+                        <span class="favorite-icon" onclick="toggleFavorite(this)">&#x2661;</span>
+                    </section>
+                    <section class="preco">Aluguel R$ 2.000</section>
+                    <section class="info">
+                        <span>110m²</span>
+                        <span>3 quartos</span>
+                    </section>
+                </section>
+            </a>
+            <a href="#" class="cartao-propriedade">
+                <section class="badge badge-novo">Anúncio novo</section>
+                <img src="/app/public/imagens/Image10.jpg" alt="Casa Moema">
+                <section class="detalhes">
+                    <section class="localizacao">
+                        <span>Rua Fernando de Albuquerque<br>Consolação, São Paulo</span>
+                        <span class="favorite-icon" onclick="toggleFavorite(this)">&#x2661;</span>
+                    </section>
+                    <section class="preco">Aluguel R$ 1.100</section>
+                    <section class="info">
+                        <span>65m²</span>
+                        <span>2 quartos</span>
+                    </section>
+                </section>
+            </a>
+        </section>
+    </section>
+
+    <script src="/app/public/js/casascript.js"></script>
+</body>
+</html>

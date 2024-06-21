@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtro de Vagas de Emprego</title>
+    <link rel="stylesheet" href="/app/public/css/filtrovagas.css">
+</head>
+<body>
+    <section class="filter-container">
+        <h2>Filtros de Vagas</h2>
+        <form id="filter-form">
+            <section class="filter-section">
+                <label for="min-salary">Salário</label>
+                <input type="number" id="min-salary" placeholder="Mínimo R$ 1.000" min="1000">
+                <input type="number" id="max-salary" placeholder="Máximo R$ 20.000" max="20000">
+            </section>
+            <section class="filter-section">
+                <h1>Tipo de Contrato</h1>
+            
+                <label for="full-time">Tempo Integral</label>
+                <input type="checkbox" id="part-time">
+                <label for="part-time">Meio Período</label>
+                <input type="checkbox" id="internship">
+                <label for="internship">Estágio</label>
+                <input type="checkbox" id="temporary">
+                <label for="temporary">Temporário</label>
+            </section>
+            <section class="filter-section">
+                <label for="experience">Experiência</label>
+                <section class="radio-group">
+                    <input type="radio" name="experience" id="experience-1" value="entry">
+                    <label for="experience-1">Iniciante</label>
+                    <input type="radio" name="experience" id="experience-2" value="mid">
+                    <label for="experience-2">Intermediário</label>
+                    <input type="radio" name="experience" id="experience-3" value="senior">
+                    <label for="experience-3">Sênior</label>
+                </section>
+            </section>
+            <section class="filter-section">
+                <label for="education">Escolaridade</label>
+                <section class="radio-group">
+                    <input type="radio" name="education" id="education-any" value="tanto-faz" checked>
+                    <label for="education-any">Tanto faz</label>
+                    <input type="radio" name="education" id="education-yes" value="sim">
+                    <label for="education-yes">Sim</label>
+                    <input type="radio" name="education" id="education-no" value="nao">
+                    <label for="education-no">Não</label>
+                </section>
+            </section>
+            <section class="filter-section">
+                <label for="remote">Trabalho Remoto</label>
+                <section class="radio-group">
+                    <input type="radio" name="remote" id="remote-any" value="tanto-faz" checked>
+                    <label for="remote-any">Tanto faz</label>
+                    <input type="radio" name="remote" id="remote-yes" value="sim">
+                    <label for="remote-yes">Sim</label>
+                    <input type="radio" name="remote" id="remote-no" value="nao">
+                    <label for="remote-no">Não</label>
+                </section>
+            </section>
+            <button type="button" onclick="applyFilters()">Buscar</button>
+            <button type="reset">Limpar filtros</button>
+        </form>
+    </section>
+    <script src="/app/public/js/filtrovagas.js"></script>
+</body>
+</html>

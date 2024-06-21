@@ -1,0 +1,127 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+}
+
+header {
+    background-color: #004080;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 60px;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.search-section {
+    background-color: #004080;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.search-section h2 {
+    margin: 0 0 20px;
+}
+
+#search-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#search-form input {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 80%;
+    max-width: 400px;
+    border: 2px solid #007BFF;
+    border-radius: 4px;
+}
+
+#search-form button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white; 
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#search-form button:hover {
+    background-color: #28a745;
+}
+
+.job-listings {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.job-card {
+    background-color: white;
+    padding: 15px;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.job-card h3 {
+    margin: 0;
+    color: #004080;
+}
+
+.job-card .salary, .job-card .location {
+    color: #555;
+}
+
+.job-card .description {
+    margin-top: 10px;
+    flex-grow: 1;
+}
+
+.job-card button {
+    display: block;
+    margin: 10px auto 0;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.job-card button:hover {
+    background-color: #28a745;
+}
+
+#no-jobs-message {
+    font-size: 20px; 
+    color: #28a745; 
+    text-align: center;
+    margin-top: 20px;
+}
