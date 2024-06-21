@@ -98,4 +98,4 @@ console.log(validarEmail(email1)); // true
 console.log(validarEmail(email2)); // false
  
  
-module.exports = { validarCNPJ, validateCPF, validateEmail };
+module.exports = { validarCNPJ, validarCPF, validarEmail };
