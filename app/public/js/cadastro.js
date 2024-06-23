@@ -6,10 +6,6 @@ document.getElementById('registration-form').addEventListener('submit', function
   var senha = document.getElementById('senha').value;
   var confirmarSenha = document.getElementById('confirmar-senha').value;
   
-  const inputCnpj = document.getElementById('cnpj');
-  const inputEmail = document.getElementById('email');
-  const resultadoDiv = document.getElementById('resultado');
-  
   if (senha !== confirmarSenha) {
     alert('As senhas não coincidem.');
     return;
@@ -20,15 +16,20 @@ document.getElementById('registration-form').addEventListener('submit', function
     return;
   }
   
-  const cnpj = inputCnpj.value.trim();
   const cpfValue = cpf.trim();
   const emailValue = email.trim();
   
-  if (validarCNPJ(cnpj) && validarCPF(cpfValue) && validarEmail(emailValue)) {
-    resultadoDiv.innerHTML = `<p>Todos os campos são válidos!</p>`;
-    alert('Formulário enviado com sucesso!');
+  if (!senha.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/)) {
+    alert('A senha deve ter no mínimo 6 caracteres, 1 símbolo, 1 número e 1 letra maiúscula.');
+    return;
+  }
+
+  if (validarCNPJ(cpfValue) && validarCPF(cpfValue) && validarEmail(emailValue)) {
+    // Redirecionar para outra página após cadastro realizado com sucesso
+    window.location.href = '/app/views/pages/pginicial.html';
+    alert('Cadastro enviado com sucesso!');
   } else {
-    resultadoDiv.innerHTML = `<p>Erro: um ou mais campos são inválidos.</p>`;
+    alert('Erro: um ou mais campos são inválidos.');
   }
 });
 
@@ -46,4 +47,16 @@ function validarCPF(cpf) {
 function validarEmail(email) {
   // implemente a lógica de validação de email aqui
   return true; // ou false se o email for inválido
+}
+function formatCPF_CNPJ(input) {
+  var value = input.value.replace(/\D+/g, ''); // remove todos os caracteres que não são dígitos
+  var cpf_cnpj = value;
+
+  if (cpf_cnpj.length <= 11) { // CPF
+    cpf_cnpj = cpf_cnpj.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, '$1.$2.$3-$4');
+  } else { // CNPJ
+    cpf_cnpj = cpf_cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, '$1.$2.$3/$4-$5');
+  }
+
+  input.value = cpf_cnpj;
 }
