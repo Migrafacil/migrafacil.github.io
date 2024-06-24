@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Migra Fácil</title>
+    <link rel="stylesheet" href="/app/public/css/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <img src="/app/public/imagens/logo.png" alt="Migra Fácil" class="logo">
+        <h2>Entrar com :</h2>
+        <form class="login-form" onsubmit="handleLogin(event)">
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Senha :</label>
+            <input type="password" id="password" name="password" required>
+            <a href="#" class="forgot-password">Esqueceu a senha?</a>
+            <button type="submit" class="login-button">Entrar</button>
+        </form>
+        <p class="signup-prompt">Ainda não possui uma conta? <a href="#">Crie uma conta</a></p>
+    </div>
+    <script src="/app/public/js/login.js"></script>
+</body>
+</html>

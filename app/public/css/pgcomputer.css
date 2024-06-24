@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    height: 40px;
+}
+
+.login button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.hero {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.hero picture img {
+    width: 100%;
+    height: auto;
+}
+
+.search-options {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.search-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.search-fields .field {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-fields input {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+}
+
+.search-fields button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.opportunities {
+    background-color: #28a745;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.opportunities button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .hero {
+        text-align: center;
+    }
+
+    .search-options {
+        position: static;
+        transform: none;
+        background-color: transparent;
+        padding: 10px;
+    }
+
+    .search-fields {
+        flex-direction: column;
+    }
+}
