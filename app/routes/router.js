@@ -43,8 +43,8 @@ router.get("/empregos", function (req, res) {
   res.render("pages/empregos", {pagina:"empregos", logado: null });
 });
 
-router.get("/criar", function (req, res) {
-  res.render("pages/criar", {pagina:"cadastro", logado:"null"});
+router.get("/cadastro", function (req, res) {
+  res.render("pages/cadastro", {pagina:"cadastro", logado:"null"});
 });
 
 router.get("/anuncio", function (req, res) {
