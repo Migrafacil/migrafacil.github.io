@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-var {validarCPF} = require("../helpers/validação");
+var {validarCPF, validarCNPJ, validarEmail} = require("../helpers/validação");
 const usuarioController = require("../controllers/userController");
 
 const {

@@ -1,4 +1,4 @@
-const usuario = require("../models/usuarioModel");
+const usuario = require("/models/usuarioModel");
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 var salt = bcrypt.genSaltSync(12);

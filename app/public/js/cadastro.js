@@ -60,3 +60,8 @@ function formatCPF_CNPJ(input) {
 
   input.value = cpf_cnpj;
 }
+function notify( texto, tipo, posicao, duração=3000) {
+  new Notify ({
+    
+  })
+}
