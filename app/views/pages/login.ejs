@@ -10,7 +10,7 @@
     <div class="login-container">
         <img src="/app/public/imagens/logo.png" alt="Migra Fácil" class="logo">
         <h2>Entrar com :</h2>
-        <form class="login-form" onsubmit="handleLogin(event)">
+        <form class="login-form"  method= "post" action="/login"  onsubmit="handleLogin(event)">
             <label for="email">Email :</label>
             <input type="email" id="email" name="email" required>
             <label for="password">Senha :</label>

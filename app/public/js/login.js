@@ -5,4 +5,5 @@ function handleLogin(event) {
 
     // Aqui você pode adicionar a lógica de autenticação, como chamadas de API
     alert(`Email: ${email}\nSenha: ${password}`);
+    return true;
 }
