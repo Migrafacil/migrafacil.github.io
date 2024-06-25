@@ -47,8 +47,8 @@ router.get("/cadastro", function (req, res) {
   res.render("pages/cadastro", {pagina:"cadastro", logado:"null"});
 });
 
-router.get("/anuncio", function (req, res) {
-  res.render("pages/anuncio",{pagina:"anuncio casas", logado: "null"});
+router.get("/casas", function (req, res) {
+  res.render("pages/casas",{pagina:"anuncios casas", logado: "null"});
 });
 
 
