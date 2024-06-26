@@ -88,7 +88,8 @@ router.get("/cadastro", function (req, res) {
 router.post(
   "/cadastro",
   usuarioController.regrasValidacaoFormCad,
-  function (req, res) {limparSessao,
+  function (req, res) {
+    console.log(req.body);
     usuarioController.cadastrar(req,res);
   }
 )
@@ -96,17 +97,6 @@ router.post(
 router.get("/casas", function (req, res) {
   res.render("pages/casas",{pagina:"anuncios casas", logado: "null"});
 });
-
-
-
-
-
-
-
-
-
-
-
 
 
 module.exports = router

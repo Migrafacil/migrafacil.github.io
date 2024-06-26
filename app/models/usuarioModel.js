@@ -30,6 +30,19 @@ var pool = require("../../config/pool_conexoes");
             }
         },
 
+        findCampoCustom: async (criterioWhere) => {
+            try {
+                const [resultados] = await pool.query(
+                    "SELECT count(*) totalReg FROM usuario WHERE ?",
+                    [criterioWhere]
+                )
+                return resultados[0].totalReg;
+            } catch (error) {
+                console.log(error);
+                return error;
+            }
+        },
+
         create: async (camposForm) => {
             try {
                 const [resultados] = await pool.query(
