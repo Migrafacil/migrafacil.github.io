@@ -5,10 +5,11 @@ document.getElementById('registration-form').addEventListener('submit', function
   var senha = document.getElementById('senha').value;
   var confirmarSenha = document.getElementById('confirmar-senha').value;
   
-  if (senha !== confirmarSenha) {
+  var isValid = true;
+  
+  if (senha!== confirmarSenha) {
     alert('As senhas não coincidem.');
-    event.preventDefault(); // impede que o formulário seja enviado
-    return;
+    isValid = false;
   }
   
   const cpfValue = cpf.trim();
@@ -16,16 +17,15 @@ document.getElementById('registration-form').addEventListener('submit', function
   
   if (!senha.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/)) {
     alert('A senha deve ter no mínimo 6 caracteres, 1 símbolo, 1 número e 1 letra maiúscula.');
-    event.preventDefault(); // impede que o formulário seja enviado
-    return;
+    isValid = false;
   }
 
-  if (validarCNPJ(cpfValue) && validarCPF(cpfValue) && validarEmail(emailValue)) {
-    // formulário válido, permitir que seja enviado para o servidor
-    // não é necessário chamar event.preventDefault() aqui
-    alert('Cadastro enviado com sucesso!');
-  } else {
+  if (!(validarCNPJ(cpfValue) && validarCPF(cpfValue) && validarEmail(emailValue))) {
     alert('Erro: um ou mais campos são inválidos.');
+    isValid = false;
+  }
+
+  if (!isValid) {
     event.preventDefault(); // impede que o formulário seja enviado
   }
 });
