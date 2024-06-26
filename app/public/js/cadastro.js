@@ -11,11 +11,6 @@ document.getElementById('registration-form').addEventListener('submit', function
     return;
   }
   
-  if (!/^\d{11}|\d{14}$/.test(cpf)) {
-    alert('CPF/CNPJ inválido.');
-    return;
-  }
-  
   const cpfValue = cpf.trim();
   const emailValue = email.trim();
   
@@ -26,8 +21,10 @@ document.getElementById('registration-form').addEventListener('submit', function
 
   if (validarCNPJ(cpfValue) && validarCPF(cpfValue) && validarEmail(emailValue)) {
     // Redirecionar para outra página após cadastro realizado com sucesso
-    window.location.href = '/app/views/pages/pginicial.html';
+    // window.location.href = '/logado';
     alert('Cadastro enviado com sucesso!');
+    document.getElementById('registration-form').submit();
+
   } else {
     alert('Erro: um ou mais campos são inválidos.');
   }
@@ -59,9 +56,4 @@ function formatCPF_CNPJ(input) {
   }
 
   input.value = cpf_cnpj;
-}
-function notify( texto, tipo, posicao, duração=3000) {
-  new Notify ({
-    
-  })
 }

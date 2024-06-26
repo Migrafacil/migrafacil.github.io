@@ -2,7 +2,13 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 4000;
 
-
+var session = require("express-session");
+app.use(
+  session({
+    secret: "HELLo nODE",
+    resave: false,
+    saveUninitialized: false,
+}));
 
 const env = require("dotenv").config();
 

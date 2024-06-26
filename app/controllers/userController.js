@@ -1,9 +1,10 @@
-const usuario = require("/models/usuarioModel");
+const usuario = require("../models/usuarioModel");
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 var salt = bcrypt.genSaltSync(12);
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 const https = require('https');
+const { log } = require("console");
 
 const usuarioController = {
 
@@ -70,16 +71,18 @@ const usuarioController = {
     cadastrar: (req, res) => {
         const erros = validationResult(req);
         var dadosForm = {
-            user_usuario: req.body.nomeusu_usu, 
-            senha_usuario: bcrypt.hashSync(req.body.senha_usu, salt),
-            nome_usuario: req.body.nome_usu,
-            email_usuario: req.body.email_usu,
+            CPF_CNPJ_USUARIO: req.body.cpf, 
+            SENHA_USUARIO: bcrypt.hashSync(req.body.senha, salt),
+            NOME_USUARIO: req.body.nome,
+            EMAIL_USUARIO: req.body.email,
         };
         if (!erros.isEmpty()) {
             return res.render("pages/cadastro", { listaErros: erros, dadosNotificacao: null, valores: req.body })
         }
         try {
             let create = usuario.create(dadosForm);
+
+            console.log(create)
             res.render("pages/cadastro", {
                 listaErros: null, dadosNotificacao: {
                   titulo: "Cadastro realizado!", mensagem: "Novo usuário criado com sucesso!", tipo: "success"

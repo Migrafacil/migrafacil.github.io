@@ -202,7 +202,7 @@
     .mc {
         width: 414px;
         height: 650px;
-        background-image: url("../imagens/mulher\ segurando\ caixa.jpg");
+        background-image: url("../imagens/mulher.jpg");
         background-size: 110% 110%;
         background-repeat: no-repeat;
         margin: 5px;
@@ -503,7 +503,7 @@
     width: 379px;
     height: 279px;
     border-radius: 10px;
-    background-image: url(../imagens/mulher\ no\ telefone.jpg);
+    background-image: url(../imagens/mulhertelefone.jpg);
     background-size: 100% 100%;
     margin-left: 40px
 }
