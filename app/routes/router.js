@@ -10,6 +10,21 @@ const {
   verificarUsuAutorizado
 } = require("../models/autenticador_middleware");
 
+router.get("/cadastrar", function (req, res){
+  res.render("pages/cadastro", {
+    pagina: "cadastro",
+    logado:null,
+    errorList: null,
+    valores: {
+      nome_usu: "",
+      email_usu: "",
+      cpf_cnpj_usu: "",
+      senha_usu: "",
+    }
+  })
+}
+)
+
 router.get("/", function (req, res) {
   res.render("pages/pginicial", {pagina:"home", logado:null});
 });
