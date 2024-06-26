@@ -58,6 +58,10 @@ const usuarioController = {
         if (!erros.isEmpty()) {
             return res.render("pages/login", { listaErros: erros, dadosNotificacao: null  })
         }
+        const dataForm = {
+            email_usuario: req.body.email_usu,
+            senha_usuario: req.body.senha_usu
+        }
         if (req.session.autenticado.autenticado != null) {
             res.redirect("/");
         } else {
