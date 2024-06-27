@@ -14,7 +14,7 @@
     }
  
     header {
-        padding-top: 30px;
+        padding-top: 50px;
         text-align: center;
         display: flex;
     }
@@ -184,7 +184,7 @@
         width: 17px;
         height: 17px;
         position: absolute;
-        left: 318px;
+        left: 384px;
         top: 20px;
         margin-bottom: 20px;
     }
