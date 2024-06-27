@@ -164,9 +164,11 @@
         color: black;
         background-color: white;
         transition: color 0.3s ease;
+        position: relative;
         margin-left: 350px;
         border: none;
         font-family: "Poppins", sans-serif;
+        top: -12px;
         font-size: 15px;
         font-weight: bolder;
     }
@@ -547,7 +549,8 @@
     text-align: center;
     font-size: 19px;
     background-color: rgba(3, 136, 16, 0.8);
-    margin-right: center;
+    margin-top: 25px;
+    margin-right: 150px;
     border-style: none;
 }
  
