@@ -9,11 +9,11 @@ const { log } = require("console");
 const usuarioController = {
 
     regrasValidacaoFormLogin: [
-        body("nome")
-            .isLength({ min: 3, max: 45 })
-            .withMessage("O nome de usuário/e-mail deve ter de 3 a 45 caracteres"),
+        body("email")
+            .isEmail({ min: 3, max: 45 })
+            .withMessage("Digite um e-mail válido!"),
         body("senha")
-            .isStrongPassword()
+            .isStrongPassword({min: 6})
             .withMessage("A senha deve ter no mínimo 6 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)")
     ],
 
@@ -64,7 +64,7 @@ const usuarioController = {
     },
 
 
-    cadastrar: (req, res) => {
+    cadastrar: async (req, res) => {
         const erros = validationResult(req);
         var dadosForm = {
             CPF_CNPJ_USUARIO: req.body.cpf, 
@@ -79,14 +79,14 @@ const usuarioController = {
             return res.render("pages/cadastro", { listaErros: erros, dadosNotificacao: null, valores: req.body })
         }
         try {
-            let create = usuario.create(dadosForm);
+            const createResult = await usuario.create(dadosForm); // Aguardando a criação do usuário
+            console.log("Usuário criado:", createResult);
 
-            console.log(create)
-            res.render("pages/cadastro", {
-                listaErros: null, dadosNotificacao: {
-                  titulo: "Cadastro realizado!", mensagem: "Novo usuário criado com sucesso!", tipo: "success"
-                }, valores: req.body
-              })
+            if (createResult.affectedRows > 0) {
+                res.redirect("/logado"); // Redireciona para a página logado após o cadastro bem-sucedido
+            } else {
+                throw new Error('Falha ao criar usuário');
+            }
         } catch (e) {
             console.log(e);
             res.render("pages/cadastro", {

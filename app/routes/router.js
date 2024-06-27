@@ -24,6 +24,9 @@ router.get("/cadastrar", function (req, res){
   })
 }
 )
+router.get("/detalhes", verificarUsuAutenticado, function (req, res) {
+  res.render("pages/detalhes", {pagina:"detalhes", logado:null});
+});
 
 router.get("/", verificarUsuAutenticado, function (req, res) {
   res.render("pages/pginicial", {pagina:"home", logado:null});

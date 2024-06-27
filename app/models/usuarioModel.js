@@ -1,3 +1,4 @@
+const { render } = require("ejs");
 var pool = require("../../config/pool_conexoes");
 
     const usuarioModel = {
@@ -42,16 +43,14 @@ var pool = require("../../config/pool_conexoes");
                 return error;
             }
         },
-
-        create: async (camposForm) => {
+        
+        create: async (dadosForm) => {
             try {
-                const [resultados] = await pool.query(
-                    "insert into usuario set ?", [camposForm]
-                )
+                const [resultados] = await pool.query("insert into usuario set ?", [dadosForm]);
                 return resultados;
             } catch (error) {
                 console.log(error);
-                return null;
+                throw error; // Propaga o erro para ser capturado no bloco try/catch do controlador
             }
         },
 
