@@ -10,13 +10,13 @@
     <div class="login-container">
         <img src="imagens/logo.png" alt="Migra Fácil" class="logo">
         <h2>Entrar com :</h2>
-        <form class="login-form" method="post" onsubmit="handleLogin(event)">
+        <form class="login-form" method="post" action="/login">
             <label for="email">Email :</label>
             <input type="email" id="email" name="email" required>
             <label for="password">Senha :</label>
             <input type="password" id="password" name="password" required>
             <a href="#" class="forgot-password">Esqueceu a senha?</a>
-            <button type="submit" class="login-button">Entrar</button>
+            <button type="submit" class="login-button" >Entrar</button>
         </form>
         <p class="signup-prompt">Ainda não possui uma conta? <a href="/cadastro">Crie uma conta</a></p>
     </div>

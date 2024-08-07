@@ -21,8 +21,8 @@ var pool = require("../../config/pool_conexoes");
         findUserEmail: async (camposForm) => {
             try {
                 const [resultados] = await pool.query(
-                    "SELECT * FROM usuario WHERE user_usuario = ? or email_usuario = ?",
-                    [camposForm.email_usuario ]
+                    "SELECT * FROM usuario WHERE EMAIL_USUARIO = ?",
+                    [camposForm.user_usuario ]
                 )
                 return resultados;
             } catch (error) {

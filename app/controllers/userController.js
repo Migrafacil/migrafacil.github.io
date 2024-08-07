@@ -52,9 +52,10 @@ const usuarioController = {
             return res.render("pages/login", { listaErros: erros, dadosNotificacao: null  })
         }
         const dataForm = {
-            email_usuario: req.body.email_usu,
-            senha_usuario: req.body.senha_usu
+            email_usuario: req.body.email,
+            senha_usuario: req.body.password
         }
+        console.log(req.session.autenticado.autenticado) 
         if (req.session.autenticado.autenticado != null) {
             res.redirect("/");
         } else {

@@ -40,17 +40,14 @@ router.post(
   "/login",
   usuarioController.regrasValidacaoFormLogin,
   gravarUsuAutenticado,
-  function (req, res) {limparSessao,
+  function (req, res) {
+    console.log(login)
     usuarioController.logar(req,res);
   }
 )
 
 router.get("/logado", function (req, res) {
   res.render("pages/logado", {pagina:"logado", logado:"logado"});
-});
-
-router.get("/login", function (req, res) {
-  res.render("pages/login", {pagina:"logado", logado:"logado"});
 });
 
 router.get("/casas", function (req, res) {
