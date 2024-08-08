@@ -41,7 +41,6 @@ router.post(
   usuarioController.regrasValidacaoFormLogin,
   gravarUsuAutenticado,
   function (req, res) {
-    console.log(login)
     usuarioController.logar(req,res);
   }
 )
