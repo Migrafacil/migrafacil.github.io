@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Migra Fácil</title>
     <link rel="stylesheet" href="/css/login.css">
-    <script src="/js/script.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.js"></script>
 </head>
 <body>
     <div class="login-container">
@@ -23,58 +20,7 @@
         </form>
         <p class="signup-prompt">Ainda não possui uma conta? <a href="/cadastro">Crie uma conta</a></p>
     </div>
-
     <script src="/js/login.js"></script>
-
-    <main>
-        <% 
-            let avisoErro = {"nome_usu":"", "senha_usu":""}
-            let msgErro = ""
-                if(listaErros){
-                    listaErros.errors.forEach(function(itemErro){
-                        if(itemErro.path == "nome_usu"){
-                            avisoErro.nome_usu = "erro";
-                            msgErro += `* ${itemErro.msg} <br>`
-                        }
-                        if(itemErro.path == "senha_usu"){
-                            avisoErro.senha_usu = "erro";
-                            msgErro += `* ${itemErro.msg} <br>`
-                        }
-                    })
-                    if(msgErro != ""){
-                    %>
-                        <script>
-                            let msgErro ="<%= msgErro %>"
-                            notify("Erro(s) no preenchimento", 
-                                   "Verifique o(s) campo(s) <br> " + msgErro.replace(/&lt;/g,"<").replace(/&gt;/g,">"), 
-                                   "error", "center", 5000)                        
-                        </script>
-                    <%
-                    }
-                }
-                if (dadosNotificacao) { %>
-                    <script>
-                            notify("<%= dadosNotificacao.titulo%>","<%= dadosNotificacao.mensagem%>", "<%= dadosNotificacao.tipo%>", "center")
-                            if("<%= dadosNotificacao.tipo %>" == "success"){
-                                setTimeout(function(){window.location="/"}, 3000)
-                            }                        
-                    </script>
-                <% } %>              
-                <div class="login-page">
-                    <div class="form-cadastro">
-                        <h2>Login</h2>
-                        <form action="/login" method="post">
-                            <input type="text" name="nome_usu" placeholder="Nome de usuáio ou e-mail" value="helvinha"
-                                class="<%= avisoErro.nome_usu %>" /><br>
-                           <input type="password" name="senha_usu" placeholder="senha" value="Teste@123"
-                                class="<%=  avisoErro.senha_usu %>" /><br>
-                           <button type="submit">Entrar</button><br>
-                        </form>
-                        <p class="message">Não é cadastrado? <a href="/cadastro">Crie uma conta</a></p>
-                    </div>
-                </div>
-    </main>
-
 </body>
 </html>
 

@@ -31,19 +31,22 @@ gravarUsuAutenticado = async (req, res, next) => {
             senha_usuario: req.body.password,
         };
         var results = await usuario.findUserEmail(dadosForm);
-        console.log(results)
         var total = Object.keys(results).length;
+        
+
         if (total == 1) {
-            if (bcrypt.compareSync(dadosForm.senha_usuario, results[0].senha_usuario)) {
+            if (bcrypt.compareSync(dadosForm.senha_usuario, results[0].SENHA_USUARIO)) {
                 var autenticado = {
-                    autenticado: results[0].nome_usuario,
-                    id: results[0].id_usuario,
+                    autenticado: results[0].NOME_USUARIO,
+                    id: results[0].ID_USUARIO,
                     // tipo: results[0].tipo_usuario
                 };
             }
         } 
     } 
+    
     req.session.autenticado = autenticado;
+    console.log(req.session.autenticado )
     req.session.logado = 0;
     next();
 };

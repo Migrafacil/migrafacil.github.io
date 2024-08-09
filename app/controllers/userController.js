@@ -12,9 +12,9 @@ const usuarioController = {
         body("email")
             .isEmail({ min: 3, max: 45 })
             .withMessage("Digite um e-mail válido!"),
-        body("senha")
-            .isStrongPassword({min: 6})
-            .withMessage("A senha deve ter no mínimo 6 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)")
+        body("password")
+            .isStrongPassword()
+            .withMessage("A senha deve ter no mínimo 8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)")
     ],
 
     regrasValidacaoFormCad: [
@@ -30,7 +30,7 @@ const usuarioController = {
                   throw new Error('E-mail em uso!');
                 }
               }), 
-        body("senha")
+        body("password")
             .isStrongPassword()
             .withMessage("A senha deve ter no mínimo 6 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)")
     ],
@@ -51,13 +51,9 @@ const usuarioController = {
         if (!erros.isEmpty()) {
             return res.render("pages/login", { listaErros: erros, dadosNotificacao: null  })
         }
-        const dataForm = {
-            email_usuario: req.body.email,
-            senha_usuario: req.body.password
-        }
-        console.log(req.session.autenticado.autenticado) 
+
         if (req.session.autenticado.autenticado != null) {
-            res.redirect("/");
+            res.redirect("/logado");
         } else {
             res.render("pages/login", { listaErros: null,
                  dadosNotificacao: { titulo: "Falha ao logar!", mensagem: "Usuário e/ou senha inválidos!", tipo: "error" } })
