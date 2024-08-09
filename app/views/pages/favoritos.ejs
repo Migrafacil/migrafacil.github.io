@@ -4,73 +4,125 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meus Favoritos</title>
-    <link rel="stylesheet" href="/app/public/css/favoritos.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #ffffff;
+            padding: 15px 20px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 16px;
+        }
+        .container {
+            padding: 20px;
+        }
+        .titulo {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .favoritos-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .favorito-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s;
+        }
+        .favorito-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .favorito-info {
+            padding: 15px;
+        }
+        .favorito-info p {
+            margin: 5px 0;
+            color: #333;
+        }
+        .btn-limpar {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            width: fit-content;
+        }
+        .btn-limpar:hover {
+            background-color: #c82333;
+        }
+        .favorito-card:hover {
+            transform: scale(1.02);
+        }
+    </style>
 </head>
 <body>
     <header>
-        <img src ="/app/public/imagens/image2.png" alt="Logo Migra Fácil"> 
-        <input type="text" placeholder="Busque no Migra Fácil">
+        <a href="/">Página Inicial</a>
+        <a href="index.html">Voltar</a>
     </header>
     <section class="container">
         <section class="titulo">
-            <h2>Meus Favoritos</h2>
+            <h2>Seus Favoritos</h2>
         </section>
-        <section class="propriedades">
-            <a href="#" class="cartao-propriedade">
-                <section class="badge badge-novo">Anúncio novo</section>
-                <section class="badge badge-preco">Ótimo preço</section>
-                <img src="/app/public/imagens/Image.jpg" alt="Casa Jaguaré">
-                <section class="detalhes">
-                    <section class="localizacao">
-                        <span>Avenida Presidente Altino<br>Jaguaré, São Paulo</span>
-                        <span class="favorite-icon" onclick="toggleFavorite(this)">&#x2661;</span>
-                    </section>
-                    <section class="preco">R$ 2.600</section>
-                    <section class="info">
-                        <span>120m²</span>
-                        <span>4 quartos</span>
-                    </section>
-                </section>
-            </a>
-           
-            </a>
-            <a href="#" class="cartao-propriedade">
-                <section class="badge badge-novo">Anúncio novo</section>
-                <section class="badge badge-preco">Ótimo preço</section>
-                <img src="/app/public/imagens/Image3.jpg" alt="Apartamento República">
-                <section class="detalhes">
-                    <section class="localizacao">
-                        <span>Rua Flores Freitas, Brasil<br>República, São Paulo</span>
-                        <span class="favorite-icon" onclick="toggleFavorite(this)">&#x2661;</span>
-                    </section>
-                    <section class="preco">R$ 1.800</section>
-                    <section class="info">
-                        <span>65m²</span>
-                        <span>1 quarto</span>
-                    </section>
-                </section>
-            </a>
-           
-            </a>
-            <a href="#" class="cartao-propriedade">
-                <section class="badge badge-novo">Anúncio novo</section>
-                <img src="/app/public/imagens/Image6.jpg" alt="Apartamento Cidade Monções">
-                <section class="detalhes">
-                    <section class="localizacao">
-                        <span>Rua Francisco Branco<br>Cidade Monções, São Paulo</span>
-                        <span class="favorite-icon" onclick="toggleFavorite(this)">&#x2661;</span>
-                    </section>
-                    <section class="preco">R$ 1.500</section>
-                    <section class="info">
-                        <span>58m²</span>
-                        <span>2 quartos</span>
-                    </section>
-                </section>
-            </a>
-           
-        </section>
+        <button class="btn-limpar" onclick="clearFavorites()">Limpar Favoritos</button>
+        <section class="favoritos-container"></section>
     </section>
 
-    <script src="/app/public/js/favoritos.js"></script>
+    <script>
+        // Função para exibir favoritos na página
+        function displayFavorites() {
+            const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            const favoritesContainer = document.querySelector('.favoritos-container');
+            
+            if (favorites.length === 0) {
+                favoritesContainer.innerHTML = '<p>Você ainda não tem favoritos.</p>';
+                return;
+            }
+            
+            favoritesContainer.innerHTML = favorites.map(fav => `
+                <div class="favorito-card">
+                    <img src="${fav.imgSrc}" alt="Favorito">
+                    <div class="favorito-info">
+                        <p><strong>Localização:</strong> ${fav.location}</p>
+                        <p><strong>Preço:</strong> ${fav.price}</p>
+                        <p><strong>Tamanho:</strong> ${fav.size}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Função para limpar os favoritos
+        function clearFavorites() {
+            if (confirm('Tem certeza de que deseja limpar todos os favoritos?')) {
+                localStorage.removeItem('favorites');
+                displayFavorites(); // Atualiza a lista para refletir que foi limpa
+            }
+        }
+
+        // Chamar a função para exibir favoritos quando a página carrega
+        document.addEventListener('DOMContentLoaded', displayFavorites);
+    </script>
 </body>
 </html>

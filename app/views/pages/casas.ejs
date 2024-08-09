@@ -132,13 +132,45 @@
                 top: 170px;
             }
         }
+        /* Estilos para a seção de favoritos */
+        .favoritos-container {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .favorito-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            width: calc(33.333% - 20px);
+            text-decoration: none;
+            color: inherit;
+        }
+        .favorito-card img {
+            width: 100%;
+            height: 70%;
+        }
+        .favorito-info {
+            padding: 15px;
+        }
+        .favorito-info p {
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            .favorito-card {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
-        <img src="imagens/image2.png" alt="Logo Migra Fácil"> <a href="/"></a>
+        <img src="imagens/image2.png" alt="Logo Migra Fácil">
+        <a href="/">Página Inicial</a>
         <input type="text" placeholder="Busque no Migra Fácil">
-        <a href="/"></a>
+        <a href="favoritos.html">Meus Favoritos</a>
     </header>
     <section class="container">
         <section class="titulo">
@@ -286,6 +318,58 @@
         </section>
     </section>
 
-    <script src="/public/js/casascript.js"></script>
+    <!-- Seção de favoritos -->
+    <section class="favoritos-container"></section>
+
+    <script>
+        // Função para alternar a adição aos favoritos
+        function toggleFavorite(element) {
+            element.classList.toggle('active');
+            const isFavorite = element.classList.contains('active');
+            const card = element.closest('.cartao-propriedade');
+            const houseInfo = {
+                imgSrc: card.querySelector('img').src,
+                location: card.querySelector('.localizacao span').innerText,
+                price: card.querySelector('.preco').innerText,
+                size: card.querySelector('.info span').innerText,
+            };
+
+            // Armazenar ou remover do localStorage
+            let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            if (isFavorite) {
+                favorites.push(houseInfo);
+                alert('Essa casa foi adicionada aos seus favoritos!');
+            } else {
+                favorites = favorites.filter(fav => fav.location !== houseInfo.location);
+                alert('Essa casa foi removida dos seus favoritos!');
+            }
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+        }
+
+        // Função para exibir favoritos na página
+        function displayFavorites() {
+            const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            const favoritesContainer = document.querySelector('.favoritos-container');
+            
+            if (favorites.length === 0) {
+                favoritesContainer.innerHTML = '<p>Você ainda não tem favoritos.</p>';
+                return;
+            }
+            
+            favoritesContainer.innerHTML = favorites.map(fav => `
+                <div class="favorito-card">
+                    <img src="${fav.imgSrc}" alt="Favorito">
+                    <div class="favorito-info">
+                        <p>${fav.location}</p>
+                        <p>${fav.price}</p>
+                        <p>${fav.size}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Chamar a função para exibir favoritos quando a página carrega
+        document.addEventListener('DOMContentLoaded', displayFavorites);
+    </script>
 </body>
 </html>
