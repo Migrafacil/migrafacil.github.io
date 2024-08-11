@@ -30,7 +30,7 @@ const usuarioController = {
                   throw new Error('E-mail em uso!');
                 }
               }), 
-        body("password")
+        body("senha")
             .isStrongPassword()
             .withMessage("A senha deve ter no mínimo 8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)")
     ],
@@ -62,6 +62,7 @@ const usuarioController = {
 
 
     cadastrar: async (req, res) => {
+        console.log("Senha recebida:", req.body.senha);
         const erros = validationResult(req);
         var dadosForm = {
             CPF_CNPJ_USUARIO: req.body.cpf, 
@@ -72,6 +73,7 @@ const usuarioController = {
         console.log(dadosForm)
 
         if (!erros.isEmpty()) {
+            console.log("Erros de validação:", erros.array());
             console.log(erros);
             return res.render("pages/cadastro", { listaErros: erros, dadosNotificacao: null, valores: req.body })
         }

@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const number = document.getElementById('number');
     const symbol = document.getElementById('symbol');
  
-    if (senha.length >= 6 && senha.length <= 10) {
+    if (senha.length >= 8 && senha.length <= 10) {
       length.classList.add('valid');
       length.classList.remove('invalid');
     } else {
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     if (!senha.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,10}$/)) {
-      alert('A senha deve ter no mínimo 6 caracteres, 1 símbolo, 1 número e 1 letra maiúscula.');
+      alert('A senha deve ter no mínimo 8 caracteres, 1 símbolo, 1 número e 1 letra maiúscula.');
       event.preventDefault();
       isValid = false;
     }

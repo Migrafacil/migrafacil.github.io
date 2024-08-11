@@ -46,9 +46,11 @@ var pool = require("../../config/pool_conexoes");
         
         create: async (dadosForm) => {
             try {
+                console.log("Dados a serem inseridos:", dadosForm);
                 const [resultados] = await pool.query("insert into usuario set ?", [dadosForm]);
                 return resultados;
             } catch (error) {
+                console.log("Dados a serem inseridos:", dadosForm);
                 console.log(error);
                 throw error; // Propaga o erro para ser capturado no bloco try/catch do controlador
             }
