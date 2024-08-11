@@ -34,7 +34,13 @@
             </section>
         </label>
         <img src="imagens/logo.png" alt="logo" class="logo">
-        <img src="imagens/login.png" alt="MF" class="MF">
+        <div class="profile-menu">
+            <img src="imagens/login.png" alt="MF" id="profile-icon">
+            <div class="menu-options" id="menu-options">
+                <a href="/perfil">Perfil</a>
+                <a href="/sair">Sair</a>
+            </div>
+        </div>
     </header>
  
     <main>
@@ -178,6 +184,29 @@
                 <li>Diretrizes da comunidae</li>
             </ul>
     </footer>
+    <script>
+        document.getElementById("profile-icon").addEventListener("click", function() {
+          var menu = document.getElementById("menu-options");
+          if (menu.style.display === "block") {
+              menu.style.display = "none";
+          } else {
+              menu.style.display = "block";
+          }
+      });
+
+      // Fecha o menu ao clicar fora dele
+      window.onclick = function(event) {
+          if (!event.target.matches('#profile-icon')) {
+              var dropdowns = document.getElementsByClassName("menu-options");
+              for (var i = 0; i < dropdowns.length; i++) {
+                  var openDropdown = dropdowns[i];
+                  if (openDropdown.style.display === "block") {
+                      openDropdown.style.display = "none";
+                  }
+              }
+          }
+      }
+  </script>
 </body>
 </html>
  
