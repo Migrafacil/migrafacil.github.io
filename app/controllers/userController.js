@@ -32,7 +32,7 @@ const usuarioController = {
               }), 
         body("password")
             .isStrongPassword()
-            .withMessage("A senha deve ter no mínimo 6 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)")
+            .withMessage("A senha deve ter no mínimo 8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)")
     ],
 
 
