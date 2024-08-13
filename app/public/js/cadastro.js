@@ -70,6 +70,10 @@ document.addEventListener('DOMContentLoaded', function() {
       isValid = false;
     }
 
+    if (isValid) {
+      alert('Cadastro feito com sucesso'); 
+    }
+    
     if (!isValid) {
       event.preventDefault(); 
     }
