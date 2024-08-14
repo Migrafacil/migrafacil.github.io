@@ -32,6 +32,10 @@ router.get("/", verificarUsuAutenticado, function (req, res) {
   res.render("pages/pginicial", {pagina:"home", logado:null});
 });
 
+router.get("/sair", limparSessao, function (req, res) {
+  res.redirect("/");
+});
+
 router.get("/login", function (req, res) {
   res.render("pages/login", {pagina:"login", logado:null});
 });

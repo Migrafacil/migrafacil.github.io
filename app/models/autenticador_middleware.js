@@ -12,15 +12,10 @@ verificarUsuAutenticado = (req, res, next) => {
     next();
 }
 
-const limparSessao = (req, res, next) => {
-    req.session.destroy((err) => {
-        if (err) {
-            return next(err);
-        }
-        res.redirect('/login'); // Redirecionar para a página de login
-    });
-};
-
+limparSessao = (req, res, next) => {
+    req.session.destroy();
+    next();
+  };
 
 gravarUsuAutenticado = async (req, res, next) => {
     const erros = validationResult(req);
