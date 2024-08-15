@@ -49,6 +49,24 @@ router.post(
   }
 )
 
+router.get(
+  "/perfil",
+  verificarUsuAutorizado([1, 2, 3], "pages/restrito"),
+  async function (req, res) {
+    usuarioController.mostrarPerfil(req, res);
+  }
+);
+
+router.post(
+  "/perfil",
+  uploadFile("imagem-perfil_usu"),
+  usuarioController.regrasValidacaoPerfil,
+  verificarUsuAutorizado([1, 2, 3], "pages/restrito"),
+  async function (req, res) {
+    usuarioController.gravarPerfil(req, res);
+  }
+);
+
 router.get("/logado", function (req, res) {
   res.render("pages/logado", {pagina:"logado", logado:"logado"});
 });
