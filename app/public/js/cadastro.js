@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (!senha.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,10}$/)) {
-      alert('A senha deve ter no mínimo 6 caracteres, 1 símbolo, 1 número e 1 letra maiúscula.');
+      alert('A senha deve ter no mínimo 8 caracteres, 1 símbolo, 1 número e 1 letra maiúscula.');
       event.preventDefault();
       isValid = false;
     }
