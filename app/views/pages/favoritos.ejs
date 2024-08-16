@@ -57,7 +57,7 @@
             color: #333;
         }
         .btn-limpar {
-            background-color: #dc3545;
+            background-color: #28a745;
             color: white;
             border: none;
             padding: 10px 20px;
@@ -79,8 +79,8 @@
 </head>
 <body>
     <header>
-        <a href="/">Página Inicial</a>
-        <a href="index.html">Voltar</a>
+        <a href="logado.ejs">Página Inicial</a>
+        <a href="casas.ejs">Voltar</a>
     </header>
     <section class="container">
         <section class="titulo">
@@ -91,7 +91,7 @@
     </section>
 
     <script>
-        // Função para exibir favoritos na página
+       
         function displayFavorites() {
             const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
             const favoritesContainer = document.querySelector('.favoritos-container');
@@ -113,15 +113,13 @@
             `).join('');
         }
 
-        // Função para limpar os favoritos
         function clearFavorites() {
             if (confirm('Tem certeza de que deseja limpar todos os favoritos?')) {
                 localStorage.removeItem('favorites');
-                displayFavorites(); // Atualiza a lista para refletir que foi limpa
+                displayFavorites(); 
             }
         }
 
-        // Chamar a função para exibir favoritos quando a página carrega
         document.addEventListener('DOMContentLoaded', displayFavorites);
     </script>
 </body>
