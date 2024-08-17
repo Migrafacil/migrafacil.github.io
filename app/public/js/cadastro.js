@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const senhaInput = document.getElementById('senha');
   const confirmarSenhaInput = document.getElementById('confirmar-senha');
   const cpfInput = document.getElementById('cpf'); 
+  const passwordRequirementsBox = document.getElementById('password-requirements-box');
 
   function formatCPF(input) {
     let value = input.value.replace(/\D+/g, ''); 
@@ -72,25 +73,36 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
+  function showPasswordCriteria() {
+    passwordRequirementsBox.style.display = 'block';
+  }
+
+  function hidePasswordCriteria() {
+    if (!senhaInput.value) {
+      passwordRequirementsBox.style.display = 'none';
+    }
+  }
+
+  senhaInput.addEventListener('focus', showPasswordCriteria);
+  senhaInput.addEventListener('blur', hidePasswordCriteria);
+
   document.getElementById('registration-form').addEventListener('submit', function(event) {
     const senha = senhaInput.value;
     const confirmarSenha = confirmarSenhaInput.value;
     let isValid = true;
 
     if (senha !== confirmarSenha) {
-      alert('As senhas não coincidem.');
-      event.preventDefault();
+      confirmarSenhaInput.setCustomValidity("As senhas não coincidem.");
       isValid = false;
+    } else {
+      confirmarSenhaInput.setCustomValidity("");
     }
 
-    if (!senha.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,10}$/)) {
-      alert('A senha deve ter no mínimo 8 caracteres, 1 símbolo, 1 número e 1 letra maiúscula.');
-      event.preventDefault();
+    if (senha.length < 8 || senha.length > 10) {
+      senhaInput.setCustomValidity("A senha deve ter entre 8 e 10 caracteres.");
       isValid = false;
-    }
-
-    if (isValid) {
-      alert('Cadastro feito com sucesso');
+    } else {
+      senhaInput.setCustomValidity("");
     }
 
     if (!isValid) {
