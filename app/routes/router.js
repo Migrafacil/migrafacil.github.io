@@ -32,6 +32,24 @@ router.get("/", verificarUsuAutenticado, function (req, res) {
   res.render("pages/pginicial", {pagina:"home", logado:null});
 });
 
+router.get(
+  "/perfil",
+  verificarUsuAutorizado([1, 2, 3], "pages/perfil"),
+  async function (req, res) {
+    usuarioController.mostrarPerfil(req, res);
+  }
+);
+
+router.post(
+  "/perfil",
+  uploadFile("imagem-perfil_usu"),
+  usuarioController.regrasValidacaoPerfil,
+  verificarUsuAutorizado([1, 2, 3], "pages/perfil"),
+  async function (req, res) {
+    usuarioController.gravarPerfil(req, res);
+  }
+);
+
 router.get("/sair", limparSessao, function (req, res) {
   res.redirect("/");
 });
