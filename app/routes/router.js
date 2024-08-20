@@ -110,7 +110,7 @@ router.get("/detalhes", function (req, res) {
 });
 
 router.get("/favoritos", function (req, res) {
-  res.render("pages/favortitos", {pagina:"favoritos", logado:"favoritos"});
+  res.render("pages/favoritos", {pagina:"favoritos", logado:"favoritos"});
 });
 
 router.get("/filtrocasas", function (req, res) {
