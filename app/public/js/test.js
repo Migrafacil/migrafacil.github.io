@@ -26,6 +26,6 @@ document.getElementById('registration-form').addEventListener('submit', function
   }
 
   if (!isValid) {
-    event.preventDefault(); // impede que o formulário seja enviado
+    event.preventDefault(); 
   }
 });

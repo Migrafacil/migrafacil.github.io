@@ -3,23 +3,36 @@ document.addEventListener('DOMContentLoaded', function() {
   const confirmarSenhaInput = document.getElementById('confirmar-senha');
   const cpfInput = document.getElementById('cpf'); 
   const passwordRequirementsBox = document.getElementById('password-requirements-box');
+  
+  function isCPF(value) {
+    return value.length === 11;
+  }
 
-  function formatCPF(input) {
+  function isCNPJ(value) {
+    return value.length === 14;
+  }
+
+  function formatCPF_CNPJ(input) {
     let value = input.value.replace(/\D+/g, ''); 
-    if (value.length <= 11) { 
+
+    if (isCPF(value)) {
       value = value.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, '$1.$2.$3-$4');
+    } else if (isCNPJ(value)) {
+      value = value.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, '$1.$2.$3/$4-$5');
     }
-    
+
     input.value = value;
   }
 
   cpfInput.addEventListener('input', function() {
-    formatCPF(this);
+    formatCPF_CNPJ(this);
   });
 
   cpfInput.addEventListener('keypress', function(e) {
     const char = String.fromCharCode(e.which);
-    if (!/\d/.test(char) || this.value.replace(/\D/g, '').length >= 11) {
+    const currentLength = this.value.replace(/\D/g, '').length;
+
+    if (!/\d/.test(char) || currentLength >= 14) {
       e.preventDefault();
     }
   });
@@ -86,9 +99,21 @@ document.addEventListener('DOMContentLoaded', function() {
   senhaInput.addEventListener('focus', showPasswordCriteria);
   senhaInput.addEventListener('blur', hidePasswordCriteria);
 
+  confirmarSenhaInput.addEventListener('input', function() {
+    const senha = senhaInput.value;
+    const confirmarSenha = this.value;
+
+    if (senha !== confirmarSenha) {
+      confirmarSenhaInput.setCustomValidity("As senhas não coincidem.");
+    } else {
+      confirmarSenhaInput.setCustomValidity("");
+    }
+  });
+
   document.getElementById('registration-form').addEventListener('submit', function(event) {
     const senha = senhaInput.value;
     const confirmarSenha = confirmarSenhaInput.value;
+    const cpfCnpj = cpfInput.value.replace(/\D/g, '');
     let isValid = true;
 
     if (senha !== confirmarSenha) {
@@ -105,8 +130,17 @@ document.addEventListener('DOMContentLoaded', function() {
       senhaInput.setCustomValidity("");
     }
 
+    if (!(isCPF(cpfCnpj) || isCNPJ(cpfCnpj))) {
+      cpfInput.setCustomValidity("CPF ou CNPJ inválido.");
+      isValid = false;
+    } else {
+      cpfInput.setCustomValidity("");
+    }
+
     if (!isValid) {
       event.preventDefault();
+    } else {
+      alert("Cadastro feito com sucesso!");
     }
   });
 });

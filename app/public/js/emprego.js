@@ -1,4 +1,3 @@
-// Dados das vagas de emprego
 let page = 1;
 let isLoading = false;
 let jobs = [

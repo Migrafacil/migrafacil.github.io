@@ -132,7 +132,7 @@
                 top: 170px;
             }
         }
-        /* Estilos para a seção de favoritos */
+        
         .favoritos-container {
             padding: 20px;
             display: flex;
@@ -318,11 +318,10 @@
         </section>
     </section>
 
-    <!-- Seção de favoritos -->
     <section class="favoritos-container"></section>
 
     <script>
-        // Função para alternar a adição aos favoritos
+        
         function toggleFavorite(element) {
             element.classList.toggle('active');
             const isFavorite = element.classList.contains('active');
@@ -334,7 +333,6 @@
                 size: card.querySelector('.info span').innerText,
             };
 
-            // Armazenar ou remover do localStorage
             let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
             if (isFavorite) {
                 favorites.push(houseInfo);
@@ -346,7 +344,6 @@
             localStorage.setItem('favorites', JSON.stringify(favorites));
         }
 
-        // Função para exibir favoritos na página
         function displayFavorites() {
             const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
             const favoritesContainer = document.querySelector('.favoritos-container');
@@ -368,7 +365,6 @@
             `).join('');
         }
 
-        // Chamar a função para exibir favoritos quando a página carrega
         document.addEventListener('DOMContentLoaded', displayFavorites);
     </script>
 </body>
