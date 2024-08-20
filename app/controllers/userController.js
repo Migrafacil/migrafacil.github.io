@@ -69,6 +69,7 @@ const usuarioController = {
             SENHA_USUARIO: bcrypt.hashSync(req.body.senha, salt),
             NOME_USUARIO: req.body.nome,
             EMAIL_USUARIO: req.body.email,
+            tipo_usuario_idtipo_usuario: 1,
         };
         console.log(dadosForm)
 
