@@ -11,6 +11,13 @@
             margin: 0;
             padding: 0;
         }
+        header img {
+            height: 50px;
+        }
+        img {
+            overflow-clip-margin: content-box;
+            overflow: clip;
+        }
         header {
             background-color: #ffffff;
             padding: 15px 20px;
@@ -56,6 +63,7 @@
             margin: 5px 0;
             color: #333;
         }
+
         .btn-limpar {
             background-color: #28a745;
             color: white;
@@ -79,8 +87,10 @@
 </head>
 <body>
     <header>
-        <a href="logado.ejs">Página Inicial</a>
-        <a href="casas.ejs">Voltar</a>
+        <a href="/logado">
+            <img src="imagens/image2.png" alt="Logo Migra Fácil">
+        </a> 
+        <a href="/casas">Voltar</a>
     </header>
     <section class="container">
         <section class="titulo">
