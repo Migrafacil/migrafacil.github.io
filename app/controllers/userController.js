@@ -5,6 +5,7 @@ var salt = bcrypt.genSaltSync(12);
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 const https = require('https');
 const { log } = require("console");
+var {validarCNPJ, validarCPF, validarEmail} = require("../helpers/validação");
 
 const usuarioController = {
 
@@ -32,7 +33,8 @@ const usuarioController = {
               }), 
         body("senha")
             .isStrongPassword()
-            .withMessage("A senha deve ter no mínimo 8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)")
+            .withMessage("A senha deve ter no mínimo 8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)"),
+        body("CNPJ")
     ],
 
 
