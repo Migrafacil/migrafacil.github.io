@@ -136,7 +136,7 @@
         margin-right: 195px;
     }
 .retangulo1 {
-    width: 100%;
+    width: 99%;
     height: 120px;
     padding: 2px 2px 2px 2px;
     border: 1px solid #d7d7d7;
@@ -155,7 +155,7 @@
 
 .city {
     width: 34px;
-    font-size: 20px;
+    font-size: normal;
     background-color: rgba(255, 255, 255, 0);
     font-family: "Poppins", sans-serif;
     color: #333333;
@@ -163,16 +163,23 @@
     margin-left: 30px;
     line-height: normal;
 }
-
-.busque-city {
-    height: 15px;
-    background-color: rgba(255, 255, 255, 0);
-    font-family: "Montserrat", sans-serif;
-    color: #7f7f7f;
-    text-align: left;
-    line-height: normal;
-    transform: translate(-30px, 20px);
-}
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    padding: 5px 10px;
+    width: 300px;
+    margin-top: 55px;
+    margin-left: -50px;
+ }
+ .search-input {
+    border: none;
+    outline: none;
+    flex: 1;
+    padding: 8px;
+    border-radius: 24px;
+    font-size: 16px;
+ }
 
 .city-results {
     margin-top: 20px;
@@ -190,7 +197,7 @@
   }
 
 .retangulo2 {
-    width: 100%;
+    width: 99%;
     height: 120px;
     padding: 2px 2px 2px 2px;
     border: 1px solid #d7d7d7;
@@ -208,7 +215,7 @@
 
 .bairry {
     width: 29px;
-    font-size: 20px;
+    font-size: normal;
     background-color: rgba(255, 255, 255, 0);
     font-family: "Poppins", sans-serif;
     color: #333333;
@@ -217,19 +224,8 @@
     line-height: normal;
 }
 
-.busque-bairry {
-    height: 15px;
-    background-color: rgba(255, 255, 255, 0);
-    font-family: "Montserrat", sans-serif;
-    color: #7f7f7f;
-    text-align: left;
-    line-height: normal;
-    transform: translate(-30px, 20px);
-}
-
-
 .retangulo3 {
-    width: 100%;
+    width: 99%;
     height: 120px;
     padding: 2px 2px 2px 2px;
     border: 1px solid #d7d7d7;
@@ -247,7 +243,7 @@
 
 .alugue {
     height: 15px;
-    font-size: 20px;
+    font-size: 15px;
     background-color: rgba(255, 255, 255, 0);
     font-family: "Poppins", sans-serif;
     color: #333333;
@@ -262,7 +258,7 @@
     color: #7f7f7f;
     text-align: left;
     line-height: normal;
-    transform: translate(-112px, 20px);
+    transform: translate(-120px, 20px);
 }
 
 .cetinha {
@@ -281,10 +277,8 @@
   box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
 }
 .wrapper header{
-  width: 270px;
   height: 55px;
   display: flex;
-  border: 1px solid #ccc;
   align-items: center;
   border-radius: 30px;
   position: relative;
@@ -292,7 +286,7 @@
 header label{
   height: 100%;
   z-index: 2;
-  width: 55%;
+  width: 30%;
   display: flex;
   cursor: pointer;
   font-size: 18px;
@@ -317,15 +311,13 @@ header .slider{
 }
 #tab-1:checked ~ header .slider{
   left: 0%;
-  top: 4px;
-  width: 110px;
-  transform: translateX(3%);
+  width: 90px;
+  transform: translateX(68%);
 }
 #tab-2:checked ~ header .slider{
   left: 60%;
   width: 120px;
-  top: 4px;
-  transform: translateX(-14%);
+  transform: translateX(-31%);
 }
 .wrapper input[type="radio"]{
   display: none;
@@ -371,6 +363,7 @@ header .slider{
   border: none;
   outline: none;
   font-size: 18px;
+  border-radius: 9px;
   color: #fff;
   cursor: pointer;
   margin-top: 20px;
@@ -439,6 +432,7 @@ header .slider{
         width: 521px;
         height: 55px;
         padding: 2px 2px 2px 2px;
+        border-radius: 9px;
         background-color: #ffffff;
         font-family: "Poppins", sans-serif;
         text-align: center;
@@ -462,6 +456,7 @@ header .slider{
       width: 443px;
       height: 85px;
       padding: 2px 2px 2px 2px;
+      border-radius: 9px; 
       border: 2px solid #016FA0;
       background-color: rgba(99, 161, 3, 0);
       box-sizing: border-box;
@@ -493,6 +488,7 @@ header .slider{
         width: 443px;
         height: 85px;
         padding: 2px 2px 2px 2px;
+        border-radius: 9px;
         border: 2px solid #016FA0;
         background-color: rgba(99, 161, 3, 0);
         box-sizing: border-box;
@@ -504,6 +500,7 @@ header .slider{
         width: 443px;
         height: 85px;
         padding: 2px 2px 2px 2px;
+        border-radius: 9px;
         border: 2px solid #016FA0;
         background-color: rgba(99, 161, 3, 0);
         box-sizing: border-box;
@@ -556,14 +553,14 @@ header .slider{
     border-style: none;
 }
 .mulher-anun{
-    width: 285px;
+    width: 585px;
     box-sizing: border-box;
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: -22%;
-    margin-right: 25%;
+    margin-top: -27%;
+    margin-right: 20%;
   
     
 }
@@ -727,7 +724,7 @@ header .slider{
     text-align: center;
     font-size: 15px;
     background-color:  #63a103;
-    border-radius: 18px;
+    border-radius: 9px;
     border: none;
     margin-left: 10px
  
@@ -744,41 +741,90 @@ header .slider{
     line-height: normal;
     margin: auto;
 }
-.footer1 {
-    background-color: rgba(99, 161, 3, 0.11);
-    padding: 5px 10px;
+footer {
+    width: 100%;
+    color: var(--color-neutral-40);
 }
 
-.footer ul {
-    margin-bottom: 20px;
+.footer-link {
+    text-decoration: none;
+}
+.logo-migra{
+    height: 85px;
 }
 
-.negrito {
-    font-weight: 700;
+#footer_content {
+    background-color: #dbead5;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 3rem 3.5rem;
 }
 
-.footer1 li {
-    margin: 10px 0;
-    list-style-type: none;
+#footer_contacts h1 {
+    margin-bottom: 0.75rem;
 }
 
-.footer1 h4 {
-    color: rgb(44, 78, 172);
+#footer_social_media {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.5rem;
+} 
+
+#footer_social_media .footer-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    width: 2.5rem;
+    color: var(--color-neutral-40);
+    border-radius: 50%;
+    transition: all 0.4s;
 }
 
-.facil {
-    font-weight: bolder;
+#footer_social_media .footer-link i {
+    font-size: 1.25rem;    
 }
 
-.footer {
-    margin: 10px;
-    font-size: 15px;
-    columns: 2;
-    list-style-type: none;
+#footer_social_media .footer-link:hover {
+    opacity: 0.8;
+}
+.footer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    list-style: none;
 }
 
-.footer li {
-    margin-bottom: 20px;
+.footer-list .footer-link {
+    color: var(--color-neutral-30);
+    transition: all 0.4s;
+}
+
+.footer-list .footer-link:hover {
+    color: #000000;
+}
+
+#footer_copyright {
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-neutral-0);
+    font-size: 0.9rem;
+    padding: 1.5rem;
+    font-weight: 100;
+}
+
+@media screen and (max-width: 768px) {
+    #footer_content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media screen and (max-width: 426px) {
+    #footer_content {
+        grid-template-columns: repeat(1, 1fr);
+        padding: 3rem 2rem;
+    }
 }
 
 @media screen and (max-width:537px) {
@@ -921,6 +967,7 @@ header .slider{
      height: 38px;
       margin-left: 2%;
       padding: 1px;
+      
   }
 
   .mulher-anun {
@@ -941,12 +988,70 @@ header .slider{
       margin-top: 20px;
   }
 
-  .footer {
-      font-size: 14px;
-      columns: 1;
-  }
+  @media (max-width: 768px) {
+    .wrapper {
+        width: 70%;
+        padding: 15px;
+        margin: auto;
+        height: auto;
+        margin-left: 1%; 
+        
+    }
+    .retangulo1, .retangulo2, .retangulo3 {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        margin-top: 15px;
+    }
+    .search-container {
+        margin-left: 0;
+        width: 100%;
+    }
+    .buscar {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+}footer {
+    background-color: #dbead5;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
 
-  .footer li {
-      margin-bottom: 15px;
-  }
+.footer-list {
+    list-style: none;
+    width: 100%;
+    padding: 10px;
+}
+
+.footer-list li {
+    margin: 10px 0;
+}
+
+#footer_copyright {
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+
+@media (max-width: 576px) {
+    .wrapper {
+        padding: 10px;
+    }
+    .quadro1, .quadro2, .quadro3, .quadro4 {
+        width: 100%;
+        margin-top: 10px;
+        margin-left: 0%;
+    }
+    .mulher-anun {
+        width: 100%;
+        margin: 20px auto;
+    }
+    .planos {
+        font-size: 20px;
+    }
 }
