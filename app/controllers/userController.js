@@ -92,7 +92,7 @@ const usuarioController = {
         } catch (e) {
             console.log(e);
             res.render("pages/cadastro", {
-                listaErros: erros, dadosNotificacao: {
+                listaErros: null, dadosNotificacao: {
                     titulo: "Erro ao cadastrar!", mensagem: "Verifique os valores digitados!", tipo: "error"
                 }, valores: req.body
             })

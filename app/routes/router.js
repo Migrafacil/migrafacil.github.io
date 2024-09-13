@@ -14,7 +14,7 @@ router.get("/cadastrar", function (req, res){
   res.render("pages/cadastro", {
     pagina: "cadastro",
     logado:null,
-    errorList: null,
+    listaErros: null,
     valores: {
       nome_usu: "",
       email_usu: "",
@@ -122,7 +122,15 @@ router.get("/filtrovagas", function (req, res) {
 });
 
 router.get("/cadastro", function (req, res) {
-  res.render("pages/cadastro", {pagina:"cadastro", logado:"null"});
+  res.render("pages/cadastro", {pagina:"cadastro", logado:"null",
+  listaErros: null,
+  valores: {
+    nome_usu: "",
+    email_usu: "",
+    cpf_cnpj_usu: "",
+    senha_usu: "",
+  }
+})
 });
 router.post(
   "/cadastro",
