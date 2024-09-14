@@ -1,105 +1,100 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
 }
 
 .container {
-  background-color: #ffffff;
-  padding: 20px 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 350px; /* Ajustado para melhor alinhamento */
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  background-color: #28a745; /* Azul */
+  color: #fff;
+  padding: 20px;
   text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.form-container .logo {
-  width: 120px; /* Ajuste o tamanho conforme necessário */
-  margin: 0 auto 20px auto; /* Centraliza a imagem e adiciona margem inferior */
+h1 {
+  margin: 0;
+  font-size: 2em;
 }
 
-.form-container p {
+section {
   margin-bottom: 20px;
-  font-size: 1.2em;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info {
+  border-left: 5px solid #28a745; /* Verde */
+}
+
+.plans {
+  border-left: 5px solid #007bff; /* Azul */
+}
+
+.listing {
+  border-left: 5px solid #28a745; /* Verde */
+}
+
+h2 {
+  color: #007bff; /* Azul */
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: 600;
   color: #333;
 }
 
-.social-buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.social-buttons button {
-  background-color: #3b5998;
-  color: #ffffff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  width: 48%;
-  cursor: pointer;
-  font-size: 0.9em;
-}
-
-.social-buttons button.google {
-  background-color: #db4437;
-}
-
-.social-buttons button:hover {
-  opacity: 0.9;
-}
-
-hr {
-  margin: 20px 0;
-  border: none;
-  border-top: 1px solid #ccc;
-}
-
-.form-container form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.form-container label {
-  margin-bottom: 5px;
-  width: 100%;
-  text-align: left;
-}
-
-.form-container input[type="text"],
-.form-container input[type="email"],
-.form-container input[type="password"] {
-  margin-bottom: 15px;
-  padding: 10px;
+input, textarea, select {
+  padding: 12px;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 92%;
-}
-
-.form-container button[type="submit"] {
-  background-color: #6baf4e;
-  color: #ffffff;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  border-radius: 6px;
   width: 100%;
+  box-sizing: border-box;
 }
 
-.form-container button[type="submit"]:hover {
-  background-color: #5e9e44;
+input::placeholder, textarea::placeholder {
+  color: #6c757d;
 }
 
-.form-container a {
-  color: #3b7ecb;
-  text-decoration: none;
+textarea {
+  resize: vertical;
 }
 
-.form-container a:hover {
-  text-decoration: underline;
+button {
+  background-color: #28a745; /* Verde */
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  align-self: flex-start;
+}
+
+button:hover {
+  background-color: #218838; /* Verde escuro */
 }

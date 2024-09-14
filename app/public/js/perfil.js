@@ -1,29 +1,23 @@
-// Função para alternar a visibilidade do menu lateral
-function toggleMenu() {
-    var sidebar = document.getElementById("sidebar");
-    if (sidebar.style.width === "250px") {
-        sidebar.style.width = "0";
-    } else {
-        sidebar.style.width = "250px";
+document.getElementById('profileForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    alert('Alterações no perfil salvas!');
+});
+
+document.getElementById('listingForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const listingType = document.getElementById('listingType').value;
+    const listingTitle = document.getElementById('listingTitle').value;
+    const listingDescription = document.getElementById('listingDescription').value;
+    const listingPrice = document.getElementById('listingPrice').value;
+    const listingImage = document.getElementById('listingImage').files[0];
+
+    let message = `Anúncio publicado com sucesso!\n\nTipo: ${listingType}\nTítulo: ${listingTitle}\nDescrição: ${listingDescription}`;
+    if (listingPrice) {
+        message += `\nPreço: ${listingPrice}`;
     }
-}
-
-// Função para abrir o modal de publicação
-function openPublication() {
-    var modal = document.getElementById("publicationModal");
-    modal.style.display = "block";
-}
-
-// Função para fechar o modal de publicação
-function closePublication() {
-    var modal = document.getElementById("publicationModal");
-    modal.style.display = "none";
-}
-
-// Fechar o modal ao clicar fora da área de conteúdo
-window.onclick = function(event) {
-    var modal = document.getElementById("publicationModal");
-    if (event.target == modal) {
-        modal.style.display = "none";
+    if (listingImage) {
+        message += `\nImagem: ${listingImage.name}`;
     }
-}
+
+    alert(message);
+});

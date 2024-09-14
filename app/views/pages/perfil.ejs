@@ -1,65 +1,79 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil de Usuário</title>
-    <link rel="stylesheet" href="/css/perfil.css">
+    <title>Página de Perfil</title>
+    <link rel="stylesheet" href="css/perfil.css">
 </head>
 <body>
-    <!-- Ícone de perfil -->
-    <div class="profile-icon" onclick="toggleMenu()">
-        <img src="icone-de-perfil.png" alt="Perfil">
-    </div>
+    <div class="container">
+        <header>
+            <h1>Página de Perfil</h1>
+        </header>
 
-    <!-- Menu lateral oculto -->
-    <div id="sidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
-        <div class="menu-header">Opções de Conta</div>
-        
-        <!-- Formulário para alterar informações da conta -->
-        <form id="accountForm" class="account-form">
-            <label for="name">Nome:</label>
-            <input type="text" id="name" name="name" value="Nome atual">
-            
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" value="email@exemplo.com">
-            
-            <label for="password">Senha:</label>
-            <input type="password" id="password" name="password">
-            
-            <button type="submit">Salvar Alterações</button>
-        </form>
-
-        <hr>
-        
-        <!-- Botão para publicação -->
-        <button class="publish-btn" onclick="openPublication()">Publicar Casa/Vaga</button>
-    </div>
-
-    <!-- Modal para publicar uma casa ou vaga -->
-    <div id="publicationModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closePublication()">&times;</span>
-            <h2>Publicar Casa ou Vaga de Emprego</h2>
-            <form id="publicationForm">
-                <label for="title">Título:</label>
-                <input type="text" id="title" name="title" placeholder="Título da publicação">
-
-                <label for="description">Descrição:</label>
-                <textarea id="description" name="description" placeholder="Descrição completa"></textarea>
-
-                <label for="type">Tipo:</label>
-                <select id="type" name="type">
-                    <option value="casa">Casa</option>
-                    <option value="emprego">Emprego</option>
-                </select>
-
-                <button type="submit">Publicar</button>
+        <section class="profile-info">
+            <h2>Informações do Perfil</h2>
+            <form id="profileForm">
+                <div class="form-group">
+                    <label for="email">E-mail atual:</label>
+                    <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+                    <label for="email">Novo e-mail:</label>
+                    <input type="email" id="email" name="email" placeholder="Novo e-mail" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha atual:</label>
+                    <input type="password" id="password" name="password" placeholder="Sua senha" required>
+                    <label for="password">Nova senha:</label>
+                    <input type="password" id="password" name="password" placeholder="Nova senha" required>
+                </div>
+                <button type="submit">Salvar Alterações</button>
             </form>
-        </div>
-    </div>
+        </section>
 
-    <script src="/js/perfil.js"></script>
+        <section class="plans">
+            <h2>Planos Disponíveis</h2>
+            <ul>
+                <li>Plano Básico - R$ 50/mês</li>
+
+                <button-cancelar type="submit">Cancelar plano</button>
+                
+            </ul>
+        </section>
+
+        <section class="listing">
+            <h2>Publicar Anúncio</h2>
+            <form id="listingForm">
+                <div class="form-group">
+                    <label for="listingType">Tipo de Anúncio:</label>
+                    <select id="listingType" name="listingType" required>
+                        <option value="" disabled selected>Escolha o tipo de anúncio</option>
+                        <option value="property">Imóvel</option>
+                        <option value="job">Vaga de Emprego</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="listingTitle">Título:</label>
+                    <input type="text" id="listingTitle" name="listingTitle" placeholder="Título do anúncio" required>
+                </div>
+                <div class="form-group">
+                    <label for="listingDescription">Descrição:</label>
+                    <textarea id="listingDescription" name="listingDescription" placeholder="Descrição detalhada" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="listingPrice">Preço/Salário:</label>
+                    <input type="text" id="listingPrice" name="listingPrice" placeholder="Preço">
+                </div>
+                <div class="form-group">
+                    <label for="listingImage">Imagem (opcional):</label>
+                    <input type="file" id="listingImage" name="listingImage" accept="image/*">
+                </div>
+                <button type="submit">Publicar Anúncio</button>
+            </form>
+        </section>
+    </div>
+    
+
+    <script src="js/perfil.js"></script>
 </body>
 </html>
