@@ -17,9 +17,17 @@
             <input type="password" id="password" name="password" required>
             <a href="#" class="forgot-password">Esqueceu a senha?</a>
             <button type="submit" class="login-button">Entrar</button>
+            <a href="/logado"></a> 
         </form>
         <p class="signup-prompt">Ainda não possui uma conta? <a href="/cadastro">Crie uma conta</a></p>
     </div>
+    <script>
+        document.querySelector('.login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            window.location.href = '/logado'; // Redireciona para a página logado
+        });
+    </script>
+    
     <script src="/js/login.js"></script>
 </body>
 </html>
