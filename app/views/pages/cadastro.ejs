@@ -22,7 +22,7 @@
         </form>
         <% 
         let msgErro = "";
-        let avisoErro = {"nome":"", "senha":"", "email":""};
+        let avisoErro = {"nome":"", "senha":"", "email":"",};
         if(listaErros){
             listaErros.errors.forEach(function(itemErro){
                 if(itemErro.path == "nome"){
@@ -37,8 +37,12 @@
                     avisoErro.email = "erro";
                     msgErro += `* ${itemErro.msg} <br>`;
                 }
+                if(itemErro.path == "email"){
+                  avisoErro.email = "erro";
+                  msgErro += `* ${itemErro.msg} <br>`;
+              }
             })        
-            if(msgErro != ""){
+
             %>
             <script>
                     let msgErro ="<%= msgErro %>"

@@ -6,8 +6,8 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-
 }
+
 .container {
   background-color: #ffffff;
   padding: 20px 30px;
@@ -19,8 +19,7 @@ body {
 
 .form-container .logo {
   width: 120px;
-  margin: 0 auto -10px auto;
-  margin-right: 60%;
+  margin: 0 auto 20px auto;
 }
 
 .form-container p {
