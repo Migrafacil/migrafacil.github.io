@@ -141,6 +141,26 @@ router.post(
   }
 )
 
+router.get("/cnpj", function (req, res) {
+  res.render("pages/cadastrocnpj", {pagina:"cadastrocnpj", logado:"null",
+  listaErros: null,
+  valores: {
+    nome_usu: "",
+    email_usu: "",
+    cpf_cnpj_usu: "",
+    senha_usu: "",
+  }
+})
+});
+router.post(
+  "/cnpj",
+  usuarioController.regrasValidacaoFormCad,
+  function (req, res) {
+    console.log(req.body);
+    usuarioController.cadastrar(req,res);
+  }
+)
+
 router.get("/casas", function (req, res) {
   res.render("pages/casas",{pagina:"anuncios casas", logado: "null"});
 });
