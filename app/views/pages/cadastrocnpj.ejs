@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Migra Fácil - Crie sua conta</title>
   <link rel="stylesheet" href="/css/styles.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simples-notify@0.5.5/dist/simples-notify.min.css" /> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simples-notify@0.5.5/dist/simples-notify.min.css" />
 </head>
 <body>
   <section class="container">
@@ -30,16 +30,16 @@
                   msgErro += `* ${itemErro.msg} <br>`;
               }
               if(itemErro.path == "cnpj"){
-                avisoErro.email = "erro";
-                msgErro += `* ${itemErro.msg} <br>`;
-            }
+                  avisoErro.cnpj = "erro";
+                  msgErro += `* ${itemErro.msg} <br>`;
+              }
           })        
           if(msgErro != ""){
           %>
           <script>
-                  let msgErro ="<%= msgErro %>"
-                  notify("Erro(s) no preenchimento","Verifique o(s) campo(s) <br>  " + msgErro.replace(/&lt;/g,"<").replace(/&gt;/g,">"), "error", "center", 5000)                        
-              </script>
+              let msgErro = "<%= msgErro %>"
+              notify("Erro(s) no preenchimento", "Verifique o(s) campo(s) <br>  " + msgErro.replace(/&lt;/g, "<").replace(/&gt;/g, ">"), "error", "center", 5000)                        
+          </script>
           <%
           }
       }
@@ -49,8 +49,8 @@
         <input type="text" id="nome" name="nome" required data-error="Preencha este campo.">
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required data-error="Preencha este campo.">
-        <label for="cpf">CNPJ:</label>
-        <input type="text" id="cnpj" name="cnpj" required data-error="Preencha este campo." oninput="formatCPF_CNPJ(this)">
+        <label for="cnpj">CNPJ:</label>
+        <input type="text" id="cnpj" name="cnpj" required data-error="Preencha este campo." oninput="formatCNPJ(this)">
         <label for="senha">Senha:</label>
         <input type="password" id="senha" name="senha" required data-error="Preencha este campo." onfocus="showPasswordCriteria()" onblur="hidePasswordCriteria()">
         <div id="password-requirements-box">
@@ -70,19 +70,17 @@
       </form>
     </section>
     <script>
-        function mudarCampo() {
-            const tipoPessoa = document.querySelector('input[name="tipoPessoa"]:checked').value;
-            const label = document.getElementById("labelDocumento");
-            const input = document.getElementById("documento");
-            if (tipoPessoa === "fisica") {
-                label.textContent = "CPF:";
-                input.placeholder = "Digite seu CPF";
-            } else {
-                label.textContent = "CNPJ:";
-                input.placeholder = "Digite seu CNPJ";
+        function formatCNPJ(input) {
+            let value = input.value.replace(/\D/g, '');
+            if (value.length <= 14) {
+                value = value.replace(/^(\d{2})(\d)/, '$1.$2');
+                value = value.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3');
+                value = value.replace(/\.(\d{3})(\d)/, '.$1/$2');
+                value = value.replace(/(\d{4})(\d)/, '$1-$2');
             }
+            input.value = value;
         }
-        </script>
+    </script>
   </section>
   <script src="/js/cadastro.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/simples-notify@0.5.5/dist/simples-notify.min.js"></script>

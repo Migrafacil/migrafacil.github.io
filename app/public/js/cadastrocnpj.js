@@ -1,34 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
   const senhaInput = document.getElementById('senha');
   const confirmarSenhaInput = document.getElementById('confirmar-senha');
-  const cpfInput = document.getElementById('cpf'); 
+  const cnpjInput = document.getElementById('cnpj'); 
   const passwordRequirementsBox = document.getElementById('password-requirements-box');
-  
-  function isCPF(value) {
-    return value.length === 11;
-  }
 
   function isCNPJ(value) {
     return value.length === 14;
   }
 
-  function formatCPF_CNPJ(input) {
+  function formatCNPJ(input) {
     let value = input.value.replace(/\D+/g, ''); 
 
-    if (isCPF(value)) {
-      value = value.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, '$1.$2.$3-$4');
-    } else if (isCNPJ(value)) {
+    if (isCNPJ(value)) {
       value = value.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, '$1.$2.$3/$4-$5');
     }
 
     input.value = value;
   }
 
-  cpfInput.addEventListener('input', function() {
-    formatCPF_CNPJ(this);
+  cnpjInput.addEventListener('input', function() {
+    formatCNPJ(this);
   });
 
-  cpfInput.addEventListener('keypress', function(e) {
+  cnpjInput.addEventListener('keypress', function(e) {
     const char = String.fromCharCode(e.which);
     const currentLength = this.value.replace(/\D/g, '').length;
 
@@ -113,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('registration-form').addEventListener('submit', function(event) {
     const senha = senhaInput.value;
     const confirmarSenha = confirmarSenhaInput.value;
-    const cpfCnpj = cpfInput.value.replace(/\D/g, '');
+    const cnpj = cnpjInput.value.replace(/\D/g, '');
     let isValid = true;
 
     if (senha !== confirmarSenha) {
@@ -130,11 +124,11 @@ document.addEventListener('DOMContentLoaded', function() {
       senhaInput.setCustomValidity("");
     }
 
-    if (!(isCPF(cpfCnpj) || isCNPJ(cpfCnpj))) {
-      cpfInput.setCustomValidity("CPF ou CNPJ inválido.");
+    if (!isCNPJ(cnpj)) {
+      cnpjInput.setCustomValidity("CNPJ inválido.");
       isValid = false;
     } else {
-      cpfInput.setCustomValidity("");
+      cnpjInput.setCustomValidity("");
     }
 
     if (!isValid) {
