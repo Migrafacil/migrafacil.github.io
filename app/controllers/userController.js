@@ -27,7 +27,7 @@ const usuarioController = {
             .isEmail().withMessage("Digite um e-mail válido!")
             .custom(async value => {
                 const email = await usuario.findCampoCustom({'email_usuario':value});
-                if (nomeUsu > 0) {
+                if (email > 0) {
                   throw new Error('E-mail em uso!');
                 }
               }), 

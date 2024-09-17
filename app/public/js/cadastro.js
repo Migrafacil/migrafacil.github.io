@@ -8,27 +8,25 @@ document.addEventListener('DOMContentLoaded', function() {
     return value.length === 11;
   }
 
-  function formatCPF_CNPJ(input) {
+  function formatCPF(input) {
     let value = input.value.replace(/\D+/g, ''); 
 
     if (isCPF(value)) {
       value = value.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, '$1.$2.$3-$4');
-    } else if (isCNPJ(value)) {
-      value = value.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, '$1.$2.$3/$4-$5');
     }
 
     input.value = value;
   }
 
   cpfInput.addEventListener('input', function() {
-    formatCPF_CNPJ(this);
+    formatCPF(this);
   });
 
   cpfInput.addEventListener('keypress', function(e) {
     const char = String.fromCharCode(e.which);
     const currentLength = this.value.replace(/\D/g, '').length;
 
-    if (!/\d/.test(char) || currentLength >= 14) {
+    if (!/\d/.test(char) || currentLength >= 11) { // Limite de 11 dígitos para CPF
       e.preventDefault();
     }
   });
@@ -109,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('registration-form').addEventListener('submit', function(event) {
     const senha = senhaInput.value;
     const confirmarSenha = confirmarSenhaInput.value;
-    const cpfCnpj = cpfInput.value.replace(/\D/g, '');
+    const cpf = cpfInput.value.replace(/\D/g, ''); 
     let isValid = true;
 
     if (senha !== confirmarSenha) {
@@ -126,8 +124,8 @@ document.addEventListener('DOMContentLoaded', function() {
       senhaInput.setCustomValidity("");
     }
 
-    if (!(isCPF(cpfCnpj) || isCNPJ(cpfCnpj))) {
-      cpfInput.setCustomValidity("CPF ou CNPJ inválido.");
+    if (!isCPF(cpf)) {
+      cpfInput.setCustomValidity("CPF inválido.");
       isValid = false;
     } else {
       cpfInput.setCustomValidity("");

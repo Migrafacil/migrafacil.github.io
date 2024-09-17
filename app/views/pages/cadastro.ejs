@@ -13,44 +13,52 @@
       <img src="imagens/image2.png" alt="Logo Migra Fácil" class="logo"> 
       <p>Crie sua conta!</p>
       <% 
-      let msgErro = "";
-      let avisoErro = {"nome":"", "senha":"", "email":"", "cpf":""};
-      if(listaErros){
-          listaErros.errors.forEach(function(itemErro){
-              if(itemErro.path == "nome"){
-                  avisoErro.nome = "erro";
-                  msgErro += `* ${itemErro.msg} <br>`;
-              }
-              if(itemErro.path == "senha"){
-                  avisoErro.senha = "erro";
-                  msgErro += `* ${itemErro.msg} <br>`;
-              }
-              if(itemErro.path == "email"){
-                  avisoErro.email = "erro";
-                  msgErro += `* ${itemErro.msg} <br>`;
-              }
-              if(itemErro.path == "cpf"){
-                avisoErro.email = "erro";
-                msgErro += `* ${itemErro.msg} <br>`;
-            }
-          })        
-          if(msgErro != ""){
-          %>
-          <script>
-                  let msgErro ="<%= msgErro %>"
-                  notify("Erro(s) no preenchimento","Verifique o(s) campo(s) <br>  " + msgErro.replace(/&lt;/g,"<").replace(/&gt;/g,">"), "error", "center", 5000)                        
+let msgErro = "";
+let avisoErro = {"nome":"", "senha":"", "email":"", "cpf":""};
+if(listaErros){
+    listaErros.errors.forEach(function(itemErro){
+        if(itemErro.path == "nome"){
+            avisoErro.nome = "erro";
+            msgErro += `* ${itemErro.msg} <br>`;
+        }
+        if(itemErro.path == "senha"){
+            avisoErro.senha = "erro";
+            msgErro += `* ${itemErro.msg} <br>`;
+        }
+        if(itemErro.path == "email"){
+            avisoErro.email = "erro";
+            msgErro += `* ${itemErro.msg} <br>`;
+            // Verifica se o erro é especificamente o de email já em uso
+            if(itemErro.msg === "E-mail em uso!"){
+              %>
+              <script>
+                  notify("Erro!", "Este e-mail já está em uso. Por favor, utilize outro.", "error", "center", 5000);
               </script>
-          <%
-          }
-      }
-      %>
+              <%
+            }
+        }
+        if(itemErro.path == "cpf"){
+            avisoErro.cpf = "erro";
+            msgErro += `* ${itemErro.msg} <br>`;
+        }
+    });
+    if(msgErro != ""){
+    %>
+    <script>
+            let msgErro ="<%= msgErro %>"
+            notify("Erro(s) no preenchimento","Verifique o(s) campo(s) <br>  " + msgErro.replace(/&lt;/g,"<").replace(/&gt;/g,">"), "error", "center", 5000)                        
+    </script>
+    <%
+    }
+}
+%>
       <form id="registration-form" method="post" action="/cadastro">
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" required data-error="Preencha este campo.">
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required data-error="Preencha este campo.">
         <label for="cpf">CPF:</label>
-        <input type="text" id="cpf" name="cpf" required data-error="Preencha este campo." oninput="formatCPF_CNPJ(this)">
+        <input type="text" id="cpf" name="cpf" required data-error="Preencha este campo.">
         <label for="senha">Senha:</label>
         <input type="password" id="senha" name="senha" required data-error="Preencha este campo." onfocus="showPasswordCriteria()" onblur="hidePasswordCriteria()">
         <div id="password-requirements-box">
@@ -69,20 +77,6 @@
         <p>Já possui uma conta? <a href="/login">Entrar</a></p>
       </form>
     </section>
-    <script>
-        function mudarCampo() {
-            const tipoPessoa = document.querySelector('input[name="tipoPessoa"]:checked').value;
-            const label = document.getElementById("labelDocumento");
-            const input = document.getElementById("documento");
-            if (tipoPessoa === "fisica") {
-                label.textContent = "CPF:";
-                input.placeholder = "Digite seu CPF";
-            } else {
-                label.textContent = "CNPJ:";
-                input.placeholder = "Digite seu CNPJ";
-            }
-        }
-        </script>
   </section>
   <script src="/js/cadastro.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/simples-notify@0.5.5/dist/simples-notify.min.js"></script>
