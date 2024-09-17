@@ -26,7 +26,7 @@ const usuarioController = {
         body("email")
             .isEmail().withMessage("Digite um e-mail válido!")
             .custom(async value => {
-                const nomeUsu = await usuario.findCampoCustom({'email_usuario':value});
+                const email = await usuario.findCampoCustom({'email_usuario':value});
                 if (nomeUsu > 0) {
                   throw new Error('E-mail em uso!');
                 }
@@ -34,7 +34,7 @@ const usuarioController = {
         body("senha")
             .isStrongPassword()
             .withMessage("A senha deve ter no mínimo 8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)"),
-        body("CNPJ")
+        body("CPF")
     ],
 
 
