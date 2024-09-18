@@ -154,10 +154,10 @@ router.get("/cnpj", function (req, res) {
 });
 router.post(
   "/cnpj",
-  usuarioController.regrasValidacaoFormCad,
+  usuarioController.regrasValidacaoFormCadempresa,
   function (req, res) {
     console.log(req.body);
-    usuarioController.cadastrar(req,res);
+    usuarioController.cadastrarEmpresa(req,res);
   }
 )
 

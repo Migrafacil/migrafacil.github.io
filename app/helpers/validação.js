@@ -57,7 +57,18 @@ function validarCPF(cpf) {
  
   const cpfRegex = /^\d{11}$/;
   if (!cpfRegex.test(cpf)) return false; // CPF deve ter apenas dígitos
- 
+  if (cpf == "00000000000" ||
+  cpf == "11111111111" ||
+  cpf == "22222222222" ||
+  cpf == "33333333333" ||
+  cpf == "44444444444" ||
+  cpf == "55555555555" ||
+  cpf == "66666666666" ||
+  cpf == "77777777777" ||
+  cpf == "88888888888" ||
+  cpf == "99999999999")
+return false;
+
   let sum = 0;
   let weight = [10, 9, 8, 7, 6, 5, 4, 3, 2];
  

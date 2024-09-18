@@ -32,9 +32,35 @@ const usuarioController = {
         body("senha")
             .isStrongPassword()
             .withMessage("A senha deve ter no mínimo 8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)"),
-        // body("CPF")
+        body("cpf")
+        .custom(async value => {
+            if (!validarCPF(value)) {
+              throw new Error('CPF invalido');
+            }
+          }), 
     ],
 
+    regrasValidacaoFormCadempresa: [
+        body("nome")
+           .isLength({ min: 3, max: 45 }).withMessage("Nome de usuário deve ter de 3 a 45 caracteres!"),
+       body("email")
+           .isEmail().withMessage("Digite um e-mail válido!")
+           .custom(async value => {
+               const email = await usuario.findCampoCustom({'EMAIL_USUARIO':value});
+               if (email > 0) {
+                 throw new Error('E-mail em uso!');
+               }
+             }), 
+       body("senha")
+           .isStrongPassword()
+           .withMessage("A senha deve ter no mínimo 8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)"),
+       body("cpf")
+       .custom(async value => {
+           if (!validarCPF(value)) {
+             throw new Error('CPF invalido');
+           }
+         }), 
+   ],
 
     regrasValidacaoPerfil: [
         body("nome")
@@ -62,6 +88,42 @@ const usuarioController = {
 
 
     cadastrar: async (req, res) => {
+        console.log("Senha recebida:", req.body.senha);
+        const erros = validationResult(req);
+        var dadosForm = {
+            CPF_USUARIO: req.body.cpf, 
+            SENHA_USUARIO: bcrypt.hashSync(req.body.senha, salt),
+            NOME_USUARIO: req.body.nome,
+            EMAIL_USUARIO: req.body.email,
+            tipo_usuario_idtipo_usuario: 1,
+        };
+        console.log(dadosForm)
+
+        if (!erros.isEmpty()) {
+            console.log("Erros de validação:", erros.array());
+            console.log(erros);
+            return res.render("pages/cadastro", { listaErros: erros, dadosNotificacao: null, valores: req.body })
+        }
+        try {
+            const createResult = await usuario.create(dadosForm); // Aguardando a criação do usuário
+            console.log("Usuário criado:", createResult);
+
+            if (createResult.affectedRows > 0) {
+                res.redirect("/logado"); // Redireciona para a página logado após o cadastro bem-sucedido
+            } else {
+                throw new Error('Falha ao criar usuário');
+            }
+        } catch (e) {
+            console.log(e);
+            res.render("pages/cadastro", {
+                listaErros: null, dadosNotificacao: {
+                    titulo: "Erro ao cadastrar!", mensagem: "Verifique os valores digitados!", tipo: "error"
+                }, valores: req.body
+            })
+        }
+    },
+
+    cadastrarEmpresa: async (req, res) => {
         console.log("Senha recebida:", req.body.senha);
         const erros = validationResult(req);
         var dadosForm = {
