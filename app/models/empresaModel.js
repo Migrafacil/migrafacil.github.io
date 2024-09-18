@@ -18,7 +18,7 @@ var pool = require("../../config/pool_conexoes");
         findUserEmail: async (camposForm) => {
             try {
                 const [resultados] = await pool.query(
-                    "SELECT * FROM empresa WHERE EMAIL_USUARIO = ?",
+                    "SELECT * FROM empresa WHERE EMAIL_EMPRESA = ?",
                     [camposForm.user_usuario ]
                 )
                 return resultados;
@@ -56,10 +56,10 @@ var pool = require("../../config/pool_conexoes");
         update: async (camposForm) => {
             try {
                 const [resultados] = await pool.query(
-                    "UPDATE usuario SET nome_usuario = ?, user_usuario = ?, senha_usuario = ?,  " +
-                    " email_usuario = ?, fone_usuario = ?, tipo_usuario = ?, status_usuario = ? " +
+                    "UPDATE usuario SET RAZAOSOCIAL = ?, CEP_EMPRESA = ?, CNPJ_EMPRESA = ?,  " +
+                    " EMAIL_EMPRESA = ?, SENHA_EMPRESA = ?, NUMERO_EMPRESA = ?, COMPLEMENTO_EMPRESA = ? " +
                     " WHERE id_usuario = ?",
-                    [camposForm.nome_usuario, camposForm.user_usuario, camposForm.senha_usuario,
+                    [camposForm.RAZAOSOCIAL, camposForm.user_usuario, camposForm.senha_usuario,
                     camposForm.email_usuario, camposForm.fone_usuario, camposForm.tipo_usuario,
                     camposForm.status_usuario, camposForm.id_usuario]//NOMES IGUAIS DO BANCO DE DADOS 
                 )

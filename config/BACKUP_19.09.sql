@@ -238,16 +238,17 @@ DROP TABLE IF EXISTS `empresa`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `empresa` (
   `EmpresaID` int NOT NULL,
-  `RazaoSocial` varchar(255) NOT NULL,
-  `CEPEmprego` char(8) NOT NULL,
-  `CNPJEmpresa` char(14) NOT NULL,
-  `usuario_ID_USUARIO` int NOT NULL,
+  `RAZAOSOCIAL` varchar(255) NOT NULL,
+  `CEP_EMPRESA` char(8) NOT NULL,
+  `CNPJ _EMPRESA` char(14) NOT NULL,
+  `USUARIO_ID_EMPRESA` int NOT NULL,
   `EMAIL_EMPRESA` varchar(80) NOT NULL,
   `NUMERO_EMPRESA` char(10) NOT NULL,
   `COMPLEMENTO_EMPRESA` varchar(20) DEFAULT NULL,
+  `SENHA_EMPRESA` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`EmpresaID`),
-  KEY `fk_empresa_usuario1_idx` (`usuario_ID_USUARIO`),
-  CONSTRAINT `fk_empresa_usuario1` FOREIGN KEY (`usuario_ID_USUARIO`) REFERENCES `usuario` (`ID_USUARIO`)
+  KEY `fk_empresa_usuario1_idx` (`USUARIO_ID_EMPRESA`),
+  CONSTRAINT `fk_empresa_usuario1` FOREIGN KEY (`USUARIO_ID_EMPRESA`) REFERENCES `usuario` (`ID_USUARIO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -411,4 +412,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-18 14:19:44
+-- Dump completed on 2024-09-18 14:28:00

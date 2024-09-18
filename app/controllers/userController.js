@@ -54,7 +54,7 @@ const usuarioController = {
        body("senha")
            .isStrongPassword()
            .withMessage("A senha deve ter no mínimo 8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)"),
-       body("cpf")
+       body("cnpj")
        .custom(async value => {
            if (!validarCPF(value)) {
              throw new Error('CPF invalido');
