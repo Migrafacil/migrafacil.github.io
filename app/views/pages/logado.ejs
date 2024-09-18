@@ -280,3 +280,209 @@
   </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+       
+        .botao-redondo {
+            position: fixed; 
+            bottom: 100px; 
+            right: 130px; 
+            background-color: #016FA0; 
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 80px; 
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.3s ease; 
+        }
+
+       
+        .botao-redondo:hover {
+            background-color: #218838; 
+            transform: scale(1.1); 
+        }
+     /* Estilos para o modal */
+     .modal {
+            display: none; /* Modal inicialmente escondido */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        /* Estilos para o botão fechar no canto superior direito */
+        .modal .fechar-x {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            color: #888;
+        }
+
+        .modal .fechar-x:hover {
+            color: #000;
+        }
+
+        /* Estilos para o fundo do modal */
+        .modal-fundo {
+            display: none; /* Fundo escuro inicialmente escondido */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9;
+        }
+
+        /* Estilos dos campos do formulário */
+        .modal label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+
+        .modal input, .modal select, .modal textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        /* Botão Publicar */
+        .publicar {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .publicar:hover {
+            background-color: #218838;
+        }
+
+        /* Campo extra (inicialmente escondido) */
+        .extra-emprego {
+            display: none;
+        }
+    </style>
+    <title>Botão Redondo Fixo com Modal</title>
+</head>
+<body>
+ <!-- Botão redondo -->
+ <button class="botao-redondo" onclick="mostrarModal()">+</button>
+
+ <!-- Fundo do modal -->
+ <div class="modal-fundo" id="modal-fundo" onclick="fecharModal()"></div>
+
+ <!-- Modal com o formulário -->
+ <div class="modal" id="modal">
+     <span class="fechar-x" onclick="fecharModal()">&#10006;</span>
+     <h2>Publicar Anúncio</h2>
+     <form id="form-anuncio">
+         <label for="tipo-anuncio">Tipo de Anúncio:</label>
+         <select id="tipo-anuncio" name="tipo-anuncio" onchange="verificarTipoAnuncio()">
+             <option value="">Escolha o tipo de anúncio</option>
+             <option value="vaga">Vaga de Emprego</option>
+             <option value="moradia">Moradia</option>
+         </select>
+
+         <label for="titulo">Título:</label>
+         <input type="text" id="titulo" name="titulo" placeholder="Título do anúncio">
+
+         <label for="descricao">Descrição:</label>
+         <textarea id="descricao" name="descricao" rows="4" placeholder="Descrição detalhada"></textarea>
+
+         <label for="preco-salario" id="label-preco-salario">Preço/Salário:</label>
+         <input type="text" id="preco-salario" name="preco-salario" placeholder="Preço ou Salário">
+
+         <div class="extra-emprego" id="extra-emprego">
+             <label for="contato">Link da vaga ou WhatsApp:</label>
+             <input type="text" id="contato" name="contato" placeholder="Link ou número de WhatsApp">
+         </div>
+
+         <div class="campo-imagem" id="campo-imagem">
+             <label for="imagem">Imagem (opcional):</label>
+             <input type="file" id="imagem" name="imagem">
+         </div>
+
+        
+         <button type="button" class="publicar" onclick="publicarAnuncio()">Publicar</button>
+     </form>
+ </div>
+
+ <script>
+     function mostrarModal() {
+         document.getElementById('modal').style.display = 'block';
+         document.getElementById('modal-fundo').style.display = 'block';
+     }
+
+     function fecharModal() {
+         document.getElementById('modal').style.display = 'none';
+         document.getElementById('modal-fundo').style.display = 'none';
+     }
+
+     function verificarTipoAnuncio() {
+         const tipoAnuncio = document.getElementById('tipo-anuncio').value;
+         const labelPrecoSalario = document.getElementById('label-preco-salario');
+         const inputPrecoSalario = document.getElementById('preco-salario');
+         const campoImagem = document.getElementById('campo-imagem');
+
+         if (tipoAnuncio === 'vaga') {
+             labelPrecoSalario.textContent = 'Salário:';
+             inputPrecoSalario.placeholder = 'Salário';
+             campoImagem.style.display = 'none';
+             document.getElementById('extra-emprego').style.display = 'block'; 
+         } else if (tipoAnuncio === 'moradia') {
+             labelPrecoSalario.textContent = 'Preço:';
+             inputPrecoSalario.placeholder = 'Preço';
+             campoImagem.style.display = 'block'; 
+             document.getElementById('extra-emprego').style.display = 'none'; 
+         }
+     }
+
+     function publicarAnuncio() {
+         const form = document.getElementById('form-anuncio');
+         const tipoAnuncio = document.getElementById('tipo-anuncio').value;
+
+         if (tipoAnuncio === 'vaga') {
+             form.action = '/empregos.ejs'; 
+         } else if (tipoAnuncio === 'moradia') {
+             form.action = '/casas.ejs'; 
+         }
+
+         
+         form.submit();
+     }
+ </script>
+
+ <div style="height: 2000px;"></div>
+
+</body>
+</html>

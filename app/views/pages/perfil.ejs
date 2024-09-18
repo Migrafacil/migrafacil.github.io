@@ -43,37 +43,85 @@
 
         <section class="listing">
             <h2>Publicar Anúncio</h2>
-            <form id="listingForm">
-                <div class="form-group">
-                    <label for="listingType">Tipo de Anúncio:</label>
-                    <select id="listingType" name="listingType" required>
-                        <option value="" disabled selected>Escolha o tipo de anúncio</option>
-                        <option value="property">Imóvel</option>
-                        <option value="job">Vaga de Emprego</option>
-                    </select>
+            <form id="form-anuncio">
+                <label for="tipo-anuncio">Tipo de Anúncio:</label>
+                <select id="tipo-anuncio" name="tipo-anuncio" onchange="verificarTipoAnuncio()">
+                    <option value="">Escolha o tipo de anúncio</option>
+                    <option value="vaga">Vaga de Emprego</option>
+                    <option value="moradia">Moradia</option>
+                </select>
+       
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" name="titulo" placeholder="Título do anúncio">
+       
+                <label for="descricao">Descrição:</label>
+                <textarea id="descricao" name="descricao" rows="4" placeholder="Descrição detalhada"></textarea>
+       
+                <label for="preco-salario" id="label-preco-salario">Preço/Salário:</label>
+                <input type="text" id="preco-salario" name="preco-salario" placeholder="Preço ou Salário">
+       
+                <div class="extra-emprego" id="extra-emprego">
+                    <label for="contato">Link da vaga ou WhatsApp:</label>
+                    <input type="text" id="contato" name="contato" placeholder="Link ou número de WhatsApp">
                 </div>
-                <div class="form-group">
-                    <label for="listingTitle">Título:</label>
-                    <input type="text" id="listingTitle" name="listingTitle" placeholder="Título do anúncio" required>
+       
+                <div class="campo-imagem" id="campo-imagem">
+                    <label for="imagem">Imagem (opcional):</label>
+                    <input type="file" id="imagem" name="imagem">
                 </div>
-                <div class="form-group">
-                    <label for="listingDescription">Descrição:</label>
-                    <textarea id="listingDescription" name="listingDescription" placeholder="Descrição detalhada" rows="4" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="listingPrice">Preço/Salário:</label>
-                    <input type="text" id="listingPrice" name="listingPrice" placeholder="Preço">
-                </div>
-                <div class="form-group">
-                    <label for="listingImage">Imagem (opcional):</label>
-                    <input type="file" id="listingImage" name="listingImage" accept="image/*">
-                </div>
-                <button type="submit">Publicar Anúncio</button>
+       
+               
+                <button type="button" class="publicar" onclick="publicarAnuncio()">Publicar</button>
             </form>
-        </section>
-    </div>
+        </div>
+       
+        
+        <script>
+            function mostrarModal() {
+                document.getElementById('modal').style.display = 'block';
+                document.getElementById('modal-fundo').style.display = 'block';
+            }
+       
+            function fecharModal() {
+                document.getElementById('modal').style.display = 'none';
+                document.getElementById('modal-fundo').style.display = 'none';
+            }
+       
+            function verificarTipoAnuncio() {
+                const tipoAnuncio = document.getElementById('tipo-anuncio').value;
+                const labelPrecoSalario = document.getElementById('label-preco-salario');
+                const inputPrecoSalario = document.getElementById('preco-salario');
+                const campoImagem = document.getElementById('campo-imagem');
+       
+                if (tipoAnuncio === 'vaga') {
+                    labelPrecoSalario.textContent = 'Salário:';
+                    inputPrecoSalario.placeholder = 'Salário';
+                    campoImagem.style.display = 'none'; // Esconder campo de imagem
+                    document.getElementById('extra-emprego').style.display = 'block'; // Mostrar campo extra
+                } else if (tipoAnuncio === 'moradia') {
+                    labelPrecoSalario.textContent = 'Preço:';
+                    inputPrecoSalario.placeholder = 'Preço';
+                    campoImagem.style.display = 'block'; // Mostrar campo de imagem
+                    document.getElementById('extra-emprego').style.display = 'none'; // Esconder campo extra
+                }
+            }
+       
+            function publicarAnuncio() {
+                const form = document.getElementById('form-anuncio');
+                const tipoAnuncio = document.getElementById('tipo-anuncio').value;
+       
+                // Definir a ação do formulário com base no tipo de anúncio
+                if (tipoAnuncio === 'vaga') {
+                    form.action = '/empregos.ejs'; // Enviar para empregos.ejs
+                } else if (tipoAnuncio === 'moradia') {
+                    form.action = '/casas.ejs'; // Enviar para casas.ejs
+                }
+       
+                // Simular o envio do formulário (substituir com o método real de envio)
+                form.submit();
+            }
+        </script>
+       
     
-
-    <script src="js/perfil.js"></script>
-</body>
-</html>
+       </body>
+       </html>
