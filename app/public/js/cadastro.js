@@ -1,4 +1,25 @@
+  function notify(titulo, texto, tipo, posicao,duracao=3000) {
+    new Notify({
+        status: tipo,
+        title: titulo,
+        text:texto,
+        effect: 'fade',
+        speed: 500,
+        showIcon: true,
+        showCloseButton: true,
+        autoclose: true,
+        autotimeout: duracao,
+        gap: 20,
+        distance: 20,
+        type: 1,
+        position:posicao 
+    })
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+
+
+
   const senhaInput = document.getElementById('senha');
   const confirmarSenhaInput = document.getElementById('confirmar-senha');
   const cpfInput = document.getElementById('cpf'); 
@@ -133,8 +154,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (!isValid) {
       event.preventDefault();
-    } else {
-      alert("Cadastro feito com sucesso!");
-    }
+    } 
   });
 });

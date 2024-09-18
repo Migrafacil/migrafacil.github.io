@@ -19,14 +19,12 @@ const usuarioController = {
     ],
 
     regrasValidacaoFormCad: [
-        body("nome")
-            .isLength({ min: 3, max: 45 }).withMessage("Nome deve ter de 3 a 45 caracteres!"),
-        body("nome")
+         body("nome")
             .isLength({ min: 3, max: 45 }).withMessage("Nome de usuário deve ter de 3 a 45 caracteres!"),
         body("email")
             .isEmail().withMessage("Digite um e-mail válido!")
             .custom(async value => {
-                const email = await usuario.findCampoCustom({'email_usuario':value});
+                const email = await usuario.findCampoCustom({'EMAIL_USUARIO':value});
                 if (email > 0) {
                   throw new Error('E-mail em uso!');
                 }
@@ -34,7 +32,7 @@ const usuarioController = {
         body("senha")
             .isStrongPassword()
             .withMessage("A senha deve ter no mínimo 8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)"),
-        body("CPF")
+        // body("CPF")
     ],
 
 
@@ -67,7 +65,7 @@ const usuarioController = {
         console.log("Senha recebida:", req.body.senha);
         const erros = validationResult(req);
         var dadosForm = {
-            CPF_CNPJ_USUARIO: req.body.cpf, 
+            CPF_USUARIO: req.body.cpf, 
             SENHA_USUARIO: bcrypt.hashSync(req.body.senha, salt),
             NOME_USUARIO: req.body.nome,
             EMAIL_USUARIO: req.body.email,
