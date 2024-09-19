@@ -3,99 +3,78 @@ let isLoading = false;
 let jobs = [
     {
         title: "Auxiliar Administrativo",
-        salary: "R$ 1500,00",
+        salary: "R$ 2.000,00",
         location: "São Paulo - SP",
-        description: "Responsável por auxiliar diversas áreas de uma organização nas rotinas de digitação, arquivo de documentos, distribuição de correspondência e serviços externos."
+        description: "Responsável por rotinas administrativas e atendimento a clientes.",
+        applyUrl: "https://api.whatsapp.com/send?phone=5511987654321&text=Olá,%20gostaria%20de%20me%20candidatar%20à%20vaga%20de%20Auxiliar%20Administrativo"
     },
     {
         title: "Desenvolvedor Web",
-        salary: "R$ 4000,00",
+        salary: "R$ 4.500,00",
         location: "Rio de Janeiro - RJ",
-        description: "Desenvolvimento e manutenção de websites e aplicativos web, trabalhando com tecnologias como HTML, CSS, JavaScript e frameworks modernos."
+        description: "Desenvolvimento e manutenção de websites usando HTML, CSS e JavaScript.",
+        applyUrl: "https://www.linkedin.com/jobs/view/359023123/"
     },
     {
         title: "Analista de Marketing",
-        salary: "R$ 3000,00",
+        salary: "R$ 3.800,00",
         location: "Belo Horizonte - MG",
-        description: "Criação de campanhas publicitárias, análise de mercado, planejamento estratégico e comunicação com o cliente."
+        description: "Criação de campanhas publicitárias e análise de desempenho.",
+        applyUrl: "https://api.whatsapp.com/send?phone=5531998765432&text=Olá,%20gostaria%20de%20me%20candidatar%20à%20vaga%20de%20Analista%20de%20Marketing"
     },
     {
         title: "Gerente de Projetos",
-        salary: "R$ 7000,00",
+        salary: "R$ 7.500,00",
         location: "Curitiba - PR",
-        description: "Responsável pelo planejamento, execução e monitoramento de projetos, garantindo que sejam concluídos no prazo e dentro do orçamento."
+        description: "Planejamento e gestão de projetos em diferentes áreas.",
+        applyUrl: "https://jobs.kenoby.com/empresa-talento/vaga/gerente-de-projetos/123456"
     },
     {
         title: "Engenheiro de Software",
-        salary: "R$ 8000,00",
+        salary: "R$ 8.000,00",
         location: "Porto Alegre - RS",
-        description: "Desenvolvimento de software, análise de requisitos, testes e manutenção de sistemas complexos."
+        description: "Desenvolvimento de software e suporte técnico para sistemas complexos.",
+        applyUrl: "https://api.whatsapp.com/send?phone=5551987654321&text=Olá,%20gostaria%20de%20me%20candidatar%20à%20vaga%20de%20Engenheiro%20de%20Software"
     },
     {
         title: "Designer UX/UI",
-        salary: "R$ 5000,00",
+        salary: "R$ 5.500,00",
         location: "Florianópolis - SC",
-        description: "Criação de interfaces de usuário e experiências de usuário, focando na usabilidade e estética dos produtos."
+        description: "Design de interfaces e experiências de usuário focando na usabilidade.",
+        applyUrl: "https://www.linkedin.com/jobs/view/852147369/"
     },
     {
         title: "Analista de Dados",
-        salary: "R$ 6000,00",
+        salary: "R$ 6.500,00",
         location: "Brasília - DF",
-        description: "Coleta, análise e interpretação de grandes volumes de dados para apoiar a tomada de decisões estratégicas."
+        description: "Coleta e análise de dados para apoiar a tomada de decisões estratégicas.",
+        applyUrl: "https://api.whatsapp.com/send?phone=5561987654321&text=Olá,%20gostaria%20de%20me%20candidatar%20à%20vaga%20de%20Analista%20de%20Dados"
     },
     {
         title: "Consultor de Vendas",
-        salary: "R$ 2500,00 + comissão",
+        salary: "R$ 2.800,00 + comissão",
         location: "Salvador - BA",
-        description: "Prospecção de novos clientes, manutenção de carteira de clientes e fechamento de vendas."
+        description: "Prospecção de clientes e fechamento de vendas de serviços.",
+        applyUrl: "https://api.whatsapp.com/send?phone=5571987654321&text=Olá,%20gostaria%20de%20me%20candidatar%20à%20vaga%20de%20Consultor%20de%20Vendas"
     },
     {
         title: "Arquiteto",
-        salary: "R$ 7000,00",
+        salary: "R$ 7.500,00",
         location: "Fortaleza - CE",
-        description: "Desenvolvimento de projetos arquitetônicos, coordenação de obras e acompanhamento de cronogramas."
+        description: "Desenvolvimento de projetos arquitetônicos e supervisão de obras.",
+        applyUrl: "https://jobs.empresa-arquitetura.com/vagas/arquiteto/54321"
     },
     {
         title: "Enfermeiro",
-        salary: "R$ 4000,00",
+        salary: "R$ 4.500,00",
         location: "Recife - PE",
-        description: "Prestação de cuidados de enfermagem a pacientes, administração de medicamentos e acompanhamento de tratamentos."
-    },
-    {
-        title: "Professor de Inglês",
-        salary: "R$ 3000,00",
-        location: "Manaus - AM",
-        description: "Ministração de aulas de inglês para diferentes níveis de proficiência, planejamento de aulas e avaliação de alunos."
-    },
-    {
-        title: "Técnico em Informática",
-        salary: "R$ 2500,00",
-        location: "Goiânia - GO",
-        description: "Manutenção de hardware e software, suporte técnico a usuários e instalação de sistemas operacionais."
-    },
-    {
-        title: "Auxiliar de Logística",
-        salary: "R$ 2000,00",
-        location: "Campinas - SP",
-        description: "Controle de estoque, emissão de notas fiscais, separação e conferência de mercadorias."
-    },
-    {
-        title: "Analista Financeiro",
-        salary: "R$ 5000,00",
-        location: "Vitória - ES",
-        description: "Controle de fluxo de caixa, análise de despesas e receitas, elaboração de relatórios financeiros."
-    },
-    {
-        title: "Desenvolvedor Mobile",
-        salary: "R$ 6000,00",
-        location: "São Paulo - SP",
-        description: "Desenvolvimento de aplicativos móveis para Android e iOS, manutenção e atualização de aplicações existentes."
-    },
+        description: "Prestação de cuidados de enfermagem a pacientes.",
+        applyUrl: "https://www.linkedin.com/jobs/view/243908876/"
+    }
 ];
 
-
 function fetchJobs() {
-    if (isLoading) return; 
+    if (isLoading) return;
 
     isLoading = true;
     const jobListings = document.getElementById('job-listings');
@@ -110,7 +89,7 @@ function fetchJobs() {
             (job.location.toLowerCase().includes(location) || location === '')
         ).slice((page - 1) * 15, page * 15);
 
-        if (filteredJobs.length === 0 && page === 1) {
+        if (filteredJobs.length === 0) {
             const noJobsMessage = document.createElement('p');
             noJobsMessage.id = 'no-jobs-message';
             noJobsMessage.textContent = 'Não há vagas disponíveis';
@@ -125,7 +104,7 @@ function fetchJobs() {
                     <p class="salary">Salário: ${job.salary}</p>
                     <p class="location">Localização: ${job.location}</p>
                     <p class="description">${job.description}</p>
-                    <button onclick="applyForJob('${job.title}')">Quero me candidatar</button>
+                    <button onclick="applyForJob('${job.applyUrl}')">Quero me candidatar</button>
                 `;
 
                 jobListings.appendChild(jobCard);
@@ -143,7 +122,6 @@ function searchJobs() {
     jobListings.innerHTML = ''; 
     page = 1; 
 
-    
     const noJobsMessage = document.getElementById('no-jobs-message');
     if (noJobsMessage) {
         noJobsMessage.remove();
@@ -158,10 +136,9 @@ function handleScroll() {
     }
 }
 
-function applyForJob(jobTitle) {
-    alert(`Você se candidatou para a vaga: ${jobTitle}`);
+function applyForJob(applyUrl) {
+    window.location.href = applyUrl; 
 }
 
 window.addEventListener('scroll', handleScroll);
-
 document.addEventListener('DOMContentLoaded', fetchJobs);
