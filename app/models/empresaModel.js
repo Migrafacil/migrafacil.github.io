@@ -59,7 +59,7 @@ var pool = require("../../config/pool_conexoes");
                     "UPDATE usuario SET RAZAOSOCIAL = ?, CEP_EMPRESA = ?, CNPJ_EMPRESA = ?,  " +
                     " EMAIL_EMPRESA = ?, SENHA_EMPRESA = ?, NUMERO_EMPRESA = ?, COMPLEMENTO_EMPRESA = ? " +
                     " WHERE id_usuario = ?",
-                    [camposForm.RAZAOSOCIAL, camposForm.user_usuario, camposForm.senha_usuario,
+                    [camposForm.RAZAOSOCIAL, camposForm.SENHA_EMPRESA,
                     camposForm.email_usuario, camposForm.fone_usuario, camposForm.tipo_usuario,
                     camposForm.status_usuario, camposForm.id_usuario]//NOMES IGUAIS DO BANCO DE DADOS 
                 )

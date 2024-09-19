@@ -245,7 +245,7 @@ CREATE TABLE `empresa` (
   `EMAIL_EMPRESA` varchar(80) NOT NULL,
   `NUMERO_EMPRESA` char(10) NOT NULL,
   `COMPLEMENTO_EMPRESA` varchar(20) DEFAULT NULL,
-  `SENHA_EMPRESA` varchar(45) DEFAULT NULL,
+  `SENHA_EMPRESA` varchar(45) NOT NULL,
   PRIMARY KEY (`EmpresaID`),
   KEY `fk_empresa_usuario1_idx` (`USUARIO_ID_EMPRESA`),
   CONSTRAINT `fk_empresa_usuario1` FOREIGN KEY (`USUARIO_ID_EMPRESA`) REFERENCES `usuario` (`ID_USUARIO`)
@@ -359,7 +359,7 @@ CREATE TABLE `usuario` (
   PRIMARY KEY (`ID_USUARIO`),
   KEY `fk_usuario_tipo_usuario1_idx` (`tipo_usuario_idtipo_usuario`),
   CONSTRAINT `fk_usuario_tipo_usuario1` FOREIGN KEY (`tipo_usuario_idtipo_usuario`) REFERENCES `tipo_usuario` (`idtipo_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -368,7 +368,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (8,'arroyo@gmail.com','314.844.998-35','$2a$12$pH3LNUAvqGQis8NUl1kIGu7JPfCO.O0HNZrFSQK/mdCe9VB6gFCvi','luanny',0),(9,'https@gmail.com','256.322.566-98','$2a$12$jjUtJdIEpDAQU6gDsvYHZO8Incktsp9I9lmyGbdJxzb1d/hWeClja','luanny ',0),(10,'eliana@gmail.com','555.555.555-55','$2a$12$xffx0I1VNcxgsiiuSSMQSuaXawuzwMD3uP/xocayTQP1GJn/NtdmO','eliana',0),(11,'cleo.arroyo@porto.com','419.500.438-19','$2a$12$hYdIGJc/mHbHoyTROswm9egISo2CbXNFpPR3ds7fsSvYDBOsT0zxW','luanny',0),(12,'cleo.arroyo@hilu.com','419.500.438-10','$2a$12$hYdIGJc/mHbHoyTROswm9egISo2CbXNFpPR3ds7fsSvYDBOsT0zxW','luanny',0),(13,'julia@santos.com','360.233.656-51','$2a$12$U7wlUxRZkUKC1Z6SLRvAXeG5HZcCJeApkfofV0dLE126dUdgLAIYu','julia',0),(14,'lui@gmail.com','314.844.998-98','$2a$12$8gEAaV135WAJFW00py3VZeB3apjJ9qiqRKM.zrt5pYVeEg4SNpEAa','luanny',0),(15,'lua.arroyo@gmail.com','41950043819','$2a$12$AUb4v0DrwbqJJgVqc/46.OnuMDBLwJveoqvh5nfXVQyWjvZ3Ln9Sq','luanny ',0),(16,'luanny@arroyo.com','45645645689','$2a$12$AUb4v0DrwbqJJgVqc/46.OnuMDBLwJveoqvh5nfXVQyWjvZ3Ln9Sq','luanny',0),(17,'rafa@fael.com','314.844.99698','$2a$12$KTCKo4f5iKupr7.oXrcVHOhkTOQeFUXdUfsnfZ30klvckCZcBHm5S','luanny',0),(18,'luanny@arroyosilva.com','41950043818','$2a$12$KTCKo4f5iKupr7.oXrcVHOhkTOQeFUXdUfsnfZ30klvckCZcBHm5S','luanny',0),(19,'arroyo2006@gmail.com','314.784.498-32','$2a$12$gmXDW1uQJ1Lr0tIc534wJuDH32whvP2EwBjB3xvnumz6mzwdd0cMS','luanny arroyo',0),(20,'popo@gmail.com','32165498725','$2a$12$3y/Jv3IvsxE99Jek/KZqBuFVw.17YXFAMiVeNvnXMjw3tCxzb04.O','luanny arroyo',0),(21,'juliamarques.brasil@gmail.com','55063303838','$2a$12$ZLGsLzVi/1nflz.QPBrSvu.FJ14tqJRDvxs4yQOOFqYO.oVbBVlSy','julia marques',0),(22,'juli@gmail.com','314.844.25665','$2a$12$z5tEB4zu/SpsWdox7lfKfO5a12GMHOW5YH52HGtghFxu9QY1pbXW.','julia marques',0),(23,'eu@gmail.com','41950043889','$2a$12$nzvxvVYjRupSU2y/0Bvb8e6dWtMLNwuSgUt26ONa351E9VHwdl5AO','euu',0),(25,'acme@acme.com','123.456.789-12','$2a$12$.1wg9T532EhYUlCrYMIP9u.EafiPzIigTEi4z08n0EqNWQHccg6/q','Indústrias ACME Inc.',1),(26,'fefe@gmail.com','321.654.987-98','$2a$12$tr7/V6r1rfiSOUp6W5izJePSG46uocyf.FvKCBv3kZDUIOWePULSa','luanny arroyo',1),(27,'piper@gmail.com','635.241.987-98','$2a$12$Cr.WR//pJ7ys0VqtqMjcj.LjWNv8RU8euwyB47Xg7AiqNgZhlxlaS','luanny arroyo',1),(28,'tere@gmail.com','321.654.987-89','$2a$12$cnXjnRI20tzT/RklVd7qteBxRN3UNU1egXH/yz86dSj7CVvhwJnB6',' lolo',1),(29,'julio@gmail.com','887.945.465-65','$2a$12$IQes1FYoBIdtCcZ156cvnuran2QDx18SDQtXxNEHvGJRZcYJfzGNa','luanny',1),(30,'juca@gmail.com','321.654.987-97','$2a$12$icDIZy.JzbxhLCfvGf1ixe5cpYvo.FKB8qRUDP5yb1TpJyLx5cIMC','joca',1),(31,'juoi@gmail.com','32165498798789','$2a$12$GpUYJ1BvK49liiyfd/i2u.oqUWHv9C2Vwzzg2MIuSDOBcJvR6Sx2W','loiu',1),(32,'luannyarroyo0908@gmail.com','314.844.998-32','$2a$12$Oa7Yh0uyC60/b5YyO.whbuU9vn0DLxFe2hZhW/T3cxl7cWUUlvicS','Luanny',1);
+INSERT INTO `usuario` VALUES (8,'arroyo@gmail.com','314.844.998-35','$2a$12$pH3LNUAvqGQis8NUl1kIGu7JPfCO.O0HNZrFSQK/mdCe9VB6gFCvi','luanny',0),(9,'https@gmail.com','256.322.566-98','$2a$12$jjUtJdIEpDAQU6gDsvYHZO8Incktsp9I9lmyGbdJxzb1d/hWeClja','luanny ',0),(10,'eliana@gmail.com','555.555.555-55','$2a$12$xffx0I1VNcxgsiiuSSMQSuaXawuzwMD3uP/xocayTQP1GJn/NtdmO','eliana',0),(11,'cleo.arroyo@porto.com','419.500.438-19','$2a$12$hYdIGJc/mHbHoyTROswm9egISo2CbXNFpPR3ds7fsSvYDBOsT0zxW','luanny',0),(12,'cleo.arroyo@hilu.com','419.500.438-10','$2a$12$hYdIGJc/mHbHoyTROswm9egISo2CbXNFpPR3ds7fsSvYDBOsT0zxW','luanny',0),(13,'julia@santos.com','360.233.656-51','$2a$12$U7wlUxRZkUKC1Z6SLRvAXeG5HZcCJeApkfofV0dLE126dUdgLAIYu','julia',0),(14,'lui@gmail.com','314.844.998-98','$2a$12$8gEAaV135WAJFW00py3VZeB3apjJ9qiqRKM.zrt5pYVeEg4SNpEAa','luanny',0),(15,'lua.arroyo@gmail.com','41950043819','$2a$12$AUb4v0DrwbqJJgVqc/46.OnuMDBLwJveoqvh5nfXVQyWjvZ3Ln9Sq','luanny ',0),(16,'luanny@arroyo.com','45645645689','$2a$12$AUb4v0DrwbqJJgVqc/46.OnuMDBLwJveoqvh5nfXVQyWjvZ3Ln9Sq','luanny',0),(17,'rafa@fael.com','314.844.99698','$2a$12$KTCKo4f5iKupr7.oXrcVHOhkTOQeFUXdUfsnfZ30klvckCZcBHm5S','luanny',0),(18,'luanny@arroyosilva.com','41950043818','$2a$12$KTCKo4f5iKupr7.oXrcVHOhkTOQeFUXdUfsnfZ30klvckCZcBHm5S','luanny',0),(19,'arroyo2006@gmail.com','314.784.498-32','$2a$12$gmXDW1uQJ1Lr0tIc534wJuDH32whvP2EwBjB3xvnumz6mzwdd0cMS','luanny arroyo',0),(20,'popo@gmail.com','32165498725','$2a$12$3y/Jv3IvsxE99Jek/KZqBuFVw.17YXFAMiVeNvnXMjw3tCxzb04.O','luanny arroyo',0),(21,'juliamarques.brasil@gmail.com','55063303838','$2a$12$ZLGsLzVi/1nflz.QPBrSvu.FJ14tqJRDvxs4yQOOFqYO.oVbBVlSy','julia marques',0),(22,'juli@gmail.com','314.844.25665','$2a$12$z5tEB4zu/SpsWdox7lfKfO5a12GMHOW5YH52HGtghFxu9QY1pbXW.','julia marques',0),(23,'eu@gmail.com','41950043889','$2a$12$nzvxvVYjRupSU2y/0Bvb8e6dWtMLNwuSgUt26ONa351E9VHwdl5AO','euu',0),(25,'acme@acme.com','123.456.789-12','$2a$12$.1wg9T532EhYUlCrYMIP9u.EafiPzIigTEi4z08n0EqNWQHccg6/q','Indústrias ACME Inc.',1),(26,'fefe@gmail.com','321.654.987-98','$2a$12$tr7/V6r1rfiSOUp6W5izJePSG46uocyf.FvKCBv3kZDUIOWePULSa','luanny arroyo',1),(27,'piper@gmail.com','635.241.987-98','$2a$12$Cr.WR//pJ7ys0VqtqMjcj.LjWNv8RU8euwyB47Xg7AiqNgZhlxlaS','luanny arroyo',1),(28,'tere@gmail.com','321.654.987-89','$2a$12$cnXjnRI20tzT/RklVd7qteBxRN3UNU1egXH/yz86dSj7CVvhwJnB6',' lolo',1),(29,'julio@gmail.com','887.945.465-65','$2a$12$IQes1FYoBIdtCcZ156cvnuran2QDx18SDQtXxNEHvGJRZcYJfzGNa','luanny',1),(30,'juca@gmail.com','321.654.987-97','$2a$12$icDIZy.JzbxhLCfvGf1ixe5cpYvo.FKB8qRUDP5yb1TpJyLx5cIMC','joca',1),(31,'juoi@gmail.com','32165498798789','$2a$12$GpUYJ1BvK49liiyfd/i2u.oqUWHv9C2Vwzzg2MIuSDOBcJvR6Sx2W','loiu',1),(32,'luannyarroyo0908@gmail.com','314.844.998-32','$2a$12$Oa7Yh0uyC60/b5YyO.whbuU9vn0DLxFe2hZhW/T3cxl7cWUUlvicS','Luanny',1),(33,'paula@gmail.com','314.844.998-32','$2a$12$ZM4HWQeXw.Xice111Z2Zlur99370iuhUq.6mCwkQ4hCn0bFTrCOWm','luanny',1);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -400,6 +400,10 @@ LOCK TABLES `vaga` WRITE;
 UNLOCK TABLES;
 
 --
+-- Dumping events for database 'bpysjgvodzhdqziw3zwg'
+--
+
+--
 -- Dumping routines for database 'bpysjgvodzhdqziw3zwg'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -412,4 +416,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-18 14:28:00
+-- Dump completed on 2024-09-19 11:02:13
