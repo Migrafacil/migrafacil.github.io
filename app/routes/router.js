@@ -152,6 +152,7 @@ router.get("/cnpj", function (req, res) {
   }
 })
 });
+
 router.post(
   "/cnpj",
   usuarioController.regrasValidacaoFormCadempresa,

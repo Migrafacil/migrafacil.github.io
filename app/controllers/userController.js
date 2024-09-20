@@ -1,4 +1,5 @@
 const usuario = require("../models/usuarioModel");
+const empresa = require("../models/empresaModel");
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 var salt = bcrypt.genSaltSync(12);
@@ -46,7 +47,7 @@ const usuarioController = {
        body("email")
            .isEmail().withMessage("Digite um e-mail válido!")
            .custom(async value => {
-               const email = await usuario.findCampoCustom({'EMAIL_EMPRESA':value});
+               const email = await empresa.findCampoCustom({'EMAIL_EMPRESA':value});
                if (email > 0) {
                  throw new Error('E-mail em uso!');
                }
@@ -138,10 +139,10 @@ const usuarioController = {
         if (!erros.isEmpty()) {
             console.log("Erros de validação:", erros.array());
             console.log(erros);
-            return res.render("pages/cadastro", { listaErros: erros, dadosNotificacao: null, valores: req.body })
+            return res.render("pages/cadastrocnpj", { listaErros: erros, dadosNotificacao: null, valores: req.body })
         }
         try {
-            const createResult = await usuario.create(dadosForm); // Aguardando a criação do usuário
+            const createResult = await empresa.create(dadosForm); // Aguardando a criação do usuário
             console.log("Usuário criado:", createResult);
 
             if (createResult.affectedRows > 0) {
@@ -151,7 +152,7 @@ const usuarioController = {
             }
         } catch (e) {
             console.log(e);
-            res.render("pages/cadastro", {
+            res.render("pages/cadastrocnpj", {
                 listaErros: null, dadosNotificacao: {
                     titulo: "Erro ao cadastrar!", mensagem: "Verifique os valores digitados!", tipo: "error"
                 }, valores: req.body

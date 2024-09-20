@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="login-container">
-        <img src="imagens/logo.png" alt="Migra Fácil" class="logo">
+        <img src="/imagens/logo.png" alt="Migra Fácil" class="logo">
         <h2>Entrar com :</h2>
         <form class="login-form" method="post" action="/login">
             <label for="email">Email :</label>
@@ -20,6 +20,7 @@
             <a href="/logado"></a> 
         </form>
         <p class="signup-prompt">Ainda não possui uma conta? <a href="/cadastro">Crie uma conta</a></p>
+        
     </div>
     <script>
         document.querySelector('.login-form').addEventListener('submit', function(event) {
@@ -31,4 +32,174 @@
     <script src="/js/login.js"></script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .botao-redondo {
+            position: fixed; 
+            bottom: 100px; 
+            right: 43%; 
+            background-color: transparent; 
+            color: transparent;
+            top: 66%;
+            border: none;
+            border-radius: 50%;
+            width: 90px; 
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease; 
+        }
 
+       
+        .botao-redondo:hover {
+            background-color: transparent; 
+            transform: scale(1.1); 
+        }
+     /* Estilos para o modal */
+     .modal {
+            display: none; /* Modal inicialmente escondido */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        /* Estilos para o botão fechar no canto superior direito */
+        .modal .fechar-x {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            color: #888;
+        }
+
+        .modal .fechar-x:hover {
+            color: #000;
+        }
+
+        /* Estilos para o fundo do modal */
+        .modal-fundo {
+            display: none; /* Fundo escuro inicialmente escondido */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9;
+        }
+
+        /* Estilos dos campos do formulário */
+        .modal label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+
+        .modal input, .modal select, .modal textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        a{
+            text-decoration: none;
+            color: #ffffff;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        /* Botão Publicar */
+        .publicar {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #ffffff;
+            border: none;
+            margin-right: 10%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            
+        }
+
+        .publicar:hover {
+            text-decoration: none;
+            background-color: #218838;
+        }
+
+        /* Campo extra (inicialmente escondido) */
+        .extra-emprego {
+            display: none;
+        }
+    </style>
+    <title>Botão Redondo Fixo com Modal</title>
+</head>
+<body>
+ <!-- Botão redondo -->
+ <button class="botao-redondo" onclick="mostrarModal()">+</button>
+
+ <!-- Fundo do modal -->
+ <div class="modal-fundo" id="modal-fundo" onclick="fecharModal()"></div>
+
+ <!-- Modal com o formulário -->
+ <div class="modal" id="modal">
+     <span class="fechar-x" onclick="fecharModal()">&#10006;</span>
+     <form id="form-anuncio">
+        
+        
+         <button class="publicar"><a href="/cadastro">Pessoa Fisica</a></button>
+         <button class="publicar"><a href="/cnpj">Pessoa Jurídica</a></button>
+     </form>
+ </div>
+
+ <script>
+     function mostrarModal() {
+         document.getElementById('modal').style.display = 'block';
+         document.getElementById('modal-fundo').style.display = 'block';
+     }
+
+     function fecharModal() {
+         document.getElementById('modal').style.display = 'none';
+         document.getElementById('modal-fundo').style.display = 'none';
+     
+     }
+
+     function publicarAnuncio() {
+         const form = document.getElementById('form-anuncio');
+         const tipoAnuncio = document.getElementById('tipo-anuncio').value;
+
+         if (tipoAnuncio === 'vaga') {
+             form.action = '/empregos.ejs'; 
+         } else if (tipoAnuncio === 'moradia') {
+             form.action = '/casas.ejs'; 
+         }
+
+         
+         form.submit();
+     }
+ </script>
+
+ <div style="height: 2000px;"></div>
+
+</body>
+</html>
