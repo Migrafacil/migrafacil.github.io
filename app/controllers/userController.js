@@ -199,7 +199,85 @@ const usuarioController = {
         }
     },
 
+
+
+   
+    gravarPerfil: async (req, res) => {
+
+        const erros = validationResult(req);
+        const erroMulter = req.session.erroMulter;
+        if (!erros.isEmpty() || erroMulter != null ) {
+            lista =  !erros.isEmpty() ? erros : {formatter:null, errors:[]};
+            if(erroMulter != null ){
+                lista.errors.push(erroMulter);
+            } 
+            return res.render("pages/perfil", { listaErros: lista, dadosNotificacao: null, valores: req.body })
+        }
+        try {
+            var dadosForm = {
+                user_usuario: req.body.nomeusu_usu,
+                nome_usuario: req.body.nome_usu,
+                email_usuario: req.body.email_usu,
+                fone_usuario: req.body.fone_usu,
+                cep_usuario: req.body.cep.replace("-",""),
+                numero_usuario: req.body.numero,
+                complemento_usuario: req.body.complemento,
+                img_perfil_banco: req.session.autenticado.img_perfil_banco,
+                img_perfil_pasta: req.session.autenticado.img_perfil_pasta,
+            };
+            if (req.body.senha_usu != "") {
+                dadosForm.senha_usuario = bcrypt.hashSync(req.body.senha_usu, salt);
+            }
+            if (!req.file) {
+                console.log("Falha no carregamento");
+            } else {
+                //Armazenando o caminho do arquivo salvo na pasta do projeto 
+                caminhoArquivo = "imagem/perfil/" + req.file.filename;
+                //Se houve alteração de imagem de perfil apaga a imagem anterior
+                if(dadosForm.img_perfil_pasta != caminhoArquivo ){
+                    removeImg(dadosForm.img_perfil_pasta);
+                }
+                dadosForm.img_perfil_pasta = caminhoArquivo;
+                dadosForm.img_perfil_banco = null;
+
+                // //Armazenando o buffer de dados binários do arquivo 
+                // dadosForm.img_perfil_banco = req.file.buffer;                
+                // //Apagando a imagem armazenada na pasta
+                // if(dadosForm.img_perfil_pasta != null ){
+                //     removeImg(dadosForm.img_perfil_pasta);
+                // }
+                // dadosForm.img_perfil_pasta = null; 
+            }
+            let resultUpdate = await usuario.update(dadosForm, req.session.autenticado.id);
+            if (!resultUpdate.isEmpty) {
+                if (resultUpdate.changedRows == 1) {
+                    var result = await usuario.findId(req.session.autenticado.id);
+                    var autenticado = {
+                        autenticado: result[0].nome_usuario,
+                        id: result[0].id_usuario,
+                        tipo: result[0].id_tipo_usuario,
+                        img_perfil_banco: result[0].img_perfil_banco != null ? `data:image/jpeg;base64,${result[0].img_perfil_banco.toString('base64')}` : null,
+                        img_perfil_pasta: result[0].img_perfil_pasta
+                    };
+                    req.session.autenticado = autenticado;
+                    var campos = {
+                        nome_usu: result[0].nome_usuario, email_usu: result[0].email_usuario,
+                        img_perfil_pasta: result[0].img_perfil_pasta, img_perfil_banco: result[0].img_perfil_banco,
+                        nomeusu_usu: result[0].user_usuario, fone_usu: result[0].fone_usuario, senha_usu: ""
+                    }
+                    res.render("pages/perfil", { listaErros: null, dadosNotificacao: { titulo: "Perfil! atualizado com sucesso", mensagem: "Alterações Gravadas", tipo: "success" }, valores: campos });
+                }else{
+                    res.render("pages/perfil", { listaErros: null, dadosNotificacao: { titulo: "Perfil! atualizado com sucesso", mensagem: "Sem alterações", tipo: "success" }, valores: dadosForm });
+                }
+            }
+        } catch (e) {
+            console.log(e)
+            res.render("pages/perfil", { listaErros: erros, dadosNotificacao: { titulo: "Erro ao atualizar o perfil!", mensagem: "Verifique os valores digitados!", tipo: "error" }, valores: req.body })
+        }
+    }
 }
+
+
 
 
 module.exports = usuarioController
