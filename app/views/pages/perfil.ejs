@@ -130,37 +130,19 @@
             arquivo.imagem = valores.img_perfil_banco;
         }
         let msgErro = ""
-        let avisoErro = {"nome_usu":"", "email_usu":"",nomeusu_usu:"", fone_usu:"", cep:"", imagem:""}
+        let avisoErro = {"email_usu":"",senha_usu:"}
         if(listaErros){
             listaErros.errors.forEach(function(itemErro){
-                if(itemErro.path == "nome_usu"){
-                    avisoErro.nome_usu = "erro";
-                    msgErro += `* ${itemErro.msg} <br>`;
-                }
-                if(itemErro.path == "fone_usu"){
-                    avisoErro.fone_usu = "erro";
-                    msgErro += `* ${itemErro.msg} <br>`;
-                }
-                if(itemErro.path == "nomeusu_usu"){
-                    avisoErro.nomeusu_usu = "erro";
-                    msgErro += `* ${itemErro.msg} <br>`;
-                }
+                
                 if(itemErro.path == "email_usu"){
                     avisoErro.email_usu = "erro";
                     msgErro += `* ${itemErro.msg} <br>`;
                 }
-                if(itemErro.path == "cep"){
+                if(itemErro.path == "senha_usu"){
                     avisoErro.cep = "erro";
                     msgErro += `* ${itemErro.msg} <br>`;
                 }
-                if(itemErro.path == "numero"){
-                    avisoErro.numero = "erro";
-                    msgErro += `* ${itemErro.msg} <br>`;
-                }
-                if(itemErro.path == "imagem-perfil_usu"){
-                    avisoErro.imagem = "erro";
-                    msgErro += `* ${itemErro.msg} <br>`;
-                }
+               
             })
             if(msgErro != ""){
                 %>
@@ -189,40 +171,13 @@
             <form action="/perfil" method="post" enctype="multipart/form-data">
                 <h1>Meu Perfil</h1>
                 <p>
-                    <input type="text" name="nome_usu" id="nome_usu" placeholder="Nome" value="<%= valores.nome_usu %>" class="<%= avisoErro.nome_usu %>"/> 
-                </p>
-                <p>
                     <input type="text" name="email_usu" id="email_usu" placeholder="E-mail" value="<%= valores.email_usu %>" class="<%= avisoErro.email_usu %>"/> 
                 </p>
                 <p>
-                    <input type="text" name="nomeusu_usu" id="nomeusu_usu" placeholder="Nome de Usuario" value="<%= valores.nomeusu_usu %>" class="<%= avisoErro.nomeusu_usu %>"/> 
+                    <input type="text" name="senha_usu" id="senha_usu" placeholder="Senha do Usuario" value="<%= valores.nomeusu_usu %>" class="<%= avisoErro.nomeusu_usu %>"/> 
                 </p>
                 <p>
-                    <input type="text" name="fone_usu" id="fone_usu" placeholder="Telefone" value="<%= valores.fone_usu %>" class="<%= avisoErro.fone_usu %>"/> 
-                </p>
-                <p>
-                    <input name="cep" type="text" id="cep" value="<%= valores.cep %>"  placeholder="CEP" class="<%= avisoErro.cep %>"
-                    onblur="pesquisacep(this.value);" onkeyup="mascaraCEP(event)"/><b>*</b>
-                </p>
-                <p>
-                    <input name="rua" type="text" id="rua" placeholder="Rua"  value="<%= valores.logradouro %>"" readonly />
-                </p>
-                <p>
-                    <input name="numero" type="text" id="numero" placeholder="Número" value="<%= valores.numero %>" class="<%= avisoErro.numero %>"/><b>*</b>
-                </p>
-                <p>
-                    <input name="complemento" type="text" id="complemento" placeholder="Complemento" value="<%= valores.complemento %>"/>
-                </p>
-                <p>
-                    <input name="bairro" type="text" id="bairro" placeholder="Bairro" value="<%= valores.bairro %>"" readonly/>
-                </p>
-                <p>
-                    <input name="cidade" type="text" id="cidade" placeholder="Cidade" value="<%= valores.localidade %>"" readonly/>
-                </p>
-                <p>
-                    <input name="uf" type="text" id="uf" placeholder="UF" value="<%= valores.uf %>" readonly/>
-                </p>
-                <p>
+                    
                     <input type="file" class="<%= avisoErro.imagem %>" name="imagem-perfil_usu" id="imagem-perfil_usu" onchange="loadImg(event)">
                     <img class="img-perfil"  id="img-preview" src="<%= arquivo.imagem %>">
                 </p>
