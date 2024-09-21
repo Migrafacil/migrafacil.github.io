@@ -47,7 +47,7 @@ const usuarioController = {
        body("email")
            .isEmail().withMessage("Digite um e-mail válido!")
            .custom(async value => {
-               const email = await empresa.findCampoCustom({'EMAIL_EMPRESA':value});
+               const email = await empresa.findCampoCustom({'EMAIL_USUARIO':value});
                if (email > 0) {
                  throw new Error('E-mail em uso!');
                }
@@ -91,12 +91,14 @@ const usuarioController = {
     cadastrar: async (req, res) => {
         console.log("Senha recebida:", req.body.senha);
         const erros = validationResult(req);
+        const tipoUsuario = req.body.proprietario ? 4 : 1; // 1 para proprietário, 2 para comum
+        
         var dadosForm = {
-            CPF_USUARIO: req.body.cpf, 
+            CPF_CNPJ_USUARIO: req.body.cpf, 
             SENHA_USUARIO: bcrypt.hashSync(req.body.senha, salt),
             NOME_USUARIO: req.body.nome,
             EMAIL_USUARIO: req.body.email,
-            tipo_usuario_idtipo_usuario: 1,
+            tipo_usuario_idtipo_usuario: tipoUsuario,
         };
         console.log(dadosForm)
 
@@ -127,12 +129,15 @@ const usuarioController = {
     cadastrarEmpresa: async (req, res) => {
         console.log("Senha recebida:", req.body.senha);
         const erros = validationResult(req);
+        const tipoUsuario = req.body.imobiliaria ? 3 : 2; 
+  
+
         var dadosForm = {
-            CNPJ_EMPRESA: req.body.cnpj, 
-            SENHA_EMPRESA: bcrypt.hashSync(req.body.senha, salt),
-            RAZAOSOCIAL: req.body.nome,
-            EMAIL_EMPRESA: req.body.email,
-            USUARIO_ID_EMPRESA: 2,
+            CPF_CNPJ_USUARIO: req.body.cnpj, 
+            SENHA_USUARIO: bcrypt.hashSync(req.body.senha, salt),
+            NOME_USUARIO: req.body.nome,
+            EMAIL_USUARIO: req.body.email,
+            tipo_usuario_idtipo_usuario: tipoUsuario,
         };
         console.log(dadosForm)
 
@@ -142,7 +147,7 @@ const usuarioController = {
             return res.render("pages/cadastrocnpj", { listaErros: erros, dadosNotificacao: null, valores: req.body })
         }
         try {
-            const createResult = await empresa.create(dadosForm); // Aguardando a criação do usuário
+            const createResult = await usuario.create(dadosForm); // Aguardando a criação do usuário
             console.log("Usuário criado:", createResult);
 
             if (createResult.affectedRows > 0) {

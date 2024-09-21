@@ -6,7 +6,7 @@ var pool = require("../../config/pool_conexoes");
             try {
                 const [resultados] = await pool.query(
                     "SELECT * " +
-                    "FROM empresa" 
+                    "FROM usuario" 
                 )
                 return resultados;
             } catch (error) {
@@ -18,7 +18,7 @@ var pool = require("../../config/pool_conexoes");
         findUserEmail: async (camposForm) => {
             try {
                 const [resultados] = await pool.query(
-                    "SELECT * FROM empresa WHERE EMAIL_EMPRESA = ?",
+                    "SELECT * FROM empresa WHERE EMAIL_USUARIO = ?",
                     [camposForm.user_usuario ]
                 )
                 return resultados;
@@ -31,7 +31,7 @@ var pool = require("../../config/pool_conexoes");
         findCampoCustom: async (criterioWhere) => {
             try {
                 const [resultados] = await pool.query(
-                    "SELECT count(*) totalReg FROM empresa WHERE ?",
+                    "SELECT count(*) totalReg FROM usuario WHERE ?",
                     [criterioWhere]
                 )
                 return resultados[0].totalReg;
@@ -44,7 +44,7 @@ var pool = require("../../config/pool_conexoes");
         create: async (dadosForm) => {
             try {
                 console.log("Dados a serem inseridos:", dadosForm);
-                const [resultados] = await pool.query("insert into empresa set ?", [dadosForm]);
+                const [resultados] = await pool.query("insert into usuario set ?", [dadosForm]);
                 return resultados;
             } catch (error) {
                 console.log("Dados a serem inseridos:", dadosForm);
@@ -56,8 +56,9 @@ var pool = require("../../config/pool_conexoes");
         update: async (camposForm) => {
             try {
                 const [resultados] = await pool.query(
-                    "UPDATE usuario SET RAZAOSOCIAL = ?, CEP_EMPRESA = ?, CNPJ_EMPRESA = ?,  " +
-                    " EMAIL_EMPRESA = ?, SENHA_EMPRESA = ?, NUMERO_EMPRESA = ?, COMPLEMENTO_EMPRESA = ? " +
+                    "UPDATE usuario SET NOME_USUARIO = ?, CEP_USUARIO = ?, CPF_CNPJ_USUARIO = ?,  " +
+                    " EMAIL_USUARIO = ?, SENHA_USUARIO = ?, NUMERO_USUARIO = ?, COMPLEMENTO_USUARIO = ? " +
+                    " EMAIL_USUARIO = ?, SENHA_USUARIO = ?, NUMERO_USUARIO = ?, COMPLEMENTO_USUARIO = ? " +
                     " WHERE id_usuario = ?",
                     [camposForm.RAZAOSOCIAL, camposForm.SENHA_EMPRESA,
                     camposForm.EMAIL_USUARIO, camposForm.fone_usuario, camposForm.tipo_usuario,
