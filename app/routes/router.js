@@ -66,7 +66,9 @@ router.post(
     usuarioController.logar(req,res);
   }
 )
-
+router.get("/perfil", function (req, res) {
+  res.render("pages/perfil", {pagina:"logado", logado:"logado"});
+});
 router.get(
   "/perfil",
   verificarUsuAutorizado([1, 2, 3], "pages/restrito"),
