@@ -170,10 +170,8 @@ const usuarioController = {
             let results = await usuario.findId(req.session.autenticado.id);
 
             let campos = {
-                nome_usu: results[0].nome_usuario, email_usu: results[0].email_usuario,
-                numero: results[0].numero_usuario,
-                img_perfil_pasta: results[0].img_perfil_pasta,
-                img_perfil_banco: results[0].img_perfil_banco != null ? `data:image/jpeg;base64,${results[0].img_perfil_banco.toString('base64')}` : null,
+                NOME_USUARIO: results[0].NOME_USUARIO, EMAIL_USUARIO: results[0].EMAIL_USUARIO,
+                NUMERO_USUARIO: results[0].NUMERO_USUARIO,
                 nomeusu_usu: results[0].user_usuario, fone_usu: results[0].fone_usuario, senha_usu: ""
             }
 
