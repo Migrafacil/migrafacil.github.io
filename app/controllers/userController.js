@@ -183,8 +183,7 @@ const usuarioController = {
             res.render("pages/perfil", {
                 listaErros: null, dadosNotificacao: null, valores: {
                     img_perfil_banco: "", img_perfil_pasta: "", nome_usu: "", email_usu: "",
-                    nomeusu_usu: "", fone_usu: "", senha_usu: "", cep: "", numero: "", complemento: "",
-                    logradouro: "", bairro: "", localidade: "", uf: ""
+                    nomeusu_usu: "", fone_usu: "", senha_usu: "", 
                 }
             })
         }
