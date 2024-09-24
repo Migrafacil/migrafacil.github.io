@@ -209,10 +209,6 @@ const usuarioController = {
                 user_usuario: req.body.nomeusu_usu,
                 nome_usuario: req.body.nome_usu,
                 email_usuario: req.body.email_usu,
-                fone_usuario: req.body.fone_usu,
-                cep_usuario: req.body.cep.replace("-",""),
-                numero_usuario: req.body.numero,
-                complemento_usuario: req.body.complemento,
                 img_perfil_banco: req.session.autenticado.img_perfil_banco,
                 img_perfil_pasta: req.session.autenticado.img_perfil_pasta,
             };
