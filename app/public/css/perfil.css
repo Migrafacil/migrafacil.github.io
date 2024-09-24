@@ -39,7 +39,7 @@ section {
 }
 
 .plans {
-  border-left: 5px solid #007bff; /* Azul */
+  border-left: 5px solid #016FA0; /* Azul */
 }
 
 .listing {
@@ -47,7 +47,7 @@ section {
 }
 
 h2 {
-  color: #007bff; /* Azul */
+  color: #016FA0; /* Azul */
   font-size: 1.5em;
   margin-bottom: 20px;
 }
