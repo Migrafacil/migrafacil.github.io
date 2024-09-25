@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
       isValid = false;
     } else {
       cnpjInput.setCustomValidity("");
-    }
+    }      
 
     if (!isValid) {
       event.preventDefault();

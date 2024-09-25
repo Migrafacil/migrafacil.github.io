@@ -3,194 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Perfil</title>
+    <title>Página de Perfil - Migra Fácil</title>
     <link rel="stylesheet" href="css/perfil.css">
+    <style>
+        /* Estilos do layout */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #a3d128; /* Cor verde usada no logo */
+        }
+        .header img {
+            height: 50px;
+        }
+        .header .profile-info {
+            margin-left: auto;
+            text-align: right;
+        }
+        .header .profile-info p {
+            margin: 0;
+            font-size: 16px;
+            color: #4a4a4a;
+        }
+        .header .profile-info .name {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .container {
+            display: flex;
+        }
+        .sidebar {
+            background-color: #fff;
+            width: 250px;
+            border-right: 1px solid #ddd;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        .sidebar button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: white;
+            border: 2px solid #a3d128;
+            color: #4a4a4a;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .sidebar button:hover {
+            background-color: #a3d128;
+            color: white;
+        }
+
+        .content {
+            padding: 40px;
+            width: 100%;
+        }
+
+        /* Outros estilos de formulários já existentes */
+    </style>
 </head>
 <body>
+    <!-- Cabeçalho com logo e informações do usuário -->
+    <header class="header">
+        <img src="imagens/image2.png" alt="Migra Fácil Logo">
+        <div class="profile-info">
+            <p class="name">Luanny Arroyo</p>
+            <p>luannyarroyo@gmail.com</p>
+        </div>
+    </header>
+
+    <!-- Layout com menu lateral e conteúdo principal -->
     <div class="container">
-        <header>
-            <h1>Página de Perfil</h1>
-        </header>
+        <!-- Menu lateral -->
+        <aside class="sidebar">
+            <button>Suas informações</button>
+            <button>Publicações</button>
+            <button>Planos</button>
+        </aside>
 
-        <section class="profile-info">
-            <h2>Informações do Perfil</h2>
-            <form id="profileForm">
-                <div class="form-group">
-                    <label for="email">E-mail atual:</label>
-                    <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
-                    <label for="email">Novo e-mail:</label>
-                    <input type="email" id="email" name="email" placeholder="Novo e-mail" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Senha atual:</label>
-                    <input type="password" id="password" name="password" placeholder="Sua senha" required>
-                    <label for="password">Nova senha:</label>
-                    <input type="password" id="password" name="password" placeholder="Nova senha" required>
-                </div>
-                <button type="submit">Salvar Alterações</button>
-            </form>
-        </section>
+        <!-- Conteúdo principal -->
+        <div class="content">
+            <section class="profile-info">
+                <h2>Informações do Perfil</h2>
+                <form id="profileForm">
+                    <div class="form-group">
+                        <label for="email">E-mail atual:</label>
+                        <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+                        <label for="new-email">Novo e-mail:</label>
+                        <input type="email" id="new-email" name="new-email" placeholder="Novo e-mail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Senha atual:</label>
+                        <input type="password" id="password" name="password" placeholder="Sua senha" required>
+                        <label for="new-password">Nova senha:</label>
+                        <input type="password" id="new-password" name="new-password" placeholder="Nova senha" required>
+                    </div>
+                    <button type="submit">Salvar Alterações</button>
+                </form>
+            </section>
 
-        <section class="plans">
-            <h2>Planos Disponíveis</h2>
-            <ul>
-                <li>Plano Básico - R$ 50/mês</li>
+            <section class="plans">
+                <h2>Planos Disponíveis</h2>
+                <ul>
+                    <li>Plano Básico - R$ 50/mês</li>
+                    <button type="submit">Cancelar plano</button>
+                </ul>
+            </section>
 
-                <button-cancelar type="submit">Cancelar plano</button>
-                
-            </ul>
-        </section>
-
-        <section class="listing">
-            <h2>Publicar Anúncio</h2>
-            <form id="form-anuncio">
-                <label for="tipo-anuncio">Tipo de Anúncio:</label>
-                <select id="tipo-anuncio" name="tipo-anuncio" onchange="verificarTipoAnuncio()">
-                    <option value="">Escolha o tipo de anúncio</option>
-                    <option value="vaga">Vaga de Emprego</option>
-                    <option value="moradia">Moradia</option>
-                </select>
-       
-                <label for="titulo">Título:</label>
-                <input type="text" id="titulo" name="titulo" placeholder="Título do anúncio">
-       
-                <label for="descricao">Descrição:</label>
-                <textarea id="descricao" name="descricao" rows="4" placeholder="Descrição detalhada"></textarea>
-       
-                <label for="preco-salario" id="label-preco-salario">Preço/Salário:</label>
-                <input type="text" id="preco-salario" name="preco-salario" placeholder="Preço ou Salário">
-       
-                <div class="extra-emprego" id="extra-emprego">
-                    <label for="contato">Link da vaga ou WhatsApp:</label>
-                    <input type="text" id="contato" name="contato" placeholder="Link ou número de WhatsApp">
-                </div>
-       
-                <div class="campo-imagem" id="campo-imagem">
-                    <label for="imagem">Imagem (opcional):</label>
-                    <input type="file" id="imagem" name="imagem">
-                </div>
-       
-               
-                <button type="button" class="publicar" onclick="publicarAnuncio()">Publicar</button>
-            </form>
+            <section class="listing">
+                <h2>Publicar Anúncio</h2>
+                <form id="form-anuncio">
+                    <label for="tipo-anuncio">Tipo de Anúncio:</label>
+                    <select id="tipo-anuncio" name="tipo-anuncio" onchange="verificarTipoAnuncio()">
+                        <option value="">Escolha o tipo de anúncio</option>
+                        <option value="vaga">Vaga de Emprego</option>
+                        <option value="moradia">Moradia</option>
+                    </select>
+            
+                    <label for="titulo">Título:</label>
+                    <input type="text" id="titulo" name="titulo" placeholder="Título do anúncio">
+            
+                    <label for="descricao">Descrição:</label>
+                    <textarea id="descricao" name="descricao" rows="4" placeholder="Descrição detalhada"></textarea>
+            
+                    <label for="preco-salario" id="label-preco-salario">Preço/Salário:</label>
+                    <input type="text" id="preco-salario" name="preco-salario" placeholder="Preço ou Salário">
+            
+                    <div class="extra-emprego" id="extra-emprego">
+                        <label for="contato">Link da vaga ou WhatsApp:</label>
+                        <input type="text" id="contato" name="contato" placeholder="Link ou número de WhatsApp">
+                    </div>
+            
+                    <div class="campo-imagem" id="campo-imagem">
+                        <label for="imagem">Imagem (opcional):</label>
+                        <input type="file" id="imagem" name="imagem">
+                    </div>
+            
+                    <button type="button" class="publicar" onclick="publicarAnuncio()">Publicar</button>
+                </form>
+            </section>
         </div>
-       
-        
-        <script>
-            function mostrarModal() {
-                document.getElementById('modal').style.display = 'block';
-                document.getElementById('modal-fundo').style.display = 'block';
-            }
-       
-            function fecharModal() {
-                document.getElementById('modal').style.display = 'none';
-                document.getElementById('modal-fundo').style.display = 'none';
-            }
-       
-            function verificarTipoAnuncio() {
-                const tipoAnuncio = document.getElementById('tipo-anuncio').value;
-                const labelPrecoSalario = document.getElementById('label-preco-salario');
-                const inputPrecoSalario = document.getElementById('preco-salario');
-                const campoImagem = document.getElementById('campo-imagem');
-       
-                if (tipoAnuncio === 'vaga') {
-                    labelPrecoSalario.textContent = 'Salário:';
-                    inputPrecoSalario.placeholder = 'Salário';
-                    campoImagem.style.display = 'none'; // Esconder campo de imagem
-                    document.getElementById('extra-emprego').style.display = 'block'; // Mostrar campo extra
-                } else if (tipoAnuncio === 'moradia') {
-                    labelPrecoSalario.textContent = 'Preço:';
-                    inputPrecoSalario.placeholder = 'Preço';
-                    campoImagem.style.display = 'block'; // Mostrar campo de imagem
-                    document.getElementById('extra-emprego').style.display = 'none'; // Esconder campo extra
-                }
-            }
-       
-            function publicarAnuncio() {
-                const form = document.getElementById('form-anuncio');
-                const tipoAnuncio = document.getElementById('tipo-anuncio').value;
-       
-                // Definir a ação do formulário com base no tipo de anúncio
-                if (tipoAnuncio === 'vaga') {
-                    form.action = '/empregos.ejs'; // Enviar para empregos.ejs
-                } else if (tipoAnuncio === 'moradia') {
-                    form.action = '/casas.ejs'; // Enviar para casas.ejs
-                }
-       
-                // Simular o envio do formulário (substituir com o método real de envio)
-                form.submit();
-            }
-        </script>
-       <main>
-        <%
-        let arquivo = {"imagem":"imagem/img-perfil.png"}
-        if(valores.img_perfil_pasta != null){
-            arquivo.imagem = valores.img_perfil_pasta
-        }else if(valores.img_perfil_banco != null){ 
-            arquivo.imagem = valores.img_perfil_banco;
-        }
-        let msgErro = ""
-        let avisoErro = {"email_usu":"",senha_usu:"}
-        if(listaErros){
-            listaErros.errors.forEach(function(itemErro){
-                
-                if(itemErro.path == "email_usu"){
-                    avisoErro.email_usu = "erro";
-                    msgErro += `* ${itemErro.msg} <br>`;
-                }
-                if(itemErro.path == "senha_usu"){
-                    avisoErro.cep = "erro";
-                    msgErro += `* ${itemErro.msg} <br>`;
-                }
-               
-            })
-            if(msgErro != ""){
-                %>
-                    <script>
-                        let msgErro ="<%= msgErro %>"
-                        notify("Erro no preenchimento",
-                        "Verifique o(s) campo(s): <br>" + msgErro.replace(/&lt;/g,"<").replace(/&gt;/g,">"), 
-                        "error", "center",5000)                        
-                    </script>
-                    <%
+    </div>
 
-            }
-        }
-        if (dadosNotificacao) { 
-            %>
-            <script>
-                    notify("<%= dadosNotificacao.titulo%>","<%= dadosNotificacao.mensagem%>", "<%= dadosNotificacao.tipo%>", "center")
-                    if("<%= dadosNotificacao.tipo %>" == "success"){
-                        setTimeout(function(){
-                            window.location="/"
-                        }, 3000)
-                    }                        
-            </script>
-        <% } %>
-        <div id="perfil">
-            <form action="/perfil" method="post" enctype="multipart/form-data">
-                <h1>Meu Perfil</h1>
-                <p>
-                    <input type="text" name="email_usu" id="email_usu" placeholder="E-mail" value="<%= valores.email_usu %>" class="<%= avisoErro.email_usu %>"/> 
-                </p>
-                <p>
-                    <input type="text" name="senha_usu" id="senha_usu" placeholder="Senha do Usuario" value="<%= valores.nomeusu_usu %>" class="<%= avisoErro.nomeusu_usu %>"/> 
-                </p>
-                <p>
-                    
-                    <input type="file" class="<%= avisoErro.imagem %>" name="imagem-perfil_usu" id="imagem-perfil_usu" onchange="loadImg(event)">
-                    <img class="img-perfil"  id="img-preview" src="<%= arquivo.imagem %>">
-                </p>
-                <p>
-                    <input type="password" name="senha_usu" id="senha_usu" placeholder="senha de Usuario">
-                    <span class="aviso">Não preencha este campo para manter a senha atual</span>
-                </p>
-                <p>
-                    <input type="submit" value="Alterar dados perfil" />
-                </p>
-            </form>
-        </div>
-    </main>
+    <!-- Script JS para interações -->
+    <script>
+        function verificarTipoAnuncio() {
+            const tipoAnuncio = document.getElementById('tipo-anuncio').value;
+            const labelPrecoSalario = document.getElementById('label-preco-salario');
+            const inputPrecoSalario = document.getElementById('preco-salario');
+            const campoImagem = document.getElementById('campo-imagem');
     
-       </body>
-       </html>
+            if (tipoAnuncio === 'vaga') {
+                labelPrecoSalario.textContent = 'Salário:';
+                inputPrecoSalario.placeholder = 'Salário';
+                campoImagem.style.display = 'none'; // Esconder campo de imagem
+                document.getElementById('extra-emprego').style.display = 'block'; // Mostrar campo extra
+            } else if (tipoAnuncio === 'moradia') {
+                labelPrecoSalario.textContent = 'Preço:';
+                inputPrecoSalario.placeholder = 'Preço';
+                campoImagem.style.display = 'block'; // Mostrar campo de imagem
+                document.getElementById('extra-emprego').style.display = 'none'; // Esconder campo extra
+            }
+        }
+
+        function publicarAnuncio() {
+            const form = document.getElementById('form-anuncio');
+            const tipoAnuncio = document.getElementById('tipo-anuncio').value;
+
+            // Definir a ação do formulário com base no tipo de anúncio
+            if (tipoAnuncio === 'vaga') {
+                form.action = '/empregos.ejs'; // Enviar para empregos.ejs
+            } else if (tipoAnuncio === 'moradia') {
+                form.action = '/casas.ejs'; // Enviar para casas.ejs
+            }
+
+            // Simular o envio do formulário (substituir com o método real de envio)
+            form.submit();
+        }
+    </script>
+</body>
+</html>
+
