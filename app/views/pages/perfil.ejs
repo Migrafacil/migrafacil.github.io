@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -17,7 +17,7 @@
             padding: 20px;
             display: flex;
             align-items: center;
-            border-bottom: 2px solid #a3d128; /* Cor verde usada no logo */
+            border-bottom: 2px solid #7fa11f;
         }
         .header img {
             height: 50px;
@@ -35,7 +35,6 @@
             font-weight: bold;
             font-size: 18px;
         }
-
         .container {
             display: flex;
         }
@@ -52,22 +51,20 @@
             padding: 10px;
             margin-bottom: 10px;
             background-color: white;
-            border: 2px solid #a3d128;
+            border: 2px solid #7fa11f;
             color: #4a4a4a;
             font-size: 16px;
             cursor: pointer;
             border-radius: 4px;
         }
         .sidebar button:hover {
-            background-color: #a3d128;
+            background-color: #7fa11f;
             color: white;
         }
-
         .content {
             padding: 40px;
             width: 100%;
         }
-
         /* Outros estilos de formulários já existentes */
     </style>
 </head>
@@ -92,7 +89,7 @@
 
         <!-- Conteúdo principal -->
         <div class="content">
-            <section class="profile-info">
+            <section class="profile-info" id="info-section">
                 <h2>Informações do Perfil</h2>
                 <form id="profileForm">
                     <div class="form-group">
@@ -107,19 +104,30 @@
                         <label for="new-password">Nova senha:</label>
                         <input type="password" id="new-password" name="new-password" placeholder="Nova senha" required>
                     </div>
+                    <div class="form-group">
+                        <label for="password">Número de telefone atual:</label>
+                        <input type="password" id="password" name="password" placeholder="Seu número" required>
+                        <label for="new-password">Novo número de telefone:</label>
+                        <input type="password" id="new-password" name="new-password" placeholder="Novo número" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">CEP atual:</label>
+                        <input type="password" id="password" name="password" placeholder="Seu cep" required>
+                        <label for="new-password">Novo CEP:</label>
+                        <input type="password" id="new-password" name="new-password" placeholder="Novo cep" required>
+                    </div>
                     <button type="submit">Salvar Alterações</button>
                 </form>
             </section>
 
-            <section class="plans">
+            <section class="plans" id="plans-section" style="display: none;">
                 <h2>Planos Disponíveis</h2>
                 <ul>
                     <li>Plano Básico - R$ 50/mês</li>
-                    <button type="submit">Cancelar plano</button>
                 </ul>
             </section>
 
-            <section class="listing">
+            <section class="listing" id="listing-section" style="display: none;">
                 <h2>Publicar Anúncio</h2>
                 <form id="form-anuncio">
                     <label for="tipo-anuncio">Tipo de Anúncio:</label>
@@ -156,12 +164,25 @@
 
     <!-- Script JS para interações -->
     <script>
+        // Mostrar a seção de informações inicialmente
+        document.getElementById('info-section').style.display = 'block';
+        
+        const buttons = document.querySelectorAll('.sidebar button');
+        const sections = [document.getElementById('info-section'), document.getElementById('listing-section'), document.getElementById('plans-section')];
+
+        buttons.forEach((button, index) => {
+            button.onclick = function() {
+                sections.forEach(section => section.style.display = 'none'); // Esconde todas as seções
+                sections[index].style.display = 'block'; // Mostra a seção correspondente
+            };
+        });
+        
         function verificarTipoAnuncio() {
             const tipoAnuncio = document.getElementById('tipo-anuncio').value;
             const labelPrecoSalario = document.getElementById('label-preco-salario');
             const inputPrecoSalario = document.getElementById('preco-salario');
             const campoImagem = document.getElementById('campo-imagem');
-    
+
             if (tipoAnuncio === 'vaga') {
                 labelPrecoSalario.textContent = 'Salário:';
                 inputPrecoSalario.placeholder = 'Salário';
@@ -192,4 +213,3 @@
     </script>
 </body>
 </html>
-

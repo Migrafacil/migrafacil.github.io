@@ -20,4 +20,5 @@ document.getElementById('listingForm').addEventListener('submit', function(event
     }
 
     alert(message);
+    
 });
