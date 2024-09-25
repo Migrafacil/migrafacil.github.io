@@ -75,6 +75,7 @@ const usuarioController = {
 
     logar: (req, res) => {
         const erros = validationResult(req);
+        console.log(erros)
         if (!erros.isEmpty()) {
             return res.render("pages/login", { listaErros: erros, dadosNotificacao: null  })
         }
@@ -110,6 +111,12 @@ const usuarioController = {
         try {
             const createResult = await usuario.create(dadosForm); // Aguardando a criação do usuário
             console.log("Usuário criado:", createResult);
+            var autenticado = {
+                autenticado: dadosForm.NOME_USUARIO,
+                id: createResult.insertId,
+                tipo: dadosForm.tipo_usuario_idtipo_usuario,
+            };
+            req.session.autenticado = autenticado;
 
             if (createResult.affectedRows > 0) {
                 res.redirect("/logado"); // Redireciona para a página logado após o cadastro bem-sucedido
@@ -149,6 +156,12 @@ const usuarioController = {
         try {
             const createResult = await usuario.create(dadosForm); // Aguardando a criação do usuário
             console.log("Usuário criado:", createResult);
+            var autenticado = {
+                autenticado: dadosForm.NOME_USUARIO,
+                id: createResult.insertId,
+                tipo: dadosForm.tipo_usuario_idtipo_usuario,
+            };
+            req.session.autenticado = autenticado;
 
             if (createResult.affectedRows > 0) {
                 res.redirect("/logado"); // Redireciona para a página logado após o cadastro bem-sucedido
@@ -171,7 +184,9 @@ const usuarioController = {
 
             let campos = {
                 NOME_USUARIO: results[0].NOME_USUARIO, EMAIL_USUARIO: results[0].EMAIL_USUARIO,
-                NUMERO_USUARIO: results[0].NUMERO_USUARIO,
+                SENHA_USUARIO: results[0].SENHA_USUARIO, CEP_USUARIO: results[0].CEP_USUARIO,
+                COMPLEMENTO_USUARIO: results[0].COMPLEMENTO_USUARIO, NUMERO_USUARIO: results[0].NUMERO_USUARIO,
+                CELULAR_USUARIO: results[0].CELULAR_USUARIO,
                 nomeusu_usu: results[0].user_usuario, fone_usu: results[0].fone_usuario, senha_usu: ""
             }
 
@@ -179,9 +194,9 @@ const usuarioController = {
         } catch (e) {
             console.log(e);
             res.render("pages/perfil", {
-                listaErros: null, dadosNotificacao: null, valores: {
-                    img_perfil_banco: "", img_perfil_pasta: "", nome_usu: "", email_usu: "",
-                    nomeusu_usu: "", fone_usu: "", senha_usu: "", 
+                listaErros: null, dadosNotificacao: { titulo: "Erro ao carregar!", mensagem: "Tente novamente mais tarde!", tipo: "error"}, valores: {
+                    NOME_USUARIO: "", EMAIL_USUARIO: "",
+                    SENHA_USUARIO: "", 
                 }
             })
         }
@@ -203,35 +218,15 @@ const usuarioController = {
         }
         try {
             var dadosForm = {
-                user_usuario: req.body.nomeusu_usu,
-                nome_usuario: req.body.nome_usu,
-                email_usuario: req.body.email_usu,
-                img_perfil_banco: req.session.autenticado.img_perfil_banco,
-                img_perfil_pasta: req.session.autenticado.img_perfil_pasta,
+                //banco
+                NOME_USUARIO: req.body.NOME_USUARIO,//formulario
+                EMAIL_USUARIO: req.body.EMAIL_USUARIO,
+                SENHA_USUARIO: req.body.SENHA_USUARIO,
             };
-            if (req.body.senha_usu != "") {
-                dadosForm.senha_usuario = bcrypt.hashSync(req.body.senha_usu, salt);
+            if (req.body.password != "") {
+                dadosForm.SENHA_USUARIO = bcrypt.hashSync(req.body.senha_usu, salt);
             }
-            if (!req.file) {
-                console.log("Falha no carregamento");
-            } else {
-                //Armazenando o caminho do arquivo salvo na pasta do projeto 
-                caminhoArquivo = "imagem/perfil/" + req.file.filename;
-                //Se houve alteração de imagem de perfil apaga a imagem anterior
-                if(dadosForm.img_perfil_pasta != caminhoArquivo ){
-                    removeImg(dadosForm.img_perfil_pasta);
-                }
-                dadosForm.img_perfil_pasta = caminhoArquivo;
-                dadosForm.img_perfil_banco = null;
-
-                // //Armazenando o buffer de dados binários do arquivo 
-                // dadosForm.img_perfil_banco = req.file.buffer;                
-                // //Apagando a imagem armazenada na pasta
-                // if(dadosForm.img_perfil_pasta != null ){
-                //     removeImg(dadosForm.img_perfil_pasta);
-                // }
-                // dadosForm.img_perfil_pasta = null; 
-            }
+            
             let resultUpdate = await usuario.update(dadosForm, req.session.autenticado.id);
             if (!resultUpdate.isEmpty) {
                 if (resultUpdate.changedRows == 1) {
@@ -239,9 +234,7 @@ const usuarioController = {
                     var autenticado = {
                         autenticado: result[0].nome_usuario,
                         id: result[0].id_usuario,
-                        tipo: result[0].id_tipo_usuario,
-                        img_perfil_banco: result[0].img_perfil_banco != null ? `data:image/jpeg;base64,${result[0].img_perfil_banco.toString('base64')}` : null,
-                        img_perfil_pasta: result[0].img_perfil_pasta
+                        tipo: result[0].tipo_usuario_idtipo_usuario,
                     };
                     req.session.autenticado = autenticado;
                     var campos = {

@@ -9,6 +9,16 @@
     <link rel="stylesheet" href="/css/pginicial.css">
 </head>
 <body>
+    <% 
+    let nome ="visitante"
+    if(autenticado.autenticado != null){
+        nome=autenticado.autenticado
+        if(login == 1){%>
+       <script>
+           notify("Login efetuado com sucesso", 
+           "Olá <%= autenticado.autenticado %>", "success", "center")                        
+       </script>
+       <% }  } %>
     <header>
         <nav>
             <ul>
@@ -38,7 +48,9 @@
                 <li class="logo-container">
                     <img src="imagens/logo.png" alt="logo" class="logo">
                 </li>
-                <li><img src="imagens/login.png" alt="MF" id="profile-icon">
+                <li>
+                    <!-- <img src="imagens/login.png" alt="MF" id="profile-icon"> -->
+                    <p> Olá <%= nome %>, bem vindo!</p>
                     <div class="menu-options" id="menu-options"> 
                     <div class="sub-menu-1">
                         <ul>

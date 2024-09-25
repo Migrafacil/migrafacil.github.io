@@ -69,6 +69,63 @@
     </style>
 </head>
 <body>
+    <%
+    let msgErro = ""
+    let avisoErro = {"nome_usu":"", "email_usu":"",nomeusu_usu:"", fone_usu:"", cep:"", imagem:""}
+    if(listaErros){
+        listaErros.errors.forEach(function(itemErro){
+            if(itemErro.path == "nome_usu"){
+                avisoErro.nome_usu = "erro";
+                msgErro += `* ${itemErro.msg} <br>`;
+            }
+            if(itemErro.path == "fone_usu"){
+                avisoErro.fone_usu = "erro";
+                msgErro += `* ${itemErro.msg} <br>`;
+            }
+            if(itemErro.path == "nomeusu_usu"){
+                avisoErro.nomeusu_usu = "erro";
+                msgErro += `* ${itemErro.msg} <br>`;
+            }
+            if(itemErro.path == "email_usu"){
+                avisoErro.email_usu = "erro";
+                msgErro += `* ${itemErro.msg} <br>`;
+            }
+            if(itemErro.path == "cep"){
+                avisoErro.cep = "erro";
+                msgErro += `* ${itemErro.msg} <br>`;
+            }
+            if(itemErro.path == "numero"){
+                avisoErro.numero = "erro";
+                msgErro += `* ${itemErro.msg} <br>`;
+            }
+            if(itemErro.path == "imagem-perfil_usu"){
+                avisoErro.imagem = "erro";
+                msgErro += `* ${itemErro.msg} <br>`;
+            }
+        })
+        if(msgErro != ""){
+            %>
+                <script>
+                    let msgErro ="<%= msgErro %>"
+                    notify("Erro no preenchimento",
+                    "Verifique o(s) campo(s): <br>" + msgErro.replace(/&lt;/g,"<").replace(/&gt;/g,">"), 
+                    "error", "center",5000)                        
+                </script>
+                <%
+
+        }
+    }
+    if (dadosNotificacao) { 
+        %>
+        <script>
+                notify("<%= dadosNotificacao.titulo%>","<%= dadosNotificacao.mensagem%>", "<%= dadosNotificacao.tipo%>", "center")
+                if("<%= dadosNotificacao.tipo %>" == "success"){
+                    setTimeout(function(){
+                        window.location="/"
+                    }, 3000)
+                }                        
+        </script>
+    <% } %>
     <!-- Cabeçalho com logo e informações do usuário -->
     <header class="header">
         <img src="imagens/image2.png" alt="Migra Fácil Logo">
@@ -83,18 +140,26 @@
         <!-- Menu lateral -->
         <aside class="sidebar">
             <button>Suas informações</button>
-            <button>Publicações</button>
-            <button>Planos</button>
+            <% 
+            
+            if(autenticado.autenticado != null){
+                
+                if(autenticado.tipo != 1){%>
+
+                    <button>Publicações</button>
+                    <button>Planos</button>
+               
+               <% }  } %>
         </aside>
 
         <!-- Conteúdo principal -->
         <div class="content">
             <section class="profile-info" id="info-section">
                 <h2>Informações do Perfil</h2>
-                <form id="profileForm">
+                <form id="profileForm" method="post" action="/alterarperfil">
                     <div class="form-group">
                         <label for="email">E-mail atual:</label>
-                        <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+                        <input type="email" id="email" name="email" placeholder="Seu e-mail" required value="<%= valores.EMAIL_USUARIO %>" class="<%= avisoErro.EMAIL_USUARIO %>">
                         <label for="new-email">Novo e-mail:</label>
                         <input type="email" id="new-email" name="new-email" placeholder="Novo e-mail" required>
                     </div>
@@ -105,10 +170,10 @@
                         <input type="password" id="new-password" name="new-password" placeholder="Nova senha" required>
                     </div>
                     <div class="form-group">
-                        <label for="password">Número de telefone atual:</label>
-                        <input type="password" id="password" name="password" placeholder="Seu número" required>
-                        <label for="new-password">Novo número de telefone:</label>
-                        <input type="password" id="new-password" name="new-password" placeholder="Novo número" required>
+                        <label for="telefone">Número de telefone atual:</label>
+                        <input type="telefone" id="telefone" name="telefone" placeholder="Seu número" required>
+                        <label for="new-telefone">Novo número de telefone:</label>
+                        <input type="telefone" id="new-telefone" name="new-telefone" placeholder="Novo número" required>
                     </div>
                     <div class="form-group">
                         <label for="password">CEP atual:</label>
@@ -159,6 +224,8 @@
                     <button type="button" class="publicar" onclick="publicarAnuncio()">Publicar</button>
                 </form>
             </section>
+
+
         </div>
     </div>
 

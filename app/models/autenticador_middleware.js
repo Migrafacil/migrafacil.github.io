@@ -34,7 +34,7 @@ gravarUsuAutenticado = async (req, res, next) => {
                 var autenticado = {
                     autenticado: results[0].NOME_USUARIO,
                     id: results[0].ID_USUARIO,
-                    // tipo: results[0].tipo_usuario
+                    tipo: results[0].tipo_usuario_idtipo_usuario
                 };
             }
         } 

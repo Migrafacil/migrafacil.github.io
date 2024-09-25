@@ -55,7 +55,8 @@ router.get("/sair", limparSessao, function (req, res) {
 });
 
 router.get("/login", function (req, res) {
-  res.render("pages/login", {pagina:"login", logado:null});
+  res.render("pages/login", {pagina:"login", logado:null,
+dadosNotificacao: null, listaErros: null});
 });
 
 router.post(
@@ -66,9 +67,6 @@ router.post(
     usuarioController.logar(req,res);
   }
 )
-router.get("/perfil", function (req, res) {
-  res.render("pages/perfil", {pagina:"logado", logado:"logado"});
-});
 router.get(
   "/perfil",
   verificarUsuAutorizado([1, 2, 3], "pages/restrito"),
@@ -77,18 +75,17 @@ router.get(
   }
 );
 
-//router.post(
-  //"/perfil",
-  //uploadFile("imagem-perfil_usu"),
- // usuarioController.regrasValidacaoPerfil,
- // verificarUsuAutorizado([1, 2, 3], "pages/restrito"),
- // async function (req, res) {
- //   usuarioController.gravarPerfil(req, res);
-// }
-//);
+router.post(
+  "/alterarperfil",
+ usuarioController.regrasValidacaoPerfil,
+ verificarUsuAutorizado([1, 2, 3, 4], "pages/restrito"),
+ async function (req, res) {
+   usuarioController.gravarPerfil(req, res);
+}
+);
 
-router.get("/logado", function (req, res) {
-  res.render("pages/logado", {pagina:"logado", logado:"logado"});
+router.get("/logado", verificarUsuAutenticado, function (req, res) {
+  res.render("pages/logado", {pagina:"logado", logado:"logado", autenticado: req.session.autenticado, login: req.session.logado});
 });
 
 router.get("/casas", function (req, res) {
