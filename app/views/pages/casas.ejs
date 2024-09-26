@@ -370,3 +370,145 @@
     </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtro de Imóveis</title>
+    <link rel="stylesheet" href="../css/filtrocasas.css">
+</head>
+<body>
+    <div class="filtro-container">
+        <h2>Filtro casas </h2>
+        <form>
+            <div class="filtro-item">
+                <label for="valor">Valor:</label>
+                <input type="range" id="valor" name="valor" min="0" max="10000" step="500" value="5000">
+                <span id="valor-valor">R$ 5.000</span>
+            </div>
+
+            <div class="filtro-item">
+                <label for="localizacao">Localização:</label>
+                <input type="text" id="localizacao" name="localizacao" placeholder="Digite a localização">
+            </div>
+
+            <div class="filtro-item">
+                <label>Tipo de Negociação:</label>
+                <select id="negociacao" name="negociacao">
+                    <option value="aluguel">Aluguel</option>
+                    <option value="Venda">Venda</option>
+                </select>
+            </div>
+
+            <div class="filtro-item">
+                <label for="quartos">Número de Quartos:</label>
+                <select id="quartos" name="quartos">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4+</option>
+                </select>
+            </div>
+
+            <div class="filtro-item">
+                <label for="garagem">Número de Garagens:</label>
+                <select id="garagem" name="garagem">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3+</option>
+                </select>
+            </div>
+
+            <div class="filtro-item">
+                <label for="banheiros">Número de Banheiros:</label>
+                <select id="banheiros" name="banheiros">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4+</option>
+                </select>
+            </div>
+
+            <button type="submit">Aplicar Filtros</button>
+        </form>
+    </div>
+
+    <script>
+        const valorInput = document.getElementById('valor');
+        const valorValor = document.getElementById('valor-valor');
+
+        valorInput.addEventListener('input', function () {
+            valorValor.textContent = `R$ ${valorInput.value}`;
+        });
+    </script>
+</body>
+</html>
+
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+.filtro-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+    background-color: #ffffff;
+    border: 1px solid #016FA0;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.filtro-container h2 {
+    margin-top: 0;
+}
+
+.filtro-item {
+    margin-bottom: 15px;
+}
+
+.filtro-item label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.filtro-item input[type="range"] {
+    width: 100%;
+}
+
+.filtro-item input[type="text"],
+.filtro-item select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.filtro-item span {
+    display: block;
+    margin-top: 5px;
+    color: #333;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+    
