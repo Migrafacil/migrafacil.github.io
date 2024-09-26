@@ -71,22 +71,22 @@
 <body>
     <%
     let msgErro = ""
-    let avisoErro = {"nome_usu":"", "email_usu":"",nomeusu_usu:"", fone_usu:"", cep:"", imagem:""}
+    let avisoErro = {"nome":"", "email":"",telefone:"", password:"", cep:"", imagem:""}
     if(listaErros){
         listaErros.errors.forEach(function(itemErro){
-            if(itemErro.path == "nome_usu"){
-                avisoErro.nome_usu = "erro";
+            if(itemErro.path == "nome"){
+                avisoErro.nome = "erro";
                 msgErro += `* ${itemErro.msg} <br>`;
             }
-            if(itemErro.path == "fone_usu"){
-                avisoErro.fone_usu = "erro";
+            if(itemErro.path == "password"){
+                avisoErro.password = "erro";
                 msgErro += `* ${itemErro.msg} <br>`;
             }
-            if(itemErro.path == "nomeusu_usu"){
-                avisoErro.nomeusu_usu = "erro";
+            if(itemErro.path == "telefone"){
+                avisoErro.telefone = "erro";
                 msgErro += `* ${itemErro.msg} <br>`;
             }
-            if(itemErro.path == "email_usu"){
+            if(itemErro.path == "email"){
                 avisoErro.email_usu = "erro";
                 msgErro += `* ${itemErro.msg} <br>`;
             }
@@ -158,6 +158,12 @@
                 <h2>Informações do Perfil</h2>
                 <form id="profileForm" method="post" action="/alterarperfil">
                     <div class="form-group">
+                        <label for="email">Nome atual:</label>
+                        <input type="email" id="email" name="email" placeholder="Seu e-mail" required value="<%= valores.EMAIL_USUARIO %>" class="<%= avisoErro.EMAIL_USUARIO %>">
+                        <label for="new-email">Novo e-mail:</label>
+                        <input type="email" id="new-email" name="new-email" placeholder="Novo e-mail" required>
+                    </div>
+                    <div class="form-group">
                         <label for="email">E-mail atual:</label>
                         <input type="email" id="email" name="email" placeholder="Seu e-mail" required value="<%= valores.EMAIL_USUARIO %>" class="<%= avisoErro.EMAIL_USUARIO %>">
                         <label for="new-email">Novo e-mail:</label>
@@ -176,10 +182,10 @@
                         <input type="telefone" id="new-telefone" name="new-telefone" placeholder="Novo número" required>
                     </div>
                     <div class="form-group">
-                        <label for="password">CEP atual:</label>
-                        <input type="password" id="password" name="password" placeholder="Seu cep" required>
-                        <label for="new-password">Novo CEP:</label>
-                        <input type="password" id="new-password" name="new-password" placeholder="Novo cep" required>
+                        <label for="cep">CEP atual:</label>
+                        <input type="cep" id="cep" name="cep" placeholder="Seu cep" required>
+                        <label for="new-cep">Novo CEP:</label>
+                        <input type="cep" id="new-cep" name="new-cep" placeholder="Novo cep" required>
                     </div>
                     <button type="submit">Salvar Alterações</button>
                 </form>
