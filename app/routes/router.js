@@ -42,7 +42,6 @@ router.get(
 
 router.post(
   "/perfil",
-  //uploadFile("imagem-perfil_usu"),
   usuarioController.regrasValidacaoPerfil,
   verificarUsuAutorizado([1, 2, 3], "pages/perfil"),
   async function (req, res) {

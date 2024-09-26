@@ -181,7 +181,19 @@ const usuarioController = {
     mostrarPerfil: async (req, res) => {
         try {
             let results = await usuario.findId(req.session.autenticado.id);
-
+            if (results[0].cep_usuario != null) {
+                const httpsAgent = new https.Agent({
+                    rejectUnauthorized: false,
+                });
+                const response = await fetch(`https://viacep.com.br/ws/${results[0].cep_usuario}/json/`,
+                    { method: 'GET', headers: null, body: null, agent: httpsAgent, });
+                var viaCep = await response.json();
+                var cep = results[0].cep_usuario.slice(0,5)+ "-"+results[0].cep_usuario.slice(5)
+            }else{
+                var viaCep = {logradouro:"", bairro:"", localidade:"", uf:""}
+                var cep = null;
+            }
+            
             let campos = {
                 NOME_USUARIO: results[0].NOME_USUARIO, EMAIL_USUARIO: results[0].EMAIL_USUARIO,
                 SENHA_USUARIO: results[0].SENHA_USUARIO, CEP_USUARIO: results[0].CEP_USUARIO,
