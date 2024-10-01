@@ -65,9 +65,7 @@ const usuarioController = {
 
     regrasValidacaoPerfil: [
         body("nome")
-            .isLength({ min: 3, max: 45 }).withMessage("Mínimo de 3 letras e máximo de 45!"),
-        body("nome")
-            .isLength({ min: 8, max: 45 }).withMessage("Nome de usuário deve ter de 8 a 45 caracteres!"),
+            .isLength({ min: 3, max: 45 }).withMessage("Nome de usuário deve ter de 3 a 45 caracteres!"),
         body("email")
             .isEmail().withMessage("Digite um e-mail válido!"),
       
@@ -228,7 +226,7 @@ const usuarioController = {
             if(erroMulter != null ){
                 lista.errors.push(erroMulter);
             } 
-            return res.render("pages/perfil", { listaErros: lista, dadosNotificacao: null, valores: req.body })
+            return res.render("pages/perfil", { listaErros: lista, autenticado: req.session.autenticado, dadosNotificacao: null, valores: req.body })
         }
         try {
             var dadosForm = {

@@ -70,15 +70,11 @@ var pool = require("../../config/pool_conexoes");
             }
         },
 
-        update: async (camposForm) => {
+        update: async (camposForm,id) => {
             try {
                 const [resultados] = await pool.query(
-                    "UPDATE usuario SET nome_usuario = ?, user_usuario = ?, senha_usuario = ?,  " +
-                    " email_usuario = ?, fone_usuario = ?, tipo_usuario = ?, status_usuario = ? " +
-                    " WHERE id_usuario = ?",
-                    [camposForm.nome_usuario, camposForm.user_usuario, camposForm.senha_usuario,
-                    camposForm.email_usuario, camposForm.fone_usuario, camposForm.tipo_usuario,
-                    camposForm.status_usuario, camposForm.id_usuario]
+                    "UPDATE usuario SET ? WHERE id_usuario = ?",
+                    [ camposForm,id]
                 )
                 return resultados;
             } catch (error) {
