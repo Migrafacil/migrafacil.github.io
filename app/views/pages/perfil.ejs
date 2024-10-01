@@ -71,7 +71,7 @@
 <body>
     <%
     let msgErro = ""
-    let avisoErro = {"nome":"", "email":"", "telefone":"", "password":"", "cep":""}
+    let avisoErro = {"nome":"", "password":"", "telefone":"", "email":"", "cep":""}
     if(listaErros){
         listaErros.errors.forEach(function(itemErro){
             if(itemErro.path == "nome"){
@@ -92,10 +92,6 @@
             }
             if(itemErro.path == "cep"){
                 avisoErro.cep = "erro";
-                msgErro += `* ${itemErro.msg} <br>`;
-            }
-            if(itemErro.path == "numero"){
-                avisoErro.numero = "erro";
                 msgErro += `* ${itemErro.msg} <br>`;
             }
         })
@@ -163,21 +159,21 @@
                         <label for="email">E-mail atual:</label>
                         <input type="email" id="email" name="email" placeholder="Seu e-mail" required value="<%= valores.EMAIL_USUARIO %>" class="<%= avisoErro.EMAIL_USUARIO %>">
                         <label for="new-email">Novo e-mail:</label>
-                        <input type="email" id="new-email" name="new-email" placeholder="Novo e-mail" required>
+                        <input type="email" id="new-email" name="new-email" placeholder="Novo e-mail" required value="<%= valores.EMAIL_USUARIO %>" class="<%= avisoErro.EMAIL_USUARIO %>">
                     </div>
                     <div class="form-group">
                         <label for="password">Senha atual:</label>
-                        <input type="password" id="password" name="password" placeholder="Sua senha" required>
+                        <input type="password" id="password" name="password" placeholder="Sua senha" required value="<%= valores.SENHA_USUARIO %>" class="<%= avisoErro.SENHA_USUARIO %>">
                         <label for="new-password">Nova senha:</label>
-                        <input type="password" id="new-password" name="new-password" placeholder="Nova senha" required>
+                        <input type="password" id="new-password" name="new-password" placeholder="Nova senha" required value="<%= valores.SENHA_USUARIO %>" class="<%= avisoErro.SENHA_USUARIO %>">
                     </div>
                     <div class="form-group">
-                        <label for="new-telefone">Novo número de telefone:</label>
-                        <input type="telefone" id="new-telefone" name="new-telefone" placeholder="Novo número" required>
+                        <label for="new-telefone">Número de telefone:</label>
+                        <input type="telefone" id="new-telefone" name="new-telefone" placeholder="Novo número" required value="<%= valores.CELULAR_USUARIO %>" class="<%= avisoErro.CELULAR_USUARIO %>">
                     </div>
                     <div class="form-group">
                         <label for="new-cep"> CEP:</label>
-                        <input type="cep" id="new-cep" name="new-cep" placeholder="Novo cep" required>
+                        <input type="cep" id="new-cep" name="new-cep" placeholder="Novo cep" required value="<%= valores.CEP_USUARIO %>" class="<%= avisoErro.CEP_USUARIO %>">
                     </div>
                     <button type="submit">Salvar Alterações</button>
                 </form>
