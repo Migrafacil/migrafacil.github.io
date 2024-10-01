@@ -34,7 +34,7 @@ router.get("/", verificarUsuAutenticado, function (req, res) {
 
 router.get(
   "/perfil",
-  verificarUsuAutorizado([1, 2, 3], "pages/perfil"),
+  verificarUsuAutorizado([1, 2, 3, 4], "pages/login"),
   async function (req, res) {
     usuarioController.mostrarPerfil(req, res);
   }
@@ -43,7 +43,7 @@ router.get(
 router.post(
   "/perfil",
   usuarioController.regrasValidacaoPerfil,
-  verificarUsuAutorizado([1, 2, 3], "pages/perfil"),
+  verificarUsuAutorizado([1, 2, 3,4], "pages/login"),
   async function (req, res) {
     usuarioController.gravarPerfil(req, res);
   }
@@ -66,13 +66,6 @@ router.post(
     usuarioController.logar(req,res);
   }
 )
-router.get(
-  "/perfil",
-  verificarUsuAutorizado([1, 2, 3], "pages/restrito"),
-  async function (req, res) {
-    usuarioController.mostrarPerfil(req, res);
-  }
-);
 
 router.post(
   "/alterarperfil",

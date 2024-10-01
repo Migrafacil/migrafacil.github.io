@@ -43,6 +43,20 @@ var pool = require("../../config/pool_conexoes");
                 return error;
             }
         },
+
+        findId: async (id) => {
+            try {
+                const [resultados] = await pool.query(
+                    "SELECT * " +
+                    "FROM usuario u, tipo_usuario t where  " +
+                    "u.tipo_usuario_idtipo_usuario = t.idtipo_usuario and u.id_usuario = ? ", [id]
+                )
+                return resultados;
+            } catch (error) {
+                console.log(error);
+                return error;
+            }
+        },
         
         create: async (dadosForm) => {
             try {

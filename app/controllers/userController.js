@@ -179,6 +179,7 @@ const usuarioController = {
     },
 
     mostrarPerfil: async (req, res) => {
+     
         try {
             let results = await usuario.findId(req.session.autenticado.id);
             if (results[0].cep_usuario != null) {
@@ -202,11 +203,12 @@ const usuarioController = {
                 nomeusu_usu: results[0].user_usuario, fone_usu: results[0].fone_usuario, senha_usu: ""
             }
 
-            res.render("pages/perfil", { listaErros: null, dadosNotificacao: null, valores: campos })
+            res.render("pages/perfil", { listaErros: null, dadosNotificacao: null, valores: campos , autenticado: req.session.autenticado})
         } catch (e) {
+         
             console.log(e);
             res.render("pages/perfil", {
-                listaErros: null, dadosNotificacao: { titulo: "Erro ao carregar!", mensagem: "Tente novamente mais tarde!", tipo: "error"}, valores: {
+                listaErros: null, autenticado: req.session.autenticado, dadosNotificacao: { titulo: "Erro ao carregar!", mensagem: "Tente novamente mais tarde!", tipo: "error"}, valores: {
                     NOME_USUARIO: "", EMAIL_USUARIO: "",
                     SENHA_USUARIO: "", 
                 }
