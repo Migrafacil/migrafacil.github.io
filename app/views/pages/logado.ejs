@@ -441,10 +441,11 @@
     </div>
  
   <!-- Modal com o formulário -->
+
 <div class="modal" id="modal">
     <span class="fechar-x" onclick="fecharModal()">&#10006;</span>
     <h2>Publicar Anúncio</h2>
-    <form id="form-anuncio" style="display: none;">
+    <form id="form-anuncio" style="display: none;" method="post" action="/gravarvagas">
         <div class="form-group">
             <label for="titulo">Título:</label>
             <input type="text" id="titulo" name="titulo" placeholder="Título do anúncio">
@@ -473,6 +474,9 @@
         </div>
 
         <!-- Campos de endereço para imóveis -->
+        <span class="fechar-x" onclick="fecharModal()">&#10006;</span>
+        <h2>Publicar Anúncio</h2>
+        <form id="form-anuncio" style="display: none;" method="post" action="/gravarvagas">
         <div class="form-group">
             <label for="cep">CEP:</label>
             <input type="text" id="cep" name="cep" placeholder="Digite o CEP" onblur="buscarEndereco()">

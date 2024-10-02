@@ -69,7 +69,44 @@
             padding: 40px;
             width: 100%;
         }
-        /* Outros estilos de formulários já existentes */
+        .icons-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .icon-button {
+            text-align: center;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            padding: 10px;
+            transition: border-color 0.3s;
+        }
+        .icon-button img {
+            width: 60px;
+            height: 60px;
+        }
+        .icon-button:hover {
+            border-color: #7fa11f;
+        }
+        .form-anuncio {
+            display: none;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-anuncio button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #7fa11f;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-anuncio button:hover {
+            background-color: #5b8a16;
+        }
     </style>
 </head>
 <body>
@@ -253,7 +290,7 @@
                         <p>Vagas de Emprego</p>
                     </div>
                 </div>
-
+ 
                 <form id="form-anuncio" style="display: none;">
                     <div class="form-group">
                         <label for="titulo">Título:</label>
@@ -267,21 +304,21 @@
                         <label for="preco-salario" id="label-preco-salario">Preço:</label>
                         <input type="text" id="preco-salario" name="preco-salario" placeholder="Preço">
                     </div>
-
+ 
                     <div class="extra-emprego" id="extra-emprego" style="display: none;">
                         <div class="form-group">
                             <label for="contato">Link da vaga ou WhatsApp:</label>
                             <input type="text" id="contato" name="contato" placeholder="Link ou número de WhatsApp">
                         </div>
                     </div>
-
+ 
                     <div class="campo-imagem" id="campo-imagem" style="display: block;">
                         <div class="form-group">
                             <label for="imagem">Imagem (opcional):</label>
                             <input type="file" id="imagem" name="imagem">
                         </div>
                     </div>
-
+ 
                     <!-- Campos de endereço para imóveis -->
                     <div class="form-group" id="cep-imovel">
                         <label for="cep-imovel">CEP:</label>
@@ -307,7 +344,7 @@
                         <label for="estado">Estado:</label>
                         <input type="text" id="estado" name="estado" placeholder="Estado" required>
                     </div>
-
+ 
                     <div class="extra-info" id="extra-info" style="display: none;">
                         <div class="form-group">
                             <label for="quartos">Número de Quartos:</label>
@@ -339,10 +376,11 @@
                             </select>
                         </div>
                     </div>
-
+ 
                     <button type="button" class="publicar" onclick="publicarAnuncio()">Publicar</button>
                 </form>
             </section>
+ 
         </div>
     </div>
 

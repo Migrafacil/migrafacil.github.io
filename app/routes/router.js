@@ -153,6 +153,28 @@ router.post(
   }
 )
 
+router.get("/gravarvagas", function (req, res) {
+  res.render("pages/perfil", {pagina:"", logado:"null",
+  listaErros: null,
+  valores: {
+    //de acordo com o nome do formulario
+    nome_usu: "",
+    email_usu: "",
+    cpf_cnpj_usu: "",
+    senha_usu: "",
+  }
+})
+});
+
+router.post(
+  "/gravarvagas",
+  usuarioController.regrasValidacaoFormCadempresa,
+  function (req, res) {
+    console.log(req.body);
+    usuarioController.cadastrarEmpresa(req,res);
+  }
+)
+
 router.get("/casas", function (req, res) {
   res.render("pages/casas",{pagina:"anuncios casas", logado: "null"});
 });
