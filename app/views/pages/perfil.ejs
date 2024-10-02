@@ -242,45 +242,111 @@
             </section>
 
             <section class="listing" id="listing-section" style="display: none;">
-                <h2>Publicar Anúncio</h2>
-                <form id="form-anuncio">
-                    <label for="tipo-anuncio">Tipo de Anúncio:</label>
-                    <select id="tipo-anuncio" name="tipo-anuncio" onchange="verificarTipoAnuncio()">
-                        <option value="">Escolha o tipo de anúncio</option>
-                        <option value="vaga">Vaga de Emprego</option>
-                        <option value="moradia">Moradia</option>
-                    </select>
-            
-                    <label for="titulo">Título:</label>
-                    <input type="text" id="titulo" name="titulo" placeholder="Título do anúncio">
-            
-                    <label for="descricao">Descrição:</label>
-                    <textarea id="descricao" name="descricao" rows="4" placeholder="Descrição detalhada"></textarea>
-            
-                    <label for="preco-salario" id="label-preco-salario">Preço/Salário:</label>
-                    <input type="text" id="preco-salario" name="preco-salario" placeholder="Preço ou Salário">
-            
-                    <div class="extra-emprego" id="extra-emprego">
-                        <label for="contato">Link da vaga ou WhatsApp:</label>
-                        <input type="text" id="contato" name="contato" placeholder="Link ou número de WhatsApp">
+                <h2>Escolha o tipo de publicação:</h2>
+                <div class="icons-container">
+                    <div class="icon-button" id="imovel-btn">
+                        <img src="imagens/casa.png" alt="Imóveis">
+                        <p>Imóveis</p>
                     </div>
-            
-                    <div class="campo-imagem" id="campo-imagem">
-                        <label for="imagem">Imagem (opcional):</label>
-                        <input type="file" id="imagem" name="imagem">
+                    <div class="icon-button" id="vaga-btn">
+                        <img src="imagens/mala-de-viagem.png" alt="Vagas de Emprego">
+                        <p>Vagas de Emprego</p>
                     </div>
-            
+                </div>
+
+                <form id="form-anuncio" style="display: none;">
+                    <div class="form-group">
+                        <label for="titulo">Título:</label>
+                        <input type="text" id="titulo" name="titulo" placeholder="Título do anúncio">
+                    </div>
+                    <div class="form-group">
+                        <label for="descricao">Descrição:</label>
+                        <textarea id="descricao" name="descricao" rows="4" placeholder="Descrição detalhada"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="preco-salario" id="label-preco-salario">Preço:</label>
+                        <input type="text" id="preco-salario" name="preco-salario" placeholder="Preço">
+                    </div>
+
+                    <div class="extra-emprego" id="extra-emprego" style="display: none;">
+                        <div class="form-group">
+                            <label for="contato">Link da vaga ou WhatsApp:</label>
+                            <input type="text" id="contato" name="contato" placeholder="Link ou número de WhatsApp">
+                        </div>
+                    </div>
+
+                    <div class="campo-imagem" id="campo-imagem" style="display: block;">
+                        <div class="form-group">
+                            <label for="imagem">Imagem (opcional):</label>
+                            <input type="file" id="imagem" name="imagem">
+                        </div>
+                    </div>
+
+                    <!-- Campos de endereço para imóveis -->
+                    <div class="form-group" id="cep-imovel">
+                        <label for="cep-imovel">CEP:</label>
+                        <input type="text" id="cep-imovel" name="cep-imovel" placeholder="CEP da propriedade" required>
+                    </div>
+                    <div class="form-group" id="endereco-imovel">
+                        <label for="rua">Rua:</label>
+                        <input type="text" id="rua" name="rua" placeholder="Rua da casa" required>
+                    </div>
+                    <div class="form-group" id="numero-imovel">
+                        <label for="numero">Número:</label>
+                        <input type="text" id="numero" name="numero" placeholder="Número da casa" required>
+                    </div>
+                    <div class="form-group" id="bairro-imovel">
+                        <label for="bairro">Bairro:</label>
+                        <input type="text" id="bairro" name="bairro" placeholder="Bairro" required>
+                    </div>
+                    <div class="form-group" id="cidade-imovel">
+                        <label for="cidade">Cidade:</label>
+                        <input type="text" id="cidade" name="cidade" placeholder="Cidade" required>
+                    </div>
+                    <div class="form-group" id="estado-imovel">
+                        <label for="estado">Estado:</label>
+                        <input type="text" id="estado" name="estado" placeholder="Estado" required>
+                    </div>
+
+                    <div class="extra-info" id="extra-info" style="display: none;">
+                        <div class="form-group">
+                            <label for="quartos">Número de Quartos:</label>
+                            <select id="quartos" name="quartos">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4+</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="metros-quadrados">Metros Quadrados:</label>
+                            <input type="text" id="metros-quadrados" name="metros-quadrados" placeholder="Metros quadrados">
+                        </div>
+                        <div class="form-group">
+                            <label for="vaga-carro">Vaga para Carro:</label>
+                            <select id="vaga-carro" name="vaga-carro">
+                                <option value="sim">Sim</option>
+                                <option value="nao">Não</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="banheiros">Número de Banheiros:</label>
+                            <select id="banheiros" name="banheiros">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4+</option>
+                            </select>
+                        </div>
+                    </div>
+
                     <button type="button" class="publicar" onclick="publicarAnuncio()">Publicar</button>
                 </form>
             </section>
-
-
         </div>
     </div>
 
-    <!-- Script JS para interações -->
     <script>
-        // Mostrar a seção de informações inicialmente
         document.getElementById('info-section').style.display = 'block';
         
         const buttons = document.querySelectorAll('.sidebar button');
@@ -288,43 +354,97 @@
 
         buttons.forEach((button, index) => {
             button.onclick = function() {
-                sections.forEach(section => section.style.display = 'none'); // Esconde todas as seções
-                sections[index].style.display = 'block'; // Mostra a seção correspondente
+                sections.forEach(section => section.style.display = 'none');
+                sections[index].style.display = 'block';
+                if (index !== 1) {
+                    document.getElementById('form-anuncio').style.display = 'none';
+                }
             };
         });
-        
-        function verificarTipoAnuncio() {
-            const tipoAnuncio = document.getElementById('tipo-anuncio').value;
-            const labelPrecoSalario = document.getElementById('label-preco-salario');
-            const inputPrecoSalario = document.getElementById('preco-salario');
-            const campoImagem = document.getElementById('campo-imagem');
 
-            if (tipoAnuncio === 'vaga') {
-                labelPrecoSalario.textContent = 'Salário:';
-                inputPrecoSalario.placeholder = 'Salário';
-                campoImagem.style.display = 'none'; // Esconder campo de imagem
-                document.getElementById('extra-emprego').style.display = 'block'; // Mostrar campo extra
-            } else if (tipoAnuncio === 'moradia') {
-                labelPrecoSalario.textContent = 'Preço:';
-                inputPrecoSalario.placeholder = 'Preço';
-                campoImagem.style.display = 'block'; // Mostrar campo de imagem
-                document.getElementById('extra-emprego').style.display = 'none'; // Esconder campo extra
+        document.getElementById('publicacoes-btn').onclick = function() {
+            document.getElementById('listing-section').style.display = 'block';
+            document.getElementById('info-section').style.display = 'none';
+            document.getElementById('plans-section').style.display = 'none';
+        };
+
+        document.getElementById('imovel-btn').onclick = function() {
+            showAnuncioForm('moradia');
+        };
+
+        document.getElementById('vaga-btn').onclick = function() {
+            showAnuncioForm('vaga');
+        };
+
+        function showAnuncioForm(tipo) {
+            const form = document.getElementById('form-anuncio');
+            form.style.display = 'block';
+
+            if (tipo === 'vaga') {
+                document.getElementById('extra-emprego').style.display = 'block';
+                document.getElementById('campo-imagem').style.display = 'none';
+                document.getElementById('label-preco-salario').textContent = 'Salário:';
+                document.getElementById('preco-salario').placeholder = 'Salário';
+                document.getElementById('extra-info').style.display = 'none';
+                document.getElementById('cep-imovel').style.display = 'none'; // Ocultar campo de CEP para emprego
+                document.getElementById('endereco-imovel').style.display = 'none';
+                document.getElementById('numero-imovel').style.display = 'none';
+                document.getElementById('bairro-imovel').style.display = 'none';
+                document.getElementById('cidade-imovel').style.display = 'none';
+                document.getElementById('estado-imovel').style.display = 'none';
+            } else {
+                document.getElementById('extra-emprego').style.display = 'none';
+                document.getElementById('campo-imagem').style.display = 'block';
+                document.getElementById('label-preco-salario').textContent = 'Preço:';
+                document.getElementById('preco-salario').placeholder = 'Preço';
+                document.getElementById('extra-info').style.display = 'block';
+                document.getElementById('cep-imovel').style.display = 'block'; // Mostrar campo de CEP para imóvel
+                document.getElementById('endereco-imovel').style.display = 'block';
+                document.getElementById('numero-imovel').style.display = 'block';
+                document.getElementById('bairro-imovel').style.display = 'block';
+                document.getElementById('cidade-imovel').style.display = 'block';
+                document.getElementById('estado-imovel').style.display = 'block';
             }
         }
 
+        document.getElementById('cep-imovel').addEventListener('blur', function() {
+    const cep = this.value.replace(/\D/g, '');
+    if (cep.length === 8) {
+        fetch(`https://viacep.com.br/ws/${cep}/json/`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro na rede');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (!data.erro) {
+                    document.getElementById('rua').value = data.logradouro;
+                    document.getElementById('bairro').value = data.bairro;
+                    document.getElementById('cidade').value = data.localidade;
+                    document.getElementById('estado').value = data.uf;
+                } else {
+                    alert('CEP não encontrado.');
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('Erro ao buscar o CEP.');
+            });
+    } else {
+        alert('CEP inválido.');
+    }
+});
+
+
+      
         function publicarAnuncio() {
             const form = document.getElementById('form-anuncio');
-            const tipoAnuncio = document.getElementById('tipo-anuncio').value;
-
-            // Definir a ação do formulário com base no tipo de anúncio
-            if (tipoAnuncio === 'vaga') {
-                form.action = '/empregos.ejs'; // Enviar para empregos.ejs
-            } else if (tipoAnuncio === 'moradia') {
-                form.action = '/casas.ejs'; // Enviar para casas.ejs
-            }
-
-            // Simular o envio do formulário (substituir com o método real de envio)
-            form.submit();
+            alert('Anúncio publicado com sucesso!');
+            form.reset();
+            form.style.display = 'none';
+            document.getElementById('listing-section').style.display = 'none';
+            document.getElementById('info-section').style.display = 'block';
         }
     </script>
 </body>
