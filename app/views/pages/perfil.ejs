@@ -167,7 +167,7 @@
     <!-- Layout com menu lateral e conteúdo principal -->
     <div class="container">
         <!-- Menu lateral -->
-        <aside class="sidebar">
+        <!-- <aside class="sidebar">
             <button>Suas informações</button>
             <% 
             
@@ -179,11 +179,23 @@
                     <button>Planos</button>
                
                <% }  } %>
+        </aside> -->
+
+        <aside class="sidebar">
+            <button id="info-btn">Suas informações</button>
+            <% if(autenticado.autenticado != null && autenticado.tipo != 1) { %>
+
+                <button id="publicar-imoveis-btn">Publicar Imóveis</button>
+                <button id="publicar-empregos-btn">Publicar Empregos</button>
+                <button id="plans-btn">Planos</button>
+                
+            <% } %>
         </aside>
 
+        
         <!-- Conteúdo principal -->
         <div class="content">
-            <section class="profile-info" id="info-section">
+            <section class="profile-info" id="info-section" style="display:none;">
                 <h2>Informações do Perfil</h2>
                 <form id="profileForm" method="post" action="/alterarperfil">
                     <div class="form-group">
@@ -278,7 +290,7 @@
                 </ul>
             </section>
 
-            <section id="imovel-section" style="display: none;">
+            <section id="imovel-section" style="display: none;" >
                 <h2>Publicar Imóveis</h2>
                 <form id="form-imovel">
                     <div class="form-group">
@@ -358,6 +370,10 @@
                     </div>
 
                     <button type="button" onclick="publicarImovel()">Publicar Imóvel</button>
+                </form>
+                <form>
+                    <input type="text" placeholder="Nome do imóvel">
+                    <!-- outros campos -->
                 </form>
             </section>
 
