@@ -273,11 +273,59 @@ const usuarioController = {
         
         var dadosForm = {
             //inf do banco 
-            CPF_CNPJ_USUARIO: req.body.cpf, //formulario
-            SENHA_USUARIO: bcrypt.hashSync(req.body.senha, salt),
-            NOME_USUARIO: req.body.nome,
-            EMAIL_USUARIO: req.body.email,
-            tipo_usuario_idtipo_usuario: tipoUsuario,
+            DescricaoVaga: req.body.descricao-emprego, //formulario
+            CargaHorario: req.body.CargaHorario,
+            cargo_CargoID: req.body.nome,
+            empresa_EmpresaID: req.body.email,
+            usuario_ID_USUARIO: tipoUsuario,
+        };
+        console.log(dadosForm)
+
+        if (!erros.isEmpty()) {
+            console.log("Erros de validação:", erros.array());
+            console.log(erros);
+            return res.render("pages/cadastro", { listaErros: erros, dadosNotificacao: null, valores: req.body })
+        }
+        try {
+            const createResult = await usuario.create(dadosForm); // Aguardando a criação do usuário
+            console.log("Usuário criado:", createResult);
+            var autenticado = {
+                autenticado: dadosForm.NOME_USUARIO,
+                id: createResult.insertId,
+                tipo: dadosForm.tipo_usuario_idtipo_usuario,
+            };
+            req.session.autenticado = autenticado;
+
+            if (createResult.affectedRows > 0) {
+                res.redirect("/logado"); // Redireciona para a página logado após o cadastro bem-sucedido
+            } else {
+                throw new Error('Falha ao criar usuário');
+            }
+        } catch (e) {
+            console.log(e);
+            res.render("pages/cadastro", {
+                listaErros: null, dadosNotificacao: {
+                    titulo: "Erro ao cadastrar!", mensagem: "Verifique os valores digitados!", tipo: "error"
+                }, valores: req.body
+            })
+        }
+    },
+
+    gravarimoveis: async (req, res) => {
+        console.log("Senha recebida:", req.body.senha);
+        const erros = validationResult(req);
+        const tipoUsuario = req.body.proprietario ? 4 : 1; // 1 para proprietário, 2 para comum
+        
+        var dadosForm = {
+            //inf do banco 
+            CEP_Imovel: req.body.descricao-emprego, //formulario
+            NUMERO_IMOVEL: req.body.CargaHorario,
+            COMPLEMENTO_USUARIO: req.body.nome,
+            IMAGEM1_IMOVEL: req.body.email,
+            IMAGEM2_IMOVEL: req.body.email,
+            IMAGEM3_IMOVEL: req.body.email,
+            IMAGEM4_IMOVEL: req.body.email,
+            usuario_ID_USUARIO: tipoUsuario,
         };
         console.log(dadosForm)
 
