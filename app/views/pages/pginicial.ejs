@@ -1,304 +1,237 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pag inicial </title>
+    <title>Migra Facil - Página inicial </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="shortcut icon" type="imagex/png" href="../imagens/lgaba.ico">
+
     <link rel="stylesheet" href="../css/pginicial.css">
 
     <header>
-        <nav>
+        <nav class="menudesktop">
             <ul>
                 <li> <a href="#">Procurar por</a> 
-
-                    <div class="sub-menu-1">
+                    <section class="sub-menu-1">
                         <ul>
                           <li><a href="/emprego"><i class=""></i> Empregos</a></li>
                           <li><a href="/casas"><i class=""></i> Imóveis</a></li>
 
                         </ul>
-                    </div>
-
+                    </section>
                 </li>
                 <li> <a href="#">Anunciar</a> 
-                    <div class="sub-menu-1">
+                    <section class="sub-menu-1">
                         <ul>
                             <li> <a href="#">Anunciar meu imovél</a></li>
                             <li> <a href="#">Anunciar minhas vagas</a></li>
-
                         </ul>
-                    </div>
-
+                    </section>
                 </li>
                 <li> <a href="#">Sobre nós</a> </li>
                 <li> <a href="/login">Entrar</a> </li>
-        
             </ul>
         </nav>
+             <!--menu hamburquer-->
+             <label class="menu-hamb">
+                 <input type="checkbox">
+                 <section class="toggle">
+                 <span class="top_line common"></span>
+                 <span class="middle_line common"></span>
+                 <span class="bottom_line common"></span>
+                 </section>
+                   <section class="slide">
+                   <h4 class="mnlogo"></h4>
+                  <ul>
+                  <button class="cadas">Cadastre-se</button>
+                 <button class="entmn">Entrar</button>
+                 <br/>
+                 <li><h3>Migra Fácil</h3></li>
+                 <li><a href="#">Procurar por imovéis</a></li>
+                 <li><a href="#">Procurar por empregos</a></li>
+                 <li><section class="line"></section></li>
+                 <li><h3>Publicar Anúncio</h3></li>
+                 <li><a href="#">Publicar imovéis</a></li>
+                 <li><a href="#">Publicar empregos</a></li>
+                 <li><section class="line"></section></li>
+                 <li><h5 href="#">Salvos</h5></li>
+                 <li><h5 href="#">Configurações</h5></li>
+                 <li><h5 href="#">Sobre nós</h5></li>
+                 </ul>
+                 </section>
+              </label>
+           <!--menu hamburquer-->
+
         <img src="../imagens/logo.png" alt="logo" class="logo">
     </header>
 
-      <main>
-        
-          <section class="mc"> 
+     <main>
+        <section class="mc"> 
              <h2 class="futury">Faça a mundança sem esforço..</h2>
-   
-             <div class="wrapper">
-                <input type="radio" name="slider" id="tab-1">
-                <input type="radio" name="slider" id="tab-2" checked>
-                <header>
-                  <label for="tab-1" class="tab-1">Moradia</label>
+            <section class="wrapper">
+              <input type="radio" name="slider" id="tab-1">
+              <input type="radio" name="slider" id="tab-2" >
+              <section class="botaome">
+                  <label for="tab-1" class="tab-1">Imobiliaria</label>
                   <label for="tab-2" class="tab-2">Emprego</label>
-                  <div class="slider"></div>
-                </header>
-                <div class="card-area">
-                  <div class="cards">
-                    <div class="row row-1">
-                      <div class="price-details">
-                        <span class="price"></span>
-                        <p></p>
-                      </div>
-                        <section class="retangulo1">
-                            <img src="../imagens/localização.svg" alt="local" class="img1"> <h4 class="city">Cidade</h4>
-                            <div class="search-container">
-                              <input type="text" class="search-input" placeholder="Busque por vagas">
-                              </div>
+                  <section class="slider"></section>
+              </section>
+              <!-- Seção de Moradia -->
+              <section class="card-area tab-content" id="content-1">
+                  <section class="cards">
+                      <section class="row row-1">
+                          <section class="retangulo1">
+                              <h4 class="city">Cidade</h4>
+                              <img src="../imagens/localização.svg" alt="local" class="img1">
+                              <form class="search-container">
+                                  <input type="text" class="search-input" placeholder="Busque por cidade">
+                              </form>
                           </section>
-                            <section class="retangulo2">
-                            <img src="../imagens/casa.png" alt="casa" class="img2"> <h4 class="bairry">Bairro</h4>
-                            <div class="search-container">
-                              <input type="text" class="search-input" placeholder="Busque por vagas">
-                              </div>
-                           </section>
-                         <section class="retangulo3">
-                            <img src="../imagens/cash.svg" alt="dinheiro" class="img3"> <h4 class="alugue">Aluguel até</h4>
-                            <h5 class="escolher-dinheiro">Escolha o valor</h5> <img src="../IMAGENS/ceta.svg" alt="ceta" class="cetinha">
-                            <button class="buscar"><a href="/anunciante">Buscar</a></button>
+                          <section class="retangulo2">
+                              <h4 class="bairry">Bairro</h4>
+                              <img src="../imagens/casa.png" alt="casa" class="img2">
+                              <form class="search-container">
+                                  <input type="text" class="search-input" placeholder="Busque por bairro">
+                              </form>
                           </section>
-                      </ul>
-                    </div>
-                    <div class="row">
-                      <div class="price-details">
-                        <span class="price"></span>
-                        <p></p>
-                      </div>
-                      <section class="retangulo1">
-                        <img src="../imagens/mala-de-viagem.png" alt="local" class="img1"> <h4 class="city">Vagas</h4>
-                        <div class="search-container">
-                          <input type="text" class="search-input" placeholder="Busque por vagas">
-                          </div>
+                          <section class="retangulo3">
+                              <h4 class="alugue">Aluguel até</h4>
+                              <img src="../imagens/cash.svg" alt="dinheiro" class="img3">
+                              <select class="search-select">
+                                  <option value="">Escolha o valor</option>
+                                  <option value="500">Até R$ 500</option>
+                                  <option value="1000">Até R$ 1000</option>
+                                  <option value="1500">Até R$ 1500</option>
+                              </select>
+                              <button class="buscar"><a href="anunciante.html">Buscar</a></button>
+                          </section>
                       </section>
-                        <section class="retangulo2">
-                        <img src="../imagens/localização.svg" alt="casa" class="img2"> <h4 class="bairry">Cidade</h4>
-                        <div class="search-container">
-                          <input type="text" class="search-input" placeholder="Busque por cidade">
-                          </div>
-                       </section>
-                     <section class="retangulo3">
-                        <img src="../imagens/cash.svg" alt="dinheiro" class="img3"> <h4 class="alugue">Salario até</h4>
-                        <h5 class="escolher-dinheiro">Escolha o valor</h5> <img src="../IMAGENS/ceta.svg" alt="ceta" class="cetinha">
-                        <button class="buscar"><a href="/emprego">Buscar</a></button>
+                  </section>
+              </section>
+
+              <!-- Seção de Emprego -->
+              <section class="card-area tab-content" id="content-2">
+                  <section class="cards">
+                      <section class="row">
+                          <section class="retangulo1">
+                              <h4 class="city">Vagas</h4>
+                              <img src="../imagens/mala-de-viagem.png" alt="vaga" class="img1">
+                              <section class="search-container">
+                                  <input type="text" class="search-input" placeholder="Busque por vaga">
+                              </section>
+                          </section>
+                          <section class="retangulo2">
+                              <h4 class="bairry">Cidade</h4>
+                              <img src="../imagens/localização.svg" alt="local" class="img2">
+                              <section class="search-container">
+                                  <input type="text" class="search-input" placeholder="Busque por cidade">
+                              </section>
+                          </section>
+                          <section class="retangulo3">
+                              <h4 class="alugue">Salário até</h4>
+                              <img src="../imagens/cash.svg" alt="dinheiro" class="img3">
+                              <select class="search-select">
+                                  <option value="">Escolha o valor</option>
+                                  <option value="2000">Até R$ 2000</option>
+                                  <option value="4000">Até R$ 4000</option>
+                                  <option value="6000">Até R$ 6000</option>
+                              </select>
+                              <button class="buscar"><a href="#">Buscar</a></button>
+                          </section>
                       </section>
-                    </div>
-                  </div>
-            
-
-    
-           </section>
-
-            <br/><br/><br/>
-            <section class="verde">
-                <h1 class="explo"> Explore um novo mundo de oportunidades.</h1>
-                <br/>
-                <h3 class="facil"> Facilitamos seu processo de mundanças com serviços confiaveis. aproveite uma migração sem estresse.<h3>
-                <br/>
-                <button class="Começe"><a href="#">Comece já</a></button>
-                <br/>
+                  </section>
+              </section>
             </section>
+      </section>
+            <br/>
+            <section class="services">
+              <h2>Explore um novo mundo de oportunidades.</h2>
+              <p>Facilitamos seu processo de mudanças com serviços confiáveis. Aproveite uma migração sem estresse.</p>
+              <button class="start-btn"><a href="#">Comece já</a></button>
+          </section>
 
 
-            <br/><br/>
           <h2 class="dista"> Moradias de qualidade e empregos gratificantes estão apenas a um clique de distância.</h2>
-        <br/><br/>
-        <section class="quadro1">
-            <img src="../imagens/casa.png" class="icon">
-            <h4 class ="imoveis">Para imoveis </h4>
-        </section>
-        <section class="quadro2">
-            <img src="../imagens/mala-de-viagem.png" class="icon">
-            <h4 class ="imoveis">Para empregos </h4>
-        </section>
-        <section class="quadro3">
-            <img src="../imagens/iphone.png" class="icon">
-            <h4 class ="imoveis">Para anunciante </h4>
-        </section>
-        <br/><br/>
-        <br/><br/>
-        <br/><br/>
+           <br/><br/>
+          <br/><br/>
             <h1 class="anuncia">Anuncie no Migra Fácil</h1>
-            <h5 class="pr">Anuncie seu imóvel ou sua vaga para quem busca oportunidades</h5>
+            <h5 class="pr">Anuncie seu imóvel ou sua vaga para quem busca oportunidades.</h5>
             <button class="anun"><a href="#">Anuncie</a></button>
             <br/><br/>
-            <img src="../imagens/mulheranun.jfif" class="mulher-anun">
+            <img src="../imagens/mulheranun.png" class="mulheranun">
            <br/><br/><br/>
 
-        <h4 class="planos">Escolha um plano e pague apenas pelo que contratar</h4>
-        <br/><br/>
-        <br/><br/>
-
-        <section class="quadrado1">
-            <h2 class="basico">Básico </h2>
-            <h4 class="public">05 publicações/ imovéis</h4>
-            <br/>
-            <h5 class="acesso">Acesso:</h5>
-            <br/>
-            <p class="public2">Publique 05 imóveis</p>
-            <p class="desta">03 publicações em destaque </p>
-            <p class="desta2">Publicações em destaque por 1 a 2 mês </p>
-            <br/>
-            <p class="acesso">Por apenas</p>
-            <br/>
-            <h2 class="t90">R$ 49,99/mês</h2>
-            <br/>
-            <button class="assinar"><a href="#">Assinar plano</a></button>
+           <section class="plans">
+            <h2>Escolha um plano e pague apenas pelo que contratar</h2>
+            <section class="plan-options">
+                <section class="plan-card">
+                    <h3>Básico / Imovéis</h3>
+                    <p>05 publicações de imóveis</p>
+                    <p>03 publicações em destaque por até 2 meses</p>
+                    <p>R$ 49,99/mês</p>
+                    <button class="plan-btn"><a href="#">Assinar Plano</a></button>
+                </section>
+                <section class="plan-card">
+                    <h3>Premium / Imovéis</h3>
+                    <p>20 publicações de imóveis</p>
+                    <p>08 publicações em destaque por até 5 meses</p>
+                    <p>R$ 149,99/mês</p>
+                    <button class="plan-btn"><a href="#">Assinar Plano</a></button>
+                </section>
+                <!-- Duplicado -->
+                <section class="plan-card">
+                    <h3>Básico / Vagas</h3>
+                    <p>05 publicações de vagas</p>
+                    <p>03 publicações em destaque por até 2 meses</p>
+                    <p>R$ 49,99/mês</p>
+                    <button class="plan-btn"><a href="#">Assinar Plano</a></button>
+                </section>
+                <section class="plan-card">
+                    <h3>Premium / Vagas</h3>
+                    <p>20 publicações de vagas</p>
+                    <p>08 publicações em destaque por até 5 meses</p>
+                    <p>R$ 149,99/mês</p>
+                    <button class="plan-btn"><a href="#">Assinar Plano</a></button>
+                </section>
+            </section>
         </section>
-        <br/>
-
-        <section class="quadrado2">
-            <h2 class="basico">Premium</h2>
-            <h4 class="public">20 publicações/imóveis </h4>
-            <br/>
-            <h5 class="acesso">Acesso:</h5>
-            <br/>
-            <p class="public2">Publique 20 imóveis</p>
-            <p class="desta">08 publicações em destaque </p>
-            <p class="desta2">Publicações em destaque por 4 a 5 meses </p>
-            <br/>
-            <p class="acesso">Por apenas</p>
-            <br/>
-            <h2 class="t90">R$ 149,99/mês</h2>
-            <br/>
-            <button class="assinar"><a href="#">Assinar plano</a></button>
-        </section>
-        <br/>
-        <section class="quadrado3">
-          <h2 class="basico">Clássico</h2>
-          <h4 class="public">5 publicações/vagas </h4>
-          <br/>
-          <h5 class="acesso">Acesso:</h5>
-          <br/>
-          <p class="public2">Publique 5 vagas</p>
-          <p class="desta">1  publicação em destaque </p>
-          <p class="desta2">publicação em destaque por 7 dias </p>
-          <br/>
-          <p class="acesso">Por apenas</p>
-          <br/>
-          <h2 class="t90">R$ 49,99/mês</h2>
-          <br/>
-          <button class="assinar"><a href="#">Assinar plano</a></button>
-      </section>
-      <br/>
-      <section class="quadrado4">
-        <h2 class="basico">Premium</h2>
-        <h4 class="public">20 publicações/vagas </h4>
-        <br/>
-        <h5 class="acesso">Acesso:</h5>
-        <br/>
-        <p class="public2">Publique 20 vagas</p>
-        <p class="desta">08 publicações em destaque </p>
-        <p class="desta2">Publicações em destaque por 15 dias </p>
-        <br/>
-        <p class="acesso">Por apenas</p>
-        <br/>
-        <h2 class="t90">R$ 149,99/mês</h2>
-        <br/>
-        <button class="assinar"><a href="#">Assinar plano</a></button>
-      </section>
-        <br/><br/>
     </main>
 
     <footer>
-      <div id="footer_content">
-          <div id="footer_contacts">
-              <img src="../imagens/logo.png" alt="logo Migra" class="logo-migra">
-              <p>It's all about your dreams.</p>
-
-              <div id="footer_social_media">
-                  <a href="#" class="footer-link" id="Instagram">
-                      <i class="fa-brands fa-instagram"></i>
-                  </a>
-
-                  <a href="#" class="footer-link" id="Facebook">
-                      <i class="fa-brands fa-facebook-f"></i>
-                  </a>
-
-                  <a href="#" class="footer-link" id="TikTok">
-                    <i class="fa-brands fa-tiktok"></i>
-                  </a>
-              </div>
-          </div>
-          
-          <ul class="footer-list">
-              <li>
-                  <h3>Geral</h3>
-              </li>
-              <li>
-                  <a href="app/views/pages/login.ejs" class="login.ejs">Cadastra-se</a>
-              </li>
-              <li>
-                  <a href="#" class="footer-link">Central de Ajuda</a>
-              </li>
-              <li>
-                <a href="#" class="footer-link">Sobre</a>
-              </li>
-              <li>
-                  <a href="#" class="footer-link">Segurança no Migra Fácil</a>
-              </li>
-          </ul>
-
-          <ul class="footer-list">
-              <li>
-                  <h3>Navegue pelo Migra Fácil</h3>
-              </li>
-              <li>
-                  <a href="#" class="footer-link">Empresas</a>
-              </li>
-              <li>
-                  <a href="#" class="footer-link">Vagas</a>
-              </li>
-              <li>
-                  <a href="#" class="footer-link">Salários</a>
-              </li>
-              <li>
-                <a href="#" class="footer-link">imovéis</a>
-             </li>
-             <li>
-              <a href="#" class="footer-link">Indique um imovél</a>
-             </li>
-          </ul>
-
-          <ul class="footer-list">
-            <li>
-                <h3>Migra Fácil</h3>
-            </li>
-            <li>
-                <a href="#" class="footer-link">Acessibilidade</a>
-            </li>
-            <li>
-                <a href="#" class="footer-link">Política de Privacidade do Migra Fácil</a>
-            </li>
-            <li>
-                <a href="#" class="footer-link">Política de Cookies</a>
-            </li>
-        </ul>
-
-      <div id="footer_copyright">
-          &#169
-          2023 all rights reserved
-      </div>
-  </footer>
+        <section id="footer_content">
+            <img src="../imagens/logo.png" alt="Logo Migra" class="footer-logo">
+            <p>Transformando mudanças em oportunidades.</p>
+            <section class="social-media">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+            </section>
+            <ul class="footer-links">
+                <li><a href="#">Cadastra-se</a></li>
+                <li><a href="#">Ajuda</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Segurança no Migra Fácil</a></li>
+            </ul>
+            <section id="footer_copyright">
+                &#169; 2023 All rights reserved.
+            </section>
+        </section>
+    </footer>
+    <script>
+      // Script para alternar entre moradias e empregos
+      document.querySelectorAll('input[name="slider"]').forEach(input => {
+          input.addEventListener('change', function() {
+              const id = this.id.split('-')[1];
+              document.querySelectorAll('.tab-content').forEach(content => {
+                  content.style.display = content.id === `content-${id}` ? 'block' : 'none';
+              });
+          });
+      });
+  </script>
+</head>
 </body>
 </html>

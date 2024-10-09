@@ -12,12 +12,16 @@
         padding: 0px;
         margin: 0 auto; 
     }
-
+    
+    .menu-hamb{
+        display: none;
+    }
     header {
         padding-top: 10px;
         text-align: center;
         display: flex;
         justify-content: center;
+    
     }
     nav{
         background-color: #ffffff;
@@ -102,6 +106,161 @@
         border: none;
     }
 
+    .wrapper{
+        margin-left: 85px;
+        margin-top: 45px;
+        position: relative;
+        overflow: hidden;
+    }
+    .botaome{
+        padding: 10px 20px;
+        margin-left: 100px;
+        justify-content: center ;
+        align-items: center;
+     }
+
+    section label {
+        display: inline-block;
+        padding: 10px;
+        cursor: pointer;
+        background-color: #eee;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+    
+    section label:hover {
+        background-color: #ddd;
+    }
+
+    #tab-1, #tab-2{
+        display:none;
+    }
+    .tab-1{
+        margin-left: 10px;
+    }
+    
+    .slider {
+        position: absolute;
+        height: 2px;
+        background: #333;
+        transition: left 0.3s;
+    }
+    
+    #content-2 {
+        display: none;
+        margin-right: 10px;
+    }
+    
+    .cards {
+        display: flex;
+        gap: 20px;
+        justify-content: space-between;
+    }
+    
+    .retangulo1, .retangulo2, .retangulo3 {
+        width: 150%;
+        background-color: #fff;
+        padding: 2px 2px 2px 2px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-right: 20px;
+        flex: 1;
+        position: relative;
+    }
+    
+    .retangulo1 img, .retangulo2 img, .retangulo3 img {
+       width: 38px;
+       height: 35px;
+       margin-top: 20px;
+       margin-left: 25px;
+    }
+    .city, .bairry{
+        width: 29px;
+        font-size: normal;
+        position: relative;
+        top: 40px;
+        background-color: rgba(255, 255, 255, 0);
+        font-family: "Poppins", sans-serif;
+        color: #333333;
+        text-align: left;
+        margin-left: 19%;
+        line-height: normal;
+    }
+    .alugue{
+        position: relative;
+        top: 20px;
+        font-size: normal;
+        background-color: rgba(255, 255, 255, 0);
+        font-family: "Poppins", sans-serif;
+        color: #333333;
+        text-align: left;
+        margin-left: 19%;
+        line-height: normal;
+    }
+    
+    .search-container {
+        margin-top: 10px;
+        margin: 10px 10px;
+    }
+    
+    .search-input {
+        width: 55%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        margin-left: 85px;
+        border-radius: 5px;
+    }
+    
+    .search-select {
+        width: 55%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin: 20px 0px;
+        margin-left: 35px;
+    }
+    
+    button.buscar {
+        background-color:#34990d9f;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    
+    button.buscar a {
+        color: #fff;
+        text-decoration: none;
+    }
+    
+    button.buscar:hover {
+        background-color: #218838;
+    
+    }
+    
+    .quadros {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        margin: 20px 0;
+    }
+    
+    .quadro1, .quadro2, .quadro3 {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 20px;
+        text-align: center;
+        flex: 1;
+    }
+    
+    .quadro1 img, .quadro2 img, .quadro3 img {
+        width: 60px;
+        margin-bottom: 10px;
+    }
     .futury {
         width: 611px;
         height: 40px;
@@ -115,331 +274,38 @@
         margin-top: 18px;
     }
 
-    .morady {
-        font-family: "Montserrat SemiBold", "Montserrat", "Montserrat", sans-serif;
-        font-weight: 600;
-        color: #ffffff;
-        text-align: left;
-        line-height: normal;
-        margin-bottom: -50px;
-        margin-left: 100px;
-        
-    }
-
-    .vaga {
-        font-family: "Montserrat SemiBold", "Montserrat", "Montserrat", sans-serif;
-        font-weight: 600;
-        color: #ffffff;
-        text-align: right;
-        line-height: normal;
-        margin-top: 35px;
-        margin-right: 195px;
-    }
-.retangulo1 {
-    width: 99%;
-    height: 120px;
-    padding: 2px 2px 2px 2px;
-    border: 1px solid #d7d7d7;
+#tab-1:checked ~ section .tab-1,
+#tab-2:checked ~ section .tab-2{
+  color: #28a745;
+}
+.services {
+    text-align: center;
+    padding: 50px 80px;
+    height: 487px;
+    margin-top: -25px;
+    background-color: #34990d9f;
+}
+.services h2 {
+    margin: 0;
+    font-size: 2.8em;
+    color: #ffffff;
+}
+.services p {
+    font-size: 280%;
+    margin: 20px 0;
+    color: #ffffff;
+}
+.start-btn {
     background-color: #ffffff;
-    margin-top: 30px;
-    display: flex;
-    align-items: center;
-}
-
-.img1 {
-    width: 38px;
-    height: 35px;
-    margin-left: 20px;
-    padding: 2px 2px 2px 2px;
-}
-
-.city {
-    width: 34px;
-    font-size: normal;
-    background-color: rgba(255, 255, 255, 0);
-    font-family: "Poppins", sans-serif;
-    color: #333333;
-    text-align: left;
-    margin-left: 30px;
-    line-height: normal;
-}
-.search-container {
-    display: flex;
-    align-items: center;
-    background-color: transparent;
-    padding: 5px 10px;
-    width: 300px;
-    margin-top: 55px;
-    margin-left: -50px;
- }
- .search-input {
+    color: #fff;
     border: none;
-    outline: none;
-    flex: 1;
-    padding: 8px;
-    border-radius: 24px;
-    font-size: 16px;
- }
-
-.city-results {
-    margin-top: 20px;
-  }
-  
-  .city-result {
-    margin-bottom: 10px;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .city-result h4 {
-    font-weight: bold;
-    margin-top: 0;
-  }
-
-.retangulo2 {
-    width: 99%;
-    height: 120px;
-    padding: 2px 2px 2px 2px;
-    border: 1px solid #d7d7d7;
-    background-color: #ffffff;
-    display: flex;
-    align-items: center;
+    margin-top: 60px;
+    padding: 15px 45px;
+    width: 300px;
+    height: 54px;
+    border-radius: 4px;
+    cursor: pointer;
 }
-
-.img2 {
-    width: 38px;
-    height: 35px;
-    margin-left: 20px;
-    padding: 2px 2px 2px 2px;
-}
-
-.bairry {
-    width: 29px;
-    font-size: normal;
-    background-color: rgba(255, 255, 255, 0);
-    font-family: "Poppins", sans-serif;
-    color: #333333;
-    text-align: left;
-    margin-left: 30px;
-    line-height: normal;
-}
-
-.retangulo3 {
-    width: 99%;
-    height: 120px;
-    padding: 2px 2px 2px 2px;
-    border: 1px solid #d7d7d7;
-    background-color: #ffffff;
-    display: flex;
-    align-items: center;
-}
-
-.img3 {
-    width: 38px;
-    height: 35px;
-    margin-left: 20px;
-    padding: 2px 2px 2px 2px;
-}
-
-.alugue {
-    height: 15px;
-    font-size: 15px;
-    background-color: rgba(255, 255, 255, 0);
-    font-family: "Poppins", sans-serif;
-    color: #333333;
-    text-align: left;
-    margin-left: 30px;
-    line-height: normal;
-}
-.escolher-dinheiro {
-    height: 1px;
-    background-color: rgba(255, 255, 255, 0);
-    font-family: "Montserrat", sans-serif;
-    color: #7f7f7f;
-    text-align: left;
-    line-height: normal;
-    transform: translate(-120px, 20px);
-}
-
-.cetinha {
-    width: 15px;
-    height: 10px;
-    padding: 2px 2px 2px 2px;
-    transform: translate(-80px, 20px);
-}
-.wrapper{
-  width: 600px;
-  height: 547px;
-  background: #fff;
-  margin-left: 160px;
-  margin-top: 4%;
-  padding: 30px;
-  box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
-}
-.wrapper header{
-  height: 55px;
-  display: flex;
-  align-items: center;
-  border-radius: 30px;
-  position: relative;
-}
-header label{
-  height: 100%;
-  z-index: 2;
-  width: 30%;
-  display: flex;
-  cursor: pointer;
-  font-size: 18px;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  transition: color 0.3s ease;
-}
-#tab-1:checked ~ header .tab-1,
-#tab-2:checked ~ header .tab-2{
-  color: #fff;
-}
-header label:nth-child(2){
-  width: 60%;
-}
-header .slider{
-  position: absolute;
-  height: 85%;
-  border-radius: inherit;
-  background:  #63a103;
-  transition: all 0.3s ease;
-}
-#tab-1:checked ~ header .slider{
-  left: 0%;
-  width: 90px;
-  transform: translateX(68%);
-}
-#tab-2:checked ~ header .slider{
-  left: 60%;
-  width: 120px;
-  transform: translateX(-31%);
-}
-.wrapper input[type="radio"]{
-  display: none;
-}
-.card-area{
-  overflow: hidden;
-}
-.card-area .cards{
-  display: flex;
-  width: 300%;
-}
-.cards .row{
-  width: 33.4%;
-}
-.cards .row-1{
-  transition: all 0.3s ease;
-}
-#tab-1:checked ~ .card-area .cards .row-1{
-   margin-left: 0%;
-}
-#tab-2:checked ~ .card-area .cards .row-1{
-  margin-left: -33.4%;
-}
-.row .retangulo1 li{
-  display: flex;
-  font-size: 15px;
-  list-style: none;
-  margin-bottom: 10px;
-  align-items: center;
-}
-.retangulo1 li i{
-  background: linear-gradient(#D5A3FF 0%, #77A5F8 100%);
-  background-clip: text;
- -webkit-background-clip: text;
- -webkit-text-fill-color: transparent;
-}
-.retangulo1 li span{
-  margin-left: 10px;
-}
-.wrapper button{
-  width: 20%;
-  height: 27px;
-  border: none;
-  outline: none;
-  font-size: 18px;
-  border-radius: 9px;
-  color: #fff;
-  cursor: pointer;
-  margin-top: 20px;
-  background:  #63a103;
-  transition: transform 0.3s ease;
-}
-.wrapper button:hover{
-  transform: scale(0.98);
-}
-    .verde {
-        border-width: 0px;
-        position: absolute;
-        left: 0px;
-        top: 115%;
-        width: 1864px;
-        height: 557px;
-        background: inherit;
-        background-color: rgba(99, 161, 3, 1);
-        border: none;
-        border-radius: 1px;
-        box-shadow: none;
-        
-    }
-    .buscar {
-        width: 86px;
-        height: 21px;
-        padding: 2px 2px 2px 2px;
-        border: 1px solid #d7d7d7;
-        background-color: #ffffff;
-        font-family: "Montserrat", sans-serif;
-        color: #333333;
-        text-align: center;
-        line-height: normal;
-        margin-left: 60px;
-        margin-top: 49px;
-    }
-
-    .explo {
-        font-size: 150%;
-        width: 40%;
-        margin-left: 30%;
-        margin-top: 77px;
-        font-family: "Poppins SemiBold", "Poppins", sans-serif;
-        font-weight: 500;
-        font-size: 320%;
-        color: rgba(255, 255, 255, 0.98);
-        line-height: normal;
-        text-align: center;
-    }
-
-    .facil {
-        font-family: "Poppins SemiBold", "Poppins", sans-serif;
-        color: rgba(255, 255, 255, 0.98);
-        text-align: center;
-        font-weight: 400;
-        font-size: 200%;
-        width: 60%;
-        margin-top: 1%;
-        margin-left: 20%;
-        line-height: normal;
-    }
-
-
-    .Começe {
-        border-style: none;
-        width: 521px;
-        height: 55px;
-        padding: 2px 2px 2px 2px;
-        border-radius: 9px;
-        background-color: #ffffff;
-        font-family: "Poppins", sans-serif;
-        text-align: center;
-        line-height: normal;
-        margin-top: 25px;
-        margin-left: 35%;
-    }
 
     .dista {
         font-family: "Poppins SemiBold", "Poppins", sans-serif;
@@ -448,66 +314,11 @@ header .slider{
         font-weight: 400;
         font-size: 200%;
         width: 60%;
-        margin-top: 28%;
+        margin-top: 8%;
         margin-left: 20%;
         line-height: normal;
     }
-    .quadro1{
-      width: 443px;
-      height: 85px;
-      padding: 2px 2px 2px 2px;
-      border-radius: 9px; 
-      border: 2px solid #016FA0;
-      background-color: rgba(99, 161, 3, 0);
-      box-sizing: border-box;
-      margin-left: 5%;
-      
 
-    }
-    .icon{
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        margin-top: 10px;
-        margin-left: 60px;
-    }
-    .imoveis{
-        height: 38px;
-        font-size: 20px;
-        margin: 0 auto;
-        margin-top: 20px;
-        background-color: rgba(255, 255, 255, 0);
-        font-family: "Poppins Medium", "Poppins", sans-serif;
-        font-weight: 500;
-        color: #000000;
-        text-align: center;
-        line-height: normal;
-         
-    }
-    .quadro2{
-        width: 443px;
-        height: 85px;
-        padding: 2px 2px 2px 2px;
-        border-radius: 9px;
-        border: 2px solid #016FA0;
-        background-color: rgba(99, 161, 3, 0);
-        box-sizing: border-box;
-        margin-left: 38%;
-        margin-top: -85px;
-  
-      }
-      .quadro3{
-        width: 443px;
-        height: 85px;
-        padding: 2px 2px 2px 2px;
-        border-radius: 9px;
-        border: 2px solid #016FA0;
-        background-color: rgba(99, 161, 3, 0);
-        box-sizing: border-box;
-        margin-left: 70%;
-        margin-top: -85px;
-  
-      }
 .anuncia {
     height: 84px;
     margin-top: 30px;
@@ -549,11 +360,11 @@ header .slider{
     border-radius: 9px;
     text-align: center;
     font-size: 19px;
-    background-color: #63a103;
+    background-color: #34990d9f;
     border-style: none;
 }
-.mulher-anun{
-    width: 585px;
+.mulheranun{
+    width: 485px;
     box-sizing: border-box;
     margin: 0 auto;
     display: flex;
@@ -565,171 +376,47 @@ header .slider{
     
 }
 
-.planos {
-    width: 886px;
-    background-color: rgba(255, 255, 255, 0);
-    font-family: "Poppins Medium", "Poppins", sans-serif;
-    font-weight: 500;
-    font-size: 45px;
-    color: #000000;
+.plans {
+    padding: 50px 20px;
+    background-color: #f4f4f4;
     text-align: center;
-    line-height: normal;
-    margin: auto;
 }
 
-.basico {
-    width: 199px;
-    background-color: rgba(255, 255, 255, 0);
-    box-sizing: border-box;
-    font-family: "Poppins Medium", "Poppins", sans-serif;
-    font-weight: 500;
-    color: #63a103;
-    text-align: left;
-    line-height: normal;
-    margin-left: 10px;
+.plans h2 {
+    margin-bottom: 20px;
 }
 
-.quadrado1 {
-    width: 390px;
-    height: 607px;
-    padding: 2px 2px 2px 2px;
-    border: 1px solid hsl(0, 0%, 67%);
-    border-radius: 3px;
-    background-color: rgba(99, 161, 3, 0);
-    background-image:#ffff;
-    box-sizing: border-box;
-    margin-left: 3%;
-}
-
-.quadrado2 {
-    width: 390px;
-    height: 607px;
-    padding: 2px 2px 2px 2px;
-    border-radius: 3px;
-    border: 1px solid hsl(0, 0%, 67%);
-    background-color: rgba(99, 161, 3, 0);
-    background-image: #ffff ;
-    box-sizing: border-box;
-    margin: 0 auto;
-    margin-top: -630px;
-    margin-left: 510px;
-}
-.quadrado3 {
-    width: 390px;
-    height: 607px;
-    padding: 2px 2px 2px 2px;
-    border-radius: 3px;
-    border: 1px solid hsl(0, 0%, 67%);
-    background-color: rgba(99, 161, 3, 0);
-    background-image: #ffff ;
-    box-sizing: border-box;
-    margin: 0 auto;
-    margin-top: -630px;
-    margin-left: 54%;
-}
-.quadrado4 {
-    width: 390px;
-    height: 607px;
-    padding: 2px 2px 2px 2px;
-    border-radius: 3px;
-    border: 1px solid hsl(0, 0%, 67%);
-    background-color: rgba(99, 161, 3, 0);
-    background-image: #ffff ;
-    box-sizing: border-box;
-    margin: 0 auto;
-    margin-top: -630px;
-    margin-right: 15px;
-}
-
-.public {
-    background-color: rgba(255, 255, 255, 0);
-    box-sizing: border-box;
-    font-family: "Poppins Medium", "Poppins", sans-serif;
-    font-weight: 500;
-    color: black;
-    text-align: left;
-    line-height: 30px;
-    margin-left: 10px;
-}
-
-.t90 {
-    background-color: rgba(255, 255, 255, 0);
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-    font-weight: bold;
-    color: #333333;
-    text-align: center;
+.plan-options {
     display: flex;
-    align-items: center;
-    line-height: normal;
-    margin-left: 10px;
+    justify-content: space-around;
+    gap: 20px;
 }
 
-.acesso {
-    width: 142px;
-    background-color: rgba(255, 255, 255, 0);
-    box-sizing: border-box;
-    font-family: "Poppins Medium", "Poppins", sans-serif;
-    font-weight: 600;
-    font-size: 15px;
-    color: #333333;
-    text-align: 0;
-    line-height: 25px;
-    margin-left: 10px;
+.plan-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    width: 23%;
 }
 
-.public2 {
-    width: 275px;
-    height: 30px;
-    background-color: rgba(255, 255, 255, 0);
-    box-sizing: border-box;
-    font-family: "Poppins SemiBold", "Poppins", sans-serif;
-    font-weight: 500;
-    color: #5b5b58;
-    text-align: 0;
-    line-height: 18px;
-    margin-left: 10px;
+.plan-card h3 {
+    margin-top: 0;
 }
 
-.desta {
-    width: 280px;
-    height: 30px;
-    background-color: rgba(255, 255, 255, 0);
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    color:#5b5b58 ;
-    text-align: 0;
-    line-height: 18px;
-    margin-left: 10px;
-}
-
-.desta2 {
-    width: 275px;
-    background-color: rgba(255, 255, 255, 0);
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    color: #5b5b58;
-    text-align: 0;
-    line-height: 28px;
-    margin-left: 10px
-}
-.assinar {
-    height: 20px;
-    padding: 10px 10px 30px 10px;
-    color: rgba(250, 250, 250, 0.897);
-    font-family: "Poppins", sans-serif;
-    display: block;
-    text-align: center;
-    font-size: 15px;
-    background-color:  #63a103;
-    border-radius: 9px;
+.plan-btn {
+    background-color: #34990d9f;
+    color: #fff;
     border: none;
-    margin-left: 10px
- 
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
+.plan-btn a {
+    color: #fff;
+    text-decoration: none;
+}
 .futuro {
     width: 397px;
     height: 51px;
@@ -742,316 +429,291 @@ header .slider{
     margin: auto;
 }
 footer {
-    width: 100%;
-    color: var(--color-neutral-40);
+    background-color: #34990d9f;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
 }
 
-.footer-link {
+.footer-logo {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.social-media {
+    margin-bottom: 10px;
+}
+
+.social-media a {
+    color: #fff;
+    font-size: 20px;
+    margin: 0 10px;
     text-decoration: none;
 }
-.logo-migra{
-    height: 85px;
-}
 
-#footer_content {
-    background-color: #dbead5;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    padding: 3rem 3.5rem;
-}
-
-#footer_contacts h1 {
-    margin-bottom: 0.75rem;
-}
-
-#footer_social_media {
-    display: flex;
-    gap: 2rem;
-    margin-top: 1.5rem;
-} 
-
-#footer_social_media .footer-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 2.5rem;
-    width: 2.5rem;
-    color: var(--color-neutral-40);
-    border-radius: 50%;
-    transition: all 0.4s;
-}
-
-#footer_social_media .footer-link i {
-    font-size: 1.25rem;    
-}
-
-#footer_social_media .footer-link:hover {
-    opacity: 0.8;
-}
-.footer-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+.footer-links {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.footer-list .footer-link {
-    color: var(--color-neutral-30);
-    transition: all 0.4s;
+.footer-links li {
+    display: inline;
+    margin: 0 10px;
 }
 
-.footer-list .footer-link:hover {
-    color: #000000;
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
 }
 
 #footer_copyright {
-    display: flex;
-    justify-content: center;
-    background-color: var(--color-neutral-0);
-    font-size: 0.9rem;
-    padding: 1.5rem;
-    font-weight: 100;
-}
-
-@media screen and (max-width: 768px) {
-    #footer_content {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-    }
-}
-
-@media screen and (max-width: 426px) {
-    #footer_content {
-        grid-template-columns: repeat(1, 1fr);
-        padding: 3rem 2rem;
-    }
-}
-
-@media screen and (max-width:537px) {
- header {
-  height: 60px;  
- }
-.logo {
-  width: 96px;
-  height: 42px;
-}
-.mc{
-  width: 100%;
-  background-image: url("../imagens/mulher\ segurando\ caixa.jpg");
-  background-size: 110% 110%;
-  background-repeat: no-repeat;
-  padding: 0px;
-  border: none;
-    
-}
-.verde {
-    width: 414px;
-    height: 281px;
-    padding: 2px 2px 2px 2px;
-    border: 1px solid #797979;
-    background-color: #63a103;
-    box-sizing: border-box;
-  
-}
-.explo {
-  font-size: 160%;
-  width: 371px;
-  margin-left: 20%;
-  margin-top: 40px;
-  font-weight: 500;
-  line-height: normal;
-  text-align: center;
-}
-.facil {
-  text-align: center;
-  font-weight: 400;
-  font-size: 12px;
-  width: 342px;
-  margin-top: 1%;
-  line-height: normal;
-}
-.Começe {
-  width: 235px;
-  height: 29px;
-  margin-top: 25px;
-  margin-left: 25%;
-}
-
-  nav ul {
-      display: none;
-  }
-
-  nav ul li {
-      display: none;
-  }
-
-  nav ul li a {
-      display: none;
-  }
-
-  .wrapper {
-      width: 70%;
-      margin-left: 10px;
-      margin-right: auto;
-  }
-
-  .futury, .morady, .vaga {
-      font-size: 18px;
-      margin-left: 10px;
-  }
-
-  .retangulo1, .retangulo2, .retangulo3 {
-      flex-direction: column;
-      align-items: flex-start;
-  }
-
-  .retangulo1 li {
-      font-size: 14px;
-  }
-
-  .dista {
-    width: 360px;
-    font-size: 14px;
-    text-align: center;
-    margin-top: 50%;
-  }
-   .anuncia {
-    width: 360px;
-    height: 130px;
-    font-size: 45px;
-    text-align: left;
-    margin-left: 2%;
-   }
-   .pr{
-    width: 370px;
-    font-size: 22px;
-    text-align: left;
-    margin-left: 2%;
-   }
-  .quadro1 {
-      width: 110px;
-      height: 66px;
-      margin: 0 auto;
-      margin-left: 65px;
-      margin-top: 20px;
-  }
-  .quadro2{
-    width: 110px;
-      height: 66px;
-      margin: 0 auto;
-      margin-top: -66px;
-  }
-  .quadro3{
-    width: 110px;
-    height: 66px;
-    margin: 0 auto;
-    margin-top: -66px;
-    margin-right: 65px;
-  }
-  .imoveis{
-    height: 15px;
-    font-size: 12px;
-    margin: 0 auto;
-    margin-top: 39px;
-    text-align: center;
-    line-height: normal;
-}
-.icon{
-    width: 31px;
-    height: 27px;
     margin-top: 10px;
-    margin-left: 40px;
-}
-  .anun {
-     width: 193px;
-     height: 38px;
-      margin-left: 2%;
-      padding: 1px;
-      
-  }
-
-  .mulher-anun {
-     width: 225px;
-     margin-top: -50%;
-     margin-left: 60%;
-  }
-
-  .planos {
-     width: 350px;
-     font-size: 29px;
-  }
-
-  .quadrado1, .quadrado2, .quadrado3, .quadrado4 {
-      width: 100%;
-      height: auto;
-      margin-left: 0;
-      margin-top: 20px;
-  }
-
-  @media (max-width: 768px) {
-    .wrapper {
-        width: 70%;
-        padding: 15px;
-        margin: auto;
-        height: auto;
-        margin-left: 1%; 
-        
-    }
-    .retangulo1, .retangulo2, .retangulo3 {
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-        margin-top: 15px;
-    }
-    .search-container {
-        margin-left: 0;
-        width: 100%;
-    }
-    .buscar {
-        width: 100%;
-        margin-left: 0;
-        margin-top: 10px;
-    }
-}
-}footer {
-    background-color: #dbead5;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.footer-list {
-    list-style: none;
-    width: 100%;
-    padding: 10px;
-}
-
-.footer-list li {
-    margin: 10px 0;
-}
-
-#footer_copyright {
-    text-align: center;
-    width: 100%;
-    margin-top: 20px;
 }
 
 
-@media (max-width: 576px) {
-    .wrapper {
-        padding: 10px;
+      /* Para tablet */
+      @media screen and (max-width: 414px) {
+
+        header {
+            height: 50px;  
+        }
+        .menudesktop {
+            display: none;
+        }
+        .menu-hamb{
+            display: block;
+        }
+        .logo {
+            width: 80px;
+            height: auto;
+            margin-left: 15px;
+        }
+        .mc {
+            width: 100%;
+            height: 676px;
+            background-image: url("../imagens/mulher\ segurando\ caixa.jpg");
+            padding: 0;
+            display: block;
+            margin: 0 auto;
+        }
+    
+    .line {
+       height: 1px;
+       width: 265px;
+       background-color: #d7d7d7;
+       margin-top: 1px;
     }
-    .quadro1, .quadro2, .quadro3, .quadro4 {
-        width: 100%;
-        margin-top: 10px;
-        margin-left: 0%;
+    .entmn, .cadas {
+       width: 235px;
+       height: 29px;
+       padding: 2px;
+       color: #FAFAFA;
+       font-family: "Poppins", sans-serif;
+       display: block;
+       text-align: center;
+       font-size: 15px;
+       margin: 10px auto;
+       border: 1px solid #d7d7d7;
     }
-    .mulher-anun {
-        width: 100%;
-        margin: 20px auto;
+    .cadas {
+       background-color: rgba(16, 32, 126, 0.8);
+       border: none;
     }
-    .planos {
-        font-size: 20px;
+    .entmn {
+       background-color: rgba(3, 136, 16, 0.8);
     }
-}
+    .slide {
+       height: 60%;
+       position: fixed;
+       top: 0;
+       right: 0;
+       background-color: #fff;
+       background-image: linear-gradient(#34990d9f  30%, white 0px);
+       transition: transform 0.5s ease;
+       transform: translateX(100%);
+       z-index: 100;
+    }
+    .mnlogo {
+       width: 80px;
+       height: 40px;
+       margin: 10px auto;
+       background-size: contain;
+    }
+    ul li {
+       list-style: none;
+       text-align: left;
+       margin-left: 10px;
+    }
+    ul li a {
+       color: #131416;
+       font-weight: 500;
+       display: block;
+       text-transform: capitalize;
+       text-decoration: none;
+       transition: 0.2s ease-out;
+    }
+    ul li:hover a {
+       color: #000;
+       background-color: rgba(3, 136, 16, 0.8);
+    }
+    .toggle {
+       position: absolute;
+       height: 30px;
+       width: 35px;
+       top: 18px;
+       right: 15px;
+       cursor: pointer;
+       z-index: 101;
+       background-color: white;
+       border-radius: 2px;
+    }
+    .toggle .common {
+       position: absolute;
+       height: 2px;
+       width: 20px;
+       left: 50%;
+       background-color: #000;
+       border-radius: 50px;
+       transition: 0.3s ease;
+    }
+    .toggle .top_line {
+       top: 30%;
+       transform: translate(-50%, -50%);
+    }
+    .toggle .middle_line {
+       top: 50%;
+       transform: translate(-50%, -50%);
+    }
+    .toggle .bottom_line {
+       top: 70%;
+       transform: translate(-50%, -50%);
+    }
+    input [type="checkbox"] {
+       display: none;
+    }
+    input:checked ~ .toggle .top_line {
+       transform: translate(-50%, -50%) rotate(45deg);
+    }
+    input:checked ~ .toggle .bottom_line {
+       transform: translate(-50%, -50%) rotate(-45deg);
+    }
+    input:checked ~ .toggle .middle_line {
+       opacity: 0;
+    }
+    input:checked ~ .slide {
+       transform: translateX(0);
+    }
+        .futury {
+            width: 351px;
+            height: 23px;
+            font-size: 18px;
+            margin-left: 25px; 
+            position: relative;
+            top: 75px;
+        }
+        .wrapper {
+            padding: 10px;
+            margin: auto;
+            margin-top: 5%;
+        }
+        .botaome {
+            margin-left: 10%;
+            position: relative;
+            top: 75px;
+        }
+        .cards {
+            margin-left: 10%;
+            margin-top: 20%;
+            flex-direction: column;
+        }
+        .retangulo1, .retangulo2, .retangulo3 {
+            width: 90%;
+            height: 90px;
+            margin: 1px 0;
+        }
+        .retangulo1 img, .retangulo2 img, .retangulo3 img {
+            width: 28px;
+            height: 34px;
+            margin-top: 0px;
+         }
+        .city, .bairry, .alugue {
+            position: relative;
+            top: 12px;
+            margin-left: 27%;
+        }
+        .search-container {
+            width: 60%;
+            margin-left: 24%;
+            margin-top: -20px;
+        }
+        .search-input {
+            height: 27px;
+            width: 100%;
+            margin: 0;
+        }
+        .search-select {
+            width: 45%;
+            height: 27px;
+            position: relative;
+            top: -6px;
+            padding: 1px;
+            margin-left: 18px;
+        }
+        button.buscar {
+            position: relative;
+            top: -7px;
+            padding: 3px 9px;
+        }
+        .services p {
+            font-size: 14px;
+        }
+        .services h2{
+            font-size: 1.4em;
+            margin: auto;
+        }
+        .services{
+            padding: 29px 60px;
+            height: 281px;
+        }
+        .start-btn{
+          margin-top: 0px;
+          padding: 10px 10px;
+
+        }
+        .dista {
+            text-align: center;
+            font-size: 12px;
+        }
+        .anuncia{
+            width: 246px;
+            margin-left: 14px;
+            font-size: 28px;
+        }
+        .pr {
+            width: 235px; 
+            height: 59px; 
+            font-size: 13px;
+            margin-left: 14px;
+            text-align: left;
+        }
+        .mulheranun {
+            width: 50%;
+            margin-top: -60%;
+            margin-right: -0%;
+        }
+        .anun {
+            width: 38%;
+            height: 32px;
+            font-size: 13px;
+            margin-left: 10px;
+
+        }
+        .plan-options {
+            flex-direction: column;
+            align-items: center;
+        }
+        .plan-card {
+            width: 80%;
+        }
+    }
