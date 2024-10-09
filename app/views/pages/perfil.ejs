@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Perfil - Migra Fácil</title>
     <link rel="stylesheet" href="css/perfil.css">
+    <link rel="shortcut icon" type="imagex/png" href="/imagens/lgaba.ico">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.js"></script>
     <script src="/js/perfil.js"></script>
@@ -107,6 +108,50 @@
         .form-anuncio button:hover {
             background-color: #5b8a16;
         }
+
+        footer {
+          background-color: #34990d9f;
+          color: #fff;
+          padding: 20px;
+          text-align: center;
+       }
+
+        .footer-logo {
+          width: 100px;
+          margin-bottom: 10px;
+       }
+
+        .social-media {
+         margin-bottom: 10px;
+      }
+
+        .social-media a {
+         color: #fff;
+         font-size: 20px;
+         margin: 0 10px;
+         text-decoration: none;
+      }
+
+        .footer-links {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+       }
+
+        .footer-links li {
+         display: inline;
+         margin: 0 10px;
+        }
+
+        .footer-links a {
+         color: #fff;
+         text-decoration: none;
+        }
+
+        #footer_copyright {
+         margin-top: 10px;
+        }
+  
     </style>
 </head>
 <body>
@@ -401,7 +446,26 @@
             </section>
         </div>
     </div>
-
+    <footer>
+        <section id="footer_content">
+            <img src="/imagens/logo.png" alt="Logo Migra" class="footer-logo">
+            <p>Transformando mudanças em oportunidades.</p>
+            <section class="social-media">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+            </section>
+            <ul class="footer-links">
+                <li><a href="#">Cadastra-se</a></li>
+                <li><a href="#">Ajuda</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Segurança no Migra Fácil</a></li>
+            </ul>
+            <section id="footer_copyright">
+                &#169; 2024 All rights reserved.
+            </section>
+        </section>
+    </footer>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const buttons = [
