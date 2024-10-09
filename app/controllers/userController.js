@@ -269,7 +269,7 @@ const usuarioController = {
     gravarvagas: async (req, res) => {
         console.log("Senha recebida:", req.body.senha);
         const erros = validationResult(req);
-        const tipoUsuario = req.body.proprietario ? 4 : 1; // 1 para proprietário, 2 para comum
+    
         
         var dadosForm = {
             //inf do banco 
@@ -277,7 +277,8 @@ const usuarioController = {
             CargaHorario: req.body.CargaHorario,
             cargo_CargoID: req.body.nome,
             empresa_EmpresaID: req.body.email,
-            usuario_ID_USUARIO: tipoUsuario,
+            usuario_ID_USUARIO: req.session.autenticado.id,
+
         };
         console.log(dadosForm)
 
@@ -287,20 +288,8 @@ const usuarioController = {
             return res.render("pages/cadastro", { listaErros: erros, dadosNotificacao: null, valores: req.body })
         }
         try {
-            const createResult = await usuario.create(dadosForm); // Aguardando a criação do usuário
-            console.log("Usuário criado:", createResult);
-            var autenticado = {
-                autenticado: dadosForm.NOME_USUARIO,
-                id: createResult.insertId,
-                tipo: dadosForm.tipo_usuario_idtipo_usuario,
-            };
-            req.session.autenticado = autenticado;
+            const createResult = await usuario.create(dadosForm); 
 
-            if (createResult.affectedRows > 0) {
-                res.redirect("/logado"); // Redireciona para a página logado após o cadastro bem-sucedido
-            } else {
-                throw new Error('Falha ao criar usuário');
-            }
         } catch (e) {
             console.log(e);
             res.render("pages/cadastro", {
