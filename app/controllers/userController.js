@@ -241,7 +241,7 @@ const usuarioController = {
             }
             
             let resultUpdate = await usuario.update(dadosForm, req.session.autenticado.id);
-            if (!resultUpdate.isEmpty) {
+            if (!resultUpdate.isEmpty()) {
                 if (resultUpdate.changedRows == 1) {
                     var result = await usuario.findId(req.session.autenticado.id);
                     var autenticado = {
@@ -266,40 +266,7 @@ const usuarioController = {
         }
     } ,
 
-    gravarvagas: async (req, res) => {
-        console.log("Senha recebida:", req.body.senha);
-        const erros = validationResult(req);
     
-        
-        var dadosForm = {
-            //inf do banco 
-            DescricaoVaga: req.body.descricao-emprego, //formulario
-            CargaHorario: req.body.CargaHorario,
-            cargo_CargoID: req.body.nome,
-            empresa_EmpresaID: req.body.email,
-            usuario_ID_USUARIO: req.session.autenticado.id,
-
-        };
-        console.log(dadosForm)
-
-        if (!erros.isEmpty()) {
-            console.log("Erros de validação:", erros.array());
-            console.log(erros);
-            return res.render("pages/cadastro", { listaErros: erros, dadosNotificacao: null, valores: req.body })
-        }
-        try {
-            const createResult = await usuario.create(dadosForm); 
-
-        } catch (e) {
-            console.log(e);
-            res.render("pages/cadastro", {
-                listaErros: null, dadosNotificacao: {
-                    titulo: "Erro ao cadastrar!", mensagem: "Verifique os valores digitados!", tipo: "error"
-                }, valores: req.body
-            })
-        }
-    },
-
     gravarimoveis: async (req, res) => {
         console.log("Senha recebida:", req.body.senha);
         const erros = validationResult(req);

@@ -152,11 +152,7 @@
         %>
         <script>
                 notify("<%= dadosNotificacao.titulo%>","<%= dadosNotificacao.mensagem%>", "<%= dadosNotificacao.tipo%>", "center")
-                if("<%= dadosNotificacao.tipo %>" == "success"){
-                    setTimeout(function(){
-                        window.location="/"
-                    }, 3000)
-                }                        
+                                 
         </script>
     <% } %>
     <!-- Cabeçalho com logo e informações do usuário -->
@@ -183,10 +179,17 @@
 
         <aside class="sidebar">
             <button id="info-btn">Suas informações</button>
-            <% if(autenticado.autenticado != null && autenticado.tipo != 1) { %>
-
-                <button id="publicar-imoveis-btn">Publicar Imóveis</button>
+            <% if(autenticado.autenticado != null && autenticado.tipo != 1) { 
+              
+                if( autenticado.tipo == 2) { %>
                 <button id="publicar-empregos-btn">Publicar Empregos</button>
+                <% } 
+
+                if( autenticado.tipo != 2) { %>
+                <button id="publicar-imoveis-btn">Publicar Imóveis</button>
+                <% } %>
+
+              
                 <button id="plans-btn">Planos</button>
                 
             <% } %>
@@ -375,14 +378,18 @@
 
             <section id="emprego-section" style="display: none;">
                 <h2>Publicar Empregos</h2>
-                <form id="form-emprego">
+                <form id="form-emprego" method="post" action="/publicarvaga">
                     <div class="form-group">
                         <label for="titulo-emprego">Título:</label>
-                        <input type="text" id="titulo-emprego" name="titulo-emprego" placeholder="Título do anúncio" required>
+                        <select id="titulo-emprego" name="titulo-emprego" required>
+                            <option value="1">Auxiliar ADM</option>
+                            <option value="2">Repositor</option>
+                            
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="descricao-emprego">Descrição:</label>
-                        <textarea id="descricao-emprego" name="descricao-emprego" rows="4" placeholder="Descrição detalhada" required></textarea>
+                        <textarea id="descricao-emprego" name="descricaoemprego" rows="4" placeholder="Descrição detalhada" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="CargaHorario">Carga Horária:</label>
@@ -390,13 +397,13 @@
                     </div>
                     <div class="form-group">
                         <label for="salario-emprego">Salário:</label>
-                        <input type="text" id="salario-emprego" name="salario-emprego" placeholder="Salário" required>
+                        <input type="text" id="salario-emprego" name="salarioemprego" placeholder="Salário" required>
                     </div>
                     <div class="form-group">
                         <label for="local-emprego">Local:</label>
-                        <input type="text" id="local-emprego" name="local-emprego" placeholder="Local de trabalho" required>
+                        <input type="text" id="local-emprego" name="localemprego" placeholder="Local de trabalho" required>
                     </div>
-                    <button type="button" onclick="publicarEmprego()">Publicar Emprego</button>
+                    <button type="submit" >Publicar Emprego</button>
                 </form>
             </section>
         </div>
@@ -422,16 +429,22 @@
                 mostrarSeção('info');
             };
 
-            buttons[1].onclick = function() {
-                mostrarSeção('imovel');
-            };
+            if(buttons[1] != null ){
+                buttons[1].onclick = function() {
+                    mostrarSeção('imovel');
+                };
+            }
 
+            if(buttons[2] != null ){
             buttons[2].onclick = function() {
                 mostrarSeção('emprego');
             };
+            };
 
+            if(buttons[3] != null ){
             buttons[3].onclick = function() {
                 mostrarSeção('plans');
+            };
             };
 
             function mostrarSeção(secao) {

@@ -13,6 +13,33 @@
         </a>        
         <button class="menu-button"><a href="/filtrovagas">&#9776;</a></button>
     </header>
+    <section class='galeria'>
+        <%
+        if(listaHq){
+            listaHq.forEach(function(item){
+        %>
+                <div class="card">
+                    <figure>
+                        <img src="<%= item.imagem_hq %>" alt="">
+                    </figure>
+                    <div class="detalhes">
+                        <h3><%= item.nome_hq %></h3>
+                        <p><%= item.descr_hq %></p>
+                        <h2>R$ <%= item.preco_hq.toFixed(2) %></h2>
+                    </div>
+                    <div class="botoes">
+                        <a href="/favoritar?id=<%= item.id_hq %>&sit=<%= item.favorito %>">
+                            <i class="fas fa-light fa-heart <%= item.favorito %>"></i>
+                        </a>
+                        <a class="comprar" 
+                                href="/addItem?id=<%= item.id_hq %>&preco=<%= item.preco_hq.toFixed(2) %>">comprar</a>
+                        </div>
+                    </div>
+        <%
+            });
+        }
+        %>
+    </section>
     <main>
         <section class="search-section">
             <h2>Que vaga você deseja?</h2>

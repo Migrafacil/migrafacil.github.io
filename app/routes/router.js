@@ -2,6 +2,8 @@ var express = require("express");
 var router = express.Router();
 var {validarCPF, validarCNPJ, validarEmail} = require("../helpers/validação");
 const usuarioController = require("../controllers/userController");
+const {vagasController }= require("../controllers/vagasController");
+
 
 const {
   verificarUsuAutenticado,
@@ -167,11 +169,11 @@ router.get("/gravarvagas", function (req, res) {
 });
 
 router.post(
-  "/gravarvagas",
-  usuarioController.regrasValidacaoFormCadempresa,
+  "/publicarvaga",
+  vagasController.regrasValidacaoFormCadempresa,
   function (req, res) {
     console.log(req.body);
-    usuarioController.cadastrarEmpresa(req,res);
+    vagasController.gravarvagas(req,res);
   }
 )
 

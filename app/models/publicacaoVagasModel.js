@@ -1,4 +1,4 @@
-var pool = require("../../config/pginicial");
+var pool = require("../../config/pool_conexoes");
 
     const publicacaoVagasModel = {
         findAll: async () => {
@@ -27,7 +27,7 @@ var pool = require("../../config/pginicial");
         create: async (camposJson) => {
             try {
                 const [resultados] = await pool.query(
-                    "insert into tipo_usuario set ?",
+                    "insert into vaga set ?",
                     [camposJson]
                 )
                 return resultados;
@@ -35,11 +35,12 @@ var pool = require("../../config/pginicial");
                 return error;
             }
         },
+        //alterar os metodos update e o delete para a responder a tabela vaga
         update: async (camposJson) => {
             try {
                 const [resultados] = await pool.query(
-                    "UPDATE tipo_usuario SET tipo_usuario = ?, descricao_usuario = ? WHERE id_tipo_usuario = ?",
-                    [camposJson.tipo_usuario, camposJson.descricao_usuario, camposJson.id_tipo_usuario],
+                    "UPDATE vaga SET tipo_usuario = ?, descricao_usuario = ? WHERE id_tipo_usuario = ?",
+                    [camposJson.vaga, camposJson.descricao_usuario, camposJson.id_tipo_usuario],
                 )
                 return resultados;
             } catch (error) {
@@ -49,7 +50,7 @@ var pool = require("../../config/pginicial");
         delete: async (id) => {
             try {
                 const [resultados] = await pool.query(
-                    "UPDATE tipo_usuario SET status_tipo_usuario = 0 WHERE id_tipo_usuario = ?", [id]
+                    "UPDATE vaga SET status_tipo_usuario = 0 WHERE id_tipo_usuario = ?", [id]
                 )
                 return resultados;
             } catch (error) {
