@@ -95,11 +95,44 @@ button:hover {
             keyboard_backspace
         </a>
         <form id="card-form">
-            <p>Insira seu E-mail e iremos enviar um link de recuperação de senha</p>
-            <input type="email" name="email" required placeholder="Seu e-mail">
-            <button type="submit">Enviar E-mail<a href="/resetarsenha">
+            <p>Insira sua nova senha</p>
+            <input type="password" name="password required placeholder="Sua nova senha">
+            <button type="submit">Mudar senha</button>
+            <p>Insira sua nova senha</p>
+            <input type="password" name="password required placeholder="Sua nova senha">
+            <button type="submit">Mudar senha</button>
         </form>
     </div>
+ 
+    <script>
+        document.getElementById('card-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+ 
+            const email = this.email.value;
+ 
+            try {
+                const response = await fetch('/recovery', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email }),
+                });
+ 
+                const message = await response.text();
+ 
+                if (!response.ok) {
+                    alert(message);
+                } else {
+                    
+                    alert('Email de recuperação enviado com sucesso!');
+                }
+            } catch (error) {
+            
+                alert('Erro ao enviar o e-mail. Tente novamente mais tarde.');
+            }
+        });
+    </script>
 </body>
 </html>
  

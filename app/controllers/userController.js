@@ -239,7 +239,7 @@ const usuarioController = {
             if (req.body.password != "") {
                 dadosForm.SENHA_USUARIO = bcrypt.hashSync(req.body.password, salt);
             }
-            
+                  
             let resultUpdate = await usuario.update(dadosForm, req.session.autenticado.id);
             if (!resultUpdate.isEmpty()) {
                 if (resultUpdate.changedRows == 1) {

@@ -94,6 +94,18 @@ router.get("/emprego", function (req, res) {
   res.render("pages/emprego", {pagina:"emprego", logado: null });
 });
 
+router.get("/detalhesemprego", function (req, res) {
+  res.render("pages/detalhesemprego", {pagina:"detahesemprego", logado: null });
+});
+
+router.get("/recuperarsenha", (req, res) => {
+  res.render("pages/recuperarsenha");
+});
+
+router.get("/resetarsenha", (req, res) => {
+  res.render("pages/resetarsenha");
+});
+
 router.get("/anuncios", function (req, res) {
   res.render("pages/anuncios", {pagina:"anuncios", logado:"anuncios"});
 });
