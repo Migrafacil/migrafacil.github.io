@@ -257,7 +257,7 @@
                     }                        
             </script>
         <% } %>              
-    <div class="login-container">
+    <section class="login-container">
         <img src="/imagens/logo.png" alt="Migra Fácil" class="logo">
         <h2>Entrar com :</h2>
         <form class="login-form" method="post" action="/login">
@@ -271,21 +271,21 @@
         </form>
         <p class="signup-prompt">Ainda não possui uma conta? <a href="#">Crie uma conta</a></p>
         
-    </div>
+    </section>
      <!-- Botão redondo -->
      <button class="botao-redondo" onclick="mostrarModal()">+</button>
 
      <!-- Fundo do modal -->
-     <div class="modal-fundo" id="modal-fundo" onclick="fecharModal()"></div>
+     <section class="modal-fundo" id="modal-fundo" onclick="fecharModal()"></section>
  
      <!-- Modal com o formulário -->
-     <div class="modal" id="modal">
+     <section class="modal" id="modal">
          <span class="fechar-x" onclick="fecharModal()">&#10006;</span>
          <form id="form-anuncio">
              <button class="publicar"><a href="/cadastro">Pessoa Fisica</a></button>
              <button class="publicar"><a href="/cnpj">Pessoa Jurídica</a></button>
          </form>
-     </div>
+     </section>
  
      <script>
          function mostrarModal() {
