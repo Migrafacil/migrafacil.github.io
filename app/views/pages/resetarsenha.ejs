@@ -1,138 +1,168 @@
-<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recuperar Senha - Migra Fácil</title>
     <link rel="shortcut icon" type="image/png" href="/imagens/lgaba.ico">
+    <script src="/app/public/js/resetarsenha.js"></script>
     <style>
-        body 
- * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f9f9f9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 20px;
-}
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
 
-.container {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-}
+        section {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
 
-.material-symbols-outlined {
-    font-size: 24px;
-    color: #28a745;
-    text-decoration: none;
-    position: absolute;
-    top: 20px;
-    left: 20px;
-}
+        .material-symbols-outlined {
+            font-size: 24px;
+            color: #28a745;
+            text-decoration: none;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
 
-.material-symbols-outlined:hover {
-    color: #218838;
-}
+        .material-symbols-outlined:hover {
+            color: #218838;
+        }
 
-form {
-    margin-top: 40px;
-}
+        form {
+            margin-top: 40px;
+        }
 
-form p {
-    margin-bottom: 20px;
-    color: #555;
-}
+        form p {
+            margin-bottom: 20px;
+            color: #555;
+        }
 
-input[type="email"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
 
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-button:hover {
-    background-color: #218838;
-}
+        button:hover {
+            background-color: #218838;
+        }
+
+        #password-requirements-box {
+            display: none;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 5px;
+            width: 92%;
+            text-align: left;
+        }
+
+        #password-requirements {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #password-requirements li {
+            font-size: 0.9em;
+        }
+
+        #password-requirements li.valid {
+            color: green;
+        }
+
+        #password-requirements li.invalid {
+            color: red;
+        }
+
+        .spacer {
+            margin-top: 20px; /* Espaço entre requisitos e campo de confirmação */
+        }
     </style>
-</head>
-<body>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <title>Recuperação de Senha</title>
 </head>
 <body>
- 
-    <div class="container">
+    <section>
         <a href="/login" class="material-symbols-outlined">
             keyboard_backspace
         </a>
         <form id="card-form">
-            <p>Insira sua nova senha</p>
-            <input type="password" name="password required placeholder="Sua nova senha">
-            <button type="submit">Mudar senha</button>
-            <p>Insira sua nova senha</p>
-            <input type="password" name="password required placeholder="Sua nova senha">
-            <button type="submit">Mudar senha</button>
+            <p>Insira sua nova senha e confirme-a</p>
+            <input type="password" name="nova_senha" id="nova_senha" required placeholder="Nova Senha" onfocus="showRequirements()" oninput="validatePassword()">
+            <div id="password-requirements-box">
+                <ul id="password-requirements">
+                    <li id="length" class="invalid">8 à 10 caracteres</li>
+                    <li id="lowercase" class="invalid">Letra minúscula</li>
+                    <li id="uppercase" class="invalid">Letra maiúscula</li>
+                    <li id="number" class="invalid">Número</li>
+                    <li id="symbol" class="invalid">Símbolo (Ex: !@#%$)</li>
+                </ul>
+            </div>
+            <div class="spacer"></div>
+            <input type="password" name="confirma_senha" required placeholder="Confirme Sua Senha">
+            <button type="submit">Atualizar Senha</button>
         </form>
-    </div>
- 
+    </section>
+
     <script>
-        document.getElementById('card-form').addEventListener('submit', async function(event) {
-            event.preventDefault();
- 
-            const email = this.email.value;
- 
-            try {
-                const response = await fetch('/recovery', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ email }),
-                });
- 
-                const message = await response.text();
- 
-                if (!response.ok) {
-                    alert(message);
+        function showRequirements() {
+            document.getElementById('password-requirements-box').style.display = 'block';
+        }
+
+        function validatePassword() {
+            const password = document.getElementById('nova_senha').value;
+            const requirements = {
+                length: password.length >= 8 && password.length <= 10,
+                lowercase: /[a-z]/.test(password),
+                uppercase: /[A-Z]/.test(password),
+                number: /[0-9]/.test(password),
+                symbol: /[!@#\$%\^&\*\(\)_\+\-=\[\]\{\};:'"<>,.\/?\\|`~]/.test(password),
+            };
+
+            for (const req in requirements) {
+                const requirementElement = document.getElementById(req);
+                if (requirements[req]) {
+                    requirementElement.classList.remove('invalid');
+                    requirementElement.classList.add('valid');
                 } else {
-                    
-                    alert('Email de recuperação enviado com sucesso!');
+                    requirementElement.classList.remove('valid');
+                    requirementElement.classList.add('invalid');
                 }
-            } catch (error) {
-            
-                alert('Erro ao enviar o e-mail. Tente novamente mais tarde.');
             }
-        });
+        }
     </script>
 </body>
 </html>
- 
