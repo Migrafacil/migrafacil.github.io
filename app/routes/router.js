@@ -3,6 +3,7 @@ var router = express.Router();
 var {validarCPF, validarCNPJ, validarEmail} = require("../helpers/validação");
 const usuarioController = require("../controllers/userController");
 const {vagasController }= require("../controllers/vagasController");
+const {imoveisController }= require("../controllers/imoveisController");
 
 
 const {

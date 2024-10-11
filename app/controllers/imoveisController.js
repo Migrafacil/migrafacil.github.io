@@ -7,7 +7,7 @@ const https = require('https');
 
 
 
-const vagasController = {
+const imoveisController = {
 
     regrasValidacaoFormCadempresa: [
         body("descricaoemprego")
@@ -52,7 +52,7 @@ const vagasController = {
         }
     },
 
-    gravarvagas: async (req, res) => {
+    gravarimoveis: async (req, res) => {
         console.log("Senha recebida:", req.body.senha);
         const erros = validationResult(req);
     

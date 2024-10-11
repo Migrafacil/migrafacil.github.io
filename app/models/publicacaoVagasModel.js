@@ -59,4 +59,4 @@ var pool = require("../../config/pool_conexoes");
         }
     };
 
-module.exports = publicacaoVagasModel
+module.exports = {publicacaoVagasModel}

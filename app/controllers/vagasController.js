@@ -72,16 +72,19 @@ const vagasController = {
         if (!erros.isEmpty()) {
             console.log("Erros de validação:", erros.array());
             console.log(erros);
-            return res.render("pages/cadastro", { listaErros: erros, dadosNotificacao: null, valores: req.body })
+            return res.render("pages/perfil", { listaErros: erros, autenticado: req.session.autenticado, dadosNotificacao: null, valores: req.body })
         }
         try {
             const createResult = await publicacaoVagas.create(dadosForm); 
+            return res.render("pages/perfil", { listaErros: null, autenticado: req.session.autenticado, dadosNotificacao: {
+                titulo: "Sucesso ao publicar!", mensagem: "Vaga publicada!", tipo: "success"
+            }, valores: req.body })
 
         } catch (e) {
             console.log(e);
-            res.render("pages/cadastro", {
-                listaErros: null, dadosNotificacao: {
-                    titulo: "Erro ao cadastrar!", mensagem: "Verifique os valores digitados!", tipo: "error"
+            res.render("pages/perfil", {
+                listaErros: null, autenticado: req.session.autenticado, dadosNotificacao: {
+                    titulo: "Erro ao cadastrar!",  mensagem: "Verifique os valores digitados!", tipo: "error"
                 }, valores: req.body
             })
         }

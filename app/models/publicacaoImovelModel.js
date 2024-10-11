@@ -4,7 +4,7 @@ var pool = require("../../config/pool_conexoes");
         findAll: async () => {
             try {
                 const [resultados] = await pool.query(
-                    'SELECT * FROM tipo_usuario where status_tipo_usuario = 1 '
+                    'SELECT * FROM imovel'
                 )
                 return resultados;
             } catch (error) {
@@ -16,7 +16,7 @@ var pool = require("../../config/pool_conexoes");
             try {
                 const [resultados] = await pool.query(
                     //tabelas de vaga do banco
-                    "select * from tipo_usuario where id_tipo_usuario = ? and  status_tipo_usuario = 1",
+                    "select * from tipo_usuario where ImovelID",
                     [id]
                 )
                 return resultados;
@@ -27,7 +27,7 @@ var pool = require("../../config/pool_conexoes");
         create: async (camposJson) => {
             try {
                 const [resultados] = await pool.query(
-                    "insert into tipo_usuario set ?",
+                    "insert into imovel set ?",
                     [camposJson]
                 )
                 return resultados;
