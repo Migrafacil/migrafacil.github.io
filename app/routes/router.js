@@ -91,6 +91,10 @@ router.get("/filtro", function (req, res) {
   res.render("pages/filtro", {pagina:"filtro", logado:null});
 });
 
+router.get("/sobre", function (req, res) {
+  res.render("pages/sobrenos", {pagina:"sobrenos", logado:null});
+});
+
 router.get("/emprego", function (req, res) {
   res.render("pages/emprego", {pagina:"emprego", logado: null });
 });
