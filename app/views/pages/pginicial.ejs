@@ -27,8 +27,8 @@
                 <li> <a href="#">Anunciar</a> 
                     <section class="sub-menu-1">
                         <ul>
-                            <li> <a href="#">Anunciar meu imovél</a></li>
-                            <li> <a href="#">Anunciar minhas vagas</a></li>
+                            <li> <a href="#" id="announce-property">Anunciar meu imovél</a></li>
+                            <li> <a href="#" id="announce-jobs">Anunciar minha vaga</a></li>
                         </ul>
                     </section>
                 </li>
@@ -158,6 +158,7 @@
           <h2 class="dista"> Moradias de qualidade e empregos gratificantes estão apenas a um clique de distância.</h2>
            <br/><br/>
           <br/><br/>
+          
             <h1 class="anuncia">Anuncie no Migra Fácil</h1>
             <h5 class="pr">Anuncie seu imóvel ou sua vaga para quem busca oportunidades.</h5>
             <button class="anun"><a href="#">Anuncie</a></button>
@@ -165,7 +166,7 @@
             <img src="../imagens/mulheranun.png" class="mulheranun">
            <br/><br/><br/>
 
-           <section class="plans">
+           <section class="plans" id="plan-section">
             <h2>Escolha um plano e pague apenas pelo que contratar</h2>
             <section class="plan-options">
                 <section class="plan-card">
@@ -231,6 +232,30 @@
               });
           });
       });
+
+
+
+    
+    // Para o link "Anunciar meu imóvel"
+    document.getElementById('announce-property').addEventListener('click', function(event) {
+        event.preventDefault(); // Evita comportamento padrão do link
+        document.getElementById('plan-section').scrollIntoView({
+            behavior: 'smooth' // Rolagem suave
+        });
+    });
+
+    // Para o link "Anunciar minhas vagas"
+    document.getElementById('announce-jobs').addEventListener('click', function(event) {
+        event.preventDefault(); // Evita comportamento padrão do link
+        document.getElementById('plan-section').scrollIntoView({
+            behavior: 'smooth' // Rolagem suave
+        });
+    });
+
+
+
+
+      
   </script>
 </head>
 </body>

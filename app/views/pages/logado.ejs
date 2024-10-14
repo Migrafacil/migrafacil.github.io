@@ -1,13 +1,15 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial </title>
-    <link rel="shortcut icon" type="imagex/png" href="/imagens/lgaba.ico">
+    <title>Migra Facil - Página inicial </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="/css/pginicial.css">
+    <link rel="shortcut icon" type="imagex/png" href="../imagens/lgaba.ico">
+    <link rel="stylesheet" href="../css/pginicial.css">
 </head>
 <body>
     <% 
@@ -20,30 +22,26 @@
            "Olá <%= autenticado.autenticado %>", "success", "center")                        
        </script>
        <% }  } %>
+       
     <header>
-        <nav>
+        <nav class="menudesktop">
             <ul>
                 <li> <a href="#">Procurar por</a> 
-
-                    <div class="sub-menu-1">
+                    <section class="sub-menu-1">
                         <ul>
-                            <li> <a href="/casas">Procurar por imóveis</a></li>
-                            <li> <a href="/empregos">Prcurar por vagas</a></li>
-                             <div class="container">
-                            
-                       </ul>
-                    </div>
+                          <li><a href="/emprego"><i class=""></i> Empregos</a></li>
+                          <li><a href="/casas"><i class=""></i> Imóveis</a></li>
 
+                        </ul>
+                    </section>
                 </li>
                 <li> <a href="#">Anunciar</a> 
                     <section class="sub-menu-1">
                         <ul>
-                            <li> <a href="#">Anunciar meu imovél</a></li>
-                            <li> <a href="#">Anunciar minhas vagas</a></li>
-
+                            <li> <a href="#" id="announce-property">Anunciar meu imovél</a></li>
+                            <li> <a href="#" id="announce-jobs">Anunciar minha vaga</a></li>
                         </ul>
                     </section>
-
                 </li>
                 <li> <a href="#">Sobre nós</a> </li>
                 <li class="logo-container">
@@ -57,551 +55,202 @@
                         <ul>
                             <li> <a href="/perfil">Perfil</a></li>
                             <li> <a href="/sair">Sair</a></li>
-
+                
                         </ul>
                     </section>
             </ul>
         </nav>
     </header>
+      
 
-      <main>
-        
-          <section class="mc"> 
+     <main>
+        <section class="mc"> 
              <h2 class="futury">Faça a mundança sem esforço..</h2>
-   
-             <section class="wrapper">
-                <input type="radio" name="slider" id="tab-1">
-                <input type="radio" name="slider" id="tab-2" checked>
-                <header>
-                  <label for="tab-1" class="tab-1">Moradia</label>
+            <section class="wrapper">
+              <input type="radio" name="slider" id="tab-1">
+              <input type="radio" name="slider" id="tab-2" >
+              <section class="botaome">
+                  <label for="tab-1" class="tab-1">Imobiliaria</label>
                   <label for="tab-2" class="tab-2">Emprego</label>
                   <section class="slider"></section>
-                </header>
-                <section class="card-area">
+              </section>
+              <!-- Seção de Moradia -->
+              <section class="card-area tab-content" id="content-1">
                   <section class="cards">
-                    <section class="row row-1">
-                      <section class="price-details">
-                        <span class="price"></span>
-                        <p></p>
-                      </section>
-                        <section class="retangulo1">
-                            <img src="imagens/localização.svg" alt="local" class="img1"> <h4 class="city">Cidade</h4>
-                            <h5 class="busque-city">Busque por cidade</h5>
+                      <section class="row row-1">
+                          <section class="retangulo1">
+                              <h4 class="city">Cidade</h4>
+                              <img src="../imagens/localização.svg" alt="local" class="img1">
+                              <form class="search-container">
+                                  <input type="text" class="search-input" placeholder="Busque por cidade">
+                              </form>
                           </section>
-                            <section class="retangulo2">
-                            <img src="imagens/casa.png" alt="casa" class="img2"> <h4 class="bairry">Bairro</h4>
-                            <h5 class="busque-bairry">Busque por bairro</h5>
-                           </section>
-                         <section class="retangulo3">
-                            <img src="../imagens/cash.svg" alt="dinheiro" class="img3"> <h4 class="alugue">Aluguel até</h4>
-                            <h5 class="escolher-dinheiro">Escolha o valor</h5> <img src="../IMAGENS/ceta.svg" alt="ceta" class="cetinha">
-                            <button class="buscar"><a href="/casas">Buscar</a></button>
+                          <section class="retangulo2">
+                              <h4 class="bairry">Bairro</h4>
+                              <img src="../imagens/casa.png" alt="casa" class="img2">
+                              <form class="search-container">
+                                  <input type="text" class="search-input" placeholder="Busque por bairro">
+                              </form>
                           </section>
-                      </ul>
-                    </section>
-                    <section class="row">
-                      <section class="price-details">
-                        <span class="price"></span>
-                        <p></p>
+                          <section class="retangulo3">
+                              <h4 class="alugue">Aluguel até</h4>
+                              <img src="../imagens/cash.svg" alt="dinheiro" class="img3">
+                              <select class="search-select">
+                                  <option value="">Escolha o valor</option>
+                                  <option value="500">Até R$ 500</option>
+                                  <option value="1000">Até R$ 1000</option>
+                                  <option value="1500">Até R$ 1500</option>
+                              </select>
+                              <button class="buscar"><a href="anunciante.html">Buscar</a></button>
+                          </section>
                       </section>
-                      <section class="retangulo1">
-                        <img src="../imagens/mala-de-viagem.png" alt="local" class="img1"> <h4 class="city">Vagas</h4>
-                        <h5 class="busque-city">Busque por Vagas</h5>
-                      </section>
-                        <section class="retangulo2">
-                        <img src="imagens/localização.svg" alt="casa" class="img2"> <h4 class="bairry">Cidade</h4>
-                        <h5 class="busque-bairry">Busque por cidade</h5>
-                       </section>
-                     <section class="retangulo3">
-                        <img src="../imagens/cash.svg" alt="dinheiro" class="img3"> <h4 class="alugue">Salario até</h4>
-                        <h5 class="escolher-dinheiro">Escolha o valor</h5> <img src="../IMAGENS/ceta.svg" alt="ceta" class="cetinha">
-                        <button class="buscar"><a href="/emprego">Buscar</a></button>
-                      </section>
-                    </section>
                   </section>
-            
+              </section>
 
-    
-           </section>
-
-            <br/><br/><br/>
-            <section class="verde">
-                <h1 class="explo"> Explore um novo mundo de oportunidades.</h1>
-                <br/>
-                <h3 class="facil"> Facilitamos seu processo de mundanças com serviços confiaveis. aproveite uma migração sem estresse.<h3>
-                <br/>
-                <button class="Começe"><a href="#">Comece já</a></button>
-                <br/>
+              <!-- Seção de Emprego -->
+              <section class="card-area tab-content" id="content-2">
+                  <section class="cards">
+                      <section class="row">
+                          <section class="retangulo1">
+                              <h4 class="city">Vagas</h4>
+                              <img src="../imagens/mala-de-viagem.png" alt="vaga" class="img1">
+                              <section class="search-container">
+                                  <input type="text" class="search-input" placeholder="Busque por vaga">
+                              </section>
+                          </section>
+                          <section class="retangulo2">
+                              <h4 class="bairry">Cidade</h4>
+                              <img src="../imagens/localização.svg" alt="local" class="img2">
+                              <section class="search-container">
+                                  <input type="text" class="search-input" placeholder="Busque por cidade">
+                              </section>
+                          </section>
+                          <section class="retangulo3">
+                              <h4 class="alugue">Salário até</h4>
+                              <img src="../imagens/cash.svg" alt="dinheiro" class="img3">
+                              <select class="search-select">
+                                  <option value="">Escolha o valor</option>
+                                  <option value="2000">Até R$ 2000</option>
+                                  <option value="4000">Até R$ 4000</option>
+                                  <option value="6000">Até R$ 6000</option>
+                              </select>
+                              <button class="buscar"><a href="#">Buscar</a></button>
+                          </section>
+                      </section>
+                  </section>
+              </section>
             </section>
+      </section>
+            <br/>
+            <section class="services">
+              <h2>Explore um novo mundo de oportunidades.</h2>
+              <p>Facilitamos seu processo de mudanças com serviços confiáveis. Aproveite uma migração sem estresse.</p>
+              <button class="start-btn"><a href="#">Comece já</a></button>
+          </section>
 
 
-            <br/><br/>
           <h2 class="dista"> Moradias de qualidade e empregos gratificantes estão apenas a um clique de distância.</h2>
-        <br/><br/>
-        <section class="quadro1">
-            <img src="imagens/casa.jpeg" class="icon">
-            <h4 class ="imoveis">Para imoveis </h4>
-        </section>
-        <section class="quadro2">
-            <img src="../imagens/mala-de-viagem.png" class="icon">
-            <h4 class ="imoveis">Para empregos </h4>
-        </section>
-        <section class="quadro3">
-            <img src="../imagens/iphone.png" class="icon">
-            <h4 class ="imoveis">Para anunciante </h4>
-        </section>
-        <br/><br/>
-        <br/><br/>
-        <br/><br/>
+           <br/><br/>
+          <br/><br/>
+          
             <h1 class="anuncia">Anuncie no Migra Fácil</h1>
-            <h5 class="pr">Anuncie seu imóvel ou sua vaga para quem busca oportunidades</h5>
+            <h5 class="pr">Anuncie seu imóvel ou sua vaga para quem busca oportunidades.</h5>
             <button class="anun"><a href="#">Anuncie</a></button>
-            <img src="../imagens/mulher-anun.png" class="mulher-anun">
+            <br/><br/>
+            <img src="../imagens/mulheranun.png" class="mulheranun">
            <br/><br/><br/>
 
-        <h4 class="planos">Escolha um plano e pague apenas pelo que contratar</h4>
-        <br/><br/>
-        <br/><br/>
-
-        <section class="quadrado1">
-            <h2 class="basico">Básico </h2>
-            <h4 class="public">05 publicações/ imovéis</h4>
-            <br/>
-            <h5 class="acesso">Acesso:</h5>
-            <br/>
-            <p class="public2">Publique 05 imóveis</p>
-            <p class="desta">03 publicações em destaque </p>
-            <p class="desta2">Publicações em destaque por 1 a 2 mês </p>
-            <br/>
-            <p class="acesso">Por apenas</p>
-            <br/>
-            <h2 class="t90">R$ 49,99/mês</h2>
-            <br/>
-            <a href="#" class="botao">Assinar plano</a>
+           <section class="plans" id="plan-section">
+            <h2>Escolha um plano e pague apenas pelo que contratar</h2>
+            <section class="plan-options">
+                <section class="plan-card">
+                    <h3>Básico / Imovéis</h3>
+                    <p>05 publicações de imóveis</p>
+                    <p>03 publicações em destaque por até 2 meses</p>
+                    <p>R$ 49,99/mês</p>
+                    <button class="plan-btn"><a href="#">Assinar Plano</a></button>
+                </section>
+                <section class="plan-card">
+                    <h3>Premium / Imovéis</h3>
+                    <p>20 publicações de imóveis</p>
+                    <p>08 publicações em destaque por até 5 meses</p>
+                    <p>R$ 149,99/mês</p>
+                    <button class="plan-btn"><a href="#">Assinar Plano</a></button>
+                </section>
+                <!-- Duplicado -->
+                <section class="plan-card">
+                    <h3>Básico / Vagas</h3>
+                    <p>05 publicações de vagas</p>
+                    <p>03 publicações em destaque por até 2 meses</p>
+                    <p>R$ 49,99/mês</p>
+                    <button class="plan-btn"><a href="#">Assinar Plano</a></button>
+                </section>
+                <section class="plan-card">
+                    <h3>Premium / Vagas</h3>
+                    <p>20 publicações de vagas</p>
+                    <p>08 publicações em destaque por até 5 meses</p>
+                    <p>R$ 149,99/mês</p>
+                    <button class="plan-btn"><a href="#">Assinar Plano</a></button>
+                </section>
+            </section>
         </section>
-        <br/>
-
-        <section class="quadrado2">
-            <h2 class="basico">Premium</h2>
-            <h4 class="public">20 publicações/imóveis </h4>
-            <br/>
-            <h5 class="acesso">Acesso:</h5>
-            <br/>
-            <p class="public2">Publique 20 imóveis</p>
-            <p class="desta">08 publicações em destaque </p>
-            <p class="desta2">Publicações em destaque por 4 a 5 meses </p>
-            <br/>
-            <p class="acesso">Por apenas</p>
-            <br/>
-            <h2 class="t90">R$ 149,99/mês</h2>
-            <br/>
-            <a href="#" class="botao">Assinar plano</a>
-        </section>
-        <br/>
-        <section class="quadrado3">
-          <h2 class="basico">Clássico</h2>
-          <h4 class="public">5 publicações/vagas </h4>
-          <br/>
-          <h5 class="acesso">Acesso:</h5>
-          <br/>
-          <p class="public2">Publique 5 vagas</p>
-          <p class="desta">1  publicação em destaque </p>
-          <p class="desta2">publicação em destaque por 7 dias </p>
-          <br/>
-          <p class="acesso">Por apenas</p>
-          <br/>
-          <h2 class="t90">R$ 49,99/mês</h2>
-          <br/>
-          <a href="#" class="botao">Assinar plano</a>
-        </section>
-      <br/>
-      <section class="quadrado4">
-        <h2 class="basico">Premium</h2>
-        <h4 class="public">20 publicações/vagas </h4>
-        <br/>
-        <h5 class="acesso">Acesso:</h5>
-        <br/>
-        <p class="public2">Publique 20 vagas</p>
-        <p class="desta">08 publicações em destaque </p>
-        <p class="desta2">Publicações em destaque por 15 dias </p>
-        <br/>
-        <p class="acesso">Por apenas</p>
-        <br/>
-        <h2 class="t90">R$ 149,99/mês</h2>
-        <br/>
-        <a href="#" class="botao">Assinar plano</a>
-    </section>
-        <br/><br/>
     </main>
 
     <footer>
-            <section class="footer1">
-                <h4>Migra <span class="facil">FÁCIL</span></h4>
-    
-                <ul >
-                    <li><span class="negrito">Geral</span></li>
-                    <li>Cadastre-se</li>
-                    <li>Central de Ajuda</li>
-                    <li>Sobre</li>
-                    <li>Segurança no Migra fácil</li>
-                </ul>
-                <ul>
-                    <li><span class="negrito">Navegar pelo Migra Fácil</span></li>
-                    <li>Vagas</li>
-                    <li>Empresas</li>
-                    <li>Salários</li>
-                    <li>Moradias</li>
-                    <li>Indique um imóvel</li>
-                </ul>
+        <section id="footer_content">
+            <img src="../imagens/logo.png" alt="Logo Migra" class="footer-logo">
+            <p>Transformando mudanças em oportunidades.</p>
+            <section class="social-media">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-tiktok"></i></a>
             </section>
-    
-            <h4>Migra FÁCIL</h4>
-    
-            <ul class="footer">
-                <li>Acessibilidade</li>
-                <li>Política de Privacidade do Migra Fácil</li>
-                <li>Política de Direitos Autorais</li>
-                <li>Controle de Visitantes</li>
-                <li> Contrato  do Usuário</li>
-                <li>Política de Cookies</li>
-                <li>Política de Marca</li>
-                <li>Diretrizes da comunidae</li>
+            <ul class="footer-links">
+                <li><a href="#">Cadastra-se</a></li>
+                <li><a href="#">Ajuda</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Segurança no Migra Fácil</a></li>
             </ul>
+            <section id="footer_copyright">
+                &#169; 2023 All rights reserved.
+            </section>
+        </section>
     </footer>
     <script>
-        document.getElementById("profile-icon").addEventListener("click", function() {
-          var menu = document.getElementById("menu-options");
-          if (menu.style.display === "block") {
-              menu.style.display = "none";
-          } else {
-              menu.style.display = "block";
-          }
+      // Script para alternar entre moradias e empregos
+      document.querySelectorAll('input[name="slider"]').forEach(input => {
+          input.addEventListener('change', function() {
+              const id = this.id.split('-')[1];
+              document.querySelectorAll('.tab-content').forEach(content => {
+                  content.style.display = content.id === `content-${id}` ? 'block' : 'none';
+              });
+          });
       });
 
-      // Fecha o menu ao clicar fora dele
-      window.onclick = function(event) {
-          if (!event.target.matches('#profile-icon')) {
-              var dropdowns = document.getElementsByClassName("menu-options");
-              for (var i = 0; i < dropdowns.length; i++) {
-                  var openDropdown = dropdowns[i];
-                  if (openDropdown.style.display === "block") {
-                      openDropdown.style.display = "none";
-                  }
-              }
-          }
-      }
+
+
+    
+    // Para o link "Anunciar meu imóvel"
+    document.getElementById('announce-property').addEventListener('click', function(event) {
+        event.preventDefault(); // Evita comportamento padrão do link
+        document.getElementById('plan-section').scrollIntoView({
+            behavior: 'smooth' // Rolagem suave
+        });
+    });
+
+    // Para o link "Anunciar minhas vagas"
+    document.getElementById('announce-jobs').addEventListener('click', function(event) {
+        event.preventDefault(); // Evita comportamento padrão do link
+        document.getElementById('plan-section').scrollIntoView({
+            behavior: 'smooth' // Rolagem suave
+        });
+    });
+
+
+
+
+      
   </script>
+</head>
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-       
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            position: relative;
-        }
-       
-        /* Estilo do botão redondo */
-        .botao-redondo {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #016FA0;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 80px;
-            height: 80px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 32px;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            z-index: 1000; /* Para ficar sempre por cima */
-        }
-       
-        .botao-redondo:hover {
-            background-color: #218838;
-            transform: scale(1.1);
-        }
- 
-        /* Estilo do menu de ícones e formulário */
-        .menu {
-            display: none; /* Inicialmente escondido */
-            position: fixed;
-            bottom: 120px;
-            right: 30px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            z-index: 999;
-        }
- 
-        .menu .item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-            cursor: pointer;
-        }
- 
-        .menu .item img {
-            width: 40px;
-            height: 40px;
-            margin-right: 10px;
-        }
- 
-        /* Estilo do formulário */
-        .modal {
-            display: none; /* Inicialmente escondido */
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            padding: 20px;
-            width: 400px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            z-index: 10;
-        }
- 
-        .modal .fechar-x {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-            font-size: 18px;
-            font-weight: bold;
-            color: #888;
-        }
- 
-        .modal .fechar-x:hover {
-            color: #000;
-        }
- 
-        /* Campos do formulário */
-        .modal label {
-            font-weight: bold;
-            margin-top: 10px;
-            display: block;
-        }
- 
-        .modal input, .modal select, .modal textarea {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 14px;
-        }
- 
-        /* Botão Publicar */
-        .publicar {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 20px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
- 
-        .publicar:hover {
-            background-color: #218838;
-        }
-    </style>
-    <title>Botão Redondo com Formulário</title>
-</head>
-<body>
- 
-    <!-- Botão redondo -->
-    <button class="botao-redondo" onclick="mostrarMenu()">+</button>
- 
-    <!-- Menu de ícones -->
-    <div class="menu" id="menu">
-        <div class="item" onclick="mostrarFormulario('vaga')">
-            <img src="imagens/mala-de-viagem.png" alt="Vagas">
-            <span>Vagas de Emprego</span>
-        </div>
-        <div class="item" onclick="mostrarFormulario('moradia')">
-            <img src="imagens/casa.png" alt="Imóveis">
-            <span>Imóveis</span>
-        </div>
-    </div>
- 
-  <!-- Modal com o formulário -->
-
-<div class="modal" id="modal">
-    <span class="fechar-x" onclick="fecharModal()">&#10006;</span>
-    <h2>Publicar Anúncio</h2>
-    <form id="form-anuncio" style="display: none;" method="post" action="/gravarvagas">
-        <div class="form-group">
-            <label for="titulo">Título:</label>
-            <input type="text" id="titulo" name="titulo" placeholder="Título do anúncio">
-        </div>
-        <div class="form-group">
-            <label for="descricao">Descrição:</label>
-            <textarea id="descricao" name="descricao" rows="4" placeholder="Descrição detalhada"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="preco-salario" id="label-preco-salario">Preço/Salário:</label>
-            <input type="text" id="preco-salario" name="preco-salario" placeholder="Preço ou Salário">
-        </div>
-
-        <div class="extra-emprego" id="extra-emprego" style="display: none;">
-            <div class="form-group">
-                <label for="contato">Link da vaga ou WhatsApp:</label>
-                <input type="text" id="contato" name="contato" placeholder="Link ou número de WhatsApp">
-            </div>
-        </div>
-
-        <div class="campo-imagem" id="campo-imagem" style="display: block;">
-            <div class="form-group">
-                <label for="imagem">Imagem (opcional):</label>
-                <input type="file" id="imagem" name="imagem">
-            </div>
-        </div>
-
-        <!-- Campos de endereço para imóveis -->
-        <span class="fechar-x" onclick="fecharModal()">&#10006;</span>
-        <h2>Publicar Anúncio</h2>
-        <form id="form-anuncio" style="display: none;" method="post" action="/gravarvagas">
-        <div class="form-group">
-            <label for="cep">CEP:</label>
-            <input type="text" id="cep" name="cep" placeholder="Digite o CEP" onblur="buscarEndereco()">
-        </div>
-        <div class="form-group" id="endereco-imovel" style="display: none;">
-            <label for="rua">Rua:</label>
-            <input type="text" id="rua" name="rua" placeholder="Rua da casa">
-            <label for="numero">Número:</label>
-            <input type="text" id="numero" name="numero" placeholder="Número">
-        </div>
-        <div class="form-group" id="bairro-imovel" style="display: none;">
-            <label for="bairro">Bairro:</label>
-            <input type="text" id="bairro" name="bairro" placeholder="Bairro">
-        </div>
-        <div class="form-group" id="localidade-imovel" style="display: none;">
-            <label for="cidade">Cidade/Estado:</label>
-            <input type="text" id="cidade" name="cidade" placeholder="Cidade e Estado" readonly>
-        </div>
-
-        <div class="extra-info" id="extra-info" style="display: none;">
-            <div class="form-group">
-                <label for="quartos">Número de Quartos:</label>
-                <select id="quartos" name="quartos">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4+</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="metros-quadrados">Metros Quadrados:</label>
-                <input type="text" id="metros-quadrados" name="metros-quadrados" placeholder="Metros quadrados">
-            </div>
-            <div class="form-group">
-                <label for="vaga-carro">Vaga para Carro:</label>
-                <select id="vaga-carro" name="vaga-carro">
-                    <option value="sim">Sim</option>
-                    <option value="nao">Não</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="banheiros">Número de Banheiros:</label>
-                <select id="banheiros" name="banheiros">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4+</option>
-                </select>
-            </div>
-        </div>
-
-        <button type="button" class="publicar" onclick="publicarAnuncio()">Publicar</button>
-    </form>
-</div>
-
-<script>
-    function mostrarMenu() {
-        const menu = document.getElementById('menu');
-        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-    }
-
-    function mostrarFormulario(tipo) {
-        const form = document.getElementById('form-anuncio');
-        form.style.display = 'block';
-        document.getElementById('modal').style.display = 'block';
-        document.getElementById('menu').style.display = 'none'; // Esconder menu
-
-        const labelPrecoSalario = document.getElementById('label-preco-salario');
-        const inputPrecoSalario = document.getElementById('preco-salario');
-        const extraEmprego = document.getElementById('extra-emprego');
-        const campoImagem = document.getElementById('campo-imagem');
-        const extraInfo = document.getElementById('extra-info');
-        const enderecoImovel = document.getElementById('endereco-imovel');
-        const localidadeImovel = document.getElementById('localidade-imovel');
-        const numeroImovel = document.getElementById('numero-imovel');
-        const bairroImovel = document.getElementById('bairro-imovel');
-
-        if (tipo === 'vaga') {
-            labelPrecoSalario.textContent = 'Salário:';
-            inputPrecoSalario.placeholder = 'Salário';
-            extraEmprego.style.display = 'block';
-            campoImagem.style.display = 'none';
-            extraInfo.style.display = 'none';
-            enderecoImovel.style.display = 'none';
-            bairroImovel.style.display = 'none';
-            localidadeImovel.style.display = 'none';
-        } else {
-            labelPrecoSalario.textContent = 'Preço:';
-            inputPrecoSalario.placeholder = 'Preço';
-            extraEmprego.style.display = 'none';
-            campoImagem.style.display = 'block';
-            extraInfo.style.display = 'block';
-            enderecoImovel.style.display = 'block';
-            bairroImovel.style.display = 'block';
-            localidadeImovel.style.display = 'block';
-        }
-    }
-
-    function buscarEndereco() {
-        const cep = document.getElementById('cep').value.replace(/\D/g, '');
-        if (cep.length === 8) {
-            fetch(`https://viacep.com.br/ws/${cep}/json/`)
-                .then(response => response.json())
-                .then(data => {
-                    if (!data.erro) {
-                        document.getElementById('rua').value = data.logradouro;
-                        document.getElementById('bairro').value = data.bairro;
-                        document.getElementById('cidade').value = `${data.localidade} - ${data.uf}`;
-                    } else {
-                        alert('CEP não encontrado.');
-                    }
-                })
-                .catch(() => alert('Erro ao buscar o CEP.'));
-        }
-    }
-
-    function fecharModal() {
-        document.getElementById('modal').style.display = 'none';
-    }
-
-    function publicarAnuncio() {
-        const form = document.getElementById('form-anuncio');
-        alert('Anúncio publicado com sucesso!');
-        form.reset();
-        fecharModal();
-    }
-</script>
