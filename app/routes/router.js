@@ -95,8 +95,8 @@ router.get("/sobre", function (req, res) {
   res.render("pages/sobrenos", {pagina:"sobrenos", logado:null});
 });
 
-router.get("/emprego", function (req, res) {
-  res.render("pages/emprego", {pagina:"emprego", logado: null });
+router.get("/emprego", verificarUsuAutenticado, function (req, res) {
+ vagasController.listar(req, res);
 });
 
 router.get("/detalhesemprego", function (req, res) {
@@ -198,27 +198,27 @@ router.get("/casas", function (req, res) {
   res.render("pages/casas",{pagina:"anuncios casas", logado: "null"});
 });
 
-router.get("/recuperar-senha", verificarUsuAutenticado, function(req, res){
-  res.render("pages/rec-senha",{ listaErros: null, dadosNotificacao: null });
-});
+// router.get("/recuperar-senha", verificarUsuAutenticado, function(req, res){
+//   res.render("pages/rec-senha",{ listaErros: null, dadosNotificacao: null });
+// });
 
-router.post("/recuperar-senha",
-  verificarUsuAutenticado,
-  usuarioController.regrasValidacaoFormRecSenha, 
-  function(req, res){
-    usuarioController.recuperarSenha(req, res);
-});
+// router.post("/recuperar-senha",
+//   verificarUsuAutenticado,
+//   usuarioController.regrasValidacaoFormRecSenha, 
+//   function(req, res){
+//     usuarioController.recuperarSenha(req, res);
+// });
 
-router.get("/resetar-senha", 
-  function(req, res){
-    usuarioController.validarTokenNovaSenha(req, res);
-  });
+// router.get("/resetar-senha", 
+//   function(req, res){
+//     usuarioController.validarTokenNovaSenha(req, res);
+//   });
   
-router.post("/reset-senha", 
-    usuarioController.regrasValidacaoFormNovaSenha,
-  function(req, res){
-    usuarioController.resetarSenha(req, res);
-});
+// router.post("/reset-senha", 
+//     usuarioController.regrasValidacaoFormNovaSenha,
+//   function(req, res){
+//     usuarioController.resetarSenha(req, res);
+// });
 
 // var express = require("express");
 
@@ -266,4 +266,4 @@ router.post("/reset-senha",
 // );
 
 
-module.exports = router
+module.exports = router;

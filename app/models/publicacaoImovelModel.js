@@ -56,6 +56,6 @@ var pool = require("../../config/pool_conexoes");
                 return error;
             }
         }
-    };
+    }
 
-module.exports = publicacaoImovelModel
+module.exports ={ publicacaoImovelModel}

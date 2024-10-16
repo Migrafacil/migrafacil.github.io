@@ -4,7 +4,7 @@ var pool = require("../../config/pool_conexoes");
         findAll: async () => {
             try {
                 const [resultados] = await pool.query(
-                    'SELECT * FROM vaga'
+                    'SELECT * FROM vaga v inner join cargo c on v.cargo_CargoID = c.CargoID'
                 )
                 return resultados;
             } catch (error) {

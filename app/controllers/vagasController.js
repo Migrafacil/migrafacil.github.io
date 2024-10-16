@@ -1,4 +1,4 @@
-const { publicacaoVagas } = require("../models/publicacaoVagasModel");
+const { publicacaoVagasModel } = require("../models/publicacaoVagasModel");
 const { body, validationResult } = require("express-validator");
 
 
@@ -21,14 +21,12 @@ const vagasController = {
    ],
 
     listar: async (req, res) => {
-        req.session.autenticado.login = req.query.login;
-        results = await hqModel.findAll(req.session.autenticado.id);
-        carrinho.atualizarCarrinho(req);
-        res.render("pages/index", {
+        results = await publicacaoVagasModel.findAll();
+        res.render("pages/emprego", {pagina:"emprego", logado: null,
             autenticado: req.session.autenticado,
             login: req.session.logado,
-            listaHq: results,
-            carrinho: req.session.carrinho
+            listavagas: results,
+          
         });
     },
 
@@ -60,7 +58,7 @@ const vagasController = {
         var dadosForm = {
             //inf do banco 
             DescricaoVaga: req.body.descricaoemprego, //formulario
-            CargaHorario: req.body.CargaHorario,
+            CargaHoraria: req.body.CargaHorario,
             cargo_CargoID: req.body.tituloemprego,
             usuario_ID_USUARIO: req.session.autenticado.id,
             SALARIO: req.body.salarioemprego,
@@ -75,8 +73,9 @@ const vagasController = {
             return res.render("pages/perfil", { listaErros: erros, autenticado: req.session.autenticado, dadosNotificacao: null, valores: req.body })
         }
         try {
-            console.log(publicacaoVagas);
-            const createResult = await publicacaoVagas.create(dadosForm); 
+           
+            const createResult = await publicacaoVagasModel.create(dadosForm); 
+            console.log(createResult)
             return res.render("pages/perfil", { listaErros: null, autenticado: req.session.autenticado, dadosNotificacao: {
                 titulo: "Sucesso ao publicar!", mensagem: "Vaga publicada!", tipo: "success"
             }, valores: req.body })

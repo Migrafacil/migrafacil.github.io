@@ -426,11 +426,17 @@
                 <form id="form-emprego" method="post" action="/publicarvaga">
                     <div class="form-group">
                         <label for="titulo-emprego">Título:</label>
-                        <select id="titulo-emprego" name="titulo-emprego" required>
-                            <option value="1">Auxiliar ADM</option>
-                            <option value="2">Repositor</option>
+                        <input list="titulo-emprego" name="browser" id="browser">
+                        <datalist id="titulo-emprego" name="tituloemprego" >
+
+                            <%
+                            if(listacargo){
+                                listacargo.forEach(function(item){
+                            %>
+                            <option value="<%= item.CargoID %>"><%= item.NomeCargo %></option>
+                <% })} %>
                             
-                        </select>
+                        </datalist>
                     </div>
                     <div class="form-group">
                         <label for="descricao-emprego">Descrição:</label>
