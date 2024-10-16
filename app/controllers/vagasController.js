@@ -75,6 +75,7 @@ const vagasController = {
             return res.render("pages/perfil", { listaErros: erros, autenticado: req.session.autenticado, dadosNotificacao: null, valores: req.body })
         }
         try {
+            console.log(publicacaoVagas);
             const createResult = await publicacaoVagas.create(dadosForm); 
             return res.render("pages/perfil", { listaErros: null, autenticado: req.session.autenticado, dadosNotificacao: {
                 titulo: "Sucesso ao publicar!", mensagem: "Vaga publicada!", tipo: "success"
