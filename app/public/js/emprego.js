@@ -13,14 +13,14 @@ let jobs = [
         salary: "R$ 4.500,00",
         location: "São Paulo - SP",
         description: "Desenvolvimento e manutenção de websites usando HTML, CSS e JavaScript.",
-        applyUrl: "https://www.linkedin.com/jobs/view/4021535147?trk=li_JobRapido-LIBR_BR_careers_jobsgtm_9acc4371-6a56-4365-8141-56da4b817626_job-dist&utm_medium=jobdist&mcid=6864282706205925377&utm_source=JobRapido-LIBR&ePP=CwEAAAGSIXsKZg7ej8kBVrylghHBV9apfGpORDLtP4DzIotMQpag5pQDGZoX2D9oC5udw0GGvrn2_oBvTXBFKJ7XvCN_g_gveUroJSWV1g&ccuid=56947444131&original_referer=https%3A%2F%2Fclick.appcast.io%2F"
+        applyUrl: "https://fitbank.vagas.solides.com.br/vaga/469691?origem=linkedin"
     },
     {
-        title: "Analista de Marketing",
-        salary: "R$ 3.800,00",
-        location: "São Paulo-SP",
-        description: "Criação de campanhas publicitárias e análise de desempenho.",
-        applyUrl: "https://www.infojobs.com.br/vaga-de-analista-marketing-em-sao-paulo__9881338.aspx?Origenvisita=196&xtor=AL-2871&utm_source=adzuna&utm_medium=cpc&utm_campaign=feed_adzuna&utm_term=paid&utm_content=full"
+        title: "Riachuelo Vagas Gerais",
+        salary: "A definir",
+        location: "Brasil",
+        description: "Temos 926 vagas, no Brasil todo! Somos moda, varejo, tech, logística, financeira, indústria e o maior ecossistema de moda, lifestyle, produtos e serviços financeiros do Brasil.",
+        applyUrl: "https://carreiras.riachuelo.com.br/"
     },
     {
         title: "Gerente de Projetos",
