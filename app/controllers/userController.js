@@ -1,5 +1,6 @@
 const usuario = require("../models/usuarioModel");
 const empresa = require("../models/empresaModel");
+const {publicacaoVagasModel} = require("../models/cargoModel");
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 var salt = bcrypt.genSaltSync(12);
@@ -200,8 +201,9 @@ const usuarioController = {
                 CELULAR_USUARIO: results[0].CELULAR_USUARIO,
                 nomeusu_usu: results[0].user_usuario, fone_usu: results[0].fone_usuario, senha_usu: ""
             }
-
-            res.render("pages/perfil", { listaErros: null, dadosNotificacao: null, valores: campos , autenticado: req.session.autenticado})
+            let listacargos = await publicacaoVagasModel.findAll()
+            console.log(listacargos)
+            res.render("pages/perfil", { listaErros: null, dadosNotificacao: null, listacargo: listacargos, valores: campos , autenticado: req.session.autenticado})
         } catch (e) {
          
             console.log(e);
