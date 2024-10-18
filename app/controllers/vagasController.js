@@ -11,7 +11,7 @@ const vagasController = {
 
     regrasValidacaoFormCadempresa: [
         body("descricaoemprego")
-           .isLength({ min: 20, max: 255 }).withMessage("Escreva com no minimo 20 letras e maximo 255."),
+           .isLength({ min: 20, max: 1000 }).withMessage("Escreva com no minimo 20 letras e maximo 1000."),
        body("CargaHorario")
            .isInt().withMessage("Digite um valor numerico!"),
        body("salarioemprego")
@@ -26,7 +26,7 @@ const vagasController = {
             autenticado: req.session.autenticado,
             login: req.session.logado,
             listavagas: results,
-          
+        
         });
     },
 
@@ -65,12 +65,14 @@ const vagasController = {
             LOCALIZACAO:  req.body.localemprego
 
         };
+        
         console.log(dadosForm)
 
         if (!erros.isEmpty()) {
             console.log("Erros de validação:", erros.array());
             console.log(erros);
-            return res.render("pages/perfil", { listaErros: erros, autenticado: req.session.autenticado, dadosNotificacao: null, valores: req.body })
+            let listacargos = publicacaoVagasModel.findAll()
+            return res.render("pages/perfil", { listaErros: erros, autenticado: req.session.autenticado, listacargo: listacargos, dadosNotificacao: null, valores: req.body })
         }
         try {
            

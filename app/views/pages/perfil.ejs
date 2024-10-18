@@ -343,19 +343,19 @@
                 <form id="form-imovel">
                     <div class="form-group">
                         <label for="titulo-imovel">Título:</label>
-                        <input type="text" id="titulo-imovel" name="titulo-imovel" placeholder="Título do anúncio" required>
+                        <input type="text" id="titulo-imovel" name="tituloimovel" placeholder="Título do anúncio" required>
                     </div>
                     <div class="form-group">
                         <label for="descricao-imovel">Descrição:</label>
-                        <textarea id="descricao-imovel" name="descricao-imovel" rows="4" placeholder="Descrição detalhada" required></textarea>
+                        <textarea id="descricao-imovel" name="descricaoimovel" rows="4" placeholder="Descrição detalhada" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="preco-imovel">Preço:</label>
-                        <input type="text" id="preco-imovel" name="preco-imovel" placeholder="Preço" required>
+                        <input type="text" id="preco-imovel" name="precoimovel" placeholder="Preço" required>
                     </div>
                     <div class="form-group">
                         <label for="cep-imovel">CEP:</label>
-                        <input type="text" id="cep-imovel" name="cep-imovel" placeholder="CEP da propriedade" required>
+                        <input type="text" id="cep-imovel" name="cepimovel" placeholder="CEP da propriedade" required>
                     </div>
                     <div class="form-group">
                         <label for="rua-imovel">Rua:</label>
@@ -363,7 +363,7 @@
                     </div>
                     <div class="form-group">
                         <label for="numero-imovel">Número:</label>
-                        <input type="text" id="numero-imovel" name="numero-imovel" placeholder="Número da casa" required>
+                        <input type="text" id="numero-imovel" name="numeroimovel" placeholder="Número da casa" required>
                     </div>
                     <div class="form-group">
                         <label for="bairro-imovel">Bairro:</label>
@@ -425,9 +425,15 @@
                 <h2>Publicar Empregos</h2>
                 <form id="form-emprego" method="post" action="/publicarvaga">
                     <div class="form-group">
+                        <!-- <label for="titulo-emprego">Título:</label>
+                        <input list="titulo-emprego" name="browser" id="browser"  oninput="setCargoID(this.value)" >
+                        <input type="hidden" id="cargoID" name="cargoID" > -->
+
                         <label for="titulo-emprego">Título:</label>
-                        <input list="titulo-emprego" name="browser" id="browser">
-                        <datalist id="titulo-emprego" name="tituloemprego" >
+                        <input list="titulo-emprego" name="browser" id="browser" oninput="setCargoID(this.value)" />
+                        <input type="hidden" id="cargoID" name="cargoID" />
+                        
+                        <!-- <datalist id="titulo-emprego" name="tituloemprego" >
 
                             <%
                             if(listacargo){
@@ -436,7 +442,16 @@
                             <option value="<%= item.CargoID %>"><%= item.NomeCargo %></option>
                 <% })} %>
                             
+                        </datalist> -->
+
+                        <datalist id="titulo-emprego">
+                            <% if(listacargo){ %>
+                                <% listacargo.forEach(function(item){ %>
+                                    <option value="<%= item.NomeCargo %>" data-id="<%= item.CargoID %>"></option>
+                                <% }) %>
+                            <% } %>
                         </datalist>
+                        
                     </div>
                     <div class="form-group">
                         <label for="descricao-emprego">Descrição:</label>
@@ -543,6 +558,20 @@
             form.reset();
             mostrarSeção('info');
         }
+
+        function setCargoID(cargoNome) {
+        // Busca todas as opções da lista
+        var options = document.querySelectorAll('#titulo-emprego option');
+        
+        // Percorre as opções para encontrar o cargo correspondente
+        options.forEach(function(option) {
+            if (option.value === cargoNome) {
+                // Quando encontrar, define o valor do hidden input como o CargoID
+                document.getElementById('cargoID').value = option.getAttribute('data-id');
+            }
+        });
+    }
+
     </script>
 </body>
 </html>

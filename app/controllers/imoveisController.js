@@ -10,25 +10,25 @@ const https = require('https');
 const imoveisController = {
 
     regrasValidacaoFormCadempresa: [
-        body("descricaoemprego")
+        body("descricaoimovel")
            .isLength({ min: 20, max: 255 }).withMessage("Escreva com no minimo 20 letras e maximo 255."),
-       body("CargaHorario")
+       body("precoimovel")
            .isInt().withMessage("Digite um valor numerico!"),
-       body("salarioemprego")
+       body("cepimovel")
+           .isFloat().withMessage("Digite um valor numerico!"),
+        body("numeroimovel")
            .isFloat().withMessage("Digite um valor numerico!"),
        body("localemprego")
        .isLength({ min: 5, max: 50 }).withMessage("Escreva com no minimo 5 letras."),
    ],
 
     listar: async (req, res) => {
-        req.session.autenticado.login = req.query.login;
-        results = await hqModel.findAll(req.session.autenticado.id);
-        carrinho.atualizarCarrinho(req);
-        res.render("pages/index", {
+        results = await publicacaoImovelModel.findAll();
+        res.render("pages/casas", {pagina:"casas", logado: null,
             autenticado: req.session.autenticado,
             login: req.session.logado,
-            listaHq: results,
-            carrinho: req.session.carrinho
+            listacasas: results,
+            
         });
     },
 
@@ -59,12 +59,12 @@ const imoveisController = {
         
         var dadosForm = {
             //inf do banco 
-            DescricaoVaga: req.body.descricaoemprego, //formulario
-            CargaHorario: req.body.CargaHorario,
-            cargo_CargoID: req.body.tituloemprego,
+            DescricaoVaga: req.body.descricaoimovel, //formulario
+            CargaHorario: req.body.precoimovel,
+            cargo_CargoID: req.body.tituloimovel,
             usuario_ID_USUARIO: req.session.autenticado.id,
-            SALARIO: req.body.salarioemprego,
-            LOCALIZACAO:  req.body.localemprego
+            SALARIO: req.body.cepimovel,
+            LOCALIZACAO:  req.body.numeroimovel
 
         };
         console.log(dadosForm)
