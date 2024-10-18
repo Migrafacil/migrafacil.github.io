@@ -7,11 +7,168 @@
     <link rel="stylesheet" href="/css/emprego.css">
 </head>
 <body>
-    <header>
+    <  <header>
         <a href="/">
             <img src="imagens/image2.png" alt="Migra Fácil" class="logo">
         </a>        
-        <button class="menu-button"><a href="/filtrovagas">&#9776;</a></button>
+        <!DOCTYPE html>
+        <html lang="pt-BR">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Filtro de Empregos</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                }
+        
+                .toggle-filtro {
+                    background-color: #016FA0;
+                    color: white;
+                    border: none;
+                    padding: 10px 15px;
+                    cursor: pointer;
+                    border-radius: 5px;
+                }
+        
+                .filtro-container {
+                    display: none;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.5);
+                    padding: 20px;
+                    box-sizing: border-box;
+                    z-index: 1000;
+                }
+        
+                .filtro-container > div {
+                    background: white;
+                    padding: 20px;
+                    border-radius: 8px;
+                    position: relative;
+                    max-width: 400px;
+                    margin: auto;
+                }
+        
+                .filtro-item {
+                    margin: 15px 0;
+                }
+        
+                button#closeFiltro {
+                    background: none;
+                    border: none;
+                    color: #016FA0;
+                    cursor: pointer;
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                }
+        
+                input[type="range"] {
+                    width: 100%;
+                }
+        
+                button[type="submit"] {
+                    background-color: #016FA0;
+                    color: white;
+                    border: none;
+                    padding: 10px;
+                    cursor: pointer;
+                    border-radius: 5px;
+                }
+            </style>
+        </head>
+        <body>
+        
+            <button class="toggle-filtro" id="filtroButton">Filtro</button>
+            <div class="filtro-container" id="filtro">
+                <div>
+                    <button id="closeFiltro">X</button>
+                    <h2>Filtro</h2>
+                    <form>
+                        <div class="filtro-item">
+                            <label for="faixa-salarial">Faixa Salarial:</label>
+                            <input type="range" id="valor" name="valor" min="0" max="10000" step="500" value="5000">
+                            <span id="valor-valor">R$ 5.000</span>
+                        </div>
+                        <div class="filtro-item">
+                            <label for="localizacao">Localização:</label>
+                            <input type="text" id="localizacao" name="localizacao" placeholder="Digite a localização">
+                        </div>
+                        <div class="filtro-item">
+                            <label>Tipo de Contrato:</label>
+                            <select id="tipo-contrato" name="tipo-contrato">
+                                <option value="CLT">CLT (efetivado)</option>
+                                <option value="PJ">Prestador de Serviços (PJ)</option>
+                                <option value="Temporário">Temporário</option>
+                                <option value="Free-lancer">Free-lancer</option>
+                                <option value="Cooperado">Cooperado</option>
+                                <option value="Trainee">Trainee</option>
+                            </select>
+                        </div>
+                        <div class="filtro-item">
+                            <label>Modalidade:</label>
+                            <select id="modalidade" name="modalidade">
+                                <option value="Home Office">Home Office</option>
+                                <option value="Híbrido">Híbrido</option>
+                                <option value="Presencial">Presencial</option>
+                            </select>
+                        </div>
+                        <div class="filtro-item">
+                            <label>Setor:</label>
+                            <select id="setor" name="setor">
+                                <option value="Administração">Administração</option>
+                                <option value="Comercial/Vendas">Comercial/Vendas</option>
+                                <option value="Comércio Exterior">Comércio Exterior</option>
+                                <option value="Financeira">Financeira</option>
+                                <option value="Educação">Educação</option>
+                                <option value="Informática">Informática</option>
+                                <option value="Saúde">Saúde</option>
+                                <option value="Telemarketing">Telemarketing</option>
+                                <option value="Telecomunicação">Telecomunicação</option>
+                                <option value="Agricultura, Pecuária e Veterinária">Agricultura, Pecuária e Veterinária</option>
+                                <option value="Engenharia">Engenharia</option>
+                                <option value="Artes, Arquitetura e Design">Artes, Arquitetura e Design</option>
+                                <option value="Comunicação / Marketing">Comunicação / Marketing</option>
+                                <option value="Hotelaria e Turismo">Hotelaria e Turismo</option>
+                                <option value="Jurídico">Jurídico</option>
+                                <option value="Serviço Social">Serviço Social</option>
+                                <option value="Industrial">Industrial</option>
+                                <option value="Suprimentos">Suprimentos</option>
+                            </select>
+                        </div>
+                        <button type="submit">Aplicar Filtros</button>
+                    </form>
+                </div>
+            </div>
+        
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const filtroButton = document.getElementById('filtroButton');
+                    const filtroContainer = document.getElementById('filtro');
+                    const closeFiltro = document.getElementById('closeFiltro');
+                    const valorInput = document.getElementById('valor');
+                    const valorSpan = document.getElementById('valor-valor');
+        
+                    filtroButton.addEventListener('click', () => {
+                        filtroContainer.style.display = 'block';
+                    });
+        
+                    closeFiltro.addEventListener('click', () => {
+                        filtroContainer.style.display = 'none';
+                    });
+        
+                    valorInput.addEventListener('input', () => {
+                        valorSpan.textContent = `R$ ${valorInput.value}`;
+                    });
+                });
+            </script>
+        </body>
+        </html>
+        
     </header>
     <main>
         <section class="search-section">
