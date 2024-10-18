@@ -11,7 +11,7 @@ let jobs = [
     {
         title: "Desenvolvedor Web",
         salary: "R$ 4.500,00",
-        location: "São Paulo - SP",
+        location: "Goiânia - GO",
         description: "Desenvolvimento e manutenção de websites usando HTML, CSS e JavaScript.",
         applyUrl: "https://fitbank.vagas.solides.com.br/vaga/469691?origem=linkedin"
     },
@@ -24,14 +24,14 @@ let jobs = [
     },
     {
         title: "Gerente de Projetos",
-        salary: "R$ 7.500,00",
-        location: "Curitiba - PR",
+        salary: "R$ 6.500,00",
+        location: "Rio de Janeiro-RJ",
         description: "Planejamento e gestão de projetos em diferentes áreas.",
-        applyUrl: "https://www.linkedin.com/jobs/view/4017292679?trk=li_Jooble-CPC-LI-BR-USD_BR_careers_jobsgtm_9acc4371-6a56-4365-8141-56da4b817626_job-dist&utm_medium=jobdist&mcid=6864282706205925377&utm_source=Jooble-CPC-LI-BR-USD&ePP=CwEAAAGSIXs4roOiS-5hGopFN-LVAS0b2I7mekjrPEl9fabSxszH94GGF1GTAhq2RhZLMcgzhGcAzpuZ2jslZsGlArYwW6MTP13wfGyaHQ&ccuid=56947595248"
+        applyUrl: "https://dc.gupy.io/?gad_source=5&gclid=EAIaIQobChMI9oDhmZKYiQMVp0JIAB0C_gtzEAAYAiAAEgIvZfD_BwE"
     },
     {
         title: "Engenheiro de Software",
-        salary: "R$ 8.000,00",
+        salary: "R$ 5.000,00",
         location: "Porto Alegre - RS",
         description: "Desenvolvimento de software e suporte técnico para sistemas complexos.",
         applyUrl: "https://api.whatsapp.com/send?phone=5551987654321&text=Olá,%20gostaria%20de%20me%20candidatar%20à%20vaga%20de%20Engenheiro%20de%20Software"
@@ -51,25 +51,25 @@ let jobs = [
         applyUrl: "https://www.empregoligado.com.br/pt-br/empresa/2347/vagas-de-emprego-na-empresa-canda?locale=pt-br"
     },
     {
-        title: "Consultor de Vendas",
-        salary: "R$ 2.800,00 + comissão",
-        location: "Salvador - BA",
-        description: "Prospecção de clientes e fechamento de vendas de serviços.",
-        applyUrl: "https://www.linkedin.com/jobs/view/4028295567?trk=li_JobRapido-LIBR_BR_careers_jobsgtm_9acc4371-6a56-4365-8141-56da4b817626_job-dist&utm_medium=jobdist&mcid=6864282706205925377&utm_source=JobRapido-LIBR&ePP=CwEAAAGSIXsx4XAoxQ2JhWaq82X4GqJvSat1QrtjJMpSsTKf0zluS2yrUG0-ObYUs1Lgqc8SSJUwtruQLq4PAgJ3PxRJmAcKTzpYE-19ZQ&ccuid=56947748915&original_referer=https%3A%2F%2Fclick.appcast.io%2F"
+        title: "Home Office Eudora",
+        salary: "R$ 2.000,00 + comissão",
+        location: "Brasil",
+        description: "Trabelhe de home office e começe a mudar o seu futuro virando nosso representante!",
+        applyUrl: "https://cadastro.eudora.com.br/?utm_source=google_search&utm_medium=cpc&utm_campaign=eudora-interno-alwayson-ir-conversao-google-leads-cpc-search-nonbrand_emprego_e_renda_extra&utm_content=responsivo_jan-23-emprego&gad_source=5&gclid=EAIaIQobChMIkOq58pKYiQMVZ15IAB3aSA6UEAAYAiAAEgIxvPD_BwE"
     },
     {
-        title: "Arquiteto",
-        salary: "R$ 7.500,00",
-        location: "Fortaleza - CE",
-        description: "Desenvolvimento de projetos arquitetônicos e supervisão de obras.",
-        applyUrl: "https://jobs.empresa-arquitetura.com/vagas/arquiteto/54321"
+        title: "Eletricista – Montagem de painéis elétricos / Instalação de comandos ",
+        salary: "R$ 2.000,00",
+        location: " Cotia – SP",
+        description: "Montar painéis e fazer intalação de comandos.",
+        applyUrl: "https://www.extraconsult.com.br/vagas-de-emprego/vaga-para-eletricista-montagem-de-paineis-eletricos-instalacao-de-comandos-clp-em-cotia-sp-4160/"
     },
     {
-        title: "Enfermeiro",
-        salary: "R$ 4.500,00",
+        title: "Assistente Virtual",
+        salary: "R$80/h",
         location: "Recife - PE",
-        description: "Prestação de cuidados de enfermagem a pacientes.",
-        applyUrl: "https://www.linkedin.com/jobs/view/243908876/"
+        description: "Auxilio Virtual.",
+        applyUrl: "https://assistentevirtualk.com/p2?utm_source=GoogleAds&utm_medium=21224514915&utm_campaign=&utm_content=x&utm_term=&gad_source=5&gclid=EAIaIQobChMI667I-5OYiQMVYVxIAB3bFStBEAAYAiAAEgJIEfD_BwE"
     }
 ];
 
@@ -115,7 +115,7 @@ function fetchJobs() {
         isLoading = false;
         loadingSpinner.style.display = 'none'; 
     }, 1000); 
-}
+} 
 
 function searchJobs() {
     const jobListings = document.getElementById('job-listings');

@@ -17,12 +17,21 @@ header {
     height: 60px;
 }
 
-.menu-button {
-    border: none;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-}
+.toggle-filtro {
+    margin-left: 3px;
+   padding: 5px 10px;
+   cursor: pointer;
+   border: none;
+   background-color: #016FA0;
+   color: white;
+   border-radius: 4px;
+   width: 10%;
+   float: left; 
+   }
+
+   .toggle-filtro:hover {
+       background-color: #0056b3;
+   }
 
 .search-section {
     background-color: #ffffff; /* Branco */
