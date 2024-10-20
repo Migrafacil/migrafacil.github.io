@@ -60,7 +60,7 @@ const imoveisController = {
         var dadosForm = {
             //inf do banco 
             DescricaoVaga: req.body.descricaoimovel, //formulario
-            CargaHorario: req.body.precoimovel,
+            PRECO_IMOVEL: req.body.precoimovel,
             cargo_CargoID: req.body.tituloimovel,
             usuario_ID_USUARIO: req.session.autenticado.id,
             SALARIO: req.body.cepimovel,
