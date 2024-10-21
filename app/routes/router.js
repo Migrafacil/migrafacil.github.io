@@ -97,6 +97,11 @@ router.get("/sobre", function (req, res) {
 
 router.get("/emprego", verificarUsuAutenticado, function (req, res) {
  vagasController.listar(req, res);
+ usuarioController.mostrarPerfil(req, res);
+});
+
+router.get("/casas", verificarUsuAutenticado, function (req, res) {
+  imoveisController.listar(req, res);
 });
 
 router.get("/detalhesemprego", function (req, res) {
@@ -194,9 +199,6 @@ router.post(
   }
 )
 
-router.get("/casas", function (req, res) {
-  res.render("pages/casas",{pagina:"anuncios casas", logado: "null"});
-});
 
 // router.get("/recuperar-senha", verificarUsuAutenticado, function(req, res){
 //   res.render("pages/rec-senha",{ listaErros: null, dadosNotificacao: null });

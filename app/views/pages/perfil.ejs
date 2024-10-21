@@ -343,7 +343,12 @@
                 <form id="form-imovel">
                     <div class="form-group">
                         <label for="titulo-imovel">Título:</label>
-                        <input type="text" id="titulo-imovel" name="tituloimovel" placeholder="Título do anúncio" required>
+                        <select id="titulo-imovel" name="tituloimovel" placeholder="Título do anúncio" required>
+                            <option value="">Selecione</option>
+                            <option value="casa">Casa</option>
+                            <option value="apartamento">Apartamento</option>
+                            <option value="comercial">Comercial</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="descricao-imovel">Descrição:</label>
@@ -378,15 +383,9 @@
                         <input type="text" id="estado-imovel" name="estado-imovel" placeholder="Estado" required>
                     </div>
                     <div class="form-group">
-                        <label for="tipo-imovel">Tipo de Imóvel:</label>
-                        <select id="tipo-imovel" name="tipo-imovel" required>
-                            <option value="">Selecione</option>
-                            <option value="casa">Casa</option>
-                            <option value="apartamento">Apartamento</option>
-                            <option value="comercial">Comercial</option>
-                        </select>
+                        <label for="metros-quadrados">Metros Quadrados:</label>
+                        <input type="text" id="metros-quadrados" name="metros-quadrados" placeholder="Metros quadrados">
                     </div>
-
                     <div class="form-group">
                         <label for="quartos">Número de Quartos:</label>
                         <select id="quartos" name="quartos">
@@ -396,10 +395,7 @@
                             <option value="4">4+</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="metros-quadrados">Metros Quadrados:</label>
-                        <input type="text" id="metros-quadrados" name="metros-quadrados" placeholder="Metros quadrados">
-                    </div>
+                   
                     <div class="form-group">
                         <label for="vaga-carro">Vaga para Carro:</label>
                         <select id="vaga-carro" name="vaga-carro">

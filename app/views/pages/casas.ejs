@@ -133,6 +133,8 @@
             gap: 20px;
         }
         .cartao-propriedade {
+            height: auto;
+            min-height: 400px; 
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -144,8 +146,37 @@
         }
         .cartao-propriedade img {
             width: 100%;
-            height: 70%;
+            height: 67%;
         }
+        .property-details {
+    padding: 10px;
+}
+
+.property-details h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.property-details p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.property-info {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px; 
+    margin-top: 10px;
+}
+
+.property-price h3{
+    color: #166f14;
+    font-size: 18px; /* Aumente o tamanho da fonte */
+    font-weight: bold;
+    margin-top: 10px;
+}
         .detalhes {
             padding: 15px;
         }
@@ -225,6 +256,8 @@
             }
         }
         
+        
+
         .favoritos-container {
             padding: -20px;
             display: flex;
@@ -250,6 +283,7 @@
         .favorito-info p {
             margin: 0;
         }
+
         @media (max-width: 768px) {
             .favorito-card {
                 width: 100%;
@@ -325,15 +359,16 @@
                 <section class="badge badge-novo">Anúncio novo</section>
                 <section class="badge badge-preco">Ótimo preço</section>
                 <img src="/imagens/Image.jpg" alt="Casa Jaguaré">
-                <section class="detalhes">
-                    <section class="localizacao">
-                        <span>Avenida Presidente Altino<br>Jaguaré, São Paulo</span>
-                        <span class="favorite-icon" onclick="toggleFavorite(this)">&#x2661;</span>
-                    </section>
-                    <section class="preco">Aluguel R$ 2.600</section>
-                    <section class="info">
+                <section class="property-details">
+                    <h3>Casa</h3>
+                    <p>Avenida Presidente Altino</p>
+                    <p>Jaguare, São Paulo</p>
+                    <section class="property-info">
                         <span>120m²</span>
                         <span>4 quartos</span>
+                    </section>
+                    <section class="property-price">
+                        <h3>Aluguel R$ 2.600</h3>
                     </section>
                 </section>
             </a>

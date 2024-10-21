@@ -59,13 +59,17 @@ const imoveisController = {
         
         var dadosForm = {
             //inf do banco 
-            DescricaoVaga: req.body.descricaoimovel, //formulario
+            DESCRICAO_IMOVEL: req.body.descricaoimovel, //formulario
             PRECO_IMOVEL: req.body.precoimovel,
-            cargo_CargoID: req.body.tituloimovel,
+            ImovelID: req.body.tituloimovel,
             usuario_ID_USUARIO: req.session.autenticado.id,
-            SALARIO: req.body.cepimovel,
-            LOCALIZACAO:  req.body.numeroimovel
-
+            CEO_Imovel: req.body.cepimovel,
+            NUMERO_IMOVEL:  req.body.numeroimovel,
+            COMPLEMENTO_USUARIO: req.body.numeroimovel,
+            IMAGEM1_IMOVEL: req.body.IMG1,
+            IMAGEM2_IMOVEL: req.body.IMG2,
+            IMAGEM3_IMOVEL: req.body.IMG3,
+            IMAGEM4_IMOVEL: req.body.IMG4,
         };
         console.log(dadosForm)
 
