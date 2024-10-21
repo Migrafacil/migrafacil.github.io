@@ -73,7 +73,7 @@ router.post(
 router.post(
   "/alterarperfil",
  usuarioController.regrasValidacaoPerfil,
- verificarUsuAutorizado([1, 2, 3, 4], "pages/restrito"),
+ verificarUsuAutorizado([1, 2, 3, 4], "pages/perfil"),
  async function (req, res) {
    usuarioController.gravarPerfil(req, res);
 }

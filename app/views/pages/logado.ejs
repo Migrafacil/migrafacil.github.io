@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="shortcut icon" type="imagex/png" href="../imagens/lgaba.ico">
-    <link rel="stylesheet" href="../css/pginicial.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.js"></script>
+    <link rel="stylesheet" href="../css/logado.css">
 </head>
 <body>
     <% 
@@ -18,6 +20,7 @@
         nome=autenticado.autenticado
         if(login == 1){%>
        <script>
+
            notify("Login efetuado com sucesso", 
            "Olá <%= autenticado.autenticado %>", "success", "center")                        
        </script>

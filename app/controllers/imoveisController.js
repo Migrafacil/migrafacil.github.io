@@ -70,6 +70,12 @@ const imoveisController = {
             IMAGEM2_IMOVEL: req.body.IMG2,
             IMAGEM3_IMOVEL: req.body.IMG3,
             IMAGEM4_IMOVEL: req.body.IMG4,
+            AREA_IMOVEL: req.body.IMG4 ,
+            QUARTO_IMOVEL: req.body.IMG4 ,
+            BANHEIRO_IMOVEL: req.body.IMG4,
+            VAGAS_IMOVEL: req.body.IMG4
+            
+
         };
         console.log(dadosForm)
 
