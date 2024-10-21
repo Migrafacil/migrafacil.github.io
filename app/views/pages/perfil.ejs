@@ -108,46 +108,38 @@
         .form-anuncio button:hover {
             background-color: #5b8a16;
         }
-
         footer {
           background-color: #34990d9f;
           color: #fff;
           padding: 20px;
           text-align: center;
        }
-
         .footer-logo {
           width: 100px;
           margin-bottom: 10px;
        }
-
         .social-media {
          margin-bottom: 10px;
       }
-
         .social-media a {
          color: #fff;
          font-size: 20px;
          margin: 0 10px;
          text-decoration: none;
       }
-
         .footer-links {
           list-style: none;
           padding: 0;
           margin: 0;
        }
-
         .footer-links li {
          display: inline;
          margin: 0 10px;
         }
-
         .footer-links a {
          color: #fff;
          text-decoration: none;
         }
-
         #footer_copyright {
          margin-top: 10px;
         }
@@ -190,7 +182,6 @@
                     "error", "center",5000)                        
                 </script>
                 <%
-
         }
     }
     if (dadosNotificacao) { 
@@ -215,7 +206,6 @@
             if(autenticado.autenticado != null){
                 
                 if(autenticado.tipo != 1){%>
-
                     <button>Publicações</button>
                     <button>Planos</button>
                
@@ -229,18 +219,16 @@
                 if( autenticado.tipo == 2) { %>
                 <button id="publicar-empregos-btn">Publicar Empregos</button>
                 <% } 
-
                 if( autenticado.tipo != 2) { %>
                 <button id="publicar-imoveis-btn">Publicar Imóveis</button>
                 <% } %>
-
               
                 <button id="plans-btn">Planos</button>
                 
             <% } %>
         </aside>
 
-        
+
         <!-- Conteúdo principal -->
         <div class="content">
             <section class="profile-info" id="info-section" style="display:none;">
@@ -334,18 +322,16 @@
             <section class="plans" id="plans-section" style="display: none;">
                 <h2>Planos Disponíveis</h2>
                 <ul>
-                        <section class="plan-card">
-                            <h3>Básico / Imovéis</h3>
-                            <p>05 publicações de imóveis</p>
-                            <p>03 publicações em destaque por até 2 meses</p>
-                            <p>R$ 49,99/mês</p>
+                    <li>Plano Básico - R$ 50/mês</li>
                 </ul>
             </section>
-            <section id="imovel-section" style="display: none;">
+
+            <section id="imovel-section" style="display: none;" >
                 <h2>Publicar Imóveis</h2>
                 <form id="form-imovel">
                     <div class="form-group">
                         <label for="titulo-imovel">Título:</label>
+                        <input type="text" id="titulo-imovel" name="tituloimovel" placeholder="Título do anúncio" required>
                         <select id="titulo-imovel" name="tituloimovel" placeholder="Título do anúncio" required>
                             <option value="">Selecione</option>
                             <option value="casa">Casa</option>
@@ -386,6 +372,13 @@
                         <input type="text" id="estado-imovel" name="estado-imovel" placeholder="Estado" required>
                     </div>
                     <div class="form-group">
+                        <label for="tipo-imovel">Tipo de Imóvel:</label>
+                        <select id="tipo-imovel" name="tipo-imovel" required>
+                            <option value="">Selecione</option>
+                            <option value="casa">Casa</option>
+                            <option value="apartamento">Apartamento</option>
+                            <option value="comercial">Comercial</option>
+                        </select>
                         <label for="metros-quadrados">Metros Quadrados:</label>
                         <input type="text" id="metros-quadrados" name="metros-quadrados" placeholder="Metros quadrados">
                     </div>
@@ -398,6 +391,11 @@
                             <option value="4">4+</option>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label for="metros-quadrados">Metros Quadrados:</label>
+                        <input type="text" id="metros-quadrados" name="metros-quadrados" placeholder="Metros quadrados">
+                    </div>
+                   
                     <div class="form-group">
                         <label for="vaga-carro">Vaga para Carro:</label>
                         <select id="vaga-carro" name="vaga-carro">
@@ -413,18 +411,6 @@
                             <option value="3">3</option>
                             <option value="4">4+</option>
                         </select>
-                    </div>
-                    
-                    <!-- Campo para upload de imagem -->
-                    <div class="form-group">
-                        <label for="imagem-imovel">Imagem do Imóvel:</label>
-                        <input type="file" id="imagem-imovel" name="imagemimovel" accept="image/*">
-                    </div>
-            
-                    <button type="button" onclick="publicarImovel()">Publicar Imóvel</button>
-                </form>
-            </section>
-            
                     </div>
 
                     <button type="button" onclick="publicarImovel()">Publicar Imóvel</button>
@@ -442,9 +428,8 @@
                         <label for="titulo-emprego">Título:</label>
                         <input list="titulo-emprego" name="browser" id="browser" oninput="setCargoID(this.value)" />
                         <input type="hidden" id="cargoID" name="cargoID" />
-                        
-                        <!-- <datalist id="titulo-emprego" name="tituloemprego" >
 
+                        <!-- <datalist id="titulo-emprego" name="tituloemprego" >
                             <%
                             if(listacargo){
                                 listacargo.forEach(function(item){
@@ -461,7 +446,7 @@
                                 <% }) %>
                             <% } %>
                         </datalist>
-                        
+
                     </div>
                     <div class="form-group">
                         <label for="descricao-emprego">Descrição:</label>
@@ -492,36 +477,30 @@
                 document.getElementById('publicar-empregos-btn'),
                 document.getElementById('plans-btn')
             ];
-
             const sections = {
                 info: document.getElementById('info-section'),
                 plans: document.getElementById('plans-section'),
                 imovel: document.getElementById('imovel-section'),
                 emprego: document.getElementById('emprego-section')
             };
-
             buttons[0].onclick = function() {
                 mostrarSeção('info');
             };
-
             if(buttons[1] != null ){
                 buttons[1].onclick = function() {
                     mostrarSeção('imovel');
                 };
             }
-
             if(buttons[2] != null ){
             buttons[2].onclick = function() {
                 mostrarSeção('emprego');
             };
             };
-
             if(buttons[3] != null ){
             buttons[3].onclick = function() {
                 mostrarSeção('plans');
             };
             };
-
             function mostrarSeção(secao) {
                 for (const key in sections) {
                     sections[key].style.display = 'none';
@@ -529,10 +508,8 @@
                 sections[secao].style.display = 'block';
             }
         });
-
         function buscarEndereco() {
             const cep = document.getElementById('cep-imovel').value.replace(/\D/g, '');
-
             if (cep.length === 8) {
                 fetch(`https://viacep.com.br/ws/${cep}/json/`)
                     .then(response => response.json())
@@ -554,21 +531,18 @@
                 alert('CEP inválido.');
             }
         }
-
         function publicarImovel() {
             const form = document.getElementById('form-imovel');
             alert('Imóvel publicado com sucesso!');
             form.reset();
             mostrarSeção('info');
         }
-
         function publicarEmprego() {
             const form = document.getElementById('form-emprego');
             alert('Emprego publicado com sucesso!');
             form.reset();
             mostrarSeção('info');
         }
-
         function setCargoID(cargoNome) {
         // Busca todas as opções da lista
         var options = document.querySelectorAll('#titulo-emprego option');
@@ -581,7 +555,5 @@
             }
         });
     }
-
     </script>
 </body>
-</html>
