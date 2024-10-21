@@ -208,7 +208,7 @@ const usuarioController = {
          
             console.log(e);
             res.render("pages/perfil", {
-                listaErros: null, autenticado: req.session.autenticado, dadosNotificacao: { titulo: "Erro ao carregar!", mensagem: "Tente novamente mais tarde!", tipo: "error"}, valores: {
+                listaErros: null, autenticado: req.session.autenticado, listacargo: null, dadosNotificacao: { titulo: "Erro ao carregar!", mensagem: "Tente novamente mais tarde!", tipo: "error"}, valores: {
                     NOME_USUARIO: "", EMAIL_USUARIO: "",
                     SENHA_USUARIO: "", 
                 }

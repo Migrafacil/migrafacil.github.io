@@ -344,6 +344,43 @@
                         <textarea id="descricao-imovel" name="descricaoimovel" rows="4" placeholder="Descrição detalhada" required></textarea>
                     </div>
                     <div class="form-group">
+                        <label for="new-telefone">Número de telefone:</label>
+                        <input type="telefone" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" required value="<%= valores.CELULAR_USUARIO %>" class="<%= avisoErro.CELULAR_USUARIO %>">
+                        <script>
+                            function formatarTelefone(telefone) {
+                                // Remove qualquer caractere que não seja número
+                                telefone = telefone.replace(/\D/g, '');
+                        
+                                // Aplica a máscara de telefone no formato (XX) XXXXX-XXXX ou (XX) XXXX-XXXX
+                                if (telefone.length > 10) {
+                                    telefone = telefone.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+                                } else if (telefone.length > 6) {
+                                    telefone = telefone.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+                                } else if (telefone.length > 2) {
+                                    telefone = telefone.replace(/(\d{2})(\d{0,5})/, '($1) $2');
+                                } else {
+                                    telefone = telefone.replace(/(\d*)/, '($1');
+                                }
+                        
+                                return telefone;
+                            }
+                        
+                            document.addEventListener('DOMContentLoaded', function() {
+                                const telefoneInput = document.getElementById('telefone');
+                        
+                                // Adiciona evento de input para formatar o telefone enquanto o usuário digita
+                                telefoneInput.addEventListener('input', function() {
+                                    telefoneInput.value = formatarTelefone(telefoneInput.value);
+                        
+                                    // Limita o número de caracteres a 15
+                                    if (telefoneInput.value.length > 15) {
+                                        telefoneInput.value = telefoneInput.value.slice(0, 15);
+                                    }
+                                });
+                            });
+                        </script>
+                    </div>
+                    <div class="form-group">
                         <label for="preco-imovel">Preço:</label>
                         <input type="text" id="preco-imovel" name="precoimovel" placeholder="Preço" required>
                     </div>
