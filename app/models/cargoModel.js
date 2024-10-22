@@ -1,6 +1,6 @@
 var pool = require("../../config/pool_conexoes");
 
-    const publicacaoVagasModel = {
+    const cargoModel = {
         findAll: async () => {
             try {
                 const [resultados] = await pool.query(
@@ -24,4 +24,4 @@ var pool = require("../../config/pool_conexoes");
         },
     };
 
-module.exports = {publicacaoVagasModel}
+module.exports = {cargoModel}

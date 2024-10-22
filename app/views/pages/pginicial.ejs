@@ -16,6 +16,18 @@
     <script src="/js/pginicial.js"></script>
 
     <header>
+        <% 
+        let nome ="visitante"
+        if(autenticado.autenticado != null){
+            nome=autenticado.autenticado
+            if(login == 1){%>
+           <script>
+    
+               notify("Login efetuado com sucesso", 
+               "Olá <%= autenticado.autenticado %>", "success", "center")                        
+           </script>
+           <% }  } %>
+           
         <nav class="menudesktop">
             <ul>
                 <li> <a href="#">Procurar por</a> 
@@ -36,7 +48,11 @@
                     </section>
                 </li>
                 <li> <a href="/sobre">Sobre nós</a> </li>
-                <li> <a href="/login">Entrar</a> </li>
+                <!-- <li> <a href="/login">Entrar</a> </li> -->
+                <div class="auth-buttons">
+                    <a href="#" class="criar-conta">Criar conta</a>
+                    <a href="/login" class="entrar">Entrar</a>
+                </div>
             </ul>
         </nav>
              <!--menu hamburquer-->

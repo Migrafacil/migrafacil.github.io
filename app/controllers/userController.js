@@ -1,6 +1,6 @@
 const usuario = require("../models/usuarioModel");
 const empresa = require("../models/empresaModel");
-const {publicacaoVagasModel} = require("../models/cargoModel");
+const {cargoModel} = require("../models/cargoModel");
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 var salt = bcrypt.genSaltSync(12);
@@ -201,14 +201,14 @@ const usuarioController = {
                 CELULAR_USUARIO: results[0].CELULAR_USUARIO,
                 nomeusu_usu: results[0].user_usuario, fone_usu: results[0].fone_usuario, senha_usu: ""
             }
-            let listacargos = await publicacaoVagasModel.findAll()
+            let listacargos = await cargoModel.findAll()
             console.log(listacargos)
             res.render("pages/perfil", { listaErros: null, dadosNotificacao: null, listacargo: listacargos, valores: campos , autenticado: req.session.autenticado})
         } catch (e) {
          
             console.log(e);
             res.render("pages/perfil", {
-                listaErros: null, autenticado: req.session.autenticado, listacargo: null, dadosNotificacao: { titulo: "Erro ao carregar!", mensagem: "Tente novamente mais tarde!", tipo: "error"}, valores: {
+                listaErros: null, autenticado: req.session.autenticado, listacargo: listacargos, dadosNotificacao: { titulo: "Erro ao carregar!", mensagem: "Tente novamente mais tarde!", tipo: "error"}, valores: {
                     NOME_USUARIO: "", EMAIL_USUARIO: "",
                     SENHA_USUARIO: "", 
                 }

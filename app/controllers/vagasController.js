@@ -1,6 +1,6 @@
 const { publicacaoVagasModel } = require("../models/publicacaoVagasModel");
 const { body, validationResult } = require("express-validator");
-
+const {cargoModel} = require("../models/cargoModel");
 
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 const https = require('https');
@@ -54,12 +54,13 @@ const vagasController = {
         console.log("Senha recebida:", req.body.senha);
         const erros = validationResult(req);
     
-        
+        let listacargos = await cargoModel.findAll()
+        let listavagas = await publicacaoVagasModel .findAll()
         var dadosForm = {
             //inf do banco 
             DescricaoVaga: req.body.descricaoemprego, //formulario
             CargaHoraria: req.body.CargaHorario,
-            cargo_CargoID: req.body.tituloemprego,
+            cargo_CargoID: req.body.cargoID,
             usuario_ID_USUARIO: req.session.autenticado.id,
             SALARIO: req.body.salarioemprego,
             LOCALIZACAO:  req.body.localemprego
@@ -71,21 +72,20 @@ const vagasController = {
         if (!erros.isEmpty()) {
             console.log("Erros de validação:", erros.array());
             console.log(erros);
-            let listacargos = publicacaoVagasModel.findAll()
             return res.render("pages/perfil", { listaErros: erros, autenticado: req.session.autenticado, listacargo: listacargos, dadosNotificacao: null, valores: req.body })
         }
         try {
            
             const createResult = await publicacaoVagasModel.create(dadosForm); 
             console.log(createResult)
-            return res.render("pages/perfil", { listaErros: null, autenticado: req.session.autenticado, dadosNotificacao: {
+            return res.render("pages/emprego", { listaErros: null, listavagas: listavagas, autenticado: req.session.autenticado, dadosNotificacao: {
                 titulo: "Sucesso ao publicar!", mensagem: "Vaga publicada!", tipo: "success"
             }, valores: req.body })
 
         } catch (e) {
             console.log(e);
             res.render("pages/perfil", {
-                listaErros: null, autenticado: req.session.autenticado, dadosNotificacao: {
+                listaErros: null, autenticado: req.session.autenticado, listacargo: listacargos, dadosNotificacao: {
                     titulo: "Erro ao cadastrar!",  mensagem: "Verifique os valores digitados!", tipo: "error"
                 }, valores: req.body
             })

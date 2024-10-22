@@ -32,7 +32,7 @@ router.get("/detalhes", verificarUsuAutenticado, function (req, res) {
 });
 
 router.get("/", verificarUsuAutenticado, function (req, res) {
-  res.render("pages/pginicial", {pagina:"home", logado:null});
+  res.render("pages/pginicial", {pagina:"home", logado: req.session.logado, autenticado: req.session.autenticado});
 });
 
 router.get(
@@ -80,6 +80,7 @@ router.post(
 );
 
 router.get("/logado", verificarUsuAutenticado, function (req, res) {
+  console.log(`logado ${req.session.logado}`)
   res.render("pages/logado", {pagina:"logado", logado:"logado", autenticado: req.session.autenticado, login: req.session.logado});
 });
 
