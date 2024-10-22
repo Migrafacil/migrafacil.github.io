@@ -8,6 +8,40 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify@1.0.4/dist/simple-notify.css" />
   <script src="https://cdn.jsdelivr.net/npm/simple-notify@1.0.4/dist/simple-notify.min.js"></script>
   <script src="/js/cadastrocnpj.js"></script>
+  <style>
+    #password-requirements-box {
+      display: none;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 5px;
+      width: 92%;
+      text-align: left;
+    }
+
+    #password-requirements {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #password-requirements li {
+      font-size: 0.9em;
+    }
+
+    #password-requirements li.valid {
+      color: green;
+    }
+
+    #password-requirements li.invalid {
+      color: red;
+    }
+
+    .spacer {
+      margin-top: 20px; /* Espaço entre requisitos e campo de confirmação */
+    }
+  </style>
 </head>
 <body>
   <section class="container">
@@ -83,6 +117,13 @@
             }
             input.value = value;
         }
+    function showPasswordCriteria() {
+      document.getElementById('password-requirements-box').style.display = 'block';
+    }
+
+    function hidePasswordCriteria() {
+      document.getElementById('password-requirements-box').style.display = 'none';
+    }
     </script>
   </section>
 </body>

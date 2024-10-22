@@ -8,6 +8,40 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.js"></script>
   <script src="/js/cadastro.js"></script>
+  <style>
+    #password-requirements-box {
+      display: none;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 5px;
+      width: 92%;
+      text-align: left;
+    }
+
+    #password-requirements {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #password-requirements li {
+      font-size: 0.9em;
+    }
+
+    #password-requirements li.valid {
+      color: green;
+    }
+
+    #password-requirements li.invalid {
+      color: red;
+    }
+
+    .spacer {
+      margin-top: 20px; /* Espaço entre requisitos e campo de confirmação */
+    }
+  </style>
 </head>
 <body>
   <section class="container">
@@ -58,15 +92,19 @@
         value="<%= valores.cpf %>" class="<%= avisoErro.cpf %>"/>
         <label for="senha">Senha:</label>
         <input type="password" id="senha" name="senha" required data-error="Preencha este campo." onfocus="showPasswordCriteria()" onblur="hidePasswordCriteria()">
-        <ul id="password-requirements">
-          <li id="length" class="invalid">8 à 10 caracteres</li>
-          <li id="lowercase" class="invalid">Letra minúscula</li>
-          <li id="uppercase" class="invalid">Letra maiúscula</li>
-          <li id="number" class="invalid">Número</li>
-          <li id="symbol" class="invalid">Símbolo (Ex: !@#%$)</li>
-        </ul>
+        
+        <div id="password-requirements-box">
+          <ul id="password-requirements">
+            <li id="length" class="invalid">8 à 10 caracteres</li>
+            <li id="lowercase" class="invalid">Letra minúscula</li>
+            <li id="uppercase" class="invalid">Letra maiúscula</li>
+            <li id="number" class="invalid">Número</li>
+            <li id="symbol" class="invalid">Símbolo (Ex: !@#%$)</li>
+          </ul>
+        </div>
+
         <label for="confirmar-senha">Confirmar Senha:</label>
-        <input type="password" id="confirmar-senha" name="confirmar-senha" required data-error="Preencha este campo.">
+        <input type="password" id="confirmar-senha" name="confirmar-senha" required data-error="Preencha este campo." class="spacer">
         <label for="proprietario">
           <input type="checkbox" value="4" id="proprietario" name="proprietario" style="margin-right: 5px;"><span>Sou proprietário</span>
         </label>
@@ -76,6 +114,14 @@
       </form>
     </section>
   </section>
+  <script>
+    function showPasswordCriteria() {
+      document.getElementById('password-requirements-box').style.display = 'block';
+    }
+
+    function hidePasswordCriteria() {
+      document.getElementById('password-requirements-box').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
-

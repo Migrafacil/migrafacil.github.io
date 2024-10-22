@@ -132,3 +132,7 @@ hr {
 #password-requirements li.invalid {
   color: red;
 }
+
+.spacer {
+  margin-top: 20px; /* Espaço entre requisitos e campo de confirmação */
+}
