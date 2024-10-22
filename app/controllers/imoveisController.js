@@ -9,7 +9,7 @@ const https = require('https');
 
 const imoveisController = {
 
-    regrasValidacaoFormCadempresa: [
+    regrasValidacaoFormCadImovel: [
         body("descricaoimovel")
            .isLength({ min: 20, max: 255 }).withMessage("Escreva com no minimo 20 letras e maximo 255."),
        body("precoimovel")

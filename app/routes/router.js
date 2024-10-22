@@ -192,6 +192,15 @@ router.get("/gravarvagas", function (req, res) {
 });
 
 router.post(
+  "/publicarImovel",
+  imoveisController.regrasValidacaoFormCadImovel,
+  function (req, res) {
+    console.log(req.body);
+    imoveisController.gravarimoveis(req,res);
+  }
+)
+
+router.post(
   "/publicarvaga",
   vagasController.regrasValidacaoFormCadempresa,
   function (req, res) {
