@@ -78,9 +78,10 @@ const vagasController = {
            
             const createResult = await publicacaoVagasModel.create(dadosForm); 
             console.log(createResult)
-            return res.render("pages/emprego", { listaErros: null, listavagas: listavagas, autenticado: req.session.autenticado, dadosNotificacao: {
-                titulo: "Sucesso ao publicar!", mensagem: "Vaga publicada!", tipo: "success"
-            }, valores: req.body })
+            res.redirect("/emprego")
+            // return res.render("pages/emprego", { listaErros: null, listavagas: listavagas, autenticado: req.session.autenticado, dadosNotificacao: {
+            //     titulo: "Sucesso ao publicar!", mensagem: "Vaga publicada!", tipo: "success"
+            // }, valores: req.body })
 
         } catch (e) {
             console.log(e);
