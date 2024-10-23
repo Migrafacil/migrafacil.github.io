@@ -217,7 +217,7 @@ router.post(
    res.render("pages/rec-senha",{ listaErros: null, dadosNotificacao: null });
  });
 
- router.post("/recuperarsenha",
+ router.post("/recuperar-senha",
   verificarUsuAutenticado,
   usuarioController.regrasValidacaoFormRecSenha, 
   function(req, res){

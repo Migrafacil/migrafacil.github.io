@@ -9,6 +9,7 @@ const https = require('https');
 const { log } = require("console");
 var {validarCNPJ, validarCPF, validarEmail} = require("../helpers/validação");
 const jwt = require("jsonwebtoken");
+const {enviarEmail} = require("../util/email")
 const usuarioController = {
 
     regrasValidacaoFormLogin: [
@@ -130,7 +131,7 @@ const usuarioController = {
         try {
           //logica do token
           user = await usuario.findUserCustom({
-            email_usuario: req.body.email_usu,
+            EMAIL_USUARIO: req.body.email,
           });
           const token = jwt.sign(
             { userId: user[0].ID_USUARIO, expiresIn: "40m" },
@@ -138,7 +139,7 @@ const usuarioController = {
           );
           //enviar e-mail com link usando o token
           html = require("../util/email-reset-senha")(process.env.URL_BASE, token)
-          enviarEmail(req.body.email_usu, "Pedido de recuperação de senha", null, html, ()=>{
+          enviarEmail(req.body.email, "Pedido de recuperação de senha", null, html, ()=>{
             return res.render("pages/pginicial", {
               listaErros: null,
               autenticado: req.session.autenticado,
