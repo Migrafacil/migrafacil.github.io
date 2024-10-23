@@ -6,6 +6,7 @@
   <title>Migra Fácil - Crie sua conta</title>
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.js"></script>
   <script src="/js/cadastro.js"></script>
   <style>
@@ -41,12 +42,29 @@
     .spacer {
       margin-top: 20px; /* Espaço entre requisitos e campo de confirmação */
     }
+    
+    .back-button {
+      font-size: 24px;
+      color: #28a745; 
+      cursor: pointer;
+      text-decoration: none;
+      margin-right: 10px; 
+      vertical-align: middle; 
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center; 
+    }
   </style>
 </head>
 <body>
   <section class="container">
     <section class="form-container">
-      <img src="imagens/image2.png" alt="Logo Migra Fácil" class="logo"> 
+      <div class="logo-container">
+        <a href="/login" class="back-button"><i class="fas fa-arrow-left"></i></a>
+        <img src="imagens/image2.png" alt="Logo Migra Fácil" class="logo"> 
+      </div>
       <p>Crie sua conta!</p>
       <% 
       let msgErro = "";
