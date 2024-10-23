@@ -24,16 +24,13 @@ body {
   padding: 10px 20px;
   border-bottom: 1px solid #ddd;
   }
-  
-  
-  .logo span {
+ .logo span {
   font-size: 24px;
   font-weight: bold;
   color: #1b7509;
   text-transform: uppercase;
   font-family: Arial, sans-serif;
   }
-  
   
   .nav-links a {
   margin:  10px;
@@ -345,45 +342,61 @@ body {
   
     background-color: #0d47a1;
   }
-  
+  .futuro {
+    width: 397px;
+    height: 51px;
+    background-color: rgba(255, 255, 255, 0);
+    font-family: "Poppins Medium", "Poppins", sans-serif;
+    font-weight: 500;
+    color: #000000;
+    text-align: center;
+    line-height: normal;
+    margin: auto;
+}
    
-  /* Rodapé */
   footer {
-    background-color: #107a06bd;
+    background-color: #34990d9f;
+    color: #fff;
     padding: 20px;
     text-align: center;
-    color: white;
-    margin-top: 50px;
-  }
-  
-  footer .logo {
-    width: 120px;
+}
+
+.footer-logo {
+    width: 100px;
     margin-bottom: 10px;
-  }
-  
-  footer .dream {
-    font-size: 14px;
+}
+
+.social-media {
     margin-bottom: 10px;
-  }
-  
-  footer .media {
-    margin: 10px 0;
-  }
-  
-  footer .footer-link {
-    color: white;
+}
+
+.social-media a {
+    color: #fff;
     font-size: 20px;
     margin: 0 10px;
-  }
-  
-  footer .footer-link:hover {
-    color: #f5f5f5;
-  }
-  
-  footer .copy {
-    font-size: 12px;
-    color: #ccc;
-  }
+    text-decoration: none;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#footer_copyright {
+    margin-top: 10px;
+}
+
   
   /* Responsividade */
   @media (max-width: 768px) {
