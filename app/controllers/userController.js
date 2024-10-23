@@ -64,6 +64,36 @@ const usuarioController = {
          }), 
    ],
 
+   regrasValidacaoFormNovaSenha: [
+    body("senha_usu")
+      .isStrongPassword()
+      .withMessage(
+        "A senha deve ter no mínimo 8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)"
+      )
+      .custom(async (value, { req }) => {
+        if (value !== req.body.csenha_usu) {
+          throw new Error("As senhas não são iguais!");
+        }
+      }),
+    body("csenha_usu")
+      .isStrongPassword()
+      .withMessage(
+        "A senha deve ter no mínimo 8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)"
+      ),
+  ],
+
+  regrasValidacaoFormRecSenha: [
+    body("email_usu")
+      .isEmail()
+      .withMessage("Digite um e-mail válido!")
+      .custom(async (value) => {
+        const nomeUsu = await usuario.findCampoCustom({ email_usuario: value });
+        if (nomeUsu == 0) {
+          throw new Error("E-mail não encontrado");
+        }
+      }),
+  ],
+
     regrasValidacaoPerfil: [
         body("nome")
             .isLength({ min: 3, max: 45 }).withMessage("Nome de usuário deve ter de 3 a 45 caracteres!"),

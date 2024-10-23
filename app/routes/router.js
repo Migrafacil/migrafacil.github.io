@@ -210,27 +210,27 @@ router.post(
 )
 
 
-// router.get("/recuperar-senha", verificarUsuAutenticado, function(req, res){
-//   res.render("pages/rec-senha",{ listaErros: null, dadosNotificacao: null });
-// });
+ router.get("/recuperar-senha", verificarUsuAutenticado, function(req, res){
+   res.render("pages/rec-senha",{ listaErros: null, dadosNotificacao: null });
+ });
 
-// router.post("/recuperar-senha",
-//   verificarUsuAutenticado,
-//   usuarioController.regrasValidacaoFormRecSenha, 
-//   function(req, res){
-//     usuarioController.recuperarSenha(req, res);
-// });
+ router.post("/recuperar-senha",
+  verificarUsuAutenticado,
+  usuarioController.regrasValidacaoFormRecSenha, 
+  function(req, res){
+         usuarioController.recuperarSenha(req, res);
+ });
 
-// router.get("/resetar-senha", 
-//   function(req, res){
-//     usuarioController.validarTokenNovaSenha(req, res);
-//   });
+ router.get("/resetar-senha", 
+   function(req, res){
+    usuarioController.validarTokenNovaSenha(req, res);
+   });
   
-// router.post("/reset-senha", 
-//     usuarioController.regrasValidacaoFormNovaSenha,
-//   function(req, res){
-//     usuarioController.resetarSenha(req, res);
-// });
+ router.post("/reset-senha", 
+    usuarioController.regrasValidacaoFormNovaSenha,
+  function(req, res){
+    usuarioController.resetarSenha(req, res);
+ });
 
 // var express = require("express");
 
