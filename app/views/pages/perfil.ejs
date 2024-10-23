@@ -469,11 +469,6 @@
                             <option value="4">4+</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="imagem-imovel">Upload de Imagens (até 4 imagens):</label>
-                        <input type="file" id="imagem-imovel" name="imagemimovel" accept="image/*" multiple required>
-                        <small>Selecione até 4 imagens</small>
-                    </div>
 
                     <button type="button">Publicar Imóvel</button>
                 </form>
@@ -489,8 +484,6 @@
 
                         <label for="titulo-emprego">Título:</label>
                         <input list="titulo-emprego" name="browser" id="browser" oninput="setCargoID(this.value)" />
-                        <input type="hidden" id="cargoID" name="cargoID" />
-                        <input type="hidden" id="cargo" name="cargo" />
                     
 
                         <!-- <datalist id="titulo-emprego" name="tituloemprego" >
@@ -510,6 +503,8 @@
                                 <% }) %>
                             <% } %>
                         </datalist>
+                        <input type="hidden" id="cargoID" name="cargoID" />
+                        <input type="hidden" id="cargo" name="cargo" />
 
                     </div>
                     <div class="form-group">
@@ -633,24 +628,7 @@
         document.getElementById('cargo').value = cargoNome; // Define o valor customizado
     }
 
-
-        document.getElementById('form-imovel').addEventListener('submit', function(e) {
-        const inputFiles = document.getElementById('imagem-imovel');
-        if (inputFiles.files.length === 0) {
-            e.preventDefault();
-            alert('Por favor, adicione pelo menos uma imagem.');
-        } else if (inputFiles.files.length > 4) {
-            e.preventDefault();
-            alert('Você pode adicionar no máximo 4 imagens.');
-        }
-    });
-
-    document.getElementById('imagem-imovel').addEventListener('change', function() {
-        if (this.files.length > 4) {
-            alert('Você pode selecionar no máximo 4 imagens.');
-            this.value = ''; // Limpa o campo de seleção se mais de 4 imagens forem escolhidas
-        }
-    });
-    }
+     }
+    
     </script>
 </body>
