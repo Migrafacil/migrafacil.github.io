@@ -4,12 +4,15 @@ var {validarCPF, validarCNPJ, validarEmail} = require("../helpers/validação");
 const usuarioController = require("../controllers/userController");
 const {vagasController }= require("../controllers/vagasController");
 const {imoveisController }= require("../controllers/imoveisController");
-
+const { MercadoPagoConfig, Preference } = require('mercadopago');
+const client = new MercadoPagoConfig({
+  accessToken: process.env.accessToken
+});
 
 const {
   verificarUsuAutenticado,
   limparSessao,
-  gravarUsuAutenticado,
+  gravarUsuAutenticado, 
   verificarUsuAutorizado
 } = require("../models/autenticador_middleware");
 
@@ -277,5 +280,37 @@ router.post(
 //   }
 // );
 
+router.post("/create-preference", function (req, res) {
+  const preference = new Preference(client);
+  console.log(req.body.items);
+  preference.create({
+    body: {
+      items: req.body.items,
+		  back_urls: {
+			 "success": "http://localhost:8080/feedback",
+			 "failure": "http://localhost:8080/feedback",
+			 "pending": "http://localhost:8080/feedback"
+		},
+		auto_return: "approved",
+	}
+});
+
+	mercadopago.preferences.create(preference)
+		.then(function (response) {
+			res.json({
+				id: response.body.id
+			});
+		}).catch(function (error) {
+			console.log(error);
+		});
+});
+
+app.get('/feedback', function (req, res) {
+	res.json({
+		Payment: req.query.payment_id,
+		Status: req.query.status,
+		MerchantOrder: req.query.merchant_order_id
+	});
+});
 
 module.exports = router;
