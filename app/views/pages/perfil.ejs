@@ -469,6 +469,30 @@
                             <option value="4">4+</option>
                         </select>
                     </div>
+                    
+    <!-- Primeira imagem -->
+    <div class="form-group">
+        <label for="imagem-fachada">Imagem da Fachada:</label>
+        <input type="file" id="imagem-fachada" name="imagemfachada" accept="image/*" required>
+    </div>
+
+    <!-- Segunda imagem -->
+    <div class="form-group">
+        <label for="imagem-sala">Imagem da Sala:</label>
+        <input type="file" id="imagem-sala" name="imagemsala" accept="image/*" required>
+    </div>
+
+    <!-- Terceira imagem -->
+    <div class="form-group">
+        <label for="imagem-cozinha">Imagem da Cozinha:</label>
+        <input type="file" id="imagem-cozinha" name="imagemcozinha" accept="image/*" required>
+    </div>
+
+    <!-- Múltiplas imagens para o imóvel -->
+    <div class="form-group">
+        <label for="imagens-imovel">Outras Imagens do Imóvel:</label>
+        <input type="file" id="imagens-imovel" name="imagensimovel" accept="image/*" multiple required>
+    </div>
 
                     <button type="button">Publicar Imóvel</button>
                 </form>
@@ -629,6 +653,27 @@
     }
 
      }
+
+
+     const multer = require('multer');
+const upload = multer({ dest: 'uploads/' }); // Diretório onde as imagens serão salvas
+
+// Rota para lidar com o upload do formulário
+app.post('/upload', upload.fields([
+    { name: 'imagemfachada', maxCount: 1 },
+    { name: 'imagemsala', maxCount: 1 },
+    { name: 'imagemcozinha', maxCount: 1 },
+    { name: 'imagensimovel', maxCount: 10 }
+]), (req, res) => {
+    // Acessando as imagens separadas
+    console.log(req.files.imagemfachada);  // Imagem da fachada
+    console.log(req.files.imagemsala);     // Imagem da sala
+    console.log(req.files.imagemcozinha);  // Imagem da cozinha
+    console.log(req.files.imagensimovel);  // Outras imagens
+
+    res.send('Imagens enviadas com sucesso!');
+});
+
     
     </script>
 </body>
