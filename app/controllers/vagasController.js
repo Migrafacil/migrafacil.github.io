@@ -21,11 +21,13 @@ const vagasController = {
    ],
 
     listar: async (req, res) => {
-        results = await publicacaoVagasModel.findAll();
-        res.render("pages/emprego", {pagina:"emprego", logado: null,
+        results = await publicacaoVagasModel.findAll(); //undenfined
+        let msg = req.session.mensagemvaga != null ? req.session.mensagemvaga : null;
+        res.render("pages/emprego", {pagina:"emprego", logado: null, 
             autenticado: req.session.autenticado,
             login: req.session.logado,
             listavagas: results,
+            dadosNotificacao:  msg  
         
         });
     },
@@ -55,7 +57,7 @@ const vagasController = {
         const erros = validationResult(req);
     
         let listacargos = await cargoModel.findAll()
-        let listavagas = await publicacaoVagasModel .findAll()
+        // let listavagas = await publicacaoVagasModel .findAll()
         var dadosForm = {
             //inf do banco 
             DescricaoVaga: req.body.descricaoemprego, //formulario
@@ -78,14 +80,17 @@ const vagasController = {
            
             const createResult = await publicacaoVagasModel.create(dadosForm); 
             console.log(createResult)
-            res.redirect("/emprego")
+            req.session.mensagemvaga = {
+                    titulo: "Sucesso ao publicar!", mensagem: "Vaga publicada!", tipo: "success"
+                }
+            return res.redirect("/emprego")
             // return res.render("pages/emprego", { listaErros: null, listavagas: listavagas, autenticado: req.session.autenticado, dadosNotificacao: {
             //     titulo: "Sucesso ao publicar!", mensagem: "Vaga publicada!", tipo: "success"
             // }, valores: req.body })
 
         } catch (e) {
             console.log(e);
-            res.render("pages/perfil", {
+            return res.render("pages/perfil", {
                 listaErros: null, autenticado: req.session.autenticado, listacargo: listacargos, dadosNotificacao: {
                     titulo: "Erro ao cadastrar!",  mensagem: "Verifique os valores digitados!", tipo: "error"
                 }, valores: req.body

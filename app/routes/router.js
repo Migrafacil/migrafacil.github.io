@@ -98,7 +98,7 @@ router.get("/sobre", function (req, res) {
 
 router.get("/emprego", verificarUsuAutenticado, function (req, res) {
  vagasController.listar(req, res);
- usuarioController.mostrarPerfil(req, res);
+//  usuarioController.mostrarPerfil(req, res);
 });
 
 router.get("/casas", verificarUsuAutenticado, function (req, res) {

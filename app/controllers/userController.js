@@ -292,7 +292,6 @@ const usuarioController = {
                 nomeusu_usu: results[0].user_usuario, fone_usu: results[0].fone_usuario, senha_usu: ""
             }
             let listacargos = await cargoModel.findAll()
-            console.log(listacargos)
             res.render("pages/perfil", { listaErros: null, dadosNotificacao: null, listacargo: listacargos, valores: campos , autenticado: req.session.autenticado})
         } catch (e) {
          
