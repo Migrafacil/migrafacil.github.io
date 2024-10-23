@@ -214,7 +214,7 @@ router.post(
 
 
  router.get("/recuperar-senha", verificarUsuAutenticado, function(req, res){
-   res.render("pages/rec-senha",{ listaErros: null, dadosNotificacao: null });
+   res.render("pages/recuperarsenha",{ listaErros: null, dadosNotificacao: null });
  });
 
  router.post("/recuperar-senha",
@@ -305,7 +305,7 @@ router.post("/create-preference", function (req, res) {
 		});
 });
 
-app.get('/feedback', function (req, res) {
+router.get('/feedback', function (req, res) {
 	res.json({
 		Payment: req.query.payment_id,
 		Status: req.query.status,
