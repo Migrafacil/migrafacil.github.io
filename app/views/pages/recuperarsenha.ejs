@@ -84,10 +84,10 @@
         <a href="/login" class="back-button">
             <span class="material-symbols-outlined">keyboard_backspace</span>
         </a>
-        <form id="card-form">
+        <form id="card-form" method="post" action="/recuperar-senha">
             <p>Insira seu E-mail e iremos enviar um link de recuperação de senha</p>
             <input type="email" name="email" required placeholder="Seu e-mail">
-            <a href="/resetarsenha" class="button">Enviar E-mail</a>
+            <input type="submit" value="Enviar E-mail">
         </form>
     </section>
 </body>

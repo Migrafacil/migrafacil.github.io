@@ -213,11 +213,8 @@ router.post(
 )
 
 
- router.get("/recuperarsenha", 
- verificarUsuAutenticado, 
- function(req, res){
-   res.render("pages/rec-senha",
-   { listaErros: null, dadosNotificacao: null });
+ router.get("/recuperar-senha", verificarUsuAutenticado, function(req, res){
+   res.render("pages/rec-senha",{ listaErros: null, dadosNotificacao: null });
  });
 
  router.post("/recuperarsenha",

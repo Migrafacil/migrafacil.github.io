@@ -8,7 +8,7 @@ const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fet
 const https = require('https');
 const { log } = require("console");
 var {validarCNPJ, validarCPF, validarEmail} = require("../helpers/validação");
-
+const jwt = require("jsonwebtoken");
 const usuarioController = {
 
     regrasValidacaoFormLogin: [
@@ -83,7 +83,7 @@ const usuarioController = {
   ],
 
   regrasValidacaoFormRecSenha: [
-    body("email_usu")
+    body("email")
       .isEmail()
       .withMessage("Digite um e-mail válido!")
       .custom(async (value) => {
@@ -121,7 +121,7 @@ const usuarioController = {
         const erros = validationResult(req);
         console.log(erros);
         if (!erros.isEmpty()) {
-          return res.render("pages/rec-senha", {
+          return res.render("pages/recuperarsenha", {
             listaErros: erros,
             dadosNotificacao: null,
             valores: req.body,
@@ -133,13 +133,13 @@ const usuarioController = {
             email_usuario: req.body.email_usu,
           });
           const token = jwt.sign(
-            { userId: user[0].id_usuario, expiresIn: "40m" },
+            { userId: user[0].ID_USUARIO, expiresIn: "40m" },
             process.env.SECRET_KEY
           );
           //enviar e-mail com link usando o token
           html = require("../util/email-reset-senha")(process.env.URL_BASE, token)
           enviarEmail(req.body.email_usu, "Pedido de recuperação de senha", null, html, ()=>{
-            return res.render("pages/index", {
+            return res.render("pages/pginicial", {
               listaErros: null,
               autenticado: req.session.autenticado,
               dadosNotificacao: {
