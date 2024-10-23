@@ -324,7 +324,37 @@
             <section class="plans" id="plans-section" style="display: none;">
                 <h2>Planos Disponíveis</h2>
                 <ul>
-                    <li>Plano Básico - R$ 50/mês</li>
+                    <section class="plan-options">
+                        <section class="plan-card">
+                            <h3>Básico / Imovéis</h3>
+                            <p>05 publicações de imóveis</p>
+                            <p>03 publicações em destaque por até 2 meses</p>
+                            <p>R$ 49,99/mês</p>
+                            <button class="plan-btn"><a href="#">Assinar Plano</a></button>
+                        </section>
+                        <section class="plan-card">
+                            <h3>Premium / Imovéis</h3>
+                            <p>20 publicações de imóveis</p>
+                            <p>08 publicações em destaque por até 5 meses</p>
+                            <p>R$ 149,99/mês</p>
+                            <button class="plan-btn"><a href="#">Assinar Plano</a></button>
+                        </section>
+                        <!-- Duplicado -->
+                        <section class="plan-card">
+                            <h3>Básico / Vagas</h3>
+                            <p>05 publicações de vagas</p>
+                            <p>03 publicações em destaque por até 2 meses</p>
+                            <p>R$ 49,99/mês</p>
+                            <button class="plan-btn"><a href="#">Assinar Plano</a></button>
+                        </section>
+                        <section class="plan-card">
+                            <h3>Premium / Vagas</h3>
+                            <p>20 publicações de vagas</p>
+                            <p>08 publicações em destaque por até 5 meses</p>
+                            <p>R$ 149,99/mês</p>
+                            <button class="plan-btn"><a href="#">Assinar Plano</a></button>
+                        </section>
+                    </section>
                 </ul>
             </section>
 
@@ -577,19 +607,32 @@
             form.reset();
             mostrarSeção('info');
         }
-        function setCargoID(cargoNome) {
-        // Busca todas as opções da lista
-        var options = document.querySelectorAll('#titulo-emprego option');
-        
-        // Percorre as opções para encontrar o cargo correspondente
-        options.forEach(function(option) {
-            if (option.value === cargoNome) {
-                // Quando encontrar, define o valor do hidden input como o CargoID
-                document.getElementById('cargoID').value = option.getAttribute('data-id');
-            } else{
-                document.getElementById('cargo').value = option.getAttribute('data-id');
-            }
-        });
+
+     function setCargoID(cargoNome) {
+    // Busca todas as opções da lista
+    var options = document.querySelectorAll('#titulo-emprego option');
+    var cargoEncontrado = false; // Flag para verificar se o cargo foi encontrado
+
+    // Percorre as opções para encontrar o cargo correspondente
+    options.forEach(function(option) {
+        if (option.value === cargoNome) {
+            console.log(option.value);
+            console.log(cargoNome);
+            console.log(option.getAttribute('data-id'));
+
+            // Quando encontrar, define o valor do hidden input como o CargoID
+            document.getElementById('cargoID').value = option.getAttribute('data-id');
+            document.getElementById('cargo').value = null;
+            cargoEncontrado = true; // Marca que o cargo foi encontrado
+        }
+    });
+
+    // Se o cargo não foi encontrado, define o valor do campo 'cargo' com o nome digitado
+    if (!cargoEncontrado) {
+        document.getElementById('cargoID').value = null; // Nenhum ID se for um novo cargo
+        document.getElementById('cargo').value = cargoNome; // Define o valor customizado
+    }
+
 
         document.getElementById('form-imovel').addEventListener('submit', function(e) {
         const inputFiles = document.getElementById('imagem-imovel');
