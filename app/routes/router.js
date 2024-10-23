@@ -213,23 +213,26 @@ router.post(
 )
 
 
- router.get("/recuperar-senha", verificarUsuAutenticado, function(req, res){
-   res.render("pages/rec-senha",{ listaErros: null, dadosNotificacao: null });
+ router.get("/recuperarsenha", 
+ verificarUsuAutenticado, 
+ function(req, res){
+   res.render("pages/rec-senha",
+   { listaErros: null, dadosNotificacao: null });
  });
 
- router.post("/recuperar-senha",
+ router.post("/recuperarsenha",
   verificarUsuAutenticado,
   usuarioController.regrasValidacaoFormRecSenha, 
   function(req, res){
          usuarioController.recuperarSenha(req, res);
  });
 
- router.get("/resetar-senha", 
+ router.get("/resetarsenha", 
    function(req, res){
     usuarioController.validarTokenNovaSenha(req, res);
    });
   
- router.post("/reset-senha", 
+ router.post("/resetsenha", 
     usuarioController.regrasValidacaoFormNovaSenha,
   function(req, res){
     usuarioController.resetarSenha(req, res);
@@ -305,7 +308,7 @@ router.post("/create-preference", function (req, res) {
 		});
 });
 
-app.get('/feedback', function (req, res) {
+router.get('/feedback', function (req, res) {
 	res.json({
 		Payment: req.query.payment_id,
 		Status: req.query.status,
