@@ -12,11 +12,10 @@
     <style>
         .botao-redondo {
             position: fixed; 
-            bottom: 100px; 
-            right: 43%; 
+            bottom: 104px; 
+            right: 638px; 
             background-color: transparent; 
             color: transparent;
-            top: 66%;
             border: none;
             border-radius: 50%;
             width: 90px; 
@@ -28,6 +27,13 @@
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease; 
         }
+        /* Media query para ajustar em telas menores */
+@media (max-width: 768px) {
+    .botao-redondo {
+        right: 55px; /* Mover o botão mais para o canto em telas pequenas */
+        bottom: 55px; /* Ajuste da posição inferior para celular */
+    }
+}
 
         .botao-redondo:hover {
             background-color: transparent; 

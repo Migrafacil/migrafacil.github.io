@@ -160,6 +160,613 @@
     }
     
     .retangulo1, .retangulo2, .retangulo3 {
+        width: 110%;
+        background-color: #fff;
+        padding: 2px 2px 2px 2px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-right: 20px;
+        flex: 1;
+        position: relative;
+    }
+    
+    .retangulo1 img, .retangulo2 img, .retangulo3 img {
+       width: 38px;
+       height: 35px;
+       margin-top: 20px;
+       margin-left: 25px;
+    }
+    .city, .bairry{
+        width: 29px;
+        font-size: normal;
+        position: relative;
+        top: 40px;
+        background-color: rgba(255, 255, 255, 0);
+        font-family: "Poppins", sans-serif;
+        color: #333333;
+        text-align: left;
+        margin-left: 19%;
+        line-height: normal;
+    }
+    .alugue{
+        position: relative;
+        top: 20px;
+        font-size: normal;
+        background-color: rgba(255, 255, 255, 0);
+        font-family: "Poppins", sans-serif;
+        color: #333333;
+        text-align: left;
+        margin-left: 19%;
+        line-height: normal;
+    }
+    
+    .search-container {
+        margin-top: 10px;
+        margin: 10px 10px;
+    }
+    
+    .search-input {
+        width: 55%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        margin-left: 85px;
+        border-radius: 5px;
+    }
+    
+    .search-select {
+        width: 55%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin: 20px 0px;
+        margin-left: 35px;
+    }
+    #valor {
+        width: 200px; /* Ajusta a largura do select */
+        font-size: 14px; /* Ajusta o tamanho da fonte */
+        padding: 5px; /* Ajusta o espaçamento interno */
+       }
+    
+    button.buscar {
+        background-color:#34990d9f;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    
+    button.buscar a {
+        color: #fff;
+        text-decoration: none;
+    }
+    
+    button.buscar:hover {
+        background-color: #218838;
+    
+    }
+    
+    .quadros {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        margin: 20px 0;
+    }
+    
+    .quadro1, .quadro2, .quadro3 {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 20px;
+        text-align: center;
+        flex: 1;
+    }
+    
+    .quadro1 img, .quadro2 img, .quadro3 img {
+        width: 60px;
+        margin-bottom: 10px;
+    }
+    .futury {
+        width: 611px;
+        height: 40px;
+        font-family: "Montserrat Bold", "Montserrat", "Montserrat", sans-serif;
+        font-weight: 700;
+        color: #ffffff;
+        text-align: left;
+        line-height: normal;
+        padding-top: 200px;
+        margin-left: 100px;
+        font-size: 160%;
+        margin-top: 18px;
+    }
+
+#tab-1:checked ~ section .tab-1,
+#tab-2:checked ~ section .tab-2{
+  color: #28a745;
+}
+.services {
+    text-align: center;
+    padding: 50px 80px;
+    height: 487px;
+    margin-top: -30px;
+    background-color: #34990d9f;
+}
+.services h2 {
+    margin: 0;
+    font-size: 2.8em;
+    color: #ffffff;
+}
+.services p {
+    font-size: 260%;
+    margin: 20px 0;
+    color: #ffffff;
+}
+.start-btn {
+    background-color: #ffffff;
+    color: #fff;
+    border: none;
+    margin-top: 60px;
+    padding: 15px 45px;
+    width: 300px;
+    height: 54px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    .dista {
+        font-family: "Poppins SemiBold", "Poppins", sans-serif;
+        color:black;
+        text-align: center;
+        font-weight: 400;
+        font-size: 200%;
+        width: 60%;
+        margin-top: 8%;
+        margin-left: 20%;
+        line-height: normal;
+    }
+
+.anuncia {
+    height: 84px;
+    margin-top: 30px;
+    font-size: 320%;
+    background-color: rgba(255, 255, 255, 0);
+    font-family: "Poppins SemiBold", "Poppins", sans-serif;
+    font-weight: 500;
+    color:#016FA0;
+    margin-left: 10%;
+    text-align: left;
+    line-height: normal;
+}
+
+.pr {
+    width: 604px;
+    height: 96px;
+    background-color: rgba(255, 255, 255, 0);
+    font-family: "Poppins Medium", "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 170%;
+    color: rgb(22, 19, 19);
+    text-align: center;
+    margin-left: 13%;
+    margin-top: 1%;
+    line-height: normal;
+
+}
+
+.anun {
+    text-align: right;
+    width: 226px;
+    height: 54px;
+    padding: 10px 20px 30px 40px;
+    color: #d7d7d7;
+    font-family: "Poppins", sans-serif;
+    margin: auto;
+    margin-top: 3%;
+    margin-left: 20%;
+    border-radius: 9px;
+    text-align: center;
+    font-size: 19px;
+    background-color: #34990d9f;
+    border-style: none;
+}
+.anun a{
+    color: #ffffff;
+}
+.mulheranun{
+    width: 485px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -27%;
+    margin-right: 20%;   
+}
+
+.plans {
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.plans h2 {
+    margin-bottom: 20px;
+}
+
+.plan-options {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.plan-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    width: 23%;
+}
+
+.plan-card h3 {
+    margin-top: 0;
+}
+
+.plan-btn {
+    background-color: #34990d9f;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.plan-btn a {
+    color: #fff;
+    text-decoration: none;
+}
+.futuro {
+    width: 397px;
+    height: 51px;
+    background-color: rgba(255, 255, 255, 0);
+    font-family: "Poppins Medium", "Poppins", sans-serif;
+    font-weight: 500;
+    color: #000000;
+    text-align: center;
+    line-height: normal;
+    margin: auto;
+}
+footer {
+    background-color: #34990d9f;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-logo {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.social-media {
+    margin-bottom: 10px;
+}
+
+.social-media a {
+    color: #fff;
+    font-size: 20px;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#footer_copyright {
+    margin-top: 10px;
+}
+
+
+      /* Para celular */
+      @media screen and (max-width: 414px) {
+
+        header {
+            height: 50px;  
+        }
+        .menudesktop {
+            display: none;
+        }
+        .menu-hamb{
+            display: block;
+        }
+        .logo {
+                width: 80px;
+                height: auto;
+                margin-left: 15px;
+        }
+    
+        .mc {
+            width: 100%;
+            height: 676px;
+            background-image: url("../imagens/mulher\ segurando\ caixa.jpg");
+            padding: 0;
+            display: block;
+            margin: 0 auto;
+        }
+        a {
+            font-size: 70%;
+        }
+    
+    .line {
+       height: 1px;
+       width: 265px;
+       background-color: #d7d7d7;
+       margin-top: 1px;
+    }
+    .slide {
+       height: 100%;
+       position: fixed;
+       top: 0;
+       right: 0;
+       background-color: #ffffff;
+       transition: transform 0.5s ease;
+       transform: translateX(100%);
+       z-index: 100;
+    }
+    .mnlogo {
+        width: 80px;
+        height: 40px;
+        margin: 10px auto;
+        background-size: contain;
+     }
+    .mnletras{
+        color: #016FA0;
+        font-weight: 600;
+        text-transform: capitalize;
+        text-decoration: none;
+        transition: 0.2s ease-out;
+    }
+    ul li {
+       list-style: none;
+       text-align: left;
+       margin-left: 10px;
+    }
+    ul li a {
+       color: #131416;
+       font-weight: 500;
+       text-transform: capitalize;
+       text-decoration: none;
+       transition: 0.2s ease-out;
+    }
+    ul li:hover a {
+       color: #000;
+    }
+    .toggle {
+       position: absolute;
+       height: 30px;
+       width: 35px;
+       top: 18px;
+       right: 15px;
+       cursor: pointer;
+       z-index: 101;
+       background-color: white;
+       border-radius: 2px;
+    }
+    .toggle .common {
+       position: absolute;
+       height: 2px;
+       width: 20px;
+       left: 50%;
+       background-color: #000;
+       border-radius: 50px;
+       transition: 0.3s ease;
+    }
+    .toggle .top_line {
+       top: 30%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+    }
+    .toggle .middle_line {
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+    }
+    .toggle .bottom_line {
+       top: 70%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+    }
+    input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        appearance: none;
+        -webkit-appearance: none;
+        background-color: #fff;
+      }
+      
+      input[type="checkbox"]:checked {
+        background-color: transparent;
+      }
+    input:checked ~ .toggle .top_line {
+        top: 14px;
+        width: 25px;
+       transform: translate(-50%, -50%) rotate(45deg);
+    }
+    input:checked ~ .toggle .bottom_line {
+        top: 14px;
+        width: 25px;
+       transform: translate(-50%, -50%) rotate(-45deg);
+    }
+    input:checked ~ .toggle .middle_line {
+       opacity: 0;
+       transform: translateX(20px);
+    }
+    input:checked ~ .slide {
+       transform: translateX(0);
+    }
+        .futury {
+            width: 351px;
+            height: 23px;
+            font-size: 18px;
+            margin-left: 25px; 
+            position: relative;
+            top: 75px;
+        }
+        .wrapper {
+            padding: 10px;
+            margin: auto;
+            margin-top: 5%;
+        }
+        .botaome {
+            margin-left: 10%;
+            position: relative;
+            top: 75px;
+        }
+        .cards {
+            margin-left: 10%;
+            margin-top: 20%;
+            flex-direction: column;
+        }
+        .retangulo1, .retangulo2, .retangulo3 {
+            width: 90%;
+            height: 90px;
+            margin: 1px 0;
+        }
+        .retangulo1 img, .retangulo2 img, .retangulo3 img {
+            width: 28px;
+            height: 34px;
+            margin-top: 0px;
+         }
+        .city, .bairry, .alugue {
+            position: relative;
+            top: 12px;
+            margin-left: 27%;
+        }
+        .search-container {
+            width: 60%;
+            font-size: 15px;
+            margin-left: 24%;
+            margin-top: -20px;
+        }
+        .search-input {
+            height: 27px;
+            width: 100%;
+            font-size: 15px;
+            margin-left: 2px;
+        }
+        .search-select {
+            width: 45%;
+            height: 27px;
+            position: relative;
+            font-size: 15px;
+            top: -6px;
+            padding: 1px;
+            margin-left: 18px;
+        }
+        button.buscar {
+            position: relative;
+            top: -7px;
+            padding: 3px 9px;
+        }
+        .services p {
+            font-size: 14px;
+        }
+        .services h2{
+            font-size: 1.1em;
+            margin: auto;
+        }
+        .services{
+            padding: 29px 60px;
+            height: 281px;
+        }
+        .start-btn{
+          width: 150px;
+          height: 40px;
+          margin-top: -10px;
+          padding: 10px 10px;
+          font-size: 14px;
+        }
+        .start-btn a{
+            font-size: 100%;
+        }
+        .dista {
+            text-align: center;
+            font-size: 13px;
+        }
+        .anuncia{
+            width: 246px;
+            height: 60px;
+            margin-top: -60px;
+            margin-left: 7px;
+            font-size: 1.4em;
+            line-height: 1;
+        }
+        .pr {
+            width: 235px; 
+            height: 59px; 
+            font-size: 13px;
+            margin-left: 5px;
+            text-align: left;
+        }
+        .mulheranun {
+            width: 46%;
+            margin-top: -59%;
+            margin-right: -1%;
+        }
+        .anun {
+            width: 35%;
+            height: 32px;
+            padding: 0;
+            font-size: 13px;
+            margin-left: 10px;
+
+        }
+        .anun a{
+            font-size: 100%;
+            color: #ffffff;
+        }
+        .plan-options {
+            flex-direction: column;
+            align-items: center;
+        }
+        .plan-card {
+            width: 80%;
+        }
+    }
+    
+
+    .slider {
+        position: absolute;
+        height: 2px;
+        background: #333;
+        transition: left 0.3s;
+    }
+    
+    #content-2 {
+        display: none;
+        margin-right: 10px;
+    }
+    
+    .cards {
+        display: flex;
+        gap: 20px;
+        justify-content: space-between;
+    }
+    
+    .retangulo1, .retangulo2, .retangulo3 {
         width: 150%;
         background-color: #fff;
         padding: 2px 2px 2px 2px;
@@ -283,7 +890,7 @@
     text-align: center;
     padding: 50px 80px;
     height: 487px;
-    margin-top: -25px;
+    margin-top: -30px;
     background-color: #34990d9f;
 }
 .services h2 {
@@ -292,7 +899,7 @@
     color: #ffffff;
 }
 .services p {
-    font-size: 280%;
+    font-size: 2.5em;
     margin: 20px 0;
     color: #ffffff;
 }
@@ -328,7 +935,7 @@
     font-family: "Poppins SemiBold", "Poppins", sans-serif;
     font-weight: 500;
     color:#016FA0;
-    margin-left: 15%;
+    margin-left: 10%;
     text-align: left;
     line-height: normal;
 }
@@ -339,7 +946,7 @@
     background-color: rgba(255, 255, 255, 0);
     font-family: "Poppins Medium", "Poppins", sans-serif;
     font-weight: 500;
-    font-size: 198%;
+    font-size: 170%;
     color: rgb(22, 19, 19);
     text-align: center;
     margin-left: 13%;
@@ -350,14 +957,14 @@
 
 .anun {
     text-align: right;
-    width: 426px;
+    width: 226px;
     height: 54px;
     padding: 10px 20px 30px 40px;
     color: #d7d7d7;
     font-family: "Poppins", sans-serif;
     margin: auto;
     margin-top: 3%;
-    margin-left: 17%;
+    margin-left: 20%;
     border-radius: 9px;
     text-align: center;
     font-size: 19px;
@@ -473,7 +1080,7 @@ footer {
 }
 
 
-      /* Para tablet */
+      /* Para celular */
       @media screen and (max-width: 414px) {
 
         header {
@@ -498,6 +1105,9 @@ footer {
             display: block;
             margin: 0 auto;
         }
+        a {
+            font-size: 70%;
+        }
     
     .line {
        height: 1px;
@@ -505,32 +1115,12 @@ footer {
        background-color: #d7d7d7;
        margin-top: 1px;
     }
-    .entmn, .cadas {
-       width: 235px;
-       height: 29px;
-       padding: 2px;
-       color: #FAFAFA;
-       font-family: "Poppins", sans-serif;
-       display: block;
-       text-align: center;
-       font-size: 15px;
-       margin: 10px auto;
-       border: 1px solid #d7d7d7;
-    }
-    .cadas {
-       background-color: rgba(16, 32, 126, 0.8);
-       border: none;
-    }
-    .entmn {
-       background-color: rgba(3, 136, 16, 0.8);
-    }
     .slide {
        height: 60%;
        position: fixed;
        top: 0;
        right: 0;
-       background-color: #fff;
-       background-image: linear-gradient(#34990d9f  30%, white 0px);
+       background-color: #eeeeee;
        transition: transform 0.5s ease;
        transform: translateX(100%);
        z-index: 100;
@@ -549,7 +1139,6 @@ footer {
     ul li a {
        color: #131416;
        font-weight: 500;
-       display: block;
        text-transform: capitalize;
        text-decoration: none;
        transition: 0.2s ease-out;
@@ -645,18 +1234,21 @@ footer {
         }
         .search-container {
             width: 60%;
+            font-size: 15px;
             margin-left: 24%;
             margin-top: -20px;
         }
         .search-input {
             height: 27px;
             width: 100%;
-            margin: 0;
+            font-size: 15px;
+            margin-left: 2px;
         }
         .search-select {
             width: 45%;
             height: 27px;
             position: relative;
+            font-size: 15px;
             top: -6px;
             padding: 1px;
             margin-left: 18px;
@@ -670,7 +1262,7 @@ footer {
             font-size: 14px;
         }
         .services h2{
-            font-size: 1.4em;
+            font-size: 1.1em;
             margin: auto;
         }
         .services{
@@ -680,7 +1272,8 @@ footer {
         .start-btn{
           margin-top: 0px;
           padding: 10px 10px;
-
+          width: 50%;
+          height: 22%;
         }
         .dista {
             text-align: center;

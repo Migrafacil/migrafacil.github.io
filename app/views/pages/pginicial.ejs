@@ -1,27 +1,17 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Migra Facil - Página inicial </title>
+    <title>Migra Fácil - Página inicial </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="shortcut icon" type="imagex/png" href="../imagens/lgaba.ico">
 
-    <link rel="stylesheet" href="css/pginicial.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.js"></script>
-    <script src="/js/pginicial.js"></script>
+    <link rel="stylesheet" href="../css/pginicial.css">
 
     <header>
-        <!-- <% 
-        let nome ="visitante"
-        if(autenticado.autenticado != null){
-            nome=autenticado.autenticado
-         } %> -->
-           
         <nav class="menudesktop">
             <ul>
                 <li> <a href="#">Procurar por</a> 
@@ -42,41 +32,62 @@
                     </section>
                 </li>
                 <li> <a href="/sobre">Sobre nós</a> </li>
-                <!-- <li> <a href="/login">Entrar</a> </li> -->
-                <div class="auth-buttons">
-                    <a href="#" class="criar-conta">Criar conta</a>
-                    <a href="/login" class="entrar">Entrar</a>
-                </div>
+                <li> <a class="criarconta" href="#">Criar conta</a> 
+                    <section class="sub-menu-1">
+                        <ul>
+                            <li> <a href="/cadastro" id="announce-property">Pessoa Fisíca</a></li>
+                            <li> <a href="/cnpj" id="announce-jobs">Pessoa Jurídica</a></li>
+                        </ul>
+                    </section>
+                </li>
+                <button class="outline-button" onclick="window.location.href='/login'">Entrar</button>
             </ul>
         </nav>
              <!--menu hamburquer-->
              <label class="menu-hamb">
-                 <input type="checkbox">
-                 <section class="toggle">
-                 <span class="top_line common"></span>
-                 <span class="middle_line common"></span>
-                 <span class="bottom_line common"></span>
-                 </section>
-                   <section class="slide">
-                   <h4 class="mnlogo"></h4>
-                  <ul>
-                  <button class="cadas">Cadastre-se</button>
-                 <button class="entmn">Entrar</button>
-                 <br/>
-                 <li><h3>Migra Fácil</h3></li>
-                 <li><a href="#">Procurar por imovéis</a></li>
-                 <li><a href="#">Procurar por empregos</a></li>
-                 <li><section class="line"></section></li>
-                 <li><h3>Publicar Anúncio</h3></li>
-                 <li><a href="#">Publicar imovéis</a></li>
-                 <li><a href="#">Publicar empregos</a></li>
-                 <li><section class="line"></section></li>
-                 <li><h5 href="#">Salvos</h5></li>
-                 <li><h5 href="#">Configurações</h5></li>
-                 <li><h5 href="#">Sobre nós</h5></li>
-                 </ul>
-                 </section>
-              </label>
+                <input type="checkbox">
+                <section class="toggle">
+                <span class="top_line common"></span>
+                <span class="middle_line common"></span>
+                <span class="bottom_line common"></span>
+                </section>
+                  <section class="slide">
+                  <img src="../imagens/logo.png" class="mnlogo"></h4>
+                  <section class="button-container">
+                    <button class="btn blue" onclick="window.location.href='/login'">Entrar</button>
+                    <button href="/cadastro" class="btn green">Cadastrar</button>
+                    <!-- Botão redondo -->
+                    <button class="botao-redondo" onclick="mostrarModal()">+</button>
+
+                    <!-- Fundo do modal -->
+                    <section class="modal-fundo" id="modal-fundo" onclick="fecharModal()"></section>
+
+                    <!-- Modal com o formulário -->
+                    <section class="modal" id="modal">
+                        <span class="fechar-x" onclick="fecharModal()">&#10006;</span>
+                        <form id="form-anuncio">                          
+                            <button class="publicar"><a class="Pessoa" href="/cadastro">Pessoa Fisica</a></button>
+                            <button class="publicar"><a class="Pessoa" href="/cadastrocnpj">Pessoa Jurídica</a></button>
+                        </form>
+                    </section>
+                  </section>
+                 <ul>
+                 
+                <br/>
+                <li><a href="/login" class="mnletras">Meu perfil</a></li>
+                <li><a href="/casas">Procurar por imovéis</a></li>
+                <li><a href="/empregos">Procurar por empregos</a></li>
+                <li><section class="line"></section></li>
+                <li><a>Publicar Anúncio</a></li>
+                <li><a href="/login">Publicar imovéis</a></li>
+                <li><a href="/login">Publicar empregos</a></li>
+                <li><section class="line"></section></li>
+                <li><a class="mnletras" href="/favoritos">Favoritos</h6></li>
+                <li><a class="mnletras" href="#">Configurações</a></li>
+                <li><a class="mnletras" href="/sobre">Sobre nós</a></li>
+                </ul>
+                </section>
+             </label>
            <!--menu hamburquer-->
 
         <img src="../imagens/logo.png" alt="logo" class="logo">
@@ -112,13 +123,15 @@
                               </form>
                           </section>
                           <section class="retangulo3">
-                              <h4 class="alugue">Aluguel até</h4>
+                              <h4 class="alugue">Aluguel</h4>
                               <img src="../imagens/cash.svg" alt="dinheiro" class="img3">
                               <select class="search-select">
-                                  <option value="">Escolha o valor</option>
-                                  <option value="500">Até R$ 500</option>
-                                  <option value="1000">Até R$ 1000</option>
-                                  <option value="1500">Até R$ 1500</option>
+                                  <option  id="valor"  value="">Escolha o valor</option>
+                                  <option  id="valor" value="500">De R$ 500,00  Até R$ 1.000,00</option>
+                                  <option  id="valor" value="1000">De R$ 1.000,00 Até R$ 2.000,00</option>
+                                  <option  id="valor" value="2000">De R$ 2.000,00 Até R$ 3.000,00</option>
+                                  <option  id="valor" value="3000">De R$ 3.000,00 Até R$ 4.000,00</option>
+                                  <option  id="valor" value="3000">+ R$ 4.000,00</option>
                               </select>
                               <button class="buscar"><a href="/casas">Buscar</a></button>
                           </section>
@@ -145,13 +158,15 @@
                               </section>
                           </section>
                           <section class="retangulo3">
-                              <h4 class="alugue">Salário até</h4>
+                              <h4 class="alugue">Salário</h4>
                               <img src="../imagens/cash.svg" alt="dinheiro" class="img3">
                               <select class="search-select">
-                                  <option value="">Escolha o valor</option>
-                                  <option value="2000">Até R$ 2000</option>
-                                  <option value="4000">Até R$ 4000</option>
-                                  <option value="6000">Até R$ 6000</option>
+                                <option id="valor"value="">Escolha o valor</option>
+                                <option  id="valor" value="700">De R$ 700,00  Até R$ 1.000,00</option>
+                                <option  id="valor" value="1000">De R$ 1.000,00 Até R$ 2.000,00</option>
+                                <option  id="valor" value="2000">De R$ 2.000,00 Até R$ 3.000,00</option>
+                                <option  id="valor" value="3000">De R$ 3.000,00 Até R$ 4.000,00</option>
+                                <option  id="valor" value="3000">+ R$ 4.000,00</option>
                               </select>
                               <button class="buscar"><a href="/emprego">Buscar</a></button>
                           </section>
@@ -183,30 +198,30 @@
             <h2>Escolha um plano e pague apenas pelo que contratar</h2>
             <section class="plan-options">
                 <section class="plan-card">
-                    <h3>Básico / Imovéis</h3>
-                    <p>05 publicações de imóveis</p>
+                    <h3>Básico/Imovéis</h3>
+                    <p>05 publicações/imóveis</p>
                     <p>03 publicações em destaque por até 2 meses</p>
                     <p>R$ 49,99/mês</p>
                     <button class="plan-btn"><a href="#">Assinar Plano</a></button>
                 </section>
                 <section class="plan-card">
-                    <h3>Premium / Imovéis</h3>
-                    <p>20 publicações de imóveis</p>
+                    <h3>Premium/Imovéis</h3>
+                    <p>20 publicações/imóveis</p>
                     <p>08 publicações em destaque por até 5 meses</p>
                     <p>R$ 149,99/mês</p>
                     <button class="plan-btn"><a href="#">Assinar Plano</a></button>
                 </section>
                 <!-- Duplicado -->
                 <section class="plan-card">
-                    <h3>Básico / Vagas</h3>
-                    <p>05 publicações de vagas</p>
+                    <h3>Básico/Vagas</h3>
+                    <p>05 publicações/vagas</p>
                     <p>03 publicações em destaque por até 2 meses</p>
                     <p>R$ 49,99/mês</p>
                     <button class="plan-btn"><a href="#">Assinar Plano</a></button>
                 </section>
                 <section class="plan-card">
-                    <h3>Premium / Vagas</h3>
-                    <p>20 publicações de vagas</p>
+                    <h3>Premium/Vagas</h3>
+                    <p>20 publicações/vagas</p>
                     <p>08 publicações em destaque por até 5 meses</p>
                     <p>R$ 149,99/mês</p>
                     <button class="plan-btn"><a href="#">Assinar Plano</a></button>
@@ -227,11 +242,11 @@
             <ul class="footer-links">
                 <li><a href="#">Cadastra-se</a></li>
                 <li><a href="#">Ajuda</a></li>
-                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Sobre nós</a></li>
                 <li><a href="#">Segurança no Migra Fácil</a></li>
             </ul>
             <section id="footer_copyright">
-                &#169; 2023 All rights reserved.
+                &#169; 2024 Todos os direitos reservados.
             </section>
         </section>
     </footer>
@@ -263,13 +278,38 @@
         document.getElementById('plan-section').scrollIntoView({
             behavior: 'smooth' // Rolagem suave
         });
-    });
-
-
-
-
-      
+    });     
   </script>
+   <script>
+    function mostrarModal() {
+        document.getElementById('modal').style.display = 'block';
+        document.getElementById('modal-fundo').style.display = 'block';
+    }
+
+    function fecharModal() {
+        document.getElementById('modal').style.display = 'none';
+        document.getElementById('modal-fundo').style.display = 'none';
+    
+    }
+
+    function publicarAnuncio() {
+        const form = document.getElementById('form-anuncio');
+        const tipoAnuncio = document.getElementById('tipo-anuncio').value;
+
+        if (tipoAnuncio === 'vaga') {
+            form.action = '/empregos.ejs'; 
+        } else if (tipoAnuncio === 'moradia') {
+            form.action = '/casas.ejs'; 
+        }
+
+        
+        form.submit();
+    }
+</script>
 </head>
+</body>
+</html>
+
+<body>
 </body>
 </html>
