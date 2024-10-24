@@ -55,7 +55,7 @@
     }
     
         .outline-button {
-            padding: 10px 20px;
+            padding: 0px 20px;
             font-size: 18px;
             color: #28a745; /* Cor do texto (verde) */
             border: 2px solid #28a745; /* Borda verde */
@@ -94,7 +94,8 @@
     }
 
     .logo {
-        width: 130px;
+        width: 152px;
+        height: 72px;
         box-sizing: border-box;
         background-size: 60% 60%;
         position: absolute;
